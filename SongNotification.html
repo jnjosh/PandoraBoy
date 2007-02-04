@@ -1,0 +1,60 @@
+<script language="javascript">
+
+//GEK 20060404 Custom functions to react to Pandora's event calls.
+
+
+function pandoraSongPlayed(song, artist) {
+	message("Artist: "+artist+"\nSong: "+song);
+}
+
+function pandoraSongPaused() {
+	message("Paused"); 
+}
+
+
+function pandoraEventsError(errormsg) {
+	message("PandoraFM Error in talking to Pandora: " + errormsg);
+}
+
+
+function pandoraSongEnded(song, artist) {
+	message("Artist: "+artist+"\nSong: "+song);
+}
+</script>
+ 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>PandoraBoy Notifications</title>
+
+</head>
+
+        <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                        codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
+                        WIDTH="0"
+                        HEIGHT="0"
+                   id="PandoraEvents"
+                   style="position:absolute">
+                <PARAM NAME=movie VALUE="http://www.pandora.com/PandoraEvents.swf">
+		<PARAM name=allowScriptAccess value=always>
+                <PARAM NAME=quality VALUE=high>
+                <PARAM NAME=bgcolor VALUE=#FFFFFF>
+                <PARAM NAME=menu VALUE=false>
+         <PARAM NAME="FlashVars" VALUE="">
+        <EMBED src="http://www.pandora.com/PandoraEvents.swf"
+                   quality=high
+                   bgcolor=#FFFFFF
+                   WIDTH="0"
+                   HEIGHT="0"
+                   MENU="false"
+                   NAME="PandoraEvents" ALIGN="" TYPE="application/x-shockwave-flash"
+		   allowScriptAccess="always"
+                   PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"
+                   FlashVars=""
+                   style="position:absolute">
+        </EMBED>
+        </OBJECT>
+</body>
+</html>

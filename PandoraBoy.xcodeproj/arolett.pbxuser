@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	089C165DFE840E0CC02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 595}}";
+			sepNavSelRange = "{87, 0}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{107, 65}, {1180, 724}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 3D7F76ED0A9EAD96004B0146 /* PandoraBoy */;
+		activeTarget = 8D1107260486CEB800E47090 /* PandoraBoy */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* PandoraBoy */,
+		);
+		breakpoints = (
+			3D060A910AB32B27008DC718 /* GrowlNotification.m:86 */,
+			3D060AB20AB474A0008DC718 /* WindowNotification.m:15 */,
+			3D060AB40AB474A7008DC718 /* WindowNotification.m:77 */,
+			3D060AC70AB475C8008DC718 /* WindowNotification.m:36 */,
+			3DCBDBDD0ABCF36600AA0BFA /* LastFm.m:130 */,
+			3DCBDC060ABCF4D900AA0BFA /* LastFm.m:155 */,
+			3DCBDC1C0ABCF56800AA0BFA /* LastFm.m:145 */,
+			3D5A318C0B17D43600E9E69F /* WebViewProxy.m:42 */,
+			3DF234830B41F7980031491D /* LastFm.m:103 */,
+		);
+		breakpointsGroup = 3D7F774F0A9EBDCB004B0146 /* XCBreakpointsBucket */;
+		codeSenseManager = 3D7F76FD0A9EAD9F004B0146 /* Code sense */;
+		executables = (
+			3D7F76ED0A9EAD96004B0146 /* PandoraBoy */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = 1;
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					210,
+					20,
+					110,
+					109,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					442,
+					188,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXErrorsWarningsDataSource_TypeID,
+					PBXErrorsWarningsDataSource_MessageID,
+					PBXErrorsWarningsDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					131,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					440,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFindDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFindDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					120,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFindDataSource_MessageID,
+					PBXFindDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					200,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.XCSCMDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					421,
+					20,
+					48.1626,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_SCM_ColumnID,
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					200,
+					63,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 192250249;
+			PBXWorkspaceStateSaveDate = 192250249;
+		};
+		perUserProjectItems = {
+			3DCBDC630ABDC21100AA0BFA = 3DCBDC630ABDC21100AA0BFA /* PBXBookmark */;
+		};
+		sourceControlManager = 3D7F76FC0A9EAD9F004B0146 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 392}}";
+			sepNavSelRange = "{1624, 0}";
+			sepNavVisRect = "{{0, 224}, {653, 149}}";
+			sepNavWindowFrame = "{{15, 18}, {1384, 855}}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 595}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{107, 65}, {1180, 724}}";
+		};
+	};
+	3D0609400AB0B653008DC718 /* AppleRemote.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 1316}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 560}, {1141, 595}}";
+			sepNavWindowFrame = "{{107, 64}, {1180, 724}}";
+		};
+	};
+	3D0609410AB0B654008DC718 /* AppleRemote.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {920, 5656}}";
+			sepNavSelRange = "{3997, 0}";
+			sepNavVisRect = "{{0, 1966}, {460, 535}}";
+			sepNavWindowFrame = "{{153, 83}, {499, 664}}";
+		};
+	};
+	3D0609F00AB102E9008DC718 /* thumbs_up.png */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{130, 44}, {1180, 724}}";
+		};
+	};
+	3D060A710AB327FB008DC718 /* thumbs_down.png */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{176, 2}, {1180, 724}}";
+		};
+	};
+	3D060A910AB32B27008DC718 /* GrowlNotification.m:86 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3D6942410AA37A1300899D49 /* GrowlNotification.m */;
+		functionName = "-pandoraSongPlayed::";
+		hitCount = 1;
+		lineNumber = 86;
+		location = GrowlNotification.ob;
+		modificationTime = 192249687.611324;
+		state = 1;
+	};
+	3D060AA30AB47414008DC718 /* WindowNotification.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 30;
+		lastKnownFileType = sourcecode.c.objc;
+		name = WindowNotification.m;
+		path = /Users/arolett/PandoraBoy/WindowNotification.m;
+		sourceTree = "<absolute>";
+	};
+	3D060AB20AB474A0008DC718 /* WindowNotification.m:15 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3D060AA30AB47414008DC718 /* WindowNotification.m */;
+		functionName = "-init";
+		hitCount = 1;
+		lineNumber = 15;
+		modificationTime = 192249687.611297;
+		state = 1;
+	};
+	3D060AB40AB474A7008DC718 /* WindowNotification.m:77 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3D060AA30AB47414008DC718 /* WindowNotification.m */;
+		functionName = "handleAppMinimized()";
+		hitCount = 1;
+		lineNumber = 77;
+		modificationTime = 192249687.611314;
+		state = 1;
+	};
+	3D060AC70AB475C8008DC718 /* WindowNotification.m:36 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3D060AA30AB47414008DC718 /* WindowNotification.m */;
+		functionName = "-setupAppMinimizedNotification";
+		hitCount = 1;
+		lineNumber = 36;
+		modificationTime = 192249687.611336;
+		state = 1;
+	};
+	3D170EFA0B176AA800942A24 /* WebViewProxy.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 595}}";
+			sepNavSelRange = "{304, 0}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{586, -36}, {1180, 724}}";
+		};
+	};
+	3D170EFB0B176AA800942A24 /* WebViewProxy.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 714}}";
+			sepNavSelRange = "{421, 21}";
+			sepNavVisRect = "{{0, 119}, {1141, 595}}";
+			sepNavWindowFrame = "{{211, 134}, {1180, 724}}";
+		};
+	};
+	3D170F380B176DFB00942A24 /* WebFrameProxy.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {794, 535}}";
+			sepNavSelRange = "{385, 0}";
+			sepNavVisRect = "{{0, 0}, {460, 535}}";
+			sepNavWindowFrame = "{{81, 214}, {499, 664}}";
+		};
+	};
+	3D170F390B176DFB00942A24 /* WebFrameProxy.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 595}}";
+			sepNavSelRange = "{252, 1}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{93, 81}, {1180, 724}}";
+		};
+	};
+	3D5A318C0B17D43600E9E69F /* WebViewProxy.m:42 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3D170EFB0B176AA800942A24 /* WebViewProxy.m */;
+		functionName = "-mainFrame";
+		hitCount = 1;
+		lineNumber = 42;
+		location = WebViewProxy.ob;
+		modificationTime = 192249608.815719;
+		state = 2;
+	};
+	3D693FA30AA1EDA600899D49 /* SongNotification.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 784}}";
+			sepNavSelRange = "{621, 0}";
+			sepNavVisRect = "{{0, 40}, {1141, 595}}";
+			sepNavWindowFrame = "{{92, 123}, {1180, 724}}";
+		};
+	};
+	3D693FA40AA1EDA600899D49 /* SongNotification.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 1904}}";
+			sepNavSelRange = "{3663, 0}";
+			sepNavVisRect = "{{0, 987}, {1141, 595}}";
+			sepNavWindowFrame = "{{739, 154}, {1180, 724}}";
+		};
+	};
+	3D6942400AA37A1300899D49 /* GrowlNotification.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 742}}";
+			sepNavSelRange = "{1328, 0}";
+			sepNavVisRect = "{{0, 147}, {1141, 595}}";
+			sepNavWindowFrame = "{{104, 30}, {1180, 724}}";
+		};
+	};
+	3D6942410AA37A1300899D49 /* GrowlNotification.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 2548}}";
+			sepNavSelRange = "{1547, 0}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{87, 149}, {1180, 724}}";
+		};
+	};
+	3D6942910AA3D89400899D49 /* PandoraControl.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 595}}";
+			sepNavSelRange = "{170, 0}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{186, 18}, {1180, 724}}";
+		};
+	};
+	3D6942920AA3D89400899D49 /* PandoraControl.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1568, 2114}}";
+			sepNavSelRange = "{3701, 0}";
+			sepNavVisRect = "{{0, 1461}, {623, 653}}";
+			sepNavWindowFrame = "{{63, 27}, {662, 782}}";
+		};
+	};
+	3D69452F0AAA19D300899D49 /* GlobalHotkey.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 595}}";
+			sepNavSelRange = "{1741, 0}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{235, 78}, {1180, 724}}";
+		};
+	};
+	3D6945300AAA19D300899D49 /* GlobalHotkey.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {946, 3486}}";
+			sepNavSelRange = "{2408, 0}";
+			sepNavVisRect = "{{0, 141}, {946, 690}}";
+			sepNavWindowFrame = "{{82, 6}, {985, 819}}";
+		};
+	};
+	3D6946900AAC908900899D49 /* keyboardVals.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 1204}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{15, 149}, {1180, 724}}";
+		};
+	};
+	3D6946930AAC91DF00899D49 /* PreferenceController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 854}}";
+			sepNavSelRange = "{2041, 0}";
+			sepNavVisRect = "{{0, 259}, {1141, 595}}";
+			sepNavWindowFrame = "{{61, 107}, {1180, 724}}";
+		};
+	};
+	3D6946940AAC91DF00899D49 /* PreferenceController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {938, 2828}}";
+			sepNavSelRange = "{3467, 0}";
+			sepNavVisRect = "{{0, 899}, {623, 653}}";
+			sepNavWindowFrame = "{{84, 28}, {662, 782}}";
+		};
+	};
+	3D7F76ED0A9EAD96004B0146 /* PandoraBoy */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = PandoraBoy;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	3D7F76FC0A9EAD9F004B0146 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	3D7F76FD0A9EAD9F004B0146 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	3D7F771D0A9EB1DB004B0146 /* Controller.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {602, 798}}";
+			sepNavSelRange = "{1902, 20}";
+			sepNavVisRect = "{{0, 0}, {602, 480}}";
+			sepNavWindowFrame = "{{118, 250}, {641, 609}}";
+		};
+	};
+	3D7F771E0A9EB1DB004B0146 /* Controller.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1340, 3654}}";
+			sepNavSelRange = "{726, 0}";
+			sepNavVisRect = "{{0, 0}, {460, 535}}";
+			sepNavWindowFrame = "{{130, 104}, {499, 664}}";
+		};
+	};
+	3D7F774F0A9EBDCB004B0146 /* XCBreakpointsBucket */ = {
+		isa = XCBreakpointsBucket;
+		name = "Project Breakpoints";
+		objects = (
+			3D060A910AB32B27008DC718 /* GrowlNotification.m:86 */,
+			3D060AB20AB474A0008DC718 /* WindowNotification.m:15 */,
+			3D060AB40AB474A7008DC718 /* WindowNotification.m:77 */,
+			3D060AC70AB475C8008DC718 /* WindowNotification.m:36 */,
+			3DCBDBDD0ABCF36600AA0BFA /* LastFm.m:130 */,
+			3DCBDC060ABCF4D900AA0BFA /* LastFm.m:155 */,
+			3DCBDC1C0ABCF56800AA0BFA /* LastFm.m:145 */,
+			3D5A318C0B17D43600E9E69F /* WebViewProxy.m:42 */,
+			3DF234830B41F7980031491D /* LastFm.m:103 */,
+		);
+	};
+	3DB580870ABA069B004452C3 /* General.tiff */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{15, 149}, {1180, 724}}";
+		};
+	};
+	3DB5808F0ABA350E004452C3 /* LastFm.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {704, 1190}}";
+			sepNavSelRange = "{3367, 0}";
+			sepNavVisRect = "{{0, 461}, {704, 689}}";
+			sepNavWindowFrame = "{{61, 13}, {743, 818}}";
+		};
+	};
+	3DB580900ABA350E004452C3 /* LastFm.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1106, 6860}}";
+			sepNavSelRange = "{6944, 0}";
+			sepNavVisRect = "{{0, 3387}, {704, 689}}";
+			sepNavWindowFrame = "{{38, 34}, {743, 818}}";
+		};
+	};
+	3DCBDBDD0ABCF36600AA0BFA /* LastFm.m:130 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3DB580900ABA350E004452C3 /* LastFm.m */;
+		functionName = "-parseHandshake:";
+		hitCount = 1;
+		lineNumber = 130;
+		location = LastFm.ob;
+		modificationTime = 192249611.100581;
+		state = 1;
+	};
+	3DCBDC060ABCF4D900AA0BFA /* LastFm.m:155 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3DB580900ABA350E004452C3 /* LastFm.m */;
+		functionName = "-parseHandshake:";
+		hitCount = 1;
+		lineNumber = 155;
+		location = LastFm.ob;
+		modificationTime = 192249611.108764;
+		state = 1;
+	};
+	3DCBDC1C0ABCF56800AA0BFA /* LastFm.m:145 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3DB580900ABA350E004452C3 /* LastFm.m */;
+		functionName = "-parseHandshake:";
+		hitCount = 1;
+		lineNumber = 145;
+		location = LastFm.ob;
+		modificationTime = 192249611.116715;
+		state = 1;
+	};
+	3DCBDC630ABDC21100AA0BFA /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 3DCBDC640ABDC21100AA0BFA;
+	};
+	3DCBDC640ABDC21100AA0BFA = {
+		isa = PBXFileReference;
+		lastKnownFileType = folder;
+		sourceTree = "<group>";
+	};
+	3DDA24250B74F5D000F500BD /* Commands.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {623, 653}}";
+			sepNavSelRange = "{864, 0}";
+			sepNavVisRect = "{{0, 0}, {623, 653}}";
+			sepNavWindowFrame = "{{61, 49}, {662, 782}}";
+		};
+	};
+	3DDA24260B74F5D000F500BD /* Commands.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {623, 1288}}";
+			sepNavSelRange = "{2160, 0}";
+			sepNavVisRect = "{{0, 483}, {623, 653}}";
+			sepNavWindowFrame = "{{39, 66}, {662, 782}}";
+		};
+	};
+	3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{322, 88}, {662, 782}}";
+		};
+	};
+	3DE84EC60B755BFB00FD4979 /* SRRecorderCell.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1220, 12530}}";
+			sepNavSelRange = "{22857, 0}";
+			sepNavVisRect = "{{0, 10723}, {946, 690}}";
+			sepNavWindowFrame = "{{152, -140}, {985, 819}}";
+		};
+	};
+	3DF234830B41F7980031491D /* LastFm.m:103 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3DB580900ABA350E004452C3 /* LastFm.m */;
+		functionName = "-notifiedSongPlayed:";
+		hitCount = 1;
+		lineNumber = 103;
+		location = LastFm.ob;
+		modificationTime = 192249611.124671;
+		state = 1;
+	};
+	8D1107260486CEB800E47090 /* PandoraBoy */ = {
+		activeExec = 0;
+		executables = (
+			3D7F76ED0A9EAD96004B0146 /* PandoraBoy */,
+		);
+	};
+	8D1107310486CEB800E47090 /* Info.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 595}}";
+			sepNavSelRange = "{510, 0}";
+			sepNavVisRect = "{{0, 0}, {1141, 595}}";
+			sepNavWindowFrame = "{{153, 23}, {1180, 724}}";
+		};
+	};
+}

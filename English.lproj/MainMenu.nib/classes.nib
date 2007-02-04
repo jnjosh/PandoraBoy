@@ -1,0 +1,40 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {checkVersionNumber = id; displayHelp = id; refreshPandora = id; }; 
+            CLASS = Controller; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                notificationView = WebView; 
+                pandoraWindow = NSWindow; 
+                startupWindow = NSWindow; 
+                webNetscapePlugin = id; 
+                webView = WebView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {
+            ACTIONS = {
+                endHotkeySheet = id; 
+                openHotkeySheet = id; 
+                setPassword = id; 
+                setUsername = id; 
+            }; 
+            CLASS = PreferenceController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                cmdHK = NSButton; 
+                ctrHK = NSButton; 
+                hotkeySheet = NSWindow; 
+                keyHK = NSPopUpButton; 
+                optHK = NSButton; 
+                prefTabs = NSTabView; 
+                prefWindow = NSWindow; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

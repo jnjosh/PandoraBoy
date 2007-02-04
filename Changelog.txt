@@ -1,0 +1,9 @@
+PandoraBoy Changelog
+Future Features
+    LastFm Support (Pending)
+    Open Pandora.com clicks in external browser (Pending)
+    Improve Global Hotkey Preference Panel (Pending)
+    Donation Button? (Pending)
+    SongNotification now uses NotificationCenter instead of a delegate (Pending)
+    Improve Growl support to update text of message instead of making millions of new ones
+0.1 - Initial Release

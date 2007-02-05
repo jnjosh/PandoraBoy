@@ -25,7 +25,7 @@
 #import "PandoraControl.h"
 #import "GlobalHotkey.h"
 #import "AppleRemote.h"
-#import "LastFm.h"
+//#import "LastFm.h"
 #import "WebViewProxy.h"
 
 #import <WebKit/WebKit.h>
@@ -45,7 +45,6 @@ typedef enum {
 {
   if(self = [super init]) {
     // Setup all the different default options
-    [[GlobalHotkey sharedHotkey] setupDefaults];
     NSMutableDictionary *userDefaultsValuesDict = [NSMutableDictionary
 						    dictionary];
     [userDefaultsValuesDict setObject:@"YES"
@@ -53,7 +52,7 @@ typedef enum {
     [userDefaultsValuesDict setObject:@"YES"
 			    forKey:@"AppleRemoteEnabled"];
     [userDefaultsValuesDict setObject:@"NO"
-			    forKey:@"DoNotShowStartupWindow"];
+			    forKey:@"DoNotShowStartupWindow2"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:
 		      userDefaultsValuesDict];      //Register the defaults
     [[NSUserDefaults standardUserDefaults] synchronize];  //And sync them
@@ -76,7 +75,7 @@ typedef enum {
 - (void)awakeFromNib
 {
 
-  [[LastFm sharedLastFm] test]; 
+  //[[LastFm sharedLastFm] test]; 
 
   [[GlobalHotkey sharedHotkey] registerHotkeyHandler];
   [[GlobalHotkey sharedHotkey] registerHotkeys];
@@ -238,7 +237,7 @@ typedef enum {
     [[SongNotification sharedNotification] loadNotifier:notificationView];
     [[SongNotification sharedNotification] setDelegate: [GrowlNotification sharedNotification]];
 
-  if([[NSUserDefaults standardUserDefaults] boolForKey:@"DoNotShowStartupWindow"]==NO) {
+  if([[NSUserDefaults standardUserDefaults] boolForKey:@"DoNotShowStartupWindow2"]==NO) {
     [startupWindow makeKeyAndOrderFront:self]; 
   }
 }

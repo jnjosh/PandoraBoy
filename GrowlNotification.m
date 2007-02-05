@@ -32,7 +32,7 @@ static GrowlNotification* sharedInstance = nil;
 	if (sharedInstance) return sharedInstance;
 	
 	if ( self = [super init] ) {
-	  [ GrowlApplicationBridge setGrowlDelegate: self]; 
+	  [GrowlApplicationBridge setGrowlDelegate: self]; 
 	  currentValid = false; 
 	}
 	
@@ -50,17 +50,6 @@ static GrowlNotification* sharedInstance = nil;
 	sharedInstance = [[GrowlNotification alloc] init];
 	return sharedInstance;
 }
-
-
-/*
-- (void) readIconData
-{
-    thumbsUp = [NSData dataWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
-    thumbsDown = [NSData dataWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
-  //thumbsUp = [NSData dataWithContentsOfFile:@"thumbs_up.png"];
-  //thumbsDown = [NSData dataWithContentsOfFile:@"thumbs_down.png"];
-}
-*/
 
 - (void) pandoraLikeSong
 {

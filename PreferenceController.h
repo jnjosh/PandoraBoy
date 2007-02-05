@@ -46,12 +46,6 @@
 
 -(IBAction) applyPreferences; 
 
-//Sheet methods
--(IBAction) openHotkeySheet:(id)sender;
--(IBAction) endHotkeySheet:(id)sender;
--(void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
--(void)refreshHotkeyTitle;
-
 -(void) addItemToToolbar:(NSString*)name withImage:(NSString*)imageName; 
 @end
 

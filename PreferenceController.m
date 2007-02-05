@@ -24,7 +24,7 @@
 #import "PreferenceController.h"
 #import "GlobalHotkey.h"
 #import "AppleRemote.h"
-#import "KeyChain.h"
+//#import "KeyChain.h"
 #import <Carbon/Carbon.h>
 
 @implementation PreferenceController
@@ -78,7 +78,7 @@
 	
   [self addItemToToolbar:@"General" withImage:@"General.tiff"];
   [self addItemToToolbar:@"Hotkeys" withImage:@"KeyboardIcon"];
-  [self addItemToToolbar:@"LastFm" withImage:@"lastfm.icns"];
+  //[self addItemToToolbar:@"LastFm" withImage:@"lastfm.icns"];
   [self applyPreferences]; // This function should really be called refreshHotkeyTitles ... change it? 
 
   [toolbar setSelectedItemIdentifier:@"General"];
@@ -87,6 +87,7 @@
   [self switchToGeneralTab];
 }
 
+/*
 - (NSString *) getUsername { 
   NSString *username = [[NSUserDefaults standardUserDefaults] 
 			 stringForKey:@"LastFmUsername"];
@@ -105,7 +106,7 @@
   }
   return nil; 
 }
-
+*/
 
 // Delegates Section for the Toolbar in Prefs
 
@@ -148,6 +149,7 @@
     }
 }
 
+/*
 -(IBAction)setUsername:(id)sender 
 {
 //  NSLog(@"Username: %@", LastFmUsername);
@@ -157,6 +159,8 @@
 {
   NSLog(@"Password: %@", LastFmPassword);
 }
+
+*/
 
 -(IBAction) applyPreferences{
   [[GlobalHotkey sharedHotkey] unregisterHotkeys];
@@ -171,10 +175,10 @@
     [[AppleRemote sharedRemote] setListeningToRemote:false];
   }
 
-  NSString *username = [[NSUserDefaults standardUserDefaults] 
-			stringForKey:@"LastFmUsername"];
-  if(username != nil && LastFmPassword != nil) 
-    [KeyChain accessToKeyChain:@"Save" user:username pw:LastFmPassword];
+//  NSString *username = [[NSUserDefaults standardUserDefaults] 
+//			stringForKey:@"LastFmUsername"];
+//  if(username != nil && LastFmPassword != nil) 
+//    [KeyChain accessToKeyChain:@"Save" user:username pw:LastFmPassword];
 }
 
 -(void) addItemToToolbar:(NSString*)name withImage:(NSString*)imageName

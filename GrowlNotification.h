@@ -35,8 +35,6 @@
 
 //- (void) registerWithGrowl; 
 
-- (void) readIconData; 
-
 - (void) pandoraLikeSong; 
 - (void) pandoraDislikeSong; 
 

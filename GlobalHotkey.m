@@ -102,60 +102,6 @@ void *userData)
 	return sharedInstance;
 }
 
-- (void) setupDefaults
-{
-  NSMutableDictionary *userDefaultsValuesDict = [NSMutableDictionary
-						  dictionary];
-
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:49]
-			  forKey:@"GlobalHotKeyCodePlay"]; //Space
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:controlKey+optionKey]
-			  forKey:@"GlobalModifiersPlay"];
-
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:124] 
-			  forKey:@"GlobalHotKeyCodeNext"]; // Right-arrow
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:controlKey+optionKey]
-			  forKey:@"GlobalModifiersNext"];
-
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:126] 
-			  forKey:@"GlobalHotKeyCodeLikeSong"];
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:controlKey+optionKey]
-			  forKey:@"GlobalModifiersLikeSong"];
-
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:125] 
-			  forKey:@"GlobalHotKeyCodeDislikeSong"];
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:controlKey+optionKey]
-			  forKey:@"GlobalModifiersDislikeSong"];
-
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:-999] 
-			  forKey:@"GlobalHotKeyCodeUpVol"];
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:-999]
-			  forKey:@"GlobalModifiersUpVol"];
-
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:-999] 
-			  forKey:@"GlobalHotKeyCodeDownVol"];
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:-999]
-			  forKey:@"GlobalModifiersDownVol"];
-
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:-999] 
-			  forKey:@"GlobalHotKeyCodeFullVol"];
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:-999]
-			  forKey:@"GlobalModifiersFullVol"];
-
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:-999] 
-			  forKey:@"GlobalHotKeyCodeMuteVol"];
-  [userDefaultsValuesDict setObject:[NSNumber numberWithInt:-999]
-			  forKey:@"GlobalModifiersMuteVol"];
-
-
-  [[NSUserDefaults standardUserDefaults] registerDefaults:
-		  userDefaultsValuesDict];      //Register the defaults
-  [[NSUserDefaults standardUserDefaults] synchronize];  //And sync them
-}
-
-// [FIXME] This code is duplicated from ShortcutRecorderCell and should be removed!
-
-
 - (void) registerHotkeyHandler
 {
   //Register the Hotkeys
@@ -191,20 +137,18 @@ void *userData)
 		
 	keycode = [[savedCombo valueForKey: @"keyCode"] shortValue];
 	modifiers  = [[savedCombo valueForKey: @"modifierFlags"] unsignedIntValue];
-
-	NSLog(@"keycode %d", keycode);
-	NSLog(@"flags %d", modifiers);
 	modifiers = [self _filteredCocoaToCarbonFlags:modifiers];
+	
 	// Go through and register the hotkeys we use one by one. 
 	if(!(keycode == 0 || keycode == 1) ) {
 	  ghotKeyID.signature = signature;
 	  ghotKeyID.id = hkid; 
 	  RegisterEventHotKey(keycode, modifiers, ghotKeyID, GetApplicationEventTarget(), 0, &eventHotKeyRefs[refindex]);
-	  eventRefValid[0] = true;
+	  eventRefValid[refindex] = true;
 	  return true;
 	}
 	else {
-	  eventRefValid[0] = false;
+	  eventRefValid[refindex] = false;
 	  return false;
 	}
 }

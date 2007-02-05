@@ -31,7 +31,6 @@
 
 + (GlobalHotkey*) sharedHotkey; 
 
-- (void) setupDefaults; 
 - (void) registerHotkeyHandler;
 - (bool) registerHotkeys; 
 - (bool) unregisterHotkeys; 

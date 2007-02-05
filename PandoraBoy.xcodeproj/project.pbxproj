@@ -8,17 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		3D0319AC0B18033A00B4DD61 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0319AB0B18033A00B4DD61 /* WebKit.framework */; };
+		3D0444480B758EAE00F1BA8B /* cleficon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444410B758EAE00F1BA8B /* cleficon.icns */; };
+		3D0444490B758EAE00F1BA8B /* General.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444420B758EAE00F1BA8B /* General.tiff */; };
+		3D04444A0B758EAE00F1BA8B /* KeyboardIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444430B758EAE00F1BA8B /* KeyboardIcon.tiff */; };
+		3D04444B0B758EAE00F1BA8B /* lastfm.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444440B758EAE00F1BA8B /* lastfm.icns */; };
+		3D04444C0B758EAE00F1BA8B /* pandoraboy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444450B758EAE00F1BA8B /* pandoraboy.icns */; };
+		3D04444D0B758EAE00F1BA8B /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444460B758EAE00F1BA8B /* thumbs_down.png */; };
+		3D04444E0B758EAE00F1BA8B /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444470B758EAE00F1BA8B /* thumbs_up.png */; };
 		3D0609420AB0B654008DC718 /* AppleRemote.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D0609400AB0B653008DC718 /* AppleRemote.h */; };
 		3D0609430AB0B654008DC718 /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0609410AB0B654008DC718 /* AppleRemote.m */; };
 		3D0609E50AB0BA9C008DC718 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0609E40AB0BA9C008DC718 /* IOKit.framework */; };
-		3D0609F10AB102E9008DC718 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0609F00AB102E9008DC718 /* thumbs_up.png */; };
-		3D060A720AB327FB008DC718 /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D060A710AB327FB008DC718 /* thumbs_down.png */; };
 		3D170EFC0B176AA800942A24 /* WebViewProxy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D170EFA0B176AA800942A24 /* WebViewProxy.h */; };
 		3D170EFD0B176AA800942A24 /* WebViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D170EFB0B176AA800942A24 /* WebViewProxy.m */; };
 		3D170F3A0B176DFB00942A24 /* WebFrameProxy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D170F380B176DFB00942A24 /* WebFrameProxy.h */; };
 		3D170F3B0B176DFB00942A24 /* WebFrameProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D170F390B176DFB00942A24 /* WebFrameProxy.m */; };
-		3D34174D0B4469180089C658 /* KeyChain.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D34174B0B4469180089C658 /* KeyChain.h */; };
-		3D34174E0B4469180089C658 /* KeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D34174C0B4469180089C658 /* KeyChain.m */; };
+		3D4400D00B758BC10022A3D7 /* CTGradient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D4400C40B758BC10022A3D7 /* CTGradient.h */; };
+		3D4400D10B758BC10022A3D7 /* CTGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C50B758BC10022A3D7 /* CTGradient.m */; };
+		3D4400D20B758BC10022A3D7 /* SRCommon.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D4400C60B758BC10022A3D7 /* SRCommon.h */; };
+		3D4400D30B758BC10022A3D7 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C70B758BC10022A3D7 /* SRCommon.m */; };
+		3D4400D40B758BC10022A3D7 /* SRKeyCodeTransformer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D4400C80B758BC10022A3D7 /* SRKeyCodeTransformer.h */; };
+		3D4400D50B758BC10022A3D7 /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C90B758BC10022A3D7 /* SRKeyCodeTransformer.m */; };
+		3D4400D60B758BC10022A3D7 /* SRRecorderCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D4400CA0B758BC10022A3D7 /* SRRecorderCell.h */; };
+		3D4400D70B758BC10022A3D7 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CB0B758BC10022A3D7 /* SRRecorderCell.m */; };
+		3D4400D80B758BC10022A3D7 /* SRRecorderControl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D4400CC0B758BC10022A3D7 /* SRRecorderControl.h */; };
+		3D4400D90B758BC10022A3D7 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */; };
+		3D4400DA0B758BC10022A3D7 /* SRValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D4400CE0B758BC10022A3D7 /* SRValidator.h */; };
+		3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CF0B758BC10022A3D7 /* SRValidator.m */; };
+		3D4400E10B758BE20022A3D7 /* SRRemoveShortcut.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400DD0B758BE20022A3D7 /* SRRemoveShortcut.tif */; };
+		3D4400E20B758BE20022A3D7 /* SRRemoveShortcutPressed.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400DE0B758BE20022A3D7 /* SRRemoveShortcutPressed.tif */; };
+		3D4400E30B758BE20022A3D7 /* SRRemoveShortcutRollover.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400DF0B758BE20022A3D7 /* SRRemoveShortcutRollover.tif */; };
+		3D4400E40B758BE20022A3D7 /* SRSnapback.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400E00B758BE20022A3D7 /* SRSnapback.tiff */; };
 		3D693FA50AA1EDA600899D49 /* SongNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D693FA40AA1EDA600899D49 /* SongNotification.m */; };
 		3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
@@ -26,47 +45,24 @@
 		3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6942410AA37A1300899D49 /* GrowlNotification.m */; };
 		3D6942930AA3D89400899D49 /* PandoraControl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D6942910AA3D89400899D49 /* PandoraControl.h */; };
 		3D6942940AA3D89400899D49 /* PandoraControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6942920AA3D89400899D49 /* PandoraControl.m */; };
-		3D6945220AA794E600899D49 /* cleficon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D6945210AA794E600899D49 /* cleficon.icns */; };
 		3D6945310AAA19D300899D49 /* GlobalHotkey.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D69452F0AAA19D300899D49 /* GlobalHotkey.h */; };
 		3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6945300AAA19D300899D49 /* GlobalHotkey.m */; };
-		3D6946910AAC908900899D49 /* KeyboardIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D69468F0AAC908900899D49 /* KeyboardIcon.tiff */; };
 		3D6946920AAC908900899D49 /* keyboardVals.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D6946900AAC908900899D49 /* keyboardVals.plist */; };
 		3D6946950AAC91DF00899D49 /* PreferenceController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D6946930AAC91DF00899D49 /* PreferenceController.h */; };
 		3D6946960AAC91DF00899D49 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6946940AAC91DF00899D49 /* PreferenceController.m */; };
 		3D7F771F0A9EB1DB004B0146 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F771E0A9EB1DB004B0146 /* Controller.m */; };
-		3D9FC8E50B447109008A9887 /* lastfm.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D9FC8E40B447109008A9887 /* lastfm.icns */; };
-		3DB580880ABA069B004452C3 /* General.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3DB580870ABA069B004452C3 /* General.tiff */; };
-		3DB580910ABA350E004452C3 /* LastFm.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DB5808F0ABA350E004452C3 /* LastFm.h */; };
-		3DB580920ABA350E004452C3 /* LastFm.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB580900ABA350E004452C3 /* LastFm.m */; };
 		3DB581700ABB0155004452C3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB5816F0ABB0155004452C3 /* Carbon.framework */; };
-		3DCF7FA80AD1710500B59D98 /* pandoraboy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3DCF7FA70AD1710500B59D98 /* pandoraboy.icns */; };
-		3DDA24150B74F57A00F500BD /* fullVolume.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA240D0B74F57A00F500BD /* fullVolume.scpt */; };
-		3DDA24160B74F57A00F500BD /* lowerVolume.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA240E0B74F57A00F500BD /* lowerVolume.scpt */; };
-		3DDA24170B74F57A00F500BD /* mute.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA240F0B74F57A00F500BD /* mute.scpt */; };
-		3DDA24180B74F57A00F500BD /* NextTrack.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA24100B74F57A00F500BD /* NextTrack.scpt */; };
-		3DDA24190B74F57A00F500BD /* PlayPause.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA24110B74F57A00F500BD /* PlayPause.scpt */; };
-		3DDA241A0B74F57A00F500BD /* raiseVolume.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA24120B74F57A00F500BD /* raiseVolume.scpt */; };
-		3DDA241B0B74F57A00F500BD /* ThumbsDown.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA24130B74F57A00F500BD /* ThumbsDown.scpt */; };
-		3DDA241C0B74F57A00F500BD /* ThumbsUp.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA24140B74F57A00F500BD /* ThumbsUp.scpt */; };
+		3DBE1AFA0B76B37400DB83CA /* iTunesNextTrack.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */; };
+		3DBE1AFB0B76B37400DB83CA /* iTunesPlayPause.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */; };
+		3DBE1AFC0B76B37400DB83CA /* LowerVolume.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */; };
+		3DBE1AFD0B76B37400DB83CA /* NextTrack.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF50B76B37400DB83CA /* NextTrack.scpt */; };
+		3DBE1AFE0B76B37400DB83CA /* PlayPause.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF60B76B37400DB83CA /* PlayPause.scpt */; };
+		3DBE1AFF0B76B37400DB83CA /* RaiseVolume.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */; };
+		3DBE1B000B76B37400DB83CA /* ThumbsDown.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */; };
+		3DBE1B010B76B37400DB83CA /* ThumbsUp.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */; };
 		3DDA24270B74F5D000F500BD /* Commands.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA24250B74F5D000F500BD /* Commands.h */; };
 		3DDA24280B74F5D000F500BD /* Commands.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA24260B74F5D000F500BD /* Commands.m */; };
 		3DDA242F0B74F64E00F500BD /* PandoraBoy.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */; };
-		3DE84ECD0B755BFB00FD4979 /* CTGradient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DE84EC10B755BFB00FD4979 /* CTGradient.h */; };
-		3DE84ECE0B755BFB00FD4979 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE84EC20B755BFB00FD4979 /* SRCommon.m */; };
-		3DE84ECF0B755BFB00FD4979 /* SRKeyCodeTransformer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DE84EC30B755BFB00FD4979 /* SRKeyCodeTransformer.h */; };
-		3DE84ED00B755BFB00FD4979 /* SRRecorderCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DE84EC40B755BFB00FD4979 /* SRRecorderCell.h */; };
-		3DE84ED10B755BFB00FD4979 /* CTGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE84EC50B755BFB00FD4979 /* CTGradient.m */; };
-		3DE84ED20B755BFB00FD4979 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE84EC60B755BFB00FD4979 /* SRRecorderCell.m */; };
-		3DE84ED30B755BFB00FD4979 /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE84EC70B755BFB00FD4979 /* SRKeyCodeTransformer.m */; };
-		3DE84ED40B755BFB00FD4979 /* SRRecorderControl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DE84EC80B755BFB00FD4979 /* SRRecorderControl.h */; };
-		3DE84ED50B755BFB00FD4979 /* SRCommon.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DE84EC90B755BFB00FD4979 /* SRCommon.h */; };
-		3DE84ED60B755BFB00FD4979 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE84ECA0B755BFB00FD4979 /* SRRecorderControl.m */; };
-		3DE84ED70B755BFB00FD4979 /* SRValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DE84ECB0B755BFB00FD4979 /* SRValidator.h */; };
-		3DE84ED80B755BFB00FD4979 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE84ECC0B755BFB00FD4979 /* SRValidator.m */; };
-		3DE84F2B0B755FAE00FD4979 /* SRRemoveShortcut.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3DE84F270B755FAE00FD4979 /* SRRemoveShortcut.tif */; };
-		3DE84F2C0B755FAE00FD4979 /* SRRemoveShortcutPressed.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3DE84F280B755FAE00FD4979 /* SRRemoveShortcutPressed.tif */; };
-		3DE84F2D0B755FAE00FD4979 /* SRRemoveShortcutRollover.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3DE84F290B755FAE00FD4979 /* SRRemoveShortcutRollover.tif */; };
-		3DE84F2E0B755FAE00FD4979 /* SRSnapback.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3DE84F2A0B755FAE00FD4979 /* SRSnapback.tiff */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -86,25 +82,23 @@
 				3D6945310AAA19D300899D49 /* GlobalHotkey.h in CopyFiles */,
 				3D6946950AAC91DF00899D49 /* PreferenceController.h in CopyFiles */,
 				3D0609420AB0B654008DC718 /* AppleRemote.h in CopyFiles */,
-				3DB580910ABA350E004452C3 /* LastFm.h in CopyFiles */,
 				3D170EFC0B176AA800942A24 /* WebViewProxy.h in CopyFiles */,
 				3D170F3A0B176DFB00942A24 /* WebFrameProxy.h in CopyFiles */,
-				3D34174D0B4469180089C658 /* KeyChain.h in CopyFiles */,
-				3DDA24150B74F57A00F500BD /* fullVolume.scpt in CopyFiles */,
-				3DDA24160B74F57A00F500BD /* lowerVolume.scpt in CopyFiles */,
-				3DDA24170B74F57A00F500BD /* mute.scpt in CopyFiles */,
-				3DDA24180B74F57A00F500BD /* NextTrack.scpt in CopyFiles */,
-				3DDA24190B74F57A00F500BD /* PlayPause.scpt in CopyFiles */,
-				3DDA241A0B74F57A00F500BD /* raiseVolume.scpt in CopyFiles */,
-				3DDA241B0B74F57A00F500BD /* ThumbsDown.scpt in CopyFiles */,
-				3DDA241C0B74F57A00F500BD /* ThumbsUp.scpt in CopyFiles */,
 				3DDA24270B74F5D000F500BD /* Commands.h in CopyFiles */,
-				3DE84ECD0B755BFB00FD4979 /* CTGradient.h in CopyFiles */,
-				3DE84ECF0B755BFB00FD4979 /* SRKeyCodeTransformer.h in CopyFiles */,
-				3DE84ED00B755BFB00FD4979 /* SRRecorderCell.h in CopyFiles */,
-				3DE84ED40B755BFB00FD4979 /* SRRecorderControl.h in CopyFiles */,
-				3DE84ED50B755BFB00FD4979 /* SRCommon.h in CopyFiles */,
-				3DE84ED70B755BFB00FD4979 /* SRValidator.h in CopyFiles */,
+				3D4400D00B758BC10022A3D7 /* CTGradient.h in CopyFiles */,
+				3D4400D20B758BC10022A3D7 /* SRCommon.h in CopyFiles */,
+				3D4400D40B758BC10022A3D7 /* SRKeyCodeTransformer.h in CopyFiles */,
+				3D4400D60B758BC10022A3D7 /* SRRecorderCell.h in CopyFiles */,
+				3D4400D80B758BC10022A3D7 /* SRRecorderControl.h in CopyFiles */,
+				3D4400DA0B758BC10022A3D7 /* SRValidator.h in CopyFiles */,
+				3DBE1AFA0B76B37400DB83CA /* iTunesNextTrack.scpt in CopyFiles */,
+				3DBE1AFB0B76B37400DB83CA /* iTunesPlayPause.scpt in CopyFiles */,
+				3DBE1AFC0B76B37400DB83CA /* LowerVolume.scpt in CopyFiles */,
+				3DBE1AFD0B76B37400DB83CA /* NextTrack.scpt in CopyFiles */,
+				3DBE1AFE0B76B37400DB83CA /* PlayPause.scpt in CopyFiles */,
+				3DBE1AFF0B76B37400DB83CA /* RaiseVolume.scpt in CopyFiles */,
+				3DBE1B000B76B37400DB83CA /* ThumbsDown.scpt in CopyFiles */,
+				3DBE1B010B76B37400DB83CA /* ThumbsUp.scpt in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,17 +114,36 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraBoy_Prefix.pch; sourceTree = "<group>"; };
 		3D0319AB0B18033A00B4DD61 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
+		3D0444410B758EAE00F1BA8B /* cleficon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = cleficon.icns; path = images/cleficon.icns; sourceTree = "<group>"; };
+		3D0444420B758EAE00F1BA8B /* General.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = General.tiff; path = images/General.tiff; sourceTree = "<group>"; };
+		3D0444430B758EAE00F1BA8B /* KeyboardIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = KeyboardIcon.tiff; path = images/KeyboardIcon.tiff; sourceTree = "<group>"; };
+		3D0444440B758EAE00F1BA8B /* lastfm.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = lastfm.icns; path = images/lastfm.icns; sourceTree = "<group>"; };
+		3D0444450B758EAE00F1BA8B /* pandoraboy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = pandoraboy.icns; path = images/pandoraboy.icns; sourceTree = "<group>"; };
+		3D0444460B758EAE00F1BA8B /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbs_down.png; path = images/thumbs_down.png; sourceTree = "<group>"; };
+		3D0444470B758EAE00F1BA8B /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbs_up.png; path = images/thumbs_up.png; sourceTree = "<group>"; };
 		3D0609400AB0B653008DC718 /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppleRemote.h; sourceTree = "<group>"; };
 		3D0609410AB0B654008DC718 /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppleRemote.m; sourceTree = "<group>"; };
 		3D0609E40AB0BA9C008DC718 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		3D0609F00AB102E9008DC718 /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up.png; sourceTree = "<group>"; };
-		3D060A710AB327FB008DC718 /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down.png; sourceTree = "<group>"; };
 		3D170EFA0B176AA800942A24 /* WebViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewProxy.h; sourceTree = "<group>"; };
 		3D170EFB0B176AA800942A24 /* WebViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewProxy.m; sourceTree = "<group>"; };
 		3D170F380B176DFB00942A24 /* WebFrameProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebFrameProxy.h; sourceTree = "<group>"; };
 		3D170F390B176DFB00942A24 /* WebFrameProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebFrameProxy.m; sourceTree = "<group>"; };
-		3D34174B0B4469180089C658 /* KeyChain.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = KeyChain.h; sourceTree = "<group>"; };
-		3D34174C0B4469180089C658 /* KeyChain.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = KeyChain.m; sourceTree = "<group>"; };
+		3D4400C40B758BC10022A3D7 /* CTGradient.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CTGradient.h; path = ShortcutRecorder/CTGradient.h; sourceTree = "<group>"; };
+		3D4400C50B758BC10022A3D7 /* CTGradient.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = CTGradient.m; path = ShortcutRecorder/CTGradient.m; sourceTree = "<group>"; };
+		3D4400C60B758BC10022A3D7 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRCommon.h; path = ShortcutRecorder/SRCommon.h; sourceTree = "<group>"; };
+		3D4400C70B758BC10022A3D7 /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRCommon.m; path = ShortcutRecorder/SRCommon.m; sourceTree = "<group>"; };
+		3D4400C80B758BC10022A3D7 /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRKeyCodeTransformer.h; path = ShortcutRecorder/SRKeyCodeTransformer.h; sourceTree = "<group>"; };
+		3D4400C90B758BC10022A3D7 /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRKeyCodeTransformer.m; path = ShortcutRecorder/SRKeyCodeTransformer.m; sourceTree = "<group>"; };
+		3D4400CA0B758BC10022A3D7 /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRRecorderCell.h; path = ShortcutRecorder/SRRecorderCell.h; sourceTree = "<group>"; };
+		3D4400CB0B758BC10022A3D7 /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRRecorderCell.m; path = ShortcutRecorder/SRRecorderCell.m; sourceTree = "<group>"; };
+		3D4400CC0B758BC10022A3D7 /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRRecorderControl.h; path = ShortcutRecorder/SRRecorderControl.h; sourceTree = "<group>"; };
+		3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRRecorderControl.m; path = ShortcutRecorder/SRRecorderControl.m; sourceTree = "<group>"; };
+		3D4400CE0B758BC10022A3D7 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRValidator.h; path = ShortcutRecorder/SRValidator.h; sourceTree = "<group>"; };
+		3D4400CF0B758BC10022A3D7 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRValidator.m; path = ShortcutRecorder/SRValidator.m; sourceTree = "<group>"; };
+		3D4400DD0B758BE20022A3D7 /* SRRemoveShortcut.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRRemoveShortcut.tif; path = ShortcutRecorder/images/SRRemoveShortcut.tif; sourceTree = "<group>"; };
+		3D4400DE0B758BE20022A3D7 /* SRRemoveShortcutPressed.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRRemoveShortcutPressed.tif; path = ShortcutRecorder/images/SRRemoveShortcutPressed.tif; sourceTree = "<group>"; };
+		3D4400DF0B758BE20022A3D7 /* SRRemoveShortcutRollover.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRRemoveShortcutRollover.tif; path = ShortcutRecorder/images/SRRemoveShortcutRollover.tif; sourceTree = "<group>"; };
+		3D4400E00B758BE20022A3D7 /* SRSnapback.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRSnapback.tiff; path = ShortcutRecorder/images/SRSnapback.tiff; sourceTree = "<group>"; };
 		3D693FA30AA1EDA600899D49 /* SongNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongNotification.h; sourceTree = "<group>"; };
 		3D693FA40AA1EDA600899D49 /* SongNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongNotification.m; sourceTree = "<group>"; };
 		3D6942240AA378BF00899D49 /* Growl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
@@ -138,50 +151,27 @@
 		3D6942410AA37A1300899D49 /* GrowlNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotification.m; sourceTree = "<group>"; };
 		3D6942910AA3D89400899D49 /* PandoraControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraControl.h; sourceTree = "<group>"; };
 		3D6942920AA3D89400899D49 /* PandoraControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraControl.m; sourceTree = "<group>"; };
-		3D6945210AA794E600899D49 /* cleficon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = cleficon.icns; sourceTree = "<group>"; };
 		3D69452F0AAA19D300899D49 /* GlobalHotkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHotkey.h; sourceTree = "<group>"; };
 		3D6945300AAA19D300899D49 /* GlobalHotkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalHotkey.m; sourceTree = "<group>"; };
-		3D69468F0AAC908900899D49 /* KeyboardIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = KeyboardIcon.tiff; sourceTree = "<group>"; };
 		3D6946900AAC908900899D49 /* keyboardVals.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = keyboardVals.plist; sourceTree = "<group>"; };
 		3D6946930AAC91DF00899D49 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		3D6946940AAC91DF00899D49 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		3D7F771D0A9EB1DB004B0146 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		3D7F771E0A9EB1DB004B0146 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
-		3D9FC8E40B447109008A9887 /* lastfm.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = lastfm.icns; sourceTree = "<group>"; };
-		3DB580870ABA069B004452C3 /* General.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = General.tiff; sourceTree = "<group>"; };
-		3DB5808F0ABA350E004452C3 /* LastFm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastFm.h; sourceTree = "<group>"; };
-		3DB580900ABA350E004452C3 /* LastFm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastFm.m; sourceTree = "<group>"; };
 		3DB5816F0ABB0155004452C3 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		3DCF7FA70AD1710500B59D98 /* pandoraboy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = pandoraboy.icns; sourceTree = "<group>"; };
-		3DDA240D0B74F57A00F500BD /* fullVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = fullVolume.scpt; path = Applescript/fullVolume.scpt; sourceTree = "<group>"; };
-		3DDA240E0B74F57A00F500BD /* lowerVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = lowerVolume.scpt; path = Applescript/lowerVolume.scpt; sourceTree = "<group>"; };
-		3DDA240F0B74F57A00F500BD /* mute.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = mute.scpt; path = Applescript/mute.scpt; sourceTree = "<group>"; };
-		3DDA24100B74F57A00F500BD /* NextTrack.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = NextTrack.scpt; path = Applescript/NextTrack.scpt; sourceTree = "<group>"; };
-		3DDA24110B74F57A00F500BD /* PlayPause.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = PlayPause.scpt; path = Applescript/PlayPause.scpt; sourceTree = "<group>"; };
-		3DDA24120B74F57A00F500BD /* raiseVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = raiseVolume.scpt; path = Applescript/raiseVolume.scpt; sourceTree = "<group>"; };
-		3DDA24130B74F57A00F500BD /* ThumbsDown.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = ThumbsDown.scpt; path = Applescript/ThumbsDown.scpt; sourceTree = "<group>"; };
-		3DDA24140B74F57A00F500BD /* ThumbsUp.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = ThumbsUp.scpt; path = Applescript/ThumbsUp.scpt; sourceTree = "<group>"; };
+		3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = iTunesNextTrack.scpt; path = Applescripts/iTunesNextTrack.scpt; sourceTree = "<group>"; };
+		3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = iTunesPlayPause.scpt; path = Applescripts/iTunesPlayPause.scpt; sourceTree = "<group>"; };
+		3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = LowerVolume.scpt; path = Applescripts/LowerVolume.scpt; sourceTree = "<group>"; };
+		3DBE1AF50B76B37400DB83CA /* NextTrack.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = NextTrack.scpt; path = Applescripts/NextTrack.scpt; sourceTree = "<group>"; };
+		3DBE1AF60B76B37400DB83CA /* PlayPause.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = PlayPause.scpt; path = Applescripts/PlayPause.scpt; sourceTree = "<group>"; };
+		3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = RaiseVolume.scpt; path = Applescripts/RaiseVolume.scpt; sourceTree = "<group>"; };
+		3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = ThumbsDown.scpt; path = Applescripts/ThumbsDown.scpt; sourceTree = "<group>"; };
+		3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = ThumbsUp.scpt; path = Applescripts/ThumbsUp.scpt; sourceTree = "<group>"; };
 		3DDA24250B74F5D000F500BD /* Commands.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Commands.h; sourceTree = "<group>"; };
 		3DDA24260B74F5D000F500BD /* Commands.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = Commands.m; sourceTree = "<group>"; };
 		3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */ = {isa = PBXFileReference; explicitFileType = text.sdef; fileEncoding = 30; path = PandoraBoy.sdef; sourceTree = "<group>"; };
-		3DE84EC10B755BFB00FD4979 /* CTGradient.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = CTGradient.h; sourceTree = "<group>"; };
-		3DE84EC20B755BFB00FD4979 /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SRCommon.m; sourceTree = "<group>"; };
-		3DE84EC30B755BFB00FD4979 /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SRKeyCodeTransformer.h; sourceTree = "<group>"; };
-		3DE84EC40B755BFB00FD4979 /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SRRecorderCell.h; sourceTree = "<group>"; };
-		3DE84EC50B755BFB00FD4979 /* CTGradient.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = CTGradient.m; sourceTree = "<group>"; };
-		3DE84EC60B755BFB00FD4979 /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SRRecorderCell.m; sourceTree = "<group>"; };
-		3DE84EC70B755BFB00FD4979 /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SRKeyCodeTransformer.m; sourceTree = "<group>"; };
-		3DE84EC80B755BFB00FD4979 /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SRRecorderControl.h; sourceTree = "<group>"; };
-		3DE84EC90B755BFB00FD4979 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SRCommon.h; sourceTree = "<group>"; };
-		3DE84ECA0B755BFB00FD4979 /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SRRecorderControl.m; sourceTree = "<group>"; };
-		3DE84ECB0B755BFB00FD4979 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SRValidator.h; sourceTree = "<group>"; };
-		3DE84ECC0B755BFB00FD4979 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SRValidator.m; sourceTree = "<group>"; };
-		3DE84F270B755FAE00FD4979 /* SRRemoveShortcut.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SRRemoveShortcut.tif; sourceTree = "<group>"; };
-		3DE84F280B755FAE00FD4979 /* SRRemoveShortcutPressed.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SRRemoveShortcutPressed.tif; sourceTree = "<group>"; };
-		3DE84F290B755FAE00FD4979 /* SRRemoveShortcutRollover.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SRRemoveShortcutRollover.tif; sourceTree = "<group>"; };
-		3DE84F2A0B755FAE00FD4979 /* SRSnapback.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SRSnapback.tiff; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* PandoraBoy.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PandoraBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* PandoraBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PandoraBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +213,6 @@
 				3D6946940AAC91DF00899D49 /* PreferenceController.m */,
 				3D170EFA0B176AA800942A24 /* WebViewProxy.h */,
 				3D170EFB0B176AA800942A24 /* WebViewProxy.m */,
-				3DB580C10ABAFCC5004452C3 /* LastFm */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -261,7 +250,6 @@
 			children = (
 				3DC9FC780B74FED200FF4370 /* Shortcut Recorder */,
 				3DDA241D0B74F58800F500BD /* AppleScript */,
-				3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -274,8 +262,6 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3D34174B0B4469180089C658 /* KeyChain.h */,
-				3D34174C0B4469180089C658 /* KeyChain.m */,
 				3D170F380B176DFB00942A24 /* WebFrameProxy.h */,
 				3D170F390B176DFB00942A24 /* WebFrameProxy.m */,
 			);
@@ -285,13 +271,14 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3D9FC8E40B447109008A9887 /* lastfm.icns */,
-				3DCF7FA70AD1710500B59D98 /* pandoraboy.icns */,
-				3DB580870ABA069B004452C3 /* General.tiff */,
-				3D060A710AB327FB008DC718 /* thumbs_down.png */,
-				3D0609F00AB102E9008DC718 /* thumbs_up.png */,
-				3D69468F0AAC908900899D49 /* KeyboardIcon.tiff */,
-				3D6945210AA794E600899D49 /* cleficon.icns */,
+				3D0444410B758EAE00F1BA8B /* cleficon.icns */,
+				3D0444420B758EAE00F1BA8B /* General.tiff */,
+				3D0444430B758EAE00F1BA8B /* KeyboardIcon.tiff */,
+				3D0444440B758EAE00F1BA8B /* lastfm.icns */,
+				3D0444450B758EAE00F1BA8B /* pandoraboy.icns */,
+				3D0444460B758EAE00F1BA8B /* thumbs_down.png */,
+				3D0444470B758EAE00F1BA8B /* thumbs_up.png */,
+				3DE84F240B755F9C00FD4979 /* ShortcutRecorder */,
 				3D6946900AAC908900899D49 /* keyboardVals.plist */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -311,31 +298,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3DB580C10ABAFCC5004452C3 /* LastFm */ = {
-			isa = PBXGroup;
-			children = (
-				3DB5808F0ABA350E004452C3 /* LastFm.h */,
-				3DB580900ABA350E004452C3 /* LastFm.m */,
-			);
-			name = LastFm;
-			sourceTree = "<group>";
-		};
 		3DC9FC780B74FED200FF4370 /* Shortcut Recorder */ = {
 			isa = PBXGroup;
 			children = (
-				3DE84F240B755F9C00FD4979 /* Images */,
-				3DE84EC10B755BFB00FD4979 /* CTGradient.h */,
-				3DE84EC20B755BFB00FD4979 /* SRCommon.m */,
-				3DE84EC30B755BFB00FD4979 /* SRKeyCodeTransformer.h */,
-				3DE84EC40B755BFB00FD4979 /* SRRecorderCell.h */,
-				3DE84EC50B755BFB00FD4979 /* CTGradient.m */,
-				3DE84EC60B755BFB00FD4979 /* SRRecorderCell.m */,
-				3DE84EC70B755BFB00FD4979 /* SRKeyCodeTransformer.m */,
-				3DE84EC80B755BFB00FD4979 /* SRRecorderControl.h */,
-				3DE84EC90B755BFB00FD4979 /* SRCommon.h */,
-				3DE84ECA0B755BFB00FD4979 /* SRRecorderControl.m */,
-				3DE84ECB0B755BFB00FD4979 /* SRValidator.h */,
-				3DE84ECC0B755BFB00FD4979 /* SRValidator.m */,
+				3D4400C40B758BC10022A3D7 /* CTGradient.h */,
+				3D4400C50B758BC10022A3D7 /* CTGradient.m */,
+				3D4400C60B758BC10022A3D7 /* SRCommon.h */,
+				3D4400C70B758BC10022A3D7 /* SRCommon.m */,
+				3D4400C80B758BC10022A3D7 /* SRKeyCodeTransformer.h */,
+				3D4400C90B758BC10022A3D7 /* SRKeyCodeTransformer.m */,
+				3D4400CA0B758BC10022A3D7 /* SRRecorderCell.h */,
+				3D4400CB0B758BC10022A3D7 /* SRRecorderCell.m */,
+				3D4400CC0B758BC10022A3D7 /* SRRecorderControl.h */,
+				3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */,
+				3D4400CE0B758BC10022A3D7 /* SRValidator.h */,
+				3D4400CF0B758BC10022A3D7 /* SRValidator.m */,
 			);
 			name = "Shortcut Recorder";
 			sourceTree = "<group>";
@@ -343,27 +320,28 @@
 		3DDA241D0B74F58800F500BD /* AppleScript */ = {
 			isa = PBXGroup;
 			children = (
-				3DDA240D0B74F57A00F500BD /* fullVolume.scpt */,
-				3DDA240E0B74F57A00F500BD /* lowerVolume.scpt */,
-				3DDA240F0B74F57A00F500BD /* mute.scpt */,
-				3DDA24100B74F57A00F500BD /* NextTrack.scpt */,
-				3DDA24110B74F57A00F500BD /* PlayPause.scpt */,
-				3DDA24120B74F57A00F500BD /* raiseVolume.scpt */,
-				3DDA24130B74F57A00F500BD /* ThumbsDown.scpt */,
-				3DDA24140B74F57A00F500BD /* ThumbsUp.scpt */,
+				3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */,
+				3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */,
+				3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */,
+				3DBE1AF50B76B37400DB83CA /* NextTrack.scpt */,
+				3DBE1AF60B76B37400DB83CA /* PlayPause.scpt */,
+				3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */,
+				3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */,
+				3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */,
+				3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */,
 			);
 			name = AppleScript;
 			sourceTree = "<group>";
 		};
-		3DE84F240B755F9C00FD4979 /* Images */ = {
+		3DE84F240B755F9C00FD4979 /* ShortcutRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				3DE84F270B755FAE00FD4979 /* SRRemoveShortcut.tif */,
-				3DE84F280B755FAE00FD4979 /* SRRemoveShortcutPressed.tif */,
-				3DE84F290B755FAE00FD4979 /* SRRemoveShortcutRollover.tif */,
-				3DE84F2A0B755FAE00FD4979 /* SRSnapback.tiff */,
+				3D4400DD0B758BE20022A3D7 /* SRRemoveShortcut.tif */,
+				3D4400DE0B758BE20022A3D7 /* SRRemoveShortcutPressed.tif */,
+				3D4400DF0B758BE20022A3D7 /* SRRemoveShortcutRollover.tif */,
+				3D4400E00B758BE20022A3D7 /* SRSnapback.tiff */,
 			);
-			name = Images;
+			name = ShortcutRecorder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,19 +388,19 @@
 			files = (
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				3D6945220AA794E600899D49 /* cleficon.icns in Resources */,
-				3D6946910AAC908900899D49 /* KeyboardIcon.tiff in Resources */,
 				3D6946920AAC908900899D49 /* keyboardVals.plist in Resources */,
-				3D0609F10AB102E9008DC718 /* thumbs_up.png in Resources */,
-				3D060A720AB327FB008DC718 /* thumbs_down.png in Resources */,
-				3DB580880ABA069B004452C3 /* General.tiff in Resources */,
-				3DCF7FA80AD1710500B59D98 /* pandoraboy.icns in Resources */,
-				3D9FC8E50B447109008A9887 /* lastfm.icns in Resources */,
 				3DDA242F0B74F64E00F500BD /* PandoraBoy.sdef in Resources */,
-				3DE84F2B0B755FAE00FD4979 /* SRRemoveShortcut.tif in Resources */,
-				3DE84F2C0B755FAE00FD4979 /* SRRemoveShortcutPressed.tif in Resources */,
-				3DE84F2D0B755FAE00FD4979 /* SRRemoveShortcutRollover.tif in Resources */,
-				3DE84F2E0B755FAE00FD4979 /* SRSnapback.tiff in Resources */,
+				3D4400E10B758BE20022A3D7 /* SRRemoveShortcut.tif in Resources */,
+				3D4400E20B758BE20022A3D7 /* SRRemoveShortcutPressed.tif in Resources */,
+				3D4400E30B758BE20022A3D7 /* SRRemoveShortcutRollover.tif in Resources */,
+				3D4400E40B758BE20022A3D7 /* SRSnapback.tiff in Resources */,
+				3D0444480B758EAE00F1BA8B /* cleficon.icns in Resources */,
+				3D0444490B758EAE00F1BA8B /* General.tiff in Resources */,
+				3D04444A0B758EAE00F1BA8B /* KeyboardIcon.tiff in Resources */,
+				3D04444B0B758EAE00F1BA8B /* lastfm.icns in Resources */,
+				3D04444C0B758EAE00F1BA8B /* pandoraboy.icns in Resources */,
+				3D04444D0B758EAE00F1BA8B /* thumbs_down.png in Resources */,
+				3D04444E0B758EAE00F1BA8B /* thumbs_up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,17 +419,15 @@
 				3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */,
 				3D6946960AAC91DF00899D49 /* PreferenceController.m in Sources */,
 				3D0609430AB0B654008DC718 /* AppleRemote.m in Sources */,
-				3DB580920ABA350E004452C3 /* LastFm.m in Sources */,
 				3D170EFD0B176AA800942A24 /* WebViewProxy.m in Sources */,
 				3D170F3B0B176DFB00942A24 /* WebFrameProxy.m in Sources */,
-				3D34174E0B4469180089C658 /* KeyChain.m in Sources */,
 				3DDA24280B74F5D000F500BD /* Commands.m in Sources */,
-				3DE84ECE0B755BFB00FD4979 /* SRCommon.m in Sources */,
-				3DE84ED10B755BFB00FD4979 /* CTGradient.m in Sources */,
-				3DE84ED20B755BFB00FD4979 /* SRRecorderCell.m in Sources */,
-				3DE84ED30B755BFB00FD4979 /* SRKeyCodeTransformer.m in Sources */,
-				3DE84ED60B755BFB00FD4979 /* SRRecorderControl.m in Sources */,
-				3DE84ED80B755BFB00FD4979 /* SRValidator.m in Sources */,
+				3D4400D10B758BC10022A3D7 /* CTGradient.m in Sources */,
+				3D4400D30B758BC10022A3D7 /* SRCommon.m in Sources */,
+				3D4400D50B758BC10022A3D7 /* SRKeyCodeTransformer.m in Sources */,
+				3D4400D70B758BC10022A3D7 /* SRRecorderCell.m in Sources */,
+				3D4400D90B758BC10022A3D7 /* SRRecorderControl.m in Sources */,
+				3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

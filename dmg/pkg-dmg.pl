@@ -551,7 +551,7 @@ push(@gCleanup,
 # treated as the volume root itself.  rsync will do this by default, if no
 # trailing '/' is present.  With a trailing '/', $sourceFolder becomes
 # $tempRoot, instead of becoming an entry in $tempRoot.
-if(command($gConfig{'cmd_rsync'}, '-a', '--copy-unsafe-links',
+if(command($gConfig{'cmd_rsync'}, '-a',
  $sourceFolder.($sourceFile?'':'/'),$tempRoot) != 0) {
   cleanupDie('rsync failed');
 }
@@ -584,7 +584,7 @@ foreach $copyFile (@copyFiles) {
   else {
     $copyDestination = $tempRoot.'/'.$copyDestination;
   }
-  if(command($gConfig{'cmd_rsync'}, '-a', '--copy-unsafe-links',
+  if(command($gConfig{'cmd_rsync'}, '-a',
    $copySource, $copyDestination) != 0) {
     cleanupDie('rsync failed for item copy');
   }

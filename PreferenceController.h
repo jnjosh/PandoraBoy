@@ -34,7 +34,6 @@
   IBOutlet NSButton *optHK;
   IBOutlet NSPopUpButton *keyHK;
 
-  NSToolbar *toolbar;
   NSMutableDictionary *items; // all items that are allowed to be in the toolbar
 
   //  NSString *LastFmUsername; 

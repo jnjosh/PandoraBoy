@@ -24,8 +24,6 @@
 #import <Growl/GrowlApplicationBridge.h>
 
 @interface GrowlNotification : NSObject <GrowlApplicationBridgeDelegate> {
-  NSData *thumbsUp;
-  NSData *thumbsDown; 
   NSString *currentSong; 
   NSString *currentArtist; 
   bool currentValid; 

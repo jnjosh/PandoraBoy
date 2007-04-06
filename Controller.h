@@ -30,7 +30,6 @@
     IBOutlet NSWindow *pandoraWindow; 
     IBOutlet NSWindow *startupWindow; 
     IBOutlet WebView *notificationView;
-    id webNetscapePlugin; 
 }
 
 -(void) loadPandora;

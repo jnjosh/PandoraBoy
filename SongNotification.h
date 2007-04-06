@@ -23,7 +23,6 @@
 #import <WebKit/WebView.h>
 
 @interface SongNotification : NSObject {
-  WebView *notificationView; 
   IBOutlet id delegate; 
 
 }

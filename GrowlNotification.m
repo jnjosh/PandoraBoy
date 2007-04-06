@@ -55,7 +55,7 @@ static GrowlNotification* sharedInstance = nil;
 {
   // Only show the notification if we are currently playing a song
   if(currentValid) { 
-    thumbsUp = [NSData dataWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
+    NSData *thumbsUp = [NSData dataWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
    [GrowlApplicationBridge
     notifyWithTitle:currentSong
     description:currentArtist
@@ -70,7 +70,7 @@ static GrowlNotification* sharedInstance = nil;
 - (void) pandoraDislikeSong
 {
   if(currentValid) { 
-    thumbsDown = [NSData dataWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]];
+    NSData *thumbsDown = [NSData dataWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]];
    [GrowlApplicationBridge
     notifyWithTitle:currentSong
     description:currentArtist

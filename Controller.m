@@ -166,7 +166,7 @@ typedef enum {
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-  webNetscapePlugin = [[[webView hitTest:NSZeroPoint] subviews] objectAtIndex:0];
+  id webNetscapePlugin = [[[webView hitTest:NSZeroPoint] subviews] objectAtIndex:0];
   [pandoraWindow makeFirstResponder: webNetscapePlugin];
   [[PandoraControl sharedController] setWebPlugin: webNetscapePlugin];
 }

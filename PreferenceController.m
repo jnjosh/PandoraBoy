@@ -71,7 +71,7 @@
 }
 
 -(void)awakeFromNib {
-  toolbar = [[NSToolbar alloc] initWithIdentifier:@"Toolbar"];
+  NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:@"Toolbar"];
   [toolbar setDelegate:self];
   [toolbar setAllowsUserCustomization:NO];
   [toolbar setAutosavesConfiguration:NO];

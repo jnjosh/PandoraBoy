@@ -15,10 +15,13 @@ Known problems:
     * The window will not resize to remove the ad space if you have a paid 
       pandora account. 
 
+0.3
+    * Code cleanup
+
 For the future: 
     * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 
     * iTunes store integration -- build a itunes store "playlist" that allows users to easily purchase songs they have heard. 
     * Log files that have been played to a file       
     * Finish LastFm support (it is partially done)
     * Replace the thumbs up / thumbs down icons with something that looks a little better
- 
+

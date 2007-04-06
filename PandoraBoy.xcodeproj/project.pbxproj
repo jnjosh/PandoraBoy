@@ -208,11 +208,12 @@
 				3D6942400AA37A1300899D49 /* GrowlNotification.h */,
 				3D6942410AA37A1300899D49 /* GrowlNotification.m */,
 				32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
 				3D6946930AAC91DF00899D49 /* PreferenceController.h */,
 				3D6946940AAC91DF00899D49 /* PreferenceController.m */,
 				3D170EFA0B176AA800942A24 /* WebViewProxy.h */,
 				3D170EFB0B176AA800942A24 /* WebViewProxy.m */,
+				3D170F380B176DFB00942A24 /* WebFrameProxy.h */,
+				3D170F390B176DFB00942A24 /* WebFrameProxy.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -262,8 +263,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3D170F380B176DFB00942A24 /* WebFrameProxy.h */,
-				3D170F390B176DFB00942A24 /* WebFrameProxy.m */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";

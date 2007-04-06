@@ -33,8 +33,6 @@ static SongNotification* sharedInstance = nil;
 	if (sharedInstance) return sharedInstance;
 	
 	if ( self = [super init] ) {
-	  //notificationView  = [[WebView alloc] initWithFrame: NSMakeRect (0,0,640,480)];
-		//[notificationView setWebUIDelegate: self]; 
 	}
 	
 	return self;
@@ -61,8 +59,6 @@ static SongNotification* sharedInstance = nil;
 
 - (void) loadNotifier: (WebView*) view;
 {
-  //WebView *view  = [[WebView alloc] initWithFrame: NSMakeRect (0,0,640,480)];
-  //  notificationView = view; 
 	[[view mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.frozensilicon.net/SongNotification.htm"]]];
 	 id win = [view windowScriptObject]; 
 	 [win setValue:self forKey:@"SongNotification"];

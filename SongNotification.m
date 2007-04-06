@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 #import "SongNotification.h"
+#import "WebKit/WebFrame.h"
 
 static SongNotification* sharedInstance = nil;
 

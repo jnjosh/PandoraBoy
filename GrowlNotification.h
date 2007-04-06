@@ -23,7 +23,7 @@
 #import "SongNotification.h"
 #import <Growl/GrowlApplicationBridge.h>
 
-@interface GrowlNotification : NSObject {
+@interface GrowlNotification : NSObject <GrowlApplicationBridgeDelegate> {
   NSData *thumbsUp;
   NSData *thumbsDown; 
   NSString *currentSong; 

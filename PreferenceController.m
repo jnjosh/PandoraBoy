@@ -162,6 +162,16 @@
 
 */
 
+- (IBAction)setUsername:(id)sender {
+    // FIXME: Implement
+    NSLog(@"WARN:setUsername not implemented.");
+}
+
+- (IBAction)setPassword:(id)sender {
+    // FIXME: Implement
+    NSLog(@"WARN:setPassword not implemented.");
+}
+
 -(IBAction) applyPreferences{
   [[GlobalHotkey sharedHotkey] unregisterHotkeys];
   [[GlobalHotkey sharedHotkey] registerHotkeys];

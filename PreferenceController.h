@@ -25,15 +25,7 @@
 @interface PreferenceController : NSObject {
   IBOutlet NSWindow *prefWindow;
   IBOutlet NSTabView *prefTabs;
-
-  IBOutlet NSWindow *hotkeySheet;
-	
-  //Hotkey IBOutlets
-  IBOutlet NSButton *cmdHK;
-  IBOutlet NSButton *ctrHK;
-  IBOutlet NSButton *optHK;
-  IBOutlet NSPopUpButton *keyHK;
-
+  
   NSMutableDictionary *items; // all items that are allowed to be in the toolbar
 
   //  NSString *LastFmUsername; 

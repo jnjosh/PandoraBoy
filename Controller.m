@@ -27,10 +27,13 @@
 #import "AppleRemote.h"
 //#import "LastFm.h"
 #import "WebViewProxy.h"
-
 #import <WebKit/WebKit.h>
 
-#import <Cocoa/Cocoa.h>
+extern NSString *PBPandoraURL;
+NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
+
+extern int PBPlayPauseMenuItemTag;
+int PBPlayPauseMenuItemTag = 1;
 
 typedef enum {
     WebDashboardBehaviorAlwaysSendMouseEventsToAllWindows,
@@ -62,12 +65,7 @@ typedef enum {
 		[[AppleRemote sharedRemote] setListeningToRemote:true];
 	}
 
-	//[[WindowNotification alloc] init];
-
-
   }
-
-
 
   return self;
 }
@@ -134,7 +132,40 @@ typedef enum {
 
 - (void) loadPandora 
 {
-		[[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.pandora.com?cmd=mini"]]];
+    [[webView mainFrame] loadRequest:
+        [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];
+}
+
+- (IBAction)playPause:(id)sender {
+    [[PandoraControl sharedController] playPause];
+}
+
+- (IBAction)nextSong:(id)sender {
+    [[PandoraControl sharedController] nextSong];
+}
+
+- (IBAction)likeSong:(id)sender {
+    [[PandoraControl sharedController] likeSong];
+}
+
+- (IBAction)dislikeSong:(id)sender {
+    [[PandoraControl sharedController] dislikeSong];
+}
+
+- (IBAction)raiseVolume:(id)sender {
+    [[PandoraControl sharedController] raiseVolume];
+}
+
+- (IBAction)lowerVolume:(id)sender {
+    [[PandoraControl sharedController] lowerVolume];
+}
+
+- (IBAction)fullVolume:(id)sender {
+    [[PandoraControl sharedController] fullVolume];
+}
+
+- (IBAction)mute:(id)sender {
+    [[PandoraControl sharedController] mute];
 }
 
 - (IBAction) refreshPandora:(id)sender 

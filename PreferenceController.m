@@ -25,7 +25,6 @@
 #import "GlobalHotkey.h"
 #import "AppleRemote.h"
 //#import "KeyChain.h"
-#import <Carbon/Carbon.h>
 
 @implementation PreferenceController
 

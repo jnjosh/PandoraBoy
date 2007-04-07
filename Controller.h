@@ -19,7 +19,7 @@
  *  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA          *
  ***************************************************************************/
 
-#import <Carbon/Carbon.h>
+#import <Cocoa/Cocoa.h>
 #import <WebKit/WebUIDelegate.h>
 #import <WebKit/WebPolicyDelegate.h>
 #import <WebKit/WebView.h>
@@ -33,16 +33,24 @@
 }
 
 -(void) loadPandora;
--(IBAction) refreshPandora:(id)sender; 
 
--(IBAction) displayHelp:(id)sender; 
+// Actions
+- (IBAction)refreshPandora:(id)sender; 
+- (IBAction)displayHelp:(id)sender; 
+- (IBAction)playPause:(id)sender;
+- (IBAction)nextSong:(id)sender;
+- (IBAction)likeSong:(id)sender;
+- (IBAction)dislikeSong:(id)sender;
+- (IBAction)raiseVolume:(id)sender;
+- (IBAction)lowerVolume:(id)sender;
+- (IBAction)fullVolume:(id)sender;
+- (IBAction)mute:(id)sender;
+- (IBAction)checkVersionNumber:(id)sender; 
 
 //WebView delegates 
 - (void)webView:(WebView *)sender setFrame:(NSRect)frame;
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender makeFirstResponder:(NSResponder *)responder;
-
-- (IBAction) checkVersionNumber:(id)sender; 
 
 @end
 

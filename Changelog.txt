@@ -18,6 +18,13 @@ Known problems:
 0.3
     * Code cleanup
 
+Known problems:
+    * Controls>Play/Pause doesn't have a key-equivalent. This generally doesn't
+      matter because space will still work in almost all cases you'd care
+      about, and the user can set a different key equivalent if she wants. It's
+      just slightly inconsistent. The way iTunes does it seems to be highly
+      non-standard and difficult to re-implement.
+
 For the future: 
     * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 
     * iTunes store integration -- build a itunes store "playlist" that allows users to easily purchase songs they have heard. 

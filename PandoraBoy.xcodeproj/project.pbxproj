@@ -67,6 +67,9 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
+		FB3856B80BC993C9005653C3 /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = FB3856B70BC993C9005653C3 /* Changelog.txt */; };
+		FB3856EF0BC9973F005653C3 /* README.DNC.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FB3856EE0BC9973F005653C3 /* README.DNC.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -172,6 +175,9 @@
 		3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */ = {isa = PBXFileReference; explicitFileType = text.sdef; fileEncoding = 30; path = PandoraBoy.sdef; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* PandoraBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PandoraBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB38569E0BC9913F005653C3 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FB3856B70BC993C9005653C3 /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
+		FB3856EE0BC9973F005653C3 /* README.DNC.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.DNC.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +255,7 @@
 		29B97314FDCFA39411CA2CEA /* PandoraBoy */ = {
 			isa = PBXGroup;
 			children = (
+				FB3856B60BC993B1005653C3 /* Documentation */,
 				3DC9FC780B74FED200FF4370 /* Shortcut Recorder */,
 				3DDA241D0B74F58800F500BD /* AppleScript */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -271,6 +278,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FB3856AA0BC9919B005653C3 /* Localizable.strings */,
 				3D0444410B758EAE00F1BA8B /* cleficon.icns */,
 				3D0444420B758EAE00F1BA8B /* General.tiff */,
 				3D0444430B758EAE00F1BA8B /* KeyboardIcon.tiff */,
@@ -344,6 +352,15 @@
 			name = ShortcutRecorder;
 			sourceTree = "<group>";
 		};
+		FB3856B60BC993B1005653C3 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				FB3856EE0BC9973F005653C3 /* README.DNC.rtf */,
+				FB3856B70BC993C9005653C3 /* Changelog.txt */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,6 +418,9 @@
 				3D04444C0B758EAE00F1BA8B /* pandoraboy.icns in Resources */,
 				3D04444D0B758EAE00F1BA8B /* thumbs_down.png in Resources */,
 				3D04444E0B758EAE00F1BA8B /* thumbs_up.png in Resources */,
+				FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */,
+				FB3856B80BC993C9005653C3 /* Changelog.txt in Resources */,
+				FB3856EF0BC9973F005653C3 /* README.DNC.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +470,14 @@
 			name = MainMenu.nib;
 			sourceTree = "<group>";
 		};
+		FB3856AA0BC9919B005653C3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB38569E0BC9913F005653C3 /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -474,6 +502,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
@@ -510,6 +539,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GENERATE_MASTER_OBJECT_FILE = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";

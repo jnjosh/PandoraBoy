@@ -24,6 +24,29 @@
 
 static SongNotification* sharedInstance = nil;
 
+extern NSString *PBNotifierURL;
+NSString *PBNotifierURL = @"http://www.frozensilicon.net/SongNotification.htm";
+
+NSString *PBPlayerInfoNotificationName = @"net.frozensilicon.pandoraBoy.playerInfo";
+
+NSString *PBPlayerInfoArtistKey      = @"Artist";
+NSString *PBPlayerInfoNameKey        = @"Name";
+NSString *PBPlayerInfoGenreKey       = @"Genre";
+NSString *PBPlayerInfoTotalTimeKey   = @"Total Time";
+NSString *PBPlayerInfoPlayerStateKey = @"Player State";
+NSString *PBPlayerInfoTrackNumberKey = @"Track Number";
+NSString *PBPlayerInfoStoreURLKey    = @"Store URL";
+NSString *PBPlayerInfoAlbumKey       = @"Album";
+NSString *PBPlayerInfoComposerKey    = @"Composer";
+NSString *PBPlayerInfoLocationKey    = @"Location";
+NSString *PBPlayerInfoTrackCountKey  = @"Track Count";
+NSString *PBPlayerInfoRatingKey      = @"Rating";
+NSString *PBPlayerInfoDiscNumberKey  = @"Disc Number";
+NSString *PBPlayerInfoDiscCountKey   = @"Disc Count";
+
+NSString *PBPlayerStatePlaying = @"Playing";
+NSString *PBPlayerStatePaused  = @"Paused";
+
 @implementation SongNotification
 
 #pragma public interface
@@ -33,17 +56,12 @@ static SongNotification* sharedInstance = nil;
 	if (sharedInstance) return sharedInstance;
 	
 	if ( self = [super init] ) {
+        [self setName:@""];
+        [self setArtist:@""];
+        [self setPlayerState:@""];
 	}
-	
 	return self;
 }
-
-/*
-- (void)webView:(WebView *)sender addMessageToConsole:(NSDictinoary*)dictionary
-{
-	NSLog(@"Dictionary: %@", dictionary);
-}
-*/
 
 - (void) dealloc 
 {
@@ -57,74 +75,87 @@ static SongNotification* sharedInstance = nil;
 	return sharedInstance;
 }
 
-- (void) loadNotifier: (WebView*) view;
-{
-	[[view mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.frozensilicon.net/SongNotification.htm"]]];
+- (NSString *)name {
+    return [[_name retain] autorelease];
+}
+
+- (void)setName:(NSString *)value {
+    if (_name != value) {
+        [_name release];
+        _name = [value retain];
+    }
+}
+
+- (NSString *)artist {
+    return [[_artist retain] autorelease];
+}
+
+- (void)setArtist:(NSString *)value {
+    if (_artist != value) {
+        [_artist release];
+        _artist = [value retain];
+    }
+}
+
+- (NSString *)playerState {
+    return [[_playerState retain] autorelease];
+}
+
+- (void)setPlayerState:(NSString *)value {
+    if (_playerState != value) {
+        [_playerState release];
+        _playerState = [value retain];
+    }
+}
+
+- (void) loadNotifier: (WebView*) view {
+	[[view mainFrame] loadRequest:[NSURLRequest requestWithURL:
+        [NSURL URLWithString:PBNotifierURL]]];
 	 id win = [view windowScriptObject]; 
 	 [win setValue:self forKey:@"SongNotification"];
 	 NSLog(@"Notifier loaded");
 }
 
-- (void) setDelegate: (id) _delegate 
-{
-  //	if ([_delegate respondsToSelector:@selector(appleRemoteButton:pressedDown:)]==NO) return;
-	
-	[_delegate retain];
-	[delegate release];
-	delegate = _delegate;
-}
-- (id) delegate {
-	return delegate;
+- (void) sendPlayerInfoNotification {
+    if( ! [[self name] isEqualToString:@""] ) {
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [self name],        PBPlayerInfoNameKey, 
+                            [self artist],      PBPlayerInfoArtistKey,
+                            [self playerState], PBPlayerInfoPlayerStateKey,
+                            nil];
+
+        [[NSDistributedNotificationCenter defaultCenter]
+            postNotificationName:PBPlayerInfoNotificationName
+                          object:nil
+                        userInfo:dict];
+    }
 }
 
-- (void) sendSongArtistNotification: (NSString*)song byArtist:(NSString*)artist toNotification:(NSString*)notification
+// Delegate methods from Pandora's notification system
+- (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist
 {
-  NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
-					    song,
-                        @"song", 
-                        artist,
-                        @"artist", 
-				        nil];
-  [[NSNotificationCenter defaultCenter]	
-		postNotificationName: notification object: dict];						
-}
-
-- (void) pandoraSongPlayed: (NSString*)song :(NSString*)artist
-{
-  NSLog( @"pandoraSongPlayed song: %@, artist: %@", song, artist); 
-  [self sendSongArtistNotification:song byArtist:artist toNotification:@"PandoraSongPlayed"];
-  if(delegate) {
-    [delegate pandoraSongPlayed:song :artist];
-  }
+  NSLog( @"pandoraSongPlayed name: %@, artist: %@", name, artist); 
+    [self setName:name];
+    [self setArtist:artist];
+    [self setPlayerState:PBPlayerStatePlaying];
+    [self sendPlayerInfoNotification];
 }
 
 - (void) pandoraSongPaused
 {
-  //exit(1);
-  NSLog( @"pandoraSongPaused"); 
-  [[NSNotificationCenter defaultCenter]	
-    postNotificationName:@"PandoraSongPaused" object:nil];		    
-  if(delegate) {
-    [delegate pandoraSongPaused];
-  }
+    NSLog( @"pandoraSongPaused"); 
+    [self setPlayerState:PBPlayerStatePaused];
+    [self sendPlayerInfoNotification];
 }
 
 - (void) pandoraEventsError: (NSString*)errormsg
 {
   NSLog( @"pandoraEventsError: %@", errormsg); 
-  if(delegate) {
-    [delegate pandoraEventsError:errormsg];
-  }
 }
 
-- (void) pandoraSongEnded: (NSString*)song :(NSString*)artist
+- (void) pandoraSongEnded: (NSString*)name :(NSString*)artist
 {
-  NSLog( @"pandoraSongEnded song: %@, artist: %@", song, artist); 
-  [self sendSongArtistNotification:song byArtist:artist toNotification:@"PandoraSongEnded"];
-  if(delegate) {
-    [delegate pandoraSongEnded:song :artist];
-  }
-  
+  NSLog( @"pandoraSongEnded name: %@, artist: %@", name, artist); 
 }
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector { return NO; }

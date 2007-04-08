@@ -22,33 +22,52 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebView.h>
 
-@interface SongNotification : NSObject {
-  IBOutlet id delegate; 
+extern NSString *PBPlayerInfoNotificationName;
 
+extern NSString *PBPlayerInfoArtistKey;
+extern NSString *PBPlayerInfoNameKey;
+extern NSString *PBPlayerInfoGenreKey;
+extern NSString *PBPlayerInfoTotalTimeKey;
+extern NSString *PBPlayerInfoPlayerStateKey;
+extern NSString *PBPlayerInfoTrackNumberKey;
+extern NSString *PBPlayerInfoStoreURLKey;
+extern NSString *PBPlayerInfoAlbumKey;
+extern NSString *PBPlayerInfoComposerKey;
+extern NSString *PBPlayerInfoLocationKey;
+extern NSString *PBPlayerInfoTrackCountKey;
+extern NSString *PBPlayerInfoRatingKey;
+extern NSString *PBPlayerInfoDiscNumberKey;
+extern NSString *PBPlayerInfoDiscCountKey;
+
+extern NSString *PBPlayerStatePlaying;
+extern NSString *PBPlayerStatePaused;
+
+@interface SongNotification : NSObject {
+    NSString *_name;
+    NSString *_artist;
+    NSString *_playerState;
 }
 
-//- (void) webView:(WebView*)sender:  addMessageToConsole:(NSDictionary*)dictionary; 
+- (NSString *)name;
+- (void)setName:(NSString *)value;
+
+- (NSString *)artist;
+- (void)setArtist:(NSString *)value;
+
+- (NSString *)playerState;
+- (void)setPlayerState:(NSString *)value;
 
 + (SongNotification*) sharedNotification; 
 
 - (void) loadNotifier: (WebView*)view; 
-
-- (void) setDelegate: (id) delegate; 
-- (id) delegate; 
-
-- (void) pandoraSongPlayed: (NSString*)song :(NSString*)artist; 
-- (void) pandoraSongPaused; 
-- (void) pandoraEventsError: (NSString*)errormsg; 
-- (void) pandoraSongEnded: (NSString*)song :(NSString*)artist; 
+- (void) sendPlayerInfoNotification;
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector;
-@end
+//@end
 
-@interface NSObject(NSSongNotificationDelegate)
-
-- (void) pandoraSongPlayed: (NSString*)song :(NSString*)artist; 
+//@interface NSObject(NSSongNotificationDelegate)
+- (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 
 - (void) pandoraSongPaused; 
 - (void) pandoraEventsError: (NSString*)errormsg; 
-- (void) pandoraSongEnded: (NSString*)song :(NSString*)artist; 
-
+- (void) pandoraSongEnded: (NSString*)name :(NSString*)artist; 
 @end

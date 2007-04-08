@@ -20,8 +20,6 @@
  ***************************************************************************/
 
 #import "PandoraControl.h"
-#import "GrowlNotification.h"
-//#import <AppleEvents.h>
 #import <Carbon/Carbon.h>
 
 static PandoraControl* sharedInstance = nil;
@@ -33,7 +31,8 @@ static PandoraControl* sharedInstance = nil;
 	if (sharedInstance) return sharedInstance;
 	
 	if ( self = [super init] ) {
-	  controlDisabled = false; 
+        controlDisabled = false; 
+        [self setGrowl:[[GrowlNotification alloc] init]];
 	}
 	
 	return self;
@@ -41,6 +40,7 @@ static PandoraControl* sharedInstance = nil;
 
 - (void) dealloc 
 {
+    [_growl release];
 	[super dealloc];
 }
 
@@ -65,6 +65,19 @@ static PandoraControl* sharedInstance = nil;
 {
     webNetscapePlugin = webPlugin; 
 }
+
+
+- (GrowlNotification *)growl {
+    return [[_growl retain] autorelease];
+}
+
+- (void)setGrowl:(GrowlNotification *)value {
+    if (_growl != value) {
+        [_growl release];
+        _growl = [value retain];
+    }
+}
+
 - (bool) sendKeyPress: (int)keyCode withModifiers:(int)modifiers
 {
   if(!controlDisabled) {
@@ -110,14 +123,14 @@ static PandoraControl* sharedInstance = nil;
 {
   //Plus
   if([self sendKeyPress: 69])
-    [[GrowlNotification sharedNotification] pandoraLikeSong];
+    [[self growl] pandoraLikeSong];
 }
 
 - (void) dislikeSong
 {
   //Minus
   if([self sendKeyPress: 78])
-    [[GrowlNotification sharedNotification] pandoraDislikeSong];
+    [[self growl] pandoraDislikeSong];
 }
 
 - (void) raiseVolume

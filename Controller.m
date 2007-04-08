@@ -21,7 +21,6 @@
 
 #import "Controller.h"
 #import "SongNotification.h"
-#import "GrowlNotification.h" 
 #import "PandoraControl.h"
 #import "GlobalHotkey.h"
 #import "AppleRemote.h"
@@ -64,7 +63,6 @@ typedef enum {
 		[[AppleRemote sharedRemote] setOpenInExclusiveMode:false];
 		[[AppleRemote sharedRemote] setListeningToRemote:true];
 	}
-
   }
 
   return self;
@@ -266,7 +264,6 @@ typedef enum {
 
 	[self loadPandora];
     [[SongNotification sharedNotification] loadNotifier:notificationView];
-    [[SongNotification sharedNotification] setDelegate: [GrowlNotification sharedNotification]];
 
   if([[NSUserDefaults standardUserDefaults] boolForKey:@"DoNotShowStartupWindow2"]==NO) {
     [startupWindow makeKeyAndOrderFront:self]; 

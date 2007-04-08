@@ -23,24 +23,20 @@
 #import "SongNotification.h"
 #import <Growl/GrowlApplicationBridge.h>
 
+extern NSString *PBGrowlNotificationSongPlaying;
+extern NSString *PBGrowlNotificationSongPaused;
+extern NSString *PBGrowlNotificationSongThumbed;
+extern NSString *PBGrowlNotificationError;
+
 @interface GrowlNotification : NSObject <GrowlApplicationBridgeDelegate> {
-  NSString *currentSong; 
-  NSString *currentArtist; 
-  bool currentValid; 
+    NSData *thumbsUpImage;
+    NSData *thumbsDownImage;
 }
 
-+ (GrowlNotification*) sharedNotification; 
-
-//- (void) registerWithGrowl; 
+- (void) playerInfoChanged:(NSNotification*)aNotification;
 
 - (void) pandoraLikeSong; 
 - (void) pandoraDislikeSong; 
-
-// delegate methods for SongNotification
-- (void) pandoraSongPlayed: (NSString*)song :(NSString*)artist; 
-- (void) pandoraSongPaused; 
-- (void) pandoraEventsError: (NSString*)errormsg; 
-- (void) pandoraSongEnded: (NSString*)song :(NSString*)artist; 
 
 // delegate methods for GrowlApplicationBridge
 - (NSDictionary *) registrationDictionaryForGrowl;

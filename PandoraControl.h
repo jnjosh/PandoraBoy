@@ -7,12 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "GrowlNotification.h"
 
 @interface PandoraControl : NSObject {
   id webNetscapePlugin; 
-  bool controlDisabled; 
+  bool controlDisabled;
+  GrowlNotification *_growl;
 }
+
+- (GrowlNotification *)growl;
+- (void)setGrowl:(GrowlNotification *)value;
 
 + (PandoraControl*) sharedController; 
 

@@ -17,6 +17,10 @@ Known problems:
 
 0.3
     * Code cleanup
+    * Major Growl changes. Text is different and can be localized (though no
+      translations have been done yet).
+    * Global notifications through NSDistributedNotificationCenter that match
+      iTunes. See README.DNC.txt.
 
 Known problems:
     * Controls>Play/Pause doesn't have a key-equivalent. This generally doesn't

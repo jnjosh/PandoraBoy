@@ -21,7 +21,10 @@
 
 #import "GrowlNotification.h"
 
-static GrowlNotification* sharedInstance = nil;
+NSString *PBGrowlNotificationSongPlaying = @"Song Playing";
+NSString *PBGrowlNotificationSongPaused  = @"Song Paused";
+NSString *PBGrowlNotificationSongThumbed = @"Song Thumbed";
+NSString *PBGrowlNotificationError       = @"Error";
 
 @implementation GrowlNotification
 
@@ -29,11 +32,17 @@ static GrowlNotification* sharedInstance = nil;
 
 - (id) init 
 {
-	if (sharedInstance) return sharedInstance;
-	
 	if ( self = [super init] ) {
-	  [GrowlApplicationBridge setGrowlDelegate: self]; 
-	  currentValid = false; 
+        [GrowlApplicationBridge setGrowlDelegate: self];
+        [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                            selector:@selector(playerInfoChanged:)
+                                                                name:PBPlayerInfoNotificationName
+                                                              object:nil
+                                                  suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+        thumbsUpImage = [[NSData dataWithContentsOfFile:
+            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]] retain];
+        thumbsDownImage = [[NSData dataWithContentsOfFile:
+            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]] retain];
 	}
 	
 	return self;
@@ -41,130 +50,81 @@ static GrowlNotification* sharedInstance = nil;
 
 - (void) dealloc 
 {
+    [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
+    [thumbsUpImage release];
+    [thumbsDownImage release];
 	[super dealloc];
 }
 
-+ (GrowlNotification*) sharedNotification 
-{
-	if (sharedInstance) return sharedInstance;
-	sharedInstance = [[GrowlNotification alloc] init];
-	return sharedInstance;
+- (void) playerInfoChanged:(NSNotification*)aNotification {
+    SongNotification *song = [SongNotification sharedNotification];
+    
+    NSString *playerState = [[aNotification userInfo] objectForKey:PBPlayerInfoPlayerStateKey];
+    NSString *notificationName;;
+    NSString *title;
+    if( [playerState isEqualToString:PBPlayerStatePlaying] ) {
+        notificationName = PBGrowlNotificationSongPlaying;
+        title = [NSLocalizedString(@"Now Playing: ", @"") stringByAppendingString:[song name]];
+    }
+    else if( [playerState isEqualToString:PBPlayerStatePaused] ) {
+        notificationName = PBGrowlNotificationSongPaused;
+        title = [NSLocalizedString(@"Paused: ", @"") stringByAppendingString:[song name]];
+    }
+    else {
+        NSLog(@"BUG:playerInfoChanged called with illegal state: %@", playerState);
+    }
+
+    [GrowlApplicationBridge notifyWithTitle:title
+                                description:[NSLocalizedString(@"Artist: ", @"") stringByAppendingString:[song artist]]
+                           notificationName:notificationName
+                                   iconData:nil
+                                   priority:0
+                                   isSticky:false
+                               clickContext:nil];
 }
 
 - (void) pandoraLikeSong
 {
-  // Only show the notification if we are currently playing a song
-  if(currentValid) { 
-    NSData *thumbsUp = [NSData dataWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
-   [GrowlApplicationBridge
-    notifyWithTitle:currentSong
-    description:currentArtist
-    notificationName:@"Like/Dislike Song"
-    iconData:thumbsUp
-    priority:0
-    isSticky:false
-    clickContext:nil];
-  }
+    SongNotification *song = [SongNotification sharedNotification];
+    
+    [GrowlApplicationBridge
+        notifyWithTitle:[song name]
+            description:[song artist]
+       notificationName:PBGrowlNotificationSongThumbed
+               iconData:thumbsUpImage
+               priority:0
+               isSticky:false
+           clickContext:nil];
 }
 
 - (void) pandoraDislikeSong
 {
-  if(currentValid) { 
-    NSData *thumbsDown = [NSData dataWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]];
-   [GrowlApplicationBridge
-    notifyWithTitle:currentSong
-    description:currentArtist
-    notificationName:@"Like/Dislike Song"
-    iconData:thumbsDown
-    priority:0
-    isSticky:false
-    clickContext:nil];
-  }
-}
-
-- (void) pandoraSongPlayed: (NSString*)song :(NSString*)artist
-{
-  if(currentValid) {
-    [currentSong release];
-    [currentArtist release];
-  }
-
-  currentSong = [NSString stringWithString: song]; 
-  currentArtist = [NSString stringWithString: artist]; 
-  currentValid = true; 
-
-  [currentSong retain];
-  [currentArtist retain]; 
-
-  [GrowlApplicationBridge
-    notifyWithTitle:currentSong
-    description:currentArtist
-    notificationName:@"Song Changed"
-    iconData:nil
-    priority:0
-    isSticky:false
-    clickContext:nil]; 
-}
-
-- (void) pandoraSongPaused
-{
-  [GrowlApplicationBridge
-    notifyWithTitle:@"Playback Paused"
-     description:nil
-    notificationName:@"Playback Paused"
-    iconData:nil
-    priority:0
-    isSticky:false
-    clickContext:nil];   
-}
-
-- (void) pandoraEventsError: (NSString*)errormsg 
-{
-   [GrowlApplicationBridge
-    notifyWithTitle:@"An Error Occured"
-     description:errormsg
-    notificationName:@"Notification Error"
-    iconData:nil
-    priority:0
-    isSticky:false
-    clickContext:nil];     
-}
-
-- (void) pandoraSongEnded: (NSString*)song :(NSString*)artist
-{
-   [GrowlApplicationBridge
-    notifyWithTitle:song
-     description:artist
-    notificationName:@"Song Ended"
-    iconData:nil
-    priority:0
-    isSticky:false
-    clickContext:nil];     
-
+    SongNotification *song = [SongNotification sharedNotification];
+    
+    [GrowlApplicationBridge
+        notifyWithTitle:[song name]
+            description:[song artist]
+       notificationName:PBGrowlNotificationSongThumbed
+               iconData:thumbsDownImage
+               priority:0
+               isSticky:false
+           clickContext:nil];
 }
 
 // delegate methods for GrowlApplicationBridge
 - (NSDictionary *) registrationDictionaryForGrowl {
   NSArray *notifications = [NSArray arrayWithObjects:
-				    @"Song Ended",
-				    @"Song Changed",
-				    @"Playback Paused",
-				    @"Notification Error",
-				    @"Like/Dislike Song", 
+				    PBGrowlNotificationSongPlaying,
+                    PBGrowlNotificationSongPaused,
+                    PBGrowlNotificationSongThumbed,
 				    nil];
 
-  NSArray *defaultNotifications = [NSArray arrayWithObjects:
-					   @"Song Changed",
-					   @"Notification Error",
-					   @"Like/Dislike Song",
-					   nil];
- 	
   NSDictionary *regDict = [NSDictionary dictionaryWithObjectsAndKeys:
-					  @"PandoraBoy", GROWL_APP_NAME,
-					notifications, GROWL_NOTIFICATIONS_ALL,
-					defaultNotifications, GROWL_NOTIFICATIONS_DEFAULT,
+                    @"PandoraBoy", GROWL_APP_NAME,
+                    notifications, GROWL_NOTIFICATIONS_ALL,
+					notifications, GROWL_NOTIFICATIONS_DEFAULT,
 					nil];
- 	
   return regDict;
 }
+
 @end

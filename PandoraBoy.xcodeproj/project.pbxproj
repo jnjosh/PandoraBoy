@@ -70,6 +70,9 @@
 		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
 		FB3856B80BC993C9005653C3 /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = FB3856B70BC993C9005653C3 /* Changelog.txt */; };
 		FB3856EF0BC9973F005653C3 /* README.DNC.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FB3856EE0BC9973F005653C3 /* README.DNC.rtf */; };
+		FB4D23510BCB092700DCC767 /* README.Applescript.txt in Resources */ = {isa = PBXBuildFile; fileRef = FB4D23500BCB092700DCC767 /* README.Applescript.txt */; };
+		FBC365050BC9C1490052A3A9 /* Track.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC365030BC9C1490052A3A9 /* Track.h */; };
+		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +105,7 @@
 				3DBE1AFF0B76B37400DB83CA /* RaiseVolume.scpt in CopyFiles */,
 				3DBE1B000B76B37400DB83CA /* ThumbsDown.scpt in CopyFiles */,
 				3DBE1B010B76B37400DB83CA /* ThumbsUp.scpt in CopyFiles */,
+				FBC365050BC9C1490052A3A9 /* Track.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +182,9 @@
 		FB38569E0BC9913F005653C3 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB3856B70BC993C9005653C3 /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		FB3856EE0BC9973F005653C3 /* README.DNC.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.DNC.rtf; sourceTree = "<group>"; };
+		FB4D23500BCB092700DCC767 /* README.Applescript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.Applescript.txt; sourceTree = "<group>"; wrapsLines = 1; };
+		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +227,8 @@
 				3D170EFB0B176AA800942A24 /* WebViewProxy.m */,
 				3D170F380B176DFB00942A24 /* WebFrameProxy.h */,
 				3D170F390B176DFB00942A24 /* WebFrameProxy.m */,
+				FBC365030BC9C1490052A3A9 /* Track.h */,
+				FBC365040BC9C1490052A3A9 /* Track.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -357,6 +366,7 @@
 			children = (
 				FB3856EE0BC9973F005653C3 /* README.DNC.rtf */,
 				FB3856B70BC993C9005653C3 /* Changelog.txt */,
+				FB4D23500BCB092700DCC767 /* README.Applescript.txt */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";
@@ -421,6 +431,7 @@
 				FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */,
 				FB3856B80BC993C9005653C3 /* Changelog.txt in Resources */,
 				FB3856EF0BC9973F005653C3 /* README.DNC.rtf in Resources */,
+				FB4D23510BCB092700DCC767 /* README.Applescript.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +459,7 @@
 				3D4400D70B758BC10022A3D7 /* SRRecorderCell.m in Sources */,
 				3D4400D90B758BC10022A3D7 /* SRRecorderControl.m in Sources */,
 				3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */,
+				FBC365060BC9C1490052A3A9 /* Track.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

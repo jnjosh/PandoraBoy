@@ -90,3 +90,14 @@
 	return self;
 }
 @end
+
+@implementation NSApplication (PandoraBoyScripting)
+- (Track *)currentTrack {
+    return [[SongNotification sharedNotification] currentTrack];
+}
+
+- (NSArray *)tracks {
+    return [[SongNotification sharedNotification] tracks];
+}
+
+@end

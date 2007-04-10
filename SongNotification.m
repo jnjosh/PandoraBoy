@@ -51,13 +51,12 @@ NSString *PBPlayerStatePaused  = @"Paused";
 
 #pragma public interface
 
-- (id) init 
+- (id) init
 {
 	if (sharedInstance) return sharedInstance;
 	
 	if ( self = [super init] ) {
-        [self setName:@""];
-        [self setArtist:@""];
+        [self setTracks:[NSMutableArray array]];
         [self setPlayerState:@""];
 	}
 	return self;
@@ -65,6 +64,7 @@ NSString *PBPlayerStatePaused  = @"Paused";
 
 - (void) dealloc 
 {
+    [_playerState release];
 	[super dealloc];
 }
 
@@ -75,25 +75,14 @@ NSString *PBPlayerStatePaused  = @"Paused";
 	return sharedInstance;
 }
 
-- (NSString *)name {
-    return [[_name retain] autorelease];
+- (NSMutableArray *)tracks {
+    return [[_tracks retain] autorelease];
 }
 
-- (void)setName:(NSString *)value {
-    if (_name != value) {
-        [_name release];
-        _name = [value retain];
-    }
-}
-
-- (NSString *)artist {
-    return [[_artist retain] autorelease];
-}
-
-- (void)setArtist:(NSString *)value {
-    if (_artist != value) {
-        [_artist release];
-        _artist = [value retain];
+- (void)setTracks:(NSMutableArray *)value {
+    if (_tracks != value) {
+        [_tracks release];
+        _tracks = [value retain];
     }
 }
 
@@ -108,6 +97,10 @@ NSString *PBPlayerStatePaused  = @"Paused";
     }
 }
 
+- (Track *)currentTrack {
+    return [[self tracks] lastObject];
+}
+
 - (void) loadNotifier: (WebView*) view {
 	[[view mainFrame] loadRequest:[NSURLRequest requestWithURL:
         [NSURL URLWithString:PBNotifierURL]]];
@@ -117,11 +110,12 @@ NSString *PBPlayerStatePaused  = @"Paused";
 }
 
 - (void) sendPlayerInfoNotification {
-    if( ! [[self name] isEqualToString:@""] ) {
+    Track *currentTrack = [self currentTrack];
+    if( ! [[currentTrack name] isEqualToString:@""] ) {
         NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [self name],        PBPlayerInfoNameKey, 
-                            [self artist],      PBPlayerInfoArtistKey,
-                            [self playerState], PBPlayerInfoPlayerStateKey,
+                            [currentTrack name],   PBPlayerInfoNameKey, 
+                            [currentTrack artist], PBPlayerInfoArtistKey,
+                            [self playerState],    PBPlayerInfoPlayerStateKey,
                             nil];
 
         [[NSDistributedNotificationCenter defaultCenter]
@@ -135,8 +129,10 @@ NSString *PBPlayerStatePaused  = @"Paused";
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist
 {
   NSLog( @"pandoraSongPlayed name: %@, artist: %@", name, artist); 
-    [self setName:name];
-    [self setArtist:artist];
+    Track *track = [Track trackWithName:name artist:artist];
+    if( ! [[NSApp currentTrack] isEqual:track] ) {
+        [[self tracks] addObject:track];
+    }
     [self setPlayerState:PBPlayerStatePlaying];
     [self sendPlayerInfoNotification];
 }

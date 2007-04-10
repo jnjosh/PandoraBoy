@@ -20,6 +20,7 @@
 ***************************************************************************/
 
 #import <Cocoa/Cocoa.h>
+#import "Track.h"
 
 @interface playPauseCommand   : NSScriptCommand {} @end
 @interface skipCommand		  : NSScriptCommand {} @end
@@ -29,3 +30,8 @@
 @interface lowerVolumeCommand : NSScriptCommand {} @end
 @interface fullVolumeCommand  : NSScriptCommand {} @end
 @interface muteCommand		  : NSScriptCommand {} @end
+
+@interface NSApplication (PandoraBoyScripting)
+- (Track *)currentTrack;
+- (NSArray *)tracks;
+@end

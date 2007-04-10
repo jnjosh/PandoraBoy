@@ -21,6 +21,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebView.h>
+#import <Track.h>
 
 extern NSString *PBPlayerInfoNotificationName;
 
@@ -43,19 +44,17 @@ extern NSString *PBPlayerStatePlaying;
 extern NSString *PBPlayerStatePaused;
 
 @interface SongNotification : NSObject {
-    NSString *_name;
-    NSString *_artist;
+    NSMutableArray *_tracks;
     NSString *_playerState;
 }
 
-- (NSString *)name;
-- (void)setName:(NSString *)value;
-
-- (NSString *)artist;
-- (void)setArtist:(NSString *)value;
+- (NSMutableArray *)tracks;
+- (void)setTracks:(NSMutableArray *)value;
 
 - (NSString *)playerState;
 - (void)setPlayerState:(NSString *)value;
+
+- (Track *)currentTrack;
 
 + (SongNotification*) sharedNotification; 
 
@@ -63,11 +62,11 @@ extern NSString *PBPlayerStatePaused;
 - (void) sendPlayerInfoNotification;
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector;
-//@end
 
-//@interface NSObject(NSSongNotificationDelegate)
+// Delegate functions from Pandora notification system
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 
 - (void) pandoraSongPaused; 
 - (void) pandoraEventsError: (NSString*)errormsg; 
 - (void) pandoraSongEnded: (NSString*)name :(NSString*)artist; 
+
 @end

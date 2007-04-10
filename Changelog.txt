@@ -21,6 +21,7 @@ Known problems:
       translations have been done yet).
     * Global notifications through NSDistributedNotificationCenter that match
       iTunes. See README.DNC.txt.
+    * Major Applescript changes. See README.Applescript.txt.
 
 Known problems:
     * Controls>Play/Pause doesn't have a key-equivalent. This generally doesn't

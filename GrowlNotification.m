@@ -57,25 +57,25 @@ NSString *PBGrowlNotificationError       = @"Error";
 }
 
 - (void) playerInfoChanged:(NSNotification*)aNotification {
-    SongNotification *song = [SongNotification sharedNotification];
+    Track *track = [[SongNotification sharedNotification] currentTrack];
     
     NSString *playerState = [[aNotification userInfo] objectForKey:PBPlayerInfoPlayerStateKey];
     NSString *notificationName;;
     NSString *title;
     if( [playerState isEqualToString:PBPlayerStatePlaying] ) {
         notificationName = PBGrowlNotificationSongPlaying;
-        title = [NSLocalizedString(@"Now Playing: ", @"") stringByAppendingString:[song name]];
+        title = [NSLocalizedString(@"Now Playing: ", @"") stringByAppendingString:[track name]];
     }
     else if( [playerState isEqualToString:PBPlayerStatePaused] ) {
         notificationName = PBGrowlNotificationSongPaused;
-        title = [NSLocalizedString(@"Paused: ", @"") stringByAppendingString:[song name]];
+        title = [NSLocalizedString(@"Paused: ", @"") stringByAppendingString:[track name]];
     }
     else {
         NSLog(@"BUG:playerInfoChanged called with illegal state: %@", playerState);
     }
 
     [GrowlApplicationBridge notifyWithTitle:title
-                                description:[NSLocalizedString(@"Artist: ", @"") stringByAppendingString:[song artist]]
+                                description:[NSLocalizedString(@"Artist: ", @"") stringByAppendingString:[track artist]]
                            notificationName:notificationName
                                    iconData:nil
                                    priority:0
@@ -85,11 +85,11 @@ NSString *PBGrowlNotificationError       = @"Error";
 
 - (void) pandoraLikeSong
 {
-    SongNotification *song = [SongNotification sharedNotification];
+    Track *track = [[SongNotification sharedNotification] currentTrack];
     
     [GrowlApplicationBridge
-        notifyWithTitle:[song name]
-            description:[song artist]
+        notifyWithTitle:[track name]
+            description:[track artist]
        notificationName:PBGrowlNotificationSongThumbed
                iconData:thumbsUpImage
                priority:0
@@ -99,11 +99,11 @@ NSString *PBGrowlNotificationError       = @"Error";
 
 - (void) pandoraDislikeSong
 {
-    SongNotification *song = [SongNotification sharedNotification];
+    Track *track = [[SongNotification sharedNotification] currentTrack];
     
     [GrowlApplicationBridge
-        notifyWithTitle:[song name]
-            description:[song artist]
+        notifyWithTitle:[track name]
+            description:[track artist]
        notificationName:PBGrowlNotificationSongThumbed
                iconData:thumbsDownImage
                priority:0

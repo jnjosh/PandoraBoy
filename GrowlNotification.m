@@ -59,23 +59,23 @@ NSString *PBGrowlNotificationError       = @"Error";
 - (void) playerInfoChanged:(NSNotification*)aNotification {
     Track *track = [[SongNotification sharedNotification] currentTrack];
     
-    NSString *playerState = [[aNotification userInfo] objectForKey:PBPlayerInfoPlayerStateKey];
+    int playerState = [[[aNotification userInfo] valueForKey:PBPlayerInfoPlayerStateKey] intValue];
     NSString *notificationName;;
     NSString *title;
-    if( [playerState isEqualToString:PBPlayerStatePlaying] ) {
+    if( playerState == PBPlayerStatePlaying ) {
         notificationName = PBGrowlNotificationSongPlaying;
-        title = [NSLocalizedString(@"Now Playing: ", @"") stringByAppendingString:[track name]];
+        title = [track name];
     }
-    else if( [playerState isEqualToString:PBPlayerStatePaused] ) {
+    else if( playerState == PBPlayerStatePaused ) {
         notificationName = PBGrowlNotificationSongPaused;
-        title = [NSLocalizedString(@"Paused: ", @"") stringByAppendingString:[track name]];
+        title = [[track name] stringByAppendingFormat:@" (%@)", NSLocalizedString(@"paused", @"")];
     }
     else {
         NSLog(@"BUG:playerInfoChanged called with illegal state: %@", playerState);
     }
 
     [GrowlApplicationBridge notifyWithTitle:title
-                                description:[NSLocalizedString(@"Artist: ", @"") stringByAppendingString:[track artist]]
+                                description:[NSLocalizedString(@"By: ", @"") stringByAppendingString:[track artist]]
                            notificationName:notificationName
                                    iconData:nil
                                    priority:0

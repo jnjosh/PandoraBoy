@@ -52,14 +52,14 @@
 		3D6946960AAC91DF00899D49 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6946940AAC91DF00899D49 /* PreferenceController.m */; };
 		3D7F771F0A9EB1DB004B0146 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F771E0A9EB1DB004B0146 /* Controller.m */; };
 		3DB581700ABB0155004452C3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB5816F0ABB0155004452C3 /* Carbon.framework */; };
-		3DBE1AFA0B76B37400DB83CA /* iTunesNextTrack.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */; };
-		3DBE1AFB0B76B37400DB83CA /* iTunesPlayPause.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */; };
-		3DBE1AFC0B76B37400DB83CA /* LowerVolume.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */; };
-		3DBE1AFD0B76B37400DB83CA /* NextTrack.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF50B76B37400DB83CA /* NextTrack.scpt */; };
-		3DBE1AFE0B76B37400DB83CA /* PlayPause.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF60B76B37400DB83CA /* PlayPause.scpt */; };
-		3DBE1AFF0B76B37400DB83CA /* RaiseVolume.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */; };
-		3DBE1B000B76B37400DB83CA /* ThumbsDown.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */; };
-		3DBE1B010B76B37400DB83CA /* ThumbsUp.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */; };
+		3DBE1AFA0B76B37400DB83CA /* iTunesNextTrack.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */; };
+		3DBE1AFB0B76B37400DB83CA /* iTunesPlayPause.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */; };
+		3DBE1AFC0B76B37400DB83CA /* LowerVolume.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */; };
+		3DBE1AFD0B76B37400DB83CA /* NextTrack.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE1AF50B76B37400DB83CA /* NextTrack.scpt */; };
+		3DBE1AFE0B76B37400DB83CA /* PlayPause.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE1AF60B76B37400DB83CA /* PlayPause.scpt */; };
+		3DBE1AFF0B76B37400DB83CA /* RaiseVolume.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */; };
+		3DBE1B000B76B37400DB83CA /* ThumbsDown.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */; };
+		3DBE1B010B76B37400DB83CA /* ThumbsUp.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */; };
 		3DDA24270B74F5D000F500BD /* Commands.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DDA24250B74F5D000F500BD /* Commands.h */; };
 		3DDA24280B74F5D000F500BD /* Commands.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA24260B74F5D000F500BD /* Commands.m */; };
 		3DDA242F0B74F64E00F500BD /* PandoraBoy.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */; };
@@ -97,14 +97,6 @@
 				3D4400D60B758BC10022A3D7 /* SRRecorderCell.h in CopyFiles */,
 				3D4400D80B758BC10022A3D7 /* SRRecorderControl.h in CopyFiles */,
 				3D4400DA0B758BC10022A3D7 /* SRValidator.h in CopyFiles */,
-				3DBE1AFA0B76B37400DB83CA /* iTunesNextTrack.scpt in CopyFiles */,
-				3DBE1AFB0B76B37400DB83CA /* iTunesPlayPause.scpt in CopyFiles */,
-				3DBE1AFC0B76B37400DB83CA /* LowerVolume.scpt in CopyFiles */,
-				3DBE1AFD0B76B37400DB83CA /* NextTrack.scpt in CopyFiles */,
-				3DBE1AFE0B76B37400DB83CA /* PlayPause.scpt in CopyFiles */,
-				3DBE1AFF0B76B37400DB83CA /* RaiseVolume.scpt in CopyFiles */,
-				3DBE1B000B76B37400DB83CA /* ThumbsDown.scpt in CopyFiles */,
-				3DBE1B010B76B37400DB83CA /* ThumbsUp.scpt in CopyFiles */,
 				FBC365050BC9C1490052A3A9 /* Track.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +424,14 @@
 				FB3856B80BC993C9005653C3 /* Changelog.txt in Resources */,
 				FB3856EF0BC9973F005653C3 /* README.DNC.rtf in Resources */,
 				FB4D23510BCB092700DCC767 /* README.Applescript.txt in Resources */,
+				3DBE1AFA0B76B37400DB83CA /* iTunesNextTrack.scpt in Resources */,
+				3DBE1AFB0B76B37400DB83CA /* iTunesPlayPause.scpt in Resources */,
+				3DBE1AFC0B76B37400DB83CA /* LowerVolume.scpt in Resources */,
+				3DBE1AFD0B76B37400DB83CA /* NextTrack.scpt in Resources */,
+				3DBE1AFE0B76B37400DB83CA /* PlayPause.scpt in Resources */,
+				3DBE1AFF0B76B37400DB83CA /* RaiseVolume.scpt in Resources */,
+				3DBE1B000B76B37400DB83CA /* ThumbsDown.scpt in Resources */,
+				3DBE1B010B76B37400DB83CA /* ThumbsUp.scpt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

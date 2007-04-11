@@ -44,8 +44,9 @@ NSString *PBPlayerInfoRatingKey      = @"Rating";
 NSString *PBPlayerInfoDiscNumberKey  = @"Disc Number";
 NSString *PBPlayerInfoDiscCountKey   = @"Disc Count";
 
-NSString *PBPlayerStatePlaying = @"Playing";
-NSString *PBPlayerStatePaused  = @"Paused";
+NSString *PBPlayerStateStoppedString = @"Stopped";
+NSString *PBPlayerStatePausedString  = @"Paused";
+NSString *PBPlayerStatePlayingString = @"Playing";
 
 @implementation SongNotification
 
@@ -57,14 +58,13 @@ NSString *PBPlayerStatePaused  = @"Paused";
 	
 	if ( self = [super init] ) {
         [self setTracks:[NSMutableArray array]];
-        [self setPlayerState:@""];
+        [self setPlayerState:PBPlayerStateStopped];
 	}
 	return self;
 }
 
 - (void) dealloc 
 {
-    [_playerState release];
 	[super dealloc];
 }
 
@@ -86,15 +86,23 @@ NSString *PBPlayerStatePaused  = @"Paused";
     }
 }
 
-- (NSString *)playerState {
-    return [[_playerState retain] autorelease];
+- (int)playerState {
+    return _playerState;
 }
 
-- (void)setPlayerState:(NSString *)value {
+- (void)setPlayerState:(int)value {
     if (_playerState != value) {
-        [_playerState release];
-        _playerState = [value retain];
+        _playerState = value;
     }
+}
+
+- (NSString *)playerStateAsString {
+    switch ([self playerState]) {
+        case PBPlayerStateStopped: return PBPlayerStateStoppedString;
+        case PBPlayerStatePaused:  return PBPlayerStatePausedString;
+        case PBPlayerStatePlaying: return PBPlayerStatePlayingString;
+    }
+    return @"";
 }
 
 - (Track *)currentTrack {
@@ -113,10 +121,10 @@ NSString *PBPlayerStatePaused  = @"Paused";
     Track *currentTrack = [self currentTrack];
     if( ! [[currentTrack name] isEqualToString:@""] ) {
         NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [currentTrack name],   PBPlayerInfoNameKey, 
-                            [currentTrack artist], PBPlayerInfoArtistKey,
-                            [self playerState],    PBPlayerInfoPlayerStateKey,
-                            nil];
+            [currentTrack name],                         PBPlayerInfoNameKey, 
+            [currentTrack artist],                       PBPlayerInfoArtistKey,
+            [NSNumber numberWithInt:[self playerState]], PBPlayerInfoPlayerStateKey,
+            nil];
 
         [[NSDistributedNotificationCenter defaultCenter]
             postNotificationName:PBPlayerInfoNotificationName

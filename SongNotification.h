@@ -40,19 +40,27 @@ extern NSString *PBPlayerInfoRatingKey;
 extern NSString *PBPlayerInfoDiscNumberKey;
 extern NSString *PBPlayerInfoDiscCountKey;
 
-extern NSString *PBPlayerStatePlaying;
-extern NSString *PBPlayerStatePaused;
+extern NSString *PBPlayerStateStoppedString;
+extern NSString *PBPlayerStatePlayingString;
+extern NSString *PBPlayerStatePausedString;
+
+typedef enum _PBPlayerStates {
+    PBPlayerStateStopped = 'stop',
+    PBPlayerStatePlaying = 'play',
+    PBPlayerStatePaused  = 'paus'
+} PBPlayerStates;
 
 @interface SongNotification : NSObject {
     NSMutableArray *_tracks;
-    NSString *_playerState;
+    int _playerState;
 }
 
 - (NSMutableArray *)tracks;
 - (void)setTracks:(NSMutableArray *)value;
 
-- (NSString *)playerState;
-- (void)setPlayerState:(NSString *)value;
+- (int)playerState;
+- (void)setPlayerState:(int)value;
+- (NSString *)playerStateAsString;
 
 - (Track *)currentTrack;
 

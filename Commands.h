@@ -34,4 +34,5 @@
 @interface NSApplication (PandoraBoyScripting)
 - (Track *)currentTrack;
 - (NSArray *)tracks;
+- (int)playerState;
 @end

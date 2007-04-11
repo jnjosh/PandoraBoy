@@ -100,4 +100,8 @@
     return [[SongNotification sharedNotification] tracks];
 }
 
+- (int)playerState {
+    return [[SongNotification sharedNotification] playerState];
+}
+
 @end

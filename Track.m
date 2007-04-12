@@ -49,10 +49,22 @@
     }
 }
 
-+ (Track *)trackWithName:(NSString*)name artist:(NSString*)artist {
+- (NSData *)artwork {
+    return [[_artwork retain] autorelease];
+}
+
+- (void)setArtwork:(NSData *)value {
+    if (_artwork != value) {
+        [_artwork release];
+        _artwork = [value retain];
+    }
+}
+
++ (Track *)trackWithName:(NSString*)name artist:(NSString*)artist artwork:(NSData*)artwork {
     Track *track = [[Track alloc] init];
     [track setName:name];
     [track setArtist:artist];
+    [track setArtwork:artwork];
     return [track autorelease];
 }
 

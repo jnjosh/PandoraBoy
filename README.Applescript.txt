@@ -13,6 +13,7 @@ tell application "PandoraBoy"
     get name of tracks
     get artist of track 1
     get count of tracks
+    get player state
 end tell
 
 PandoraBoy saves the information about every track that plays during the session, numbered from 1. All commands act on the current track, however (Pandora itself cannot act on previously played tracks).

@@ -18,7 +18,7 @@ Known problems:
 0.3
     * Code cleanup
     * Major Growl changes. Text is different and can be localized (though no
-      translations have been done yet).
+      translations have been done yet). Album art is displayed in growl.
     * Global notifications through NSDistributedNotificationCenter that match
       iTunes. See README.DNC.txt.
     * Major Applescript changes. See README.Applescript.txt.

@@ -77,7 +77,7 @@ NSString *PBGrowlNotificationError       = @"Error";
     [GrowlApplicationBridge notifyWithTitle:title
                                 description:[NSLocalizedString(@"By: ", @"") stringByAppendingString:[track artist]]
                            notificationName:notificationName
-                                   iconData:nil
+                                   iconData:[track artwork]
                                    priority:0
                                    isSticky:false
                                clickContext:nil];

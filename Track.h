@@ -12,6 +12,7 @@
 @interface Track : NSObject {
     NSString *_name;
     NSString *_artist;
+    NSData   *_artwork;
 }
 
 - (NSString *)name;
@@ -20,7 +21,10 @@
 - (NSString *)artist;
 - (void)setArtist:(NSString *)value;
 
-+ (Track *)trackWithName:(NSString*)name artist:(NSString*)artist;
+- (NSData *)artwork;
+- (void)setArtwork:(NSData *)value;
+
++ (Track *)trackWithName:(NSString*)name artist:(NSString*)artist artwork:(NSData*)artwork;
 
 - (NSScriptObjectSpecifier *)objectSpecifier;
 

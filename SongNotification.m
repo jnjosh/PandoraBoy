@@ -21,8 +21,10 @@
 
 #import "SongNotification.h"
 #import "WebKit/WebFrame.h"
+#import "PandoraControl.h"
 
 static SongNotification* sharedInstance = nil;
+static NSRect artworkRect;
 
 extern NSString *PBNotifierURL;
 NSString *PBNotifierURL = @"http://www.frozensilicon.net/SongNotification.htm";
@@ -59,6 +61,10 @@ NSString *PBPlayerStatePlayingString = @"Playing";
 	if ( self = [super init] ) {
         [self setTracks:[NSMutableArray array]];
         [self setPlayerState:PBPlayerStateStopped];
+
+        // Album artwork including a 1 pixel white border.
+        // The border is critical for determining image stabilization.
+        artworkRect = NSMakeRect(530.0, 69.0, 102.0, 102.0);
 	}
 	return self;
 }
@@ -114,7 +120,6 @@ NSString *PBPlayerStatePlayingString = @"Playing";
         [NSURL URLWithString:PBNotifierURL]]];
 	 id win = [view windowScriptObject]; 
 	 [win setValue:self forKey:@"SongNotification"];
-	 NSLog(@"Notifier loaded");
 }
 
 - (void) sendPlayerInfoNotification {
@@ -133,16 +138,60 @@ NSString *PBPlayerStatePlayingString = @"Playing";
     }
 }
 
+- (void) getArtworkAndPostNotification:(NSDictionary *)info {
+    // Cancel any pending delayed invocations
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    
+    NSView *view = [[[PandoraControl sharedController] pandoraWindow] contentView];
+    [view lockFocus];
+    NSBitmapImageRep *bitmap = [[NSBitmapImageRep alloc] initWithFocusedViewRect:artworkRect];
+    [view unlockFocus];
+    
+    if( [self artworkIsStable: bitmap] ) {
+        NSData *artwork = [bitmap representationUsingType:NSPNGFileType properties:nil];
+        Track *track = [Track trackWithName:[info objectForKey:@"name"]
+                                     artist:[info objectForKey:@"artist"]
+                                    artwork:artwork];
+        if( ! [[NSApp currentTrack] isEqual:track] ) {
+            [[self tracks] addObject:track];
+        }
+        [self setPlayerState:PBPlayerStatePlaying];
+        [self sendPlayerInfoNotification];
+    }    
+    else {
+        // The artwork hasn't finished getting in position. Call me again later
+        // Known issue: If the users double-skips, the image will stabilize on
+        // the second track, and we'll think that's the image for the first track.
+        // The problem is that the second track change notification will come
+        // long after the image stablization. We can improve this by increasing
+        // the delay to several seconds, but it still won't be certain (depending
+        // on system and network load) and we'll degrade the normal case.
+                [self performSelector:@selector(getArtworkAndPostNotification:)
+                   withObject:info
+                   afterDelay:.5];
+    }
+    [bitmap release];
+}
+
+- (BOOL) artworkIsStable: (NSBitmapImageRep*)bitmap {
+    // FIXME:
+    NSColor *color1 = [[bitmap colorAtX: 0 y:50] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColor *color2 = [[bitmap colorAtX: 101 y:50] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColor *white  = [[NSColor whiteColor] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    
+    return( [white isEqual:color1] &&
+            [white isEqual:color2] );
+}
+    
 // Delegate methods from Pandora's notification system
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist
 {
-  NSLog( @"pandoraSongPlayed name: %@, artist: %@", name, artist); 
-    Track *track = [Track trackWithName:name artist:artist];
-    if( ! [[NSApp currentTrack] isEqual:track] ) {
-        [[self tracks] addObject:track];
-    }
-    [self setPlayerState:PBPlayerStatePlaying];
-    [self sendPlayerInfoNotification];
+    NSLog( @"pandoraSongPlayed name: %@, artist: %@", name, artist); 
+
+    [self getArtworkAndPostNotification: [NSDictionary dictionaryWithObjectsAndKeys:
+        name, @"name",
+        artist, @"artist",
+        nil]];
 }
 
 - (void) pandoraSongPaused

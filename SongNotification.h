@@ -71,6 +71,9 @@ typedef enum _PBPlayerStates {
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector;
 
+- (void) getArtworkAndPostNotification:(NSDictionary *)info;
+- (BOOL) artworkIsStable: (NSBitmapImageRep*)bitmap;
+
 // Delegate functions from Pandora notification system
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 
 - (void) pandoraSongPaused; 

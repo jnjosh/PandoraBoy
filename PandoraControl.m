@@ -51,6 +51,17 @@ static PandoraControl* sharedInstance = nil;
 	return sharedInstance;
 }
 
+- (NSWindow *)pandoraWindow {
+    return [[pandoraWindow retain] autorelease];
+}
+
+- (void)setPandoraWindow:(NSWindow *)value {
+    if (pandoraWindow != value) {
+        [pandoraWindow release];
+        pandoraWindow = [value retain];
+    }
+}
+
 - (void) setControlDisabled 
 {
   controlDisabled = true;

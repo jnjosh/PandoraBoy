@@ -13,10 +13,14 @@
   id webNetscapePlugin; 
   bool controlDisabled;
   GrowlNotification *_growl;
+  NSWindow *pandoraWindow;
 }
 
 - (GrowlNotification *)growl;
 - (void)setGrowl:(GrowlNotification *)value;
+
+- (NSWindow *)pandoraWindow;
+- (void)setPandoraWindow:(NSWindow *)value;
 
 + (PandoraControl*) sharedController; 
 

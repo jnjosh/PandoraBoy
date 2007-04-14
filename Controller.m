@@ -196,7 +196,6 @@ typedef enum {
 }
 
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
-    NSLog(@"decidePolicyWindow:%@", [actionInformation objectForKey:WebActionOriginalURLKey]);
     [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
     [listener ignore];
 }

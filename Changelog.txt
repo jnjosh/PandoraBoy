@@ -22,6 +22,7 @@ Known problems:
     * Global notifications through NSDistributedNotificationCenter that match
       iTunes. See README.DNC.txt.
     * Major Applescript changes. See README.Applescript.txt.
+    * All links (including the backstage menu options) should work now.
 
 Known problems:
     * Controls>Play/Pause doesn't have a key-equivalent. This generally doesn't

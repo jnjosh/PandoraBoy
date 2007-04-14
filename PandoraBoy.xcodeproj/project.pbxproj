@@ -18,10 +18,6 @@
 		3D0609420AB0B654008DC718 /* AppleRemote.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D0609400AB0B653008DC718 /* AppleRemote.h */; };
 		3D0609430AB0B654008DC718 /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0609410AB0B654008DC718 /* AppleRemote.m */; };
 		3D0609E50AB0BA9C008DC718 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0609E40AB0BA9C008DC718 /* IOKit.framework */; };
-		3D170EFC0B176AA800942A24 /* WebViewProxy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D170EFA0B176AA800942A24 /* WebViewProxy.h */; };
-		3D170EFD0B176AA800942A24 /* WebViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D170EFB0B176AA800942A24 /* WebViewProxy.m */; };
-		3D170F3A0B176DFB00942A24 /* WebFrameProxy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D170F380B176DFB00942A24 /* WebFrameProxy.h */; };
-		3D170F3B0B176DFB00942A24 /* WebFrameProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D170F390B176DFB00942A24 /* WebFrameProxy.m */; };
 		3D4400D00B758BC10022A3D7 /* CTGradient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D4400C40B758BC10022A3D7 /* CTGradient.h */; };
 		3D4400D10B758BC10022A3D7 /* CTGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C50B758BC10022A3D7 /* CTGradient.m */; };
 		3D4400D20B758BC10022A3D7 /* SRCommon.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D4400C60B758BC10022A3D7 /* SRCommon.h */; };
@@ -73,6 +69,9 @@
 		FB4D23510BCB092700DCC767 /* README.Applescript.txt in Resources */ = {isa = PBXBuildFile; fileRef = FB4D23500BCB092700DCC767 /* README.Applescript.txt */; };
 		FBC365050BC9C1490052A3A9 /* Track.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC365030BC9C1490052A3A9 /* Track.h */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
+		FBF740F80BD07C99007F85D5 /* Controller.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D7F771D0A9EB1DB004B0146 /* Controller.h */; };
+		FBF740F90BD07CB8007F85D5 /* SongNotification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D693FA30AA1EDA600899D49 /* SongNotification.h */; };
+		FBF740FA0BD07CBE007F85D5 /* PandoraBoy_Prefix.pch in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,8 +87,6 @@
 				3D6945310AAA19D300899D49 /* GlobalHotkey.h in CopyFiles */,
 				3D6946950AAC91DF00899D49 /* PreferenceController.h in CopyFiles */,
 				3D0609420AB0B654008DC718 /* AppleRemote.h in CopyFiles */,
-				3D170EFC0B176AA800942A24 /* WebViewProxy.h in CopyFiles */,
-				3D170F3A0B176DFB00942A24 /* WebFrameProxy.h in CopyFiles */,
 				3DDA24270B74F5D000F500BD /* Commands.h in CopyFiles */,
 				3D4400D00B758BC10022A3D7 /* CTGradient.h in CopyFiles */,
 				3D4400D20B758BC10022A3D7 /* SRCommon.h in CopyFiles */,
@@ -98,6 +95,9 @@
 				3D4400D80B758BC10022A3D7 /* SRRecorderControl.h in CopyFiles */,
 				3D4400DA0B758BC10022A3D7 /* SRValidator.h in CopyFiles */,
 				FBC365050BC9C1490052A3A9 /* Track.h in CopyFiles */,
+				FBF740F80BD07C99007F85D5 /* Controller.h in CopyFiles */,
+				FBF740F90BD07CB8007F85D5 /* SongNotification.h in CopyFiles */,
+				FBF740FA0BD07CBE007F85D5 /* PandoraBoy_Prefix.pch in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,10 +123,6 @@
 		3D0609400AB0B653008DC718 /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppleRemote.h; sourceTree = "<group>"; };
 		3D0609410AB0B654008DC718 /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppleRemote.m; sourceTree = "<group>"; };
 		3D0609E40AB0BA9C008DC718 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		3D170EFA0B176AA800942A24 /* WebViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewProxy.h; sourceTree = "<group>"; };
-		3D170EFB0B176AA800942A24 /* WebViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewProxy.m; sourceTree = "<group>"; };
-		3D170F380B176DFB00942A24 /* WebFrameProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebFrameProxy.h; sourceTree = "<group>"; };
-		3D170F390B176DFB00942A24 /* WebFrameProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebFrameProxy.m; sourceTree = "<group>"; };
 		3D4400C40B758BC10022A3D7 /* CTGradient.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CTGradient.h; path = ShortcutRecorder/CTGradient.h; sourceTree = "<group>"; };
 		3D4400C50B758BC10022A3D7 /* CTGradient.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = CTGradient.m; path = ShortcutRecorder/CTGradient.m; sourceTree = "<group>"; };
 		3D4400C60B758BC10022A3D7 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRCommon.h; path = ShortcutRecorder/SRCommon.h; sourceTree = "<group>"; };
@@ -215,10 +211,6 @@
 				32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */,
 				3D6946930AAC91DF00899D49 /* PreferenceController.h */,
 				3D6946940AAC91DF00899D49 /* PreferenceController.m */,
-				3D170EFA0B176AA800942A24 /* WebViewProxy.h */,
-				3D170EFB0B176AA800942A24 /* WebViewProxy.m */,
-				3D170F380B176DFB00942A24 /* WebFrameProxy.h */,
-				3D170F390B176DFB00942A24 /* WebFrameProxy.m */,
 				FBC365030BC9C1490052A3A9 /* Track.h */,
 				FBC365040BC9C1490052A3A9 /* Track.m */,
 			);
@@ -450,8 +442,6 @@
 				3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */,
 				3D6946960AAC91DF00899D49 /* PreferenceController.m in Sources */,
 				3D0609430AB0B654008DC718 /* AppleRemote.m in Sources */,
-				3D170EFD0B176AA800942A24 /* WebViewProxy.m in Sources */,
-				3D170F3B0B176DFB00942A24 /* WebFrameProxy.m in Sources */,
 				3DDA24280B74F5D000F500BD /* Commands.m in Sources */,
 				3D4400D10B758BC10022A3D7 /* CTGradient.m in Sources */,
 				3D4400D30B758BC10022A3D7 /* SRCommon.m in Sources */,

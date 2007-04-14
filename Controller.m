@@ -25,7 +25,6 @@
 #import "GlobalHotkey.h"
 #import "AppleRemote.h"
 //#import "LastFm.h"
-#import "WebViewProxy.h"
 #import <WebKit/WebKit.h>
 
 extern NSString *PBPandoraURL;
@@ -81,9 +80,6 @@ typedef enum {
   }
 
   [[AppleRemote sharedRemote] setDelegate: self];
-
-  [webView setPolicyDelegate:self];
-  [webView setUIDelegate:self];
 }
 
 // delegate methods for AppleRemote
@@ -134,47 +130,23 @@ typedef enum {
         [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];
 }
 
-- (IBAction)playPause:(id)sender {
-    [[PandoraControl sharedController] playPause];
-}
+- (IBAction)playPause:(id)sender   { [[PandoraControl sharedController] playPause]; }
+- (IBAction)nextSong:(id)sender    { [[PandoraControl sharedController] nextSong]; }
+- (IBAction)likeSong:(id)sender    { [[PandoraControl sharedController] likeSong]; }
+- (IBAction)dislikeSong:(id)sender { [[PandoraControl sharedController] dislikeSong]; }
+- (IBAction)raiseVolume:(id)sender { [[PandoraControl sharedController] raiseVolume]; }
+- (IBAction)lowerVolume:(id)sender { [[PandoraControl sharedController] lowerVolume]; }
+- (IBAction)fullVolume:(id)sender  { [[PandoraControl sharedController] fullVolume]; }
+- (IBAction)mute:(id)sender        { [[PandoraControl sharedController] mute]; }
 
-- (IBAction)nextSong:(id)sender {
-    [[PandoraControl sharedController] nextSong];
-}
-
-- (IBAction)likeSong:(id)sender {
-    [[PandoraControl sharedController] likeSong];
-}
-
-- (IBAction)dislikeSong:(id)sender {
-    [[PandoraControl sharedController] dislikeSong];
-}
-
-- (IBAction)raiseVolume:(id)sender {
-    [[PandoraControl sharedController] raiseVolume];
-}
-
-- (IBAction)lowerVolume:(id)sender {
-    [[PandoraControl sharedController] lowerVolume];
-}
-
-- (IBAction)fullVolume:(id)sender {
-    [[PandoraControl sharedController] fullVolume];
-}
-
-- (IBAction)mute:(id)sender {
-    [[PandoraControl sharedController] mute];
-}
-
-- (IBAction) refreshPandora:(id)sender 
-{
-  [[webView mainFrame] reload];
-}
+- (IBAction) refreshPandora:(id)sender { [[webView mainFrame] reload]; }
 
 - (IBAction) displayHelp:(id)sender
 {
   [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:@"http://www.frozensilicon.net/support.html"]];  //Open up the FZ website
 }
+
+// webView delegates
 
 - (void)webView:(WebView *)sender setFrame:(NSRect)frame
 {
@@ -183,27 +155,50 @@ typedef enum {
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {
+    // HACK: This is all a hack to get around a bug/misfeature in Tiger's WebKit
+    // (should be fixed in Leopard). On Javascript window.open, Tiger sends a null
+    // request here, then sends a loadRequest: to the new WebView, which will
+    // include a decidePolicyForNavigation (which is where we'll open our
+    // external window). In Leopard, we should be getting the request here from
+    // the start, and we should just be able to create a new window.
 
-	NSLog(@"TEST %@", [[request URL] absoluteString]);
-	NSLog(@"Output %x", [request URL]);
-	if([request URL] != 0) {
-		[[NSWorkspace sharedWorkspace] openURL: [request URL]];
-		return nil;
-	}
-	return [[WebViewProxy alloc] init];
+    WebView *newWebView = [[WebView alloc] init];
+    [newWebView setUIDelegate:self];
+    [newWebView setPolicyDelegate:self];
+    return newWebView;
 }
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-  NSView *webNetscapePlugin = [[[webView hitTest:NSZeroPoint] subviews] objectAtIndex:0];
-  [pandoraWindow makeFirstResponder: webNetscapePlugin];
-  [[PandoraControl sharedController] setWebPlugin: webNetscapePlugin];
-  [[PandoraControl sharedController] setPandoraWindow:pandoraWindow];
+    if( [sender isEqual:webView] ) {
+        NSView *webNetscapePlugin = [[[webView hitTest:NSZeroPoint] subviews] objectAtIndex:0];
+        [pandoraWindow makeFirstResponder: webNetscapePlugin];
+        [[PandoraControl sharedController] setWebPlugin: webNetscapePlugin];
+        [[PandoraControl sharedController] setPandoraWindow:pandoraWindow];
+    }
 }
 
 - (void)webView:(WebView *)sender makeFirstResponder:(NSResponder *)responder
 {
   // Not sure if this is the best way to stop the firstresponder from changing. We just don't respond to the makeFirstResponder request. Eww
+}
+
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
+    if( [sender isEqual:webView] ) {
+        [listener use];
+    }
+    else {
+        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+        [listener ignore];
+        // Go away WebView; you were just around to get us here.
+        [sender release];
+    }
+}
+
+- (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
+    NSLog(@"decidePolicyWindow:%@", [actionInformation objectForKey:WebActionOriginalURLKey]);
+    [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+    [listener ignore];
 }
 
 - (IBAction) checkVersionNumber:(id)sender 
@@ -244,7 +239,6 @@ typedef enum {
 	}
     }
 }
-
 
 @end
 

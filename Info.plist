@@ -21,14 +21,14 @@
 	<key>CFBundleSignature</key>
 	<string>FZSL</string>
 	<key>CFBundleVersion</key>
-	<string>0.2</string>
+	<string>0.3</string>
+	<key>NSAppleScriptEnabled</key>
+	<string>YES</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>NSAppleScriptEnabled</key>
-    <string>YES</string>
- 	<key>OSAScriptingDefinition</key>
+	<key>OSAScriptingDefinition</key>
 	<string>PandoraBoy.sdef</string>
 </dict>
 </plist>

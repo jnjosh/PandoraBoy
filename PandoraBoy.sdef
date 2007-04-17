@@ -26,9 +26,6 @@
 			<responds-to name="print">
 				<cocoa method="handlePrintScriptCommand:"/>
 			</responds-to>
-			<responds-to name="quit">
-				<cocoa method="handleQuitScriptCommand:"/>
-			</responds-to>
 		</class>
 		<class name="window" code="cwin" description="A window.">
 			<cocoa class="NSWindow"/>
@@ -77,12 +74,6 @@
 		</class>
 		<command name="close" code="coreclos" description="Close a document.">
 			<cocoa class="NSCloseCommand"/>
-		</command>
-		<command name="quit" code="aevtquit" description="Quit the application.">
-			<cocoa class="NSQuitCommand"/>
-			<parameter name="saving" code="savo" description="Whether or not changed documents should be saved before closing." type="save options" optional="yes">
-				<cocoa key="SaveOptions"/>
-			</parameter>
 		</command>
 		<command name="count" code="corecnte" description="Return the number of elements of a particular class within an object.">
 			<cocoa class="NSCountCommand"/>

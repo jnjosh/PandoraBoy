@@ -208,7 +208,6 @@
 @implementation PreferenceController (NSWindowDelegate)
 -(void)windowWillClose:(NSNotification *)aNotification
 {
-  NSLog(@"In HandlePrefWindowClose");
   [self applyPreferences]; 
 }
 @end

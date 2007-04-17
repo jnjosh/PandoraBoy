@@ -51,18 +51,12 @@ typedef enum _PBPlayerStates {
 } PBPlayerStates;
 
 @interface SongNotification : NSObject {
-    NSMutableArray *_tracks;
     int _playerState;
 }
-
-- (NSMutableArray *)tracks;
-- (void)setTracks:(NSMutableArray *)value;
 
 - (int)playerState;
 - (void)setPlayerState:(int)value;
 - (NSString *)playerStateAsString;
-
-- (Track *)currentTrack;
 
 + (SongNotification*) sharedNotification; 
 
@@ -71,8 +65,8 @@ typedef enum _PBPlayerStates {
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector;
 
-- (void) getArtworkAndPostNotification:(NSDictionary *)info;
-- (BOOL) artworkIsStable: (NSBitmapImageRep*)bitmap;
+//- (void) getArtworkAndPostNotification:(NSDictionary *)info;
+//- (BOOL) artworkIsStable: (NSBitmapImageRep*)bitmap;
 
 // Delegate functions from Pandora notification system
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 

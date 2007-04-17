@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 #import "GrowlNotification.h"
+#import "Playlist.h"
 
 NSString *PBGrowlNotificationSongPlaying = @"Song Playing";
 NSString *PBGrowlNotificationSongPaused  = @"Song Paused";
@@ -39,10 +40,10 @@ NSString *PBGrowlNotificationError       = @"Error";
                                                                 name:PBPlayerInfoNotificationName
                                                               object:nil
                                                   suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
-        thumbsUpImage = [[NSData dataWithContentsOfFile:
-            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]] retain];
-        thumbsDownImage = [[NSData dataWithContentsOfFile:
-            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]] retain];
+        thumbsUpImage = [[NSImage alloc] initWithContentsOfFile:
+            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
+        thumbsDownImage = [[NSImage alloc] initWithContentsOfFile:
+            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]];
 	}
 	
 	return self;
@@ -57,7 +58,7 @@ NSString *PBGrowlNotificationError       = @"Error";
 }
 
 - (void) playerInfoChanged:(NSNotification*)aNotification {
-    Track *track = [[SongNotification sharedNotification] currentTrack];
+    Track *track = [[Playlist sharedPlaylist] currentTrack];
     
     int playerState = [[[aNotification userInfo] valueForKey:PBPlayerInfoPlayerStateKey] intValue];
     NSString *notificationName;;
@@ -74,24 +75,34 @@ NSString *PBGrowlNotificationError       = @"Error";
         NSLog(@"BUG:playerInfoChanged called with illegal state: %@", playerState);
     }
 
+    NSImage *artwork = [[NSImage alloc] initWithData:[track artwork]];
+    if( [track rating] == PBThumbsUpRating ) {
+        [artwork lockFocus];
+        [thumbsUpImage dissolveToPoint:NSMakePoint(50, 10) fraction:0.65];
+        [artwork unlockFocus];
+    }
+    
     [GrowlApplicationBridge notifyWithTitle:title
-                                description:[NSLocalizedString(@"By: ", @"") stringByAppendingString:[track artist]]
+                                description:[NSString stringWithFormat:@"%@: %@\n%@: %@", 
+                                    NSLocalizedString(@"by", @""), [track artist],
+                                    NSLocalizedString(@"on", @""), [track album], nil]
                            notificationName:notificationName
-                                   iconData:[track artwork]
+                                   iconData:[artwork TIFFRepresentation]
                                    priority:0
                                    isSticky:false
                                clickContext:nil];
+    [artwork release];
 }
 
 - (void) pandoraLikeSong
 {
-    Track *track = [[SongNotification sharedNotification] currentTrack];
+    Track *track = [[Playlist sharedPlaylist] currentTrack];
     
     [GrowlApplicationBridge
         notifyWithTitle:[track name]
             description:[track artist]
        notificationName:PBGrowlNotificationSongThumbed
-               iconData:thumbsUpImage
+               iconData:[thumbsUpImage TIFFRepresentation]
                priority:0
                isSticky:false
            clickContext:nil];
@@ -99,13 +110,13 @@ NSString *PBGrowlNotificationError       = @"Error";
 
 - (void) pandoraDislikeSong
 {
-    Track *track = [[SongNotification sharedNotification] currentTrack];
+    Track *track = [[Playlist sharedPlaylist] currentTrack];
     
     [GrowlApplicationBridge
         notifyWithTitle:[track name]
             description:[track artist]
        notificationName:PBGrowlNotificationSongThumbed
-               iconData:thumbsDownImage
+               iconData:[thumbsDownImage TIFFRepresentation]
                priority:0
                isSticky:false
            clickContext:nil];

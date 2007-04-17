@@ -23,6 +23,7 @@
 #import <WebKit/WebUIDelegate.h>
 #import <WebKit/WebPolicyDelegate.h>
 #import <WebKit/WebView.h>
+#import "Playlist.h"
 
 @interface Controller : NSObject
 {
@@ -33,6 +34,8 @@
 }
 
 -(void) loadPandora;
+
+// Accessors
 
 // Actions
 - (IBAction)refreshPandora:(id)sender; 

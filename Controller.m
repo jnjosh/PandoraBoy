@@ -63,8 +63,11 @@ typedef enum {
 		[[AppleRemote sharedRemote] setListeningToRemote:true];
 	}
   }
-
   return self;
+}
+
+- (void) dealloc {
+    [super dealloc];
 }
 
 - (void)awakeFromNib
@@ -146,6 +149,8 @@ typedef enum {
   [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:@"http://www.frozensilicon.net/support.html"]];  //Open up the FZ website
 }
 
+// Accessors
+
 // webView delegates
 
 - (void)webView:(WebView *)sender setFrame:(NSRect)frame
@@ -175,6 +180,7 @@ typedef enum {
         [pandoraWindow makeFirstResponder: webNetscapePlugin];
         [[PandoraControl sharedController] setWebPlugin: webNetscapePlugin];
         [[PandoraControl sharedController] setPandoraWindow:pandoraWindow];
+        if( [frame isEqual:[webView mainFrame]] );
     }
 }
 
@@ -198,6 +204,21 @@ typedef enum {
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
     [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
     [listener ignore];
+}
+
+- (id)webView:(WebView *)sender identifierForInitialRequest:(NSURLRequest *)request fromDataSource:(WebDataSource *)dataSource {
+    // Make the request be the identifier so we can look up all the information later
+    return (request);
+}
+
+-(void)webView:(WebView *)sender resource:(id)identifier didFinishLoadingFromDataSource:(WebDataSource *)dataSource {
+//    NSLog(@"DEBUG:resource:%@", [[identifier URL] absoluteString]);
+    // getFragment provides track updates
+    if( [[[identifier URL] absoluteString] rangeOfString:@"getFragment"].location != NSNotFound ) {
+        WebResource *r = [dataSource subresourceForURL:[identifier URL]];
+        [[Playlist sharedPlaylist] addInfoFromData:[r data]];
+        [[Playlist sharedPlaylist] setDataSource:dataSource];
+    }
 }
 
 - (IBAction) checkVersionNumber:(id)sender 

@@ -94,9 +94,9 @@
 	-->
 	<suite name="PandoraBoy Suite" code="Pdby" description="PandoraBoy specific classes.">
 		<enumeration name="player states" code="esta" description="Legal player states">
-			<enumerator name="stopped" code="stop" description="Player is stopped" />
-			<enumerator name="playing" code="play" description="Player is playing" />
-			<enumerator name="paused" code="paus" description="Player is paused" />
+			<enumerator name="stopped" code="stop" description="Player is stopped"/>
+			<enumerator name="playing" code="play" description="Player is playing"/>
+			<enumerator name="paused" code="paus" description="Player is paused"/>
 		</enumeration>
 		<class name="application" code="capp" description="The Pandora Player">
 			<cocoa class="NSApplication"/>
@@ -118,6 +118,7 @@
 			<cocoa class="Track"/>
 			<property name="name" code="pnam" description="Name of track" type="text" access="r"/>
 			<property name="artist" code="part" description="Artist of track" type="text" access="r"/>
+			<property name="album" code="palb" description="the album name of the track" type="text" access="r"/>
 		</class>
 		<command name="playpause" code="Pdbyplpa" description="toggle the playing/paused state of the current track">
 			<cocoa class="playPauseCommand"/>

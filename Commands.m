@@ -20,6 +20,7 @@
 ***************************************************************************/
 #import "Commands.h"
 #import "PandoraControl.h"
+#import "Playlist.h"
 
 // FIXME? This would all be much shorter with a superclass that looked up
 //        command class to selector mappings in a dictionary. But maybe that's
@@ -93,11 +94,11 @@
 
 @implementation NSApplication (PandoraBoyScripting)
 - (Track *)currentTrack {
-    return [[SongNotification sharedNotification] currentTrack];
+    return [[Playlist sharedPlaylist] currentTrack];
 }
 
 - (NSArray *)tracks {
-    return [[SongNotification sharedNotification] tracks];
+    return [[Playlist sharedPlaylist] playedTracks];
 }
 
 - (int)playerState {

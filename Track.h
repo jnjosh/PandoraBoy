@@ -8,12 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern int const PBThumbsUpRating;
 
 @interface Track : NSObject {
-    NSString *_name;
-    NSString *_artist;
+    NSMutableDictionary *_properties;
     NSData   *_artwork;
 }
+
+- (NSMutableDictionary *)properties;
+- (void)setProperties:(NSMutableDictionary *)value;
 
 - (NSString *)name;
 - (void)setName:(NSString *)value;
@@ -22,13 +25,18 @@
 - (void)setArtist:(NSString *)value;
 
 - (NSData *)artwork;
-- (void)setArtwork:(NSData *)value;
+- (NSString *)album;
+- (int)rating;
 
-+ (Track *)trackWithName:(NSString*)name artist:(NSString*)artist artwork:(NSData*)artwork;
++ (Track *)trackWithName:(NSString*)name artist:(NSString*)artist;
+
+- (NSString *)valueForProperty:(NSString *)property;
+- (void)setValue:(NSString *)value forProperty:(NSString *)property;
 
 - (NSScriptObjectSpecifier *)objectSpecifier;
 
 - (BOOL)isEqual:(id)other;
 - (BOOL)isEqualToTrack:(Track *)aTrack;
+- (unsigned)hash;
 
 @end

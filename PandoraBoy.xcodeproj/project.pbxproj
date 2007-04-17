@@ -72,6 +72,8 @@
 		FBF740F80BD07C99007F85D5 /* Controller.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D7F771D0A9EB1DB004B0146 /* Controller.h */; };
 		FBF740F90BD07CB8007F85D5 /* SongNotification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D693FA30AA1EDA600899D49 /* SongNotification.h */; };
 		FBF740FA0BD07CBE007F85D5 /* PandoraBoy_Prefix.pch in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */; };
+		FBF742020BD1C3AC007F85D5 /* Playlist.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBF742000BD1C3AC007F85D5 /* Playlist.h */; };
+		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,6 +100,7 @@
 				FBF740F80BD07C99007F85D5 /* Controller.h in CopyFiles */,
 				FBF740F90BD07CB8007F85D5 /* SongNotification.h in CopyFiles */,
 				FBF740FA0BD07CBE007F85D5 /* PandoraBoy_Prefix.pch in CopyFiles */,
+				FBF742020BD1C3AC007F85D5 /* Playlist.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +176,8 @@
 		FB4D23500BCB092700DCC767 /* README.Applescript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.Applescript.txt; sourceTree = "<group>"; wrapsLines = 1; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		FBF742000BD1C3AC007F85D5 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
+		FBF742010BD1C3AC007F85D5 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +218,8 @@
 				3D6946940AAC91DF00899D49 /* PreferenceController.m */,
 				FBC365030BC9C1490052A3A9 /* Track.h */,
 				FBC365040BC9C1490052A3A9 /* Track.m */,
+				FBF742000BD1C3AC007F85D5 /* Playlist.h */,
+				FBF742010BD1C3AC007F85D5 /* Playlist.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -450,6 +457,7 @@
 				3D4400D90B758BC10022A3D7 /* SRRecorderControl.m in Sources */,
 				3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */,
 				FBC365060BC9C1490052A3A9 /* Track.m in Sources */,
+				FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

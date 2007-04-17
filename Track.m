@@ -7,69 +7,109 @@
 //
 
 #import "Track.h"
-#import "SongNotification.h"
+#import "Playlist.h"
+
+int const PBThumbsUpRating = 1;
 
 @implementation Track
 
 - (id) init
 {
 	if ( self = [super init] ) {
-        [self setName:@""];
-        [self setArtist:@""];
+        [self setProperties:[[NSMutableDictionary alloc] initWithCapacity:25]];
 	}
 	return self;
 }
 
 - (void) dealloc 
 {
-    [_name release];
-    [_artist release];
+    [_properties release];
+    [_artwork release];
 	[super dealloc];
 }
 
+- (NSMutableDictionary *)properties {
+    return [[_properties retain] autorelease];
+}
+
+- (void)setProperties:(NSMutableDictionary *)value {
+    if (_properties != value) {
+        [_properties release];
+        _properties = [value retain];
+    }
+}
+
 - (NSString *)name {
-    return [[_name retain] autorelease];
+    return [self valueForProperty:@"songTitle"];
 }
 
 - (void)setName:(NSString *)value {
-    if (_name != value) {
-        [_name release];
-        _name = [value retain];
-    }
+    [self setValue:value forProperty:@"songTitle"];
 }
 
 - (NSString *)artist {
-    return [[_artist retain] autorelease];
+    return [self valueForProperty:@"artistSummary"];
 }
 
 - (void)setArtist:(NSString *)value {
-    if (_artist != value) {
-        [_artist release];
-        _artist = [value retain];
-    }
+    return [self setValue:value forProperty:@"artistSummary"];
+}
+
+- (NSString *)album {
+    return [self valueForProperty:@"albumTitle"];
+}
+
+- (int)rating {
+    return [[self valueForProperty:@"rating"] intValue];
 }
 
 - (NSData *)artwork {
-    return [[_artwork retain] autorelease];
-}
+    if( ! _artwork ) {
+        Playlist *playlist = [Playlist sharedPlaylist];
+        WebDataSource *dataSource = [playlist dataSource];
 
-- (void)setArtwork:(NSData *)value {
-    if (_artwork != value) {
-        [_artwork release];
-        _artwork = [value retain];
+        // You'd think we could use subresourceForURL here, but it seems that
+        // subresourceForURL relies on having the exact NSURL that the resource
+        // is tied to. We only have the string at this point (since we took it
+        // out of the Pandora message). So we have to hunt through the array
+        // using the resource descriptions (which includes the URL).
+        NSString *url = [self valueForProperty:@"artRadio"];
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"description contains %@", url];
+        NSArray *results = [[dataSource subresources] filteredArrayUsingPredicate:pred];
+        if( [results count] ) {
+            WebResource *r = [results objectAtIndex:0];
+            _artwork = [r data];
+            [_artwork retain];
+        }
+        else {
+            NSLog(@"ERROR:Couldn't get album art. Looking for %@ in\n%@", url, [dataSource subresources]);
+        }
     }
+    return _artwork;
 }
 
-+ (Track *)trackWithName:(NSString*)name artist:(NSString*)artist artwork:(NSData*)artwork {
+- (NSString *)valueForProperty:(NSString *)property {
+    return [[self properties] objectForKey:property];
+}
+
+- (void)setValue:(NSString *)value forProperty:(NSString *)property {
+    if( value == nil ) { value = @""; }
+    [[self properties] setObject:value forKey:property];
+}
+
+// Initializers
+
++ (Track *)trackWithName:(NSString*)name artist:(NSString*)artist {
     Track *track = [[Track alloc] init];
     [track setName:name];
     [track setArtist:artist];
-    [track setArtwork:artwork];
     return [track autorelease];
 }
 
+// NSScriptObjectSpecifiers protocol
+
 - (NSScriptObjectSpecifier *)objectSpecifier{
-    unsigned index = [[[SongNotification sharedNotification] tracks] indexOfObjectIdenticalTo:self];
+    unsigned index = [[[Playlist sharedPlaylist] playedTracks] indexOfObjectIdenticalTo:self];
     
     NSScriptClassDescription *containerClassDesc = (NSScriptClassDescription *)
         [NSScriptClassDescription classDescriptionForClass:[NSApp class]];
@@ -78,6 +118,8 @@
             initWithContainerClassDescription:containerClassDesc
                            containerSpecifier:nil key:@"tracks" index:index] autorelease];
 }
+
+// NSObject protocol
 
 - (BOOL)isEqual:(id)other {
     if (other == self)
@@ -95,5 +137,9 @@
     if (![[self artist] isEqualToString:[aTrack artist]])
         return NO;
     return YES;
+}
+
+- (unsigned)hash {
+    return [[NSArray arrayWithObjects:[self name], [self artist], nil] hash];
 }
 @end

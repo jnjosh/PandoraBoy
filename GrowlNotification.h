@@ -29,8 +29,8 @@ extern NSString *PBGrowlNotificationSongThumbed;
 extern NSString *PBGrowlNotificationError;
 
 @interface GrowlNotification : NSObject <GrowlApplicationBridgeDelegate> {
-    NSData *thumbsUpImage;
-    NSData *thumbsDownImage;
+    NSImage *thumbsUpImage;
+    NSImage *thumbsDownImage;
 }
 
 - (void) playerInfoChanged:(NSNotification*)aNotification;

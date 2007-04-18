@@ -157,12 +157,12 @@ void *userData)
 {
   if(hotKeysRegistered == false) {
  
-	[self registerHotkey:@"GlobalPlay" withSignature:'htk1' refindex:0 andHotKeyId:PLAY_PAUSE]; 
-	[self registerHotkey:@"GlobalNext" withSignature:'htk2' refindex:1 andHotKeyId:NEXT_SONG]; 
-	[self registerHotkey:@"GlobalLikeSong" withSignature:'htk3' refindex:2 andHotKeyId:LIKE_SONG]; 
-	[self registerHotkey:@"GlobalDislikeSong" withSignature:'htk4' refindex:3 andHotKeyId:DISLIKE_SONG]; 
-	[self registerHotkey:@"GlobalUpVol" withSignature:'htk5' refindex:4 andHotKeyId:RAISE_VOLUME]; 
-	[self registerHotkey:@"GlobalDownVol" withSignature:'htk6' refindex:5 andHotKeyId:LOWER_VOLUME]; 
+	[self registerHotkey:@"ShortcutRecorder GlobalPlay" withSignature:'htk1' refindex:0 andHotKeyId:PLAY_PAUSE]; 
+	[self registerHotkey:@"ShortcutRecorder GlobalNext" withSignature:'htk2' refindex:1 andHotKeyId:NEXT_SONG]; 
+	[self registerHotkey:@"ShortcutRecorder GlobalLikeSong" withSignature:'htk3' refindex:2 andHotKeyId:LIKE_SONG]; 
+	[self registerHotkey:@"ShortcutRecorder GlobalDislikeSong" withSignature:'htk4' refindex:3 andHotKeyId:DISLIKE_SONG]; 
+	[self registerHotkey:@"ShortcutRecorder GlobalUpVol" withSignature:'htk5' refindex:4 andHotKeyId:RAISE_VOLUME]; 
+	[self registerHotkey:@"ShortcutRecorder GlobalDownVol" withSignature:'htk6' refindex:5 andHotKeyId:LOWER_VOLUME]; 
 	//[self registerHotkey:@"GlobalFullVol" withSignature:'htk7' refindex:6 andHotKeyId:FULL_VOLUME]; 
 	//[self registerHotkey:@"GlobalMuteVol" withSignature:'htk8' refindex:7 andHotKeyId:MUTE]; 
 	

@@ -31,6 +31,9 @@ Known problems:
       just slightly inconsistent. The way iTunes does it seems to be highly
       non-standard and difficult to re-implement.
 
+0.3.1
+    * Fixed global hotkeys (they were broken in 0.3)
+
 For the future: 
     * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 
     * iTunes store integration -- build a itunes store "playlist" that allows users to easily purchase songs they have heard. 

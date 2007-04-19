@@ -49,8 +49,6 @@ typedef enum {
     NSMutableDictionary *userDefaultsValuesDict = [NSMutableDictionary
 						    dictionary];
     [userDefaultsValuesDict setObject:@"YES"
-			    forKey:@"CheckForUpdates"];
-    [userDefaultsValuesDict setObject:@"YES"
 			    forKey:@"AppleRemoteEnabled"];
     [userDefaultsValuesDict setObject:@"NO"
 			    forKey:@"DoNotShowStartupWindow2"];
@@ -77,10 +75,6 @@ typedef enum {
 
   [[GlobalHotkey sharedHotkey] registerHotkeyHandler];
   [[GlobalHotkey sharedHotkey] registerHotkeys];
-  
-  if([[NSUserDefaults standardUserDefaults] boolForKey:@"CheckForUpdates"]==YES) {
-    [self checkVersionNumber:self];
-  }
 
   [[AppleRemote sharedRemote] setDelegate: self];
 }
@@ -220,46 +214,6 @@ typedef enum {
         [[Playlist sharedPlaylist] setDataSource:dataSource];
     }
 }
-
-- (IBAction) checkVersionNumber:(id)sender 
-{
-  //Check Version Number online
-  //User wants us to check version and update if we need to
-	
-  NSString *curNum = [[[NSBundle bundleForClass:[self class]] infoDictionary] objectForKey:@"CFBundleVersion"];
-  NSDictionary *webDict = [NSDictionary dictionaryWithContentsOfURL: [NSURL URLWithString:@"http://www.frozensilicon.net/version.xml"]];
-  NSString *newNum = [webDict valueForKey:@"PandoraBoy"];
-		
-  int button = 0;
-		
-  if ( newNum == nil )
-    {
-      //Error accessing website
-      NSBeep();
-      [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-      NSRunAlertPanel(@"Could not check for update", @"An error arose while attempting to check for a new version of PandoraBoy.  PandoraBoy may be temporarily unavailable or your network may be down.", @"OK", nil, nil);
-    }
-  else if ( [newNum isEqualTo: curNum] )
-    {
-      //We are up to date.
-      if(sender!=self) {
-	//User clicked button. We should provide some response.
-	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	NSRunAlertPanel(@"Software is Up-To-Date", @"You have the most recent version of PandoraBoy.", @"OK", nil, nil);
-      }
-    }
-  else
-    {
-      [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-      button = NSRunAlertPanel(@"New Version Found", @"A new version of PandoraBoy is available.", @"OK", @"Cancel", nil);
-			
-      if (NSOKButton == button)
-	{
-	  [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:@"http://www.frozensilicon.net"]];  //Open up the FZ website
-	}
-    }
-}
-
 @end
 
 

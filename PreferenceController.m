@@ -87,7 +87,7 @@
 }
 
 /*
-- (NSString *) getUsername { 
+- (NSStrwing *) getUsername { 
   NSString *username = [[NSUserDefaults standardUserDefaults] 
 			 stringForKey:@"LastFmUsername"];
   return username; 

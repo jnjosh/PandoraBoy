@@ -13,6 +13,7 @@ extern int const PBThumbsUpRating;
 @interface Track : NSObject {
     NSMutableDictionary *_properties;
     NSData   *_artwork;
+	NSImage  *_artworkImage; 
 }
 
 - (NSMutableDictionary *)properties;
@@ -25,7 +26,10 @@ extern int const PBThumbsUpRating;
 - (void)setArtist:(NSString *)value;
 
 - (NSData *)artwork;
+- (NSImage *)artworkImage; 
+
 - (NSString *)album;
+- (NSString *)songUrl;
 - (int)rating;
 
 + (Track *)trackWithName:(NSString*)name artist:(NSString*)artist;

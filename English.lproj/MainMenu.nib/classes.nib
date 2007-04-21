@@ -27,6 +27,13 @@
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
         {CLASS = PandoraControl; LANGUAGE = ObjC; SUPERCLASS = NSWindowController; }, 
+        {CLASS = Playlist; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = PlaylistGuiController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {playlistGuiWindow = NSWindow; }; 
+            SUPERCLASS = NSObject; 
+        }, 
         {
             ACTIONS = {setPassword = id; setUsername = id; }; 
             CLASS = PreferenceController; 

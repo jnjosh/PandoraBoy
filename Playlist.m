@@ -115,12 +115,23 @@ static Playlist* sharedInstance = nil;
 }
 
 - (Track *)currentTrack {
-    return [[self playedTracks] lastObject];
+	if([[self playedTracks] count]) { 
+		return [[self playedTracks] objectAtIndex:0];
+	}
+	return nil;
 }
 
 - (void)addPlayedTrack:(Track *)track {
     Track *trackWithInfo = [[self trackInfo] member:track];
-    [[self playedTracks] addObject:trackWithInfo];
+	
+	// NSMutableArray does not send out KVC updates. This means that NSArrayController (and our gui by extension)
+	// do not see changes the the playedTracks array unless the notifications are explicitly sent out. 
+	// Notify the ArrayController that we are about to add a key. 
+    [self willChangeValueForKey:@"_playedTracks"];
+	[[self playedTracks] insertObject:trackWithInfo atIndex:0];
+    
+	// Notify the ArrayController that we are done with or modifications 
+	[self didChangeValueForKey:@"_playedTracks"];	
 }
 
 // XMLParser delegates

@@ -25,6 +25,7 @@ int const PBThumbsUpRating = 1;
 {
     [_properties release];
     [_artwork release];
+	[_artworkImage release];
 	[super dealloc];
 }
 
@@ -59,6 +60,10 @@ int const PBThumbsUpRating = 1;
     return [self valueForProperty:@"albumTitle"];
 }
 
+- (NSString *)songUrl {
+    return [self valueForProperty:@"songDetailURL"];
+}
+
 - (int)rating {
     return [[self valueForProperty:@"rating"] intValue];
 }
@@ -84,8 +89,15 @@ int const PBThumbsUpRating = 1;
         else {
             NSLog(@"ERROR:Couldn't get album art. Looking for %@ in\n%@", url, [dataSource subresources]);
         }
-    }
+ 	}
     return _artwork;
+}
+
+- (NSImage *)artworkImage { 
+	if( ! _artworkImage) { 
+		_artworkImage = [[NSImage alloc] initWithData:[self artwork]];
+	}
+	return _artworkImage;
 }
 
 - (NSString *)valueForProperty:(NSString *)property {
@@ -94,6 +106,7 @@ int const PBThumbsUpRating = 1;
 
 - (void)setValue:(NSString *)value forProperty:(NSString *)property {
     if( value == nil ) { value = @""; }
+	//NSLog(@"Setting property: %@ to value: %@", property, value);
     [[self properties] setObject:value forKey:property];
 }
 

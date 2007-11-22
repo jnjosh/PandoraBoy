@@ -24,14 +24,10 @@
 #import "PandoraControl.h"
 #import "GlobalHotkey.h"
 #import "AppleRemote.h"
-//#import "LastFm.h"
 #import <WebKit/WebKit.h>
 
 extern NSString *PBPandoraURL;
 NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
-
-extern int PBPlayPauseMenuItemTag;
-int PBPlayPauseMenuItemTag = 1;
 
 typedef enum {
     WebDashboardBehaviorAlwaysSendMouseEventsToAllWindows,
@@ -153,15 +149,12 @@ typedef enum {
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
-{
-    // HACK: This is all a hack to get around a bug/misfeature in Tiger's WebKit
-    // (should be fixed in Leopard). On Javascript window.open, Tiger sends a null
-    // request here, then sends a loadRequest: to the new WebView, which will
-    // include a decidePolicyForNavigation (which is where we'll open our
-    // external window). In Leopard, we should be getting the request here from
-    // the start, and we should just be able to create a new window.
-
-    WebView *newWebView = [[WebView alloc] init];
+{	
+    // On Javascript window.open, Webkit sends a null request here, then sends a
+	// loadRequest: to the new WebView, which will include a
+	// decidePolicyForNavigation (which is where we'll open our external
+	// window).
+    WebView *newWebView = [[[WebView alloc] init] autorelease];
     [newWebView setUIDelegate:self];
     [newWebView setPolicyDelegate:self];
     return newWebView;
@@ -169,18 +162,39 @@ typedef enum {
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-    if( [sender isEqual:webView] ) {
-        NSView *webNetscapePlugin = [[[webView hitTest:NSZeroPoint] subviews] objectAtIndex:0];
-        [pandoraWindow makeFirstResponder: webNetscapePlugin];
-        [[PandoraControl sharedController] setWebPlugin: webNetscapePlugin];
+    if( [sender isEqual:webView] )
+    {
+        // Find the subview that isn't of size 0
+        NSArray *subviews = [[webView hitTest:NSZeroPoint] subviews];
+        NSView *webNetscapePlugin;
+        int i;
+        for( i = 0; i < [subviews count]; i++ )
+        {
+            if( [[subviews objectAtIndex:i] frame].size.height > 0 )
+            {
+                webNetscapePlugin = [subviews objectAtIndex:i];
+                break;
+            }
+        }
+
+        if( webNetscapePlugin )
+        {
+            [pandoraWindow makeFirstResponder: webNetscapePlugin];
+            [[PandoraControl sharedController] setWebPlugin: webNetscapePlugin];
+        }
+        else
+        {
+            NSLog(@"ERROR: Could not find webNetscapePlugin");
+        }
         [[PandoraControl sharedController] setPandoraWindow:pandoraWindow];
-        if( [frame isEqual:[webView mainFrame]] );
     }
 }
 
 - (void)webView:(WebView *)sender makeFirstResponder:(NSResponder *)responder
 {
-  // Not sure if this is the best way to stop the firstresponder from changing. We just don't respond to the makeFirstResponder request. Eww
+	// Ignore requests to change the first responder. This way, no matter
+    // where the user clicks in the window, the webNetscapePluginView (Flash)
+    // will always get the keystrokes
 }
 
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
@@ -190,14 +204,7 @@ typedef enum {
     else {
         [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
         [listener ignore];
-        // Go away WebView; you were just around to get us here.
-        [sender release];
     }
-}
-
-- (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
-    [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
-    [listener ignore];
 }
 
 - (id)webView:(WebView *)sender identifierForInitialRequest:(NSURLRequest *)request fromDataSource:(WebDataSource *)dataSource {
@@ -206,7 +213,6 @@ typedef enum {
 }
 
 -(void)webView:(WebView *)sender resource:(id)identifier didFinishLoadingFromDataSource:(WebDataSource *)dataSource {
-//    NSLog(@"DEBUG:resource:%@", [[identifier URL] absoluteString]);
     // getFragment provides track updates
     if( [[[identifier URL] absoluteString] rangeOfString:@"getFragment"].location != NSNotFound ) {
         WebResource *r = [dataSource subresourceForURL:[identifier URL]];
@@ -220,10 +226,7 @@ typedef enum {
 @implementation Controller(ApplicationNotifications)
 
 -(void)applicationDidFinishLaunching: (NSNotification*)notification
-{
-  //  [[PandoraControl sharedController] quit];
-  //[pandoraWindow makeFirstResponder: webView];	
-	
+{	
 	// FIXME: This doesn't currently work and is generating warnings.
 	// http://lists.apple.com/archives/webkitsdk-dev/2006/Sep/msg00010.html
 	//[webView _setDashboardBehavior:WebDashboardBehaviorAlwaysSendActiveNullEventsToPlugIns to:YES];

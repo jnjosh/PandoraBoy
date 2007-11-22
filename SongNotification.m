@@ -105,7 +105,7 @@ NSString *PBPlayerStatePlayingString = @"Playing";
 - (void) sendPlayerInfoNotification {
     Playlist *playlist = [Playlist sharedPlaylist];
     Track *currentTrack = [playlist currentTrack];
-    if( ! [[currentTrack name] isEqualToString:@""] ) {
+    if( currentTrack && ! [[currentTrack name] isEqualToString:@""] ) {
         NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
             [currentTrack name],                         PBPlayerInfoNameKey, 
             [currentTrack artist],                       PBPlayerInfoArtistKey,

@@ -33,7 +33,10 @@ Known problems:
 
 0.3.1
     * Fixed global hotkeys (they were broken in 0.3)
-
+    
+0.4
+    * Works now with Webkit 3 (10.5 and 10.4.11)
+    
 For the future: 
     * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 
     * iTunes store integration -- build a itunes store "playlist" that allows users to easily purchase songs they have heard. 

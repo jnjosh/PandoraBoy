@@ -13,11 +13,11 @@
 @interface Playlist : NSObject {
     NSMutableSet *_trackInfo;
     NSMutableArray *_playedTracks;
+    NSMutableDictionary *_artwork;
 
     Track *_parsingTrack;
     NSString *_parsingKey;
     NSMutableString *_parsingString;
-    WebDataSource *_dataSource;
 }
 
 // Initializers
@@ -40,10 +40,12 @@
 - (NSMutableString *)parsingString;
 - (void)setParsingString:(NSMutableString *)value;
 
-- (WebDataSource *)dataSource;
-- (void)setDataSource:(WebDataSource *)value;
+- (NSMutableDictionary *)artwork;
+- (void)setArtwork:(NSMutableDictionary *)value;
 
 // Methods
+- (void)addArtworkFromData:(NSData *)data forURL:(NSURL *)url;
+- (NSData *)artworkForURLString:(NSString *)urlString;
 - (void)addInfoFromData:(NSData *)data;
 - (void)addPlayedTrack:(Track *)track;
 - (Track *)currentTrack;

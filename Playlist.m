@@ -18,10 +18,11 @@ static Playlist* sharedInstance = nil;
 
     sharedInstance  = [super init];
     if (self != nil) {
-        _trackInfo    =  [[NSMutableSet alloc] initWithCapacity:100];
+        _trackInfo     = [[NSMutableSet alloc] initWithCapacity:100];
         _playedTracks  = [[NSMutableArray alloc] initWithCapacity:100];
+        _artwork       = [[NSMutableDictionary alloc] initWithCapacity:100];
         _parsingTrack  = nil;
-        _parsingString = nil;        
+        _parsingString = nil;
     }
     return sharedInstance;
 }
@@ -33,6 +34,7 @@ static Playlist* sharedInstance = nil;
 }
 
 - (void) dealloc {
+    [_artwork release];
     [_trackInfo release];
     [_playedTracks release];
     [_parsingTrack release];
@@ -41,6 +43,17 @@ static Playlist* sharedInstance = nil;
 }
 
 // Accessors
+- (NSMutableDictionary *)artwork {
+    return [[_artwork retain] autorelease];
+}
+
+- (void)setArtwork:(NSMutableDictionary *)value {
+    if (_artwork != value) {
+        [_artwork release];
+        _artwork = [value retain];
+    }
+}
+
 - (NSMutableSet *)trackInfo {
     return [[_trackInfo retain] autorelease];
 }
@@ -96,22 +109,21 @@ static Playlist* sharedInstance = nil;
     }
 }
 
-- (WebDataSource *)dataSource {
-    return [[_dataSource retain] autorelease];
-}
-
-- (void)setDataSource:(WebDataSource *)value {
-    if (_dataSource != value) {
-        [_dataSource release];
-        _dataSource = [value retain];
-    }
-}
-
 // Methods
 - (void)addInfoFromData:(NSData *)data {
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
     [parser setDelegate:self];
     [parser parse];
+}
+
+- (void)addArtworkFromData:(NSData *)data forURL:(NSURL *)url {
+    NSString *key = [[[url absoluteString] componentsSeparatedByString:@"?"] objectAtIndex:0];
+    [[self artwork] addEntriesFromDictionary:[NSDictionary dictionaryWithObject:data 
+                                                                         forKey:key]];
+}
+
+- (NSData *)artworkForURLString:(NSString *)urlString {
+    return [[self artwork] objectForKey:urlString];
 }
 
 - (Track *)currentTrack {
@@ -123,15 +135,14 @@ static Playlist* sharedInstance = nil;
 
 - (void)addPlayedTrack:(Track *)track {
     Track *trackWithInfo = [[self trackInfo] member:track];
-	
-	// NSMutableArray does not send out KVC updates. This means that NSArrayController (and our gui by extension)
-	// do not see changes the the playedTracks array unless the notifications are explicitly sent out. 
-	// Notify the ArrayController that we are about to add a key. 
-    [self willChangeValueForKey:@"_playedTracks"];
-	[[self playedTracks] insertObject:trackWithInfo atIndex:0];
-    
-	// Notify the ArrayController that we are done with or modifications 
-	[self didChangeValueForKey:@"_playedTracks"];	
+	if( trackWithInfo) {
+        // NSMutableArray does not send out KVC updates. This means that NSArrayController (and our gui by extension)
+        // do not see changes the the playedTracks array unless the notifications are explicitly sent out. 
+        // Notify the ArrayController that we are about to add a key. 
+        [self willChangeValueForKey:@"_playedTracks"];
+        [[self playedTracks] insertObject:trackWithInfo atIndex:0];
+        [self didChangeValueForKey:@"_playedTracks"];	
+    }
 }
 
 // XMLParser delegates

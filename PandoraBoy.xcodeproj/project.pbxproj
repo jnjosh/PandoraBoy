@@ -67,6 +67,10 @@
 		FB3856B80BC993C9005653C3 /* Changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = FB3856B70BC993C9005653C3 /* Changelog.txt */; };
 		FB3856EF0BC9973F005653C3 /* README.DNC.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FB3856EE0BC9973F005653C3 /* README.DNC.rtf */; };
 		FB4D23510BCB092700DCC767 /* README.Applescript.txt in Resources */ = {isa = PBXBuildFile; fileRef = FB4D23500BCB092700DCC767 /* README.Applescript.txt */; };
+		FB5301F40CF886650083F18C /* PlaylistURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */; };
+		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
+		FBA18D140CF5DEBF00CB424F /* PlaylistGuiController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */; };
+		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
 		FBC365050BC9C1490052A3A9 /* Track.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC365030BC9C1490052A3A9 /* Track.h */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBF740F80BD07C99007F85D5 /* Controller.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D7F771D0A9EB1DB004B0146 /* Controller.h */; };
@@ -101,6 +105,8 @@
 				FBF740F90BD07CB8007F85D5 /* SongNotification.h in CopyFiles */,
 				FBF740FA0BD07CBE007F85D5 /* PandoraBoy_Prefix.pch in CopyFiles */,
 				FBF742020BD1C3AC007F85D5 /* Playlist.h in CopyFiles */,
+				FBA18D140CF5DEBF00CB424F /* PlaylistGuiController.h in CopyFiles */,
+				FB5301F40CF886650083F18C /* PlaylistURLProtocol.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +180,10 @@
 		FB3856B70BC993C9005653C3 /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		FB3856EE0BC9973F005653C3 /* README.DNC.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.DNC.rtf; sourceTree = "<group>"; };
 		FB4D23500BCB092700DCC767 /* README.Applescript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.Applescript.txt; sourceTree = "<group>"; wrapsLines = 1; };
+		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
+		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
+		FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PlaylistGuiController.h; sourceTree = "<group>"; };
+		FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PlaylistGuiController.m; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		FBF742000BD1C3AC007F85D5 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
@@ -214,12 +224,16 @@
 				3D6942400AA37A1300899D49 /* GrowlNotification.h */,
 				3D6942410AA37A1300899D49 /* GrowlNotification.m */,
 				32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */,
+				FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */,
+				FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */,
 				3D6946930AAC91DF00899D49 /* PreferenceController.h */,
 				3D6946940AAC91DF00899D49 /* PreferenceController.m */,
 				FBC365030BC9C1490052A3A9 /* Track.h */,
 				FBC365040BC9C1490052A3A9 /* Track.m */,
 				FBF742000BD1C3AC007F85D5 /* Playlist.h */,
 				FBF742010BD1C3AC007F85D5 /* Playlist.m */,
+				FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */,
+				FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -458,6 +472,8 @@
 				3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */,
 				FBC365060BC9C1490052A3A9 /* Track.m in Sources */,
 				FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */,
+				FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */,
+				FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

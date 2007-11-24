@@ -25,6 +25,7 @@
 #import "GlobalHotkey.h"
 #import "AppleRemote.h"
 #import <WebKit/WebKit.h>
+#import "PlaylistURLProtocol.h"
 
 extern NSString *PBPandoraURL;
 NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
@@ -215,9 +216,9 @@ typedef enum {
 -(void)webView:(WebView *)sender resource:(id)identifier didFinishLoadingFromDataSource:(WebDataSource *)dataSource {
     // getFragment provides track updates
     if( [[[identifier URL] absoluteString] rangeOfString:@"getFragment"].location != NSNotFound ) {
-        WebResource *r = [dataSource subresourceForURL:[identifier URL]];
-        [[Playlist sharedPlaylist] addInfoFromData:[r data]];
-        [[Playlist sharedPlaylist] setDataSource:dataSource];
+//        WebResource *r = [dataSource subresourceForURL:[identifier URL]];
+//        [[Playlist sharedPlaylist] addInfoFromData:[r data]];
+//        [[Playlist sharedPlaylist] setDataSource:dataSource];
     }
 }
 @end
@@ -233,6 +234,8 @@ typedef enum {
     //	[notificationView _setDashboardBehavior:WebDashboardBehaviorAlwaysSendActiveNullEventsToPlugIns to:YES];
     //	
     //	NSLog(@"_dashboardBehavoir: %d", [webView _dashboardBehavior:WebDashboardBehaviorAlwaysSendActiveNullEventsToPlugIns]);
+
+    [NSURLProtocol registerClass:[PlaylistURLProtocol class]];
 
 	[self loadPandora];
     [[SongNotification sharedNotification] loadNotifier:notificationView];

@@ -69,28 +69,7 @@ int const PBThumbsUpRating = 1;
 }
 
 - (NSData *)artwork {
-    if( ! _artwork ) {
-        Playlist *playlist = [Playlist sharedPlaylist];
-        WebDataSource *dataSource = [playlist dataSource];
-
-        // You'd think we could use subresourceForURL here, but it seems that
-        // subresourceForURL relies on having the exact NSURL that the resource
-        // is tied to. We only have the string at this point (since we took it
-        // out of the Pandora message). So we have to hunt through the array
-        // using the resource descriptions (which includes the URL).
-        NSString *url = [self valueForProperty:@"artRadio"];
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"description contains %@", url];
-        NSArray *results = [[dataSource subresources] filteredArrayUsingPredicate:pred];
-        if( [results count] ) {
-            WebResource *r = [results objectAtIndex:0];
-            _artwork = [r data];
-            [_artwork retain];
-        }
-        else {
-            NSLog(@"ERROR:Couldn't get album art. Looking for %@ in\n%@", url, [dataSource subresources]);
-        }
- 	}
-    return _artwork;
+    return [[Playlist sharedPlaylist] artworkForURLString:[self valueForProperty:@"artRadio"]];
 }
 
 - (NSImage *)artworkImage { 

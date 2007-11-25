@@ -46,6 +46,8 @@
 // Methods
 - (void)addArtworkFromData:(NSData *)data forURL:(NSURL *)url;
 - (NSData *)artworkForURLString:(NSString *)urlString;
+- (BOOL)needArtworkForURLString:(NSString *)urlString;
+- (void)setNeedArtworkForURLString:(NSString *)urlString;
 - (void)addInfoFromData:(NSData *)data;
 - (void)addPlayedTrack:(Track *)track;
 - (Track *)currentTrack;

@@ -116,14 +116,33 @@ static Playlist* sharedInstance = nil;
     [parser parse];
 }
 
+- (NSString *)keyForURLString:(NSString *)urlString {
+    return [[urlString componentsSeparatedByString:@"?"] objectAtIndex:0];
+}
+
 - (void)addArtworkFromData:(NSData *)data forURL:(NSURL *)url {
-    NSString *key = [[[url absoluteString] componentsSeparatedByString:@"?"] objectAtIndex:0];
-    [[self artwork] addEntriesFromDictionary:[NSDictionary dictionaryWithObject:data 
-                                                                         forKey:key]];
+    NSString *key = [self keyForURLString:[url absoluteString]];
+    if( data && key ) {
+        [[self artwork] setObject:data forKey:key];
+    }
 }
 
 - (NSData *)artworkForURLString:(NSString *)urlString {
-    return [[self artwork] objectForKey:urlString];
+    id artwork = [[self artwork] objectForKey:[self keyForURLString:urlString]];
+    if( [artwork isKindOfClass:[NSData class]] ) { return artwork; }
+    return nil;
+}
+
+- (BOOL)needArtworkForURLString:(NSString *)urlString {
+    // If there's a key there, but no data, then we need artwork
+    NSString *key = [self keyForURLString:urlString];
+    return( [[[self artwork] objectForKey:key] isEqual:@""] );
+}
+
+- (void)setNeedArtworkForURLString:(NSString *)urlString {
+    if( urlString && ! [self artworkForURLString:urlString] ) {
+        [[self artwork] setObject:@"" forKey:[self keyForURLString:urlString]];
+    }
 }
 
 - (Track *)currentTrack {
@@ -166,6 +185,10 @@ static Playlist* sharedInstance = nil;
     }
     else if( [elementName isEqualToString:@"value"] ) {
         [[self parsingTrack] setValue:(NSString*)[self parsingString] forProperty:[self parsingKey]];
+        if( [[self parsingKey] isEqualToString:@"artRadio"] )
+        {
+            [self setNeedArtworkForURLString:[self parsingString]];
+        }
         [self setParsingKey:nil];
         [self setParsingString:nil];
     }

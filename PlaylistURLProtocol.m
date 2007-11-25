@@ -14,7 +14,7 @@
 
 static NSString *PBPlaylistURLHeader = @"X-PB";
 static NSString *PBDataRequest = @"getFragment";
-static NSString *PBArtworkRequest = @".jpg";
+static NSString *PBArtworkRequest = @"artwork";
 
 // Accessors
 
@@ -67,8 +67,11 @@ static NSString *PBArtworkRequest = @".jpg";
          [request valueForHTTPHeaderField:PBPlaylistURLHeader] == nil )
     {
         NSString *urlString = [[request URL] absoluteString];
-        if( [urlString rangeOfString:PBDataRequest].location != NSNotFound ||
-            [urlString rangeOfString:PBArtworkRequest].location != NSNotFound )
+        if( [urlString rangeOfString:PBDataRequest].location != NSNotFound )
+        {
+            return YES;
+        }
+        if( [[Playlist sharedPlaylist] needArtworkForURLString:urlString] )
         {
             return YES;
         }
@@ -86,11 +89,11 @@ static NSString *PBArtworkRequest = @".jpg";
     NSMutableURLRequest *myRequest = [request mutableCopy];
 
     NSString *urlString = [[request URL] absoluteString];
-    if( [urlString rangeOfString:PBDataRequest].location != NSNotFound )
+    if( [urlString rangeOfString:@"getFragment"].location != NSNotFound )
     {
         [myRequest setValue:PBDataRequest forHTTPHeaderField:PBPlaylistURLHeader];
     }
-    else if ( [urlString rangeOfString:PBArtworkRequest].location != NSNotFound )
+    else if ( [[Playlist sharedPlaylist] needArtworkForURLString:urlString] )
     {
         [myRequest setValue:PBArtworkRequest forHTTPHeaderField:PBPlaylistURLHeader];
     }

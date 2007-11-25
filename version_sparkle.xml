@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"> 
+    <channel> 
+        <title>PandoraBoy Changelog</title> 
+        <link>http://code.google.com/p/pandoraboy</link>
+        <description>Most recent changes with links to updates.</description> 
+        <language>en</language> 
+        <item> 
+            <title>Version 0.3.1</title> 
+            <description>http://www.frozensilicon.net/noteson0.3.1.html</description>
+            <pubDate>Wed, 09 Jan 2006 19:20:11 +0000</pubDate> 
+            <enclosure url="http://www.frozensilicon.net/downloads/PandoraBoy_0.3.1.dmg" length="1600000" 
+type="application/octet-stream"/> 
+        </item> 
+        <item> 
+            <title>Version 0.4b2</title> 
+            <description>http://pandoraboy.googlecode.com/files/CHANGES-0.4b2.txt</description>
+            <pubDate>Sat, 24 Nov 2007 12:00:00 -0500</pubDate> 
+            <enclosure sparkle:version="0.4b2" url="http://pandoraboy.googlecode.com/files/PandoraBoy-0.4b2.dmg" length="2094080" type="application/octet-stream"/> 
+        </item> 
+    </channel> 
+</rss>

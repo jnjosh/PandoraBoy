@@ -24,18 +24,13 @@ Known problems:
     * Major Applescript changes. See README.Applescript.txt.
     * All links (including the backstage menu options) should work now.
 
-Known problems:
-    * Controls>Play/Pause doesn't have a key-equivalent. This generally doesn't
-      matter because space will still work in almost all cases you'd care
-      about, and the user can set a different key equivalent if she wants. It's
-      just slightly inconsistent. The way iTunes does it seems to be highly
-      non-standard and difficult to re-implement.
-
 0.3.1
     * Fixed global hotkeys (they were broken in 0.3)
     
 0.4
     * Works now with Webkit 3 (10.5 and 10.4.11)
+    * Removed redundant shortcut keys from menu items
+    * Removed dependencies on frozensilicon.net
     
 For the future: 
     * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 
@@ -43,4 +38,3 @@ For the future:
     * Log files that have been played to a file       
     * Finish LastFm support (it is partially done)
     * Replace the thumbs up / thumbs down icons with something that looks a little better
-

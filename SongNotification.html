@@ -1,25 +1,48 @@
+<script src="http://www.pandora.com/include/PandoraAPIv2.js"></script>
 <script language="javascript">
 
 //GEK 20060404 Custom functions to react to Pandora's event calls.
 
+ /* Shamelessly stolen from PandoraFM.real-ity.com */
+Pandora = {
+    fireEvent: function(eventName, argument) {
+        if (eventName == "SongPlayed") {
+            pandoraSongPlayed(argument.songName, argument.artistName);
+        }
+	if (eventName == "SongPaused") {
+           pandoraSongPaused();
+        }
+    }
+}; 
 
 function pandoraSongPlayed(song, artist) {
-	message("Artist: "+artist+"\nSong: "+song);
+        var mySongNotification = window.SongNotification; 
+        mySongNotification.pandoraSongPlayed__(song,artist); 
+//	alert("Artist: "+artist+"\nSong: "+song);
 }
 
 function pandoraSongPaused() {
-	message("Paused"); 
+        var mySongNotification = window.SongNotification; 
+        mySongNotification.pandoraSongPaused(); 
+//	alert("Paused"); 
 }
 
 
 function pandoraEventsError(errormsg) {
-	message("PandoraFM Error in talking to Pandora: " + errormsg);
+        var mySongNotification = window.SongNotification; 
+        mySongNotification.pandoraEventsError_(errormsg); 
+//	alert("PandoraFM Error in talking to Pandora: " + errormsg);
 }
 
 
 function pandoraSongEnded(song, artist) {
-	message("Artist: "+artist+"\nSong: "+song);
+        var mySongNotification = window.SongNotification; 
+        mySongNotification.pandoraSongEnded__(song, artist); 
+//	alert("Artist: "+artist+"\nSong: "+song);
 }
+
+pandoraSongPaused();
+
 </script>
  
 
@@ -31,30 +54,24 @@ function pandoraSongEnded(song, artist) {
 
 </head>
 
-        <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-                        codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
-                        WIDTH="0"
-                        HEIGHT="0"
-                   id="PandoraEvents"
-                   style="position:absolute">
-                <PARAM NAME=movie VALUE="http://www.pandora.com/PandoraEvents.swf">
-		<PARAM name=allowScriptAccess value=always>
-                <PARAM NAME=quality VALUE=high>
-                <PARAM NAME=bgcolor VALUE=#FFFFFF>
-                <PARAM NAME=menu VALUE=false>
-         <PARAM NAME="FlashVars" VALUE="">
-        <EMBED src="http://www.pandora.com/PandoraEvents.swf"
-                   quality=high
-                   bgcolor=#FFFFFF
-                   WIDTH="0"
-                   HEIGHT="0"
-                   MENU="false"
-                   NAME="PandoraEvents" ALIGN="" TYPE="application/x-shockwave-flash"
-		   allowScriptAccess="always"
-                   PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"
-                   FlashVars=""
-                   style="position:absolute">
-        </EMBED>
-        </OBJECT>
+<body>
+<OBJECT id="PandoraEvents"
+      codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
+      height="0" width="0 " classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+      <PARAM NAME="movie" VALUE="http://www.pandora.com/PandoraEventsv2.swf"/>
+      <PARAM NAME="quality" VALUE="high"/>
+      <PARAM NAME="bgcolor" VALUE="#FFFFFF"/>
+      <PARAM NAME="menu" VALUE="false"/>
+      <PARAM NAME="FlashVars" VALUE=""/>
+      <EMBED src="http://www.pandora.com/PandoraEventsv2.swf"
+         quality="high" bgcolor="#FFFFFF" WIDTH="0"
+         HEIGHT="0" MENU="false"
+         NAME="PandoraEvents" ALIGN="" TYPE="application/x-shockwave-flash"
+         PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"
+         FlashVars="" />
+   </OBJECT>
+
 </body>
+
+
 </html>

@@ -137,7 +137,7 @@ typedef enum {
 
 - (IBAction) displayHelp:(id)sender
 {
-  [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:@"http://www.frozensilicon.net/support.html"]];  //Open up the FZ website
+  [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:@"http://code.google.com/p/pandoraboy/wiki/FrequentlyAskedQuestions"]];
 }
 
 // Accessors
@@ -213,14 +213,6 @@ typedef enum {
     return (request);
 }
 
--(void)webView:(WebView *)sender resource:(id)identifier didFinishLoadingFromDataSource:(WebDataSource *)dataSource {
-    // getFragment provides track updates
-    if( [[[identifier URL] absoluteString] rangeOfString:@"getFragment"].location != NSNotFound ) {
-//        WebResource *r = [dataSource subresourceForURL:[identifier URL]];
-//        [[Playlist sharedPlaylist] addInfoFromData:[r data]];
-//        [[Playlist sharedPlaylist] setDataSource:dataSource];
-    }
-}
 @end
 
 

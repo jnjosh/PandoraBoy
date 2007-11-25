@@ -52,8 +52,6 @@
 //WebView delegates 
 - (void)webView:(WebView *)sender setFrame:(NSRect)frame;
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
-- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame;
-//- (void)webView:(WebView *)sender makeFirstResponder:(NSResponder *)responder;
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener;
 
 @end

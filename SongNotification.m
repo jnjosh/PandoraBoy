@@ -26,9 +26,6 @@
 
 static SongNotification* sharedInstance = nil;
 
-extern NSString *PBNotifierURL;
-NSString *PBNotifierURL = @"http://www.frozensilicon.net/SongNotification.htm";
-
 NSString *PBPlayerInfoNotificationName = @"net.frozensilicon.pandoraBoy.playerInfo";
 
 NSString *PBPlayerInfoArtistKey      = @"Artist";
@@ -96,8 +93,11 @@ NSString *PBPlayerStatePlayingString = @"Playing";
 }
 
 - (void) loadNotifier: (WebView*) view {
+    NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
+    NSString *notifierPath = [thisBundle pathForResource:@"SongNotification"
+                                                  ofType:@"html"];
 	[[view mainFrame] loadRequest:[NSURLRequest requestWithURL:
-        [NSURL URLWithString:PBNotifierURL]]];
+        [NSURL fileURLWithPath:notifierPath]]];
 	 id win = [view windowScriptObject]; 
 	 [win setValue:self forKey:@"SongNotification"];
 }

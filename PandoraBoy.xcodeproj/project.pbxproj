@@ -70,9 +70,9 @@
 		FB5301F40CF886650083F18C /* PlaylistURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */; };
 		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
-		FB6B5E120CF9EE6100DEF3C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6B5E110CF9EE6100DEF3C9 /* Sparkle.framework */; };
-		FB6B5E260CF9EE7400DEF3C9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB6B5E110CF9EE6100DEF3C9 /* Sparkle.framework */; };
 		FB6B5EEE0CFA37F000DEF3C9 /* version_sparkle.xml in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */; };
+		FB6B5F2C0CFA5B4B00DEF3C9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */; };
+		FB6B5F6A0CFA5D3900DEF3C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */; };
 		FBA18D140CF5DEBF00CB424F /* PlaylistGuiController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
 		FBC365050BC9C1490052A3A9 /* Track.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC365030BC9C1490052A3A9 /* Track.h */; };
@@ -84,6 +84,37 @@
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FB6B5F260CFA5B3500DEF3C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = Sparkle;
+		};
+		FB6B5F280CFA5B3500DEF3C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 61B5F90209C4CEE200B25A18;
+			remoteInfo = "Sparkle Test App";
+		};
+		FB6B5F2A0CFA5B3500DEF3C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1E42C2F0CE754AE00F50EB9;
+			remoteInfo = "Relaunch Tool";
+		};
+		FB6B5F350CFA5BB000DEF3C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Sparkle;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		3D6942280AA378EC00899D49 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -91,7 +122,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FB6B5E260CF9EE7400DEF3C9 /* Sparkle.framework in CopyFiles */,
+				FB6B5F2C0CFA5B4B00DEF3C9 /* Sparkle.framework in CopyFiles */,
 				3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */,
 				3D6942420AA37A1300899D49 /* GrowlNotification.h in CopyFiles */,
 				3D6942930AA3D89400899D49 /* PandoraControl.h in CopyFiles */,
@@ -188,8 +219,8 @@
 		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
 		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
 		FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = SongNotification.html; sourceTree = "<group>"; };
-		FB6B5E110CF9EE6100DEF3C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version_sparkle.xml; sourceTree = "<group>"; };
+		FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = "third-party/Sparkle/Sparkle.xcodeproj"; sourceTree = "<group>"; };
 		FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PlaylistGuiController.h; sourceTree = "<group>"; };
 		FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PlaylistGuiController.m; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
@@ -203,12 +234,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6B5F6A0CFA5D3900DEF3C9 /* Sparkle.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */,
 				3D0609E50AB0BA9C008DC718 /* IOKit.framework in Frameworks */,
 				3DB581700ABB0155004452C3 /* Carbon.framework in Frameworks */,
 				3D0319AC0B18033A00B4DD61 /* WebKit.framework in Frameworks */,
-				FB6B5E120CF9EE6100DEF3C9 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +310,7 @@
 		29B97314FDCFA39411CA2CEA /* PandoraBoy */ = {
 			isa = PBXGroup;
 			children = (
+				FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */,
 				FB3856B60BC993B1005653C3 /* Documentation */,
 				3DC9FC780B74FED200FF4370 /* Shortcut Recorder */,
 				3DDA241D0B74F58800F500BD /* AppleScript */,
@@ -390,10 +422,19 @@
 		FB6B5EA70CF9EE9100DEF3C9 /* Third Party Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FB6B5E110CF9EE6100DEF3C9 /* Sparkle.framework */,
 				3D6942240AA378BF00899D49 /* Growl.framework */,
 			);
 			name = "Third Party Frameworks";
+			sourceTree = "<group>";
+		};
+		FB6B5F1C0CFA5B3500DEF3C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */,
+				FB6B5F290CFA5B3500DEF3C9 /* Sparkle Test App.app */,
+				FB6B5F2B0CFA5B3500DEF3C9 /* relaunch.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +452,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FB6B5F360CFA5BB000DEF3C9 /* PBXTargetDependency */,
 			);
 			name = PandoraBoy;
 			productInstallPath = "$(HOME)/Applications";
@@ -427,11 +469,41 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* PandoraBoy */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FB6B5F1C0CFA5B3500DEF3C9 /* Products */;
+					ProjectRef = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
+				},
+			);
 			targets = (
 				8D1107260486CEB800E47090 /* PandoraBoy */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Sparkle.framework;
+			remoteRef = FB6B5F260CFA5B3500DEF3C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FB6B5F290CFA5B3500DEF3C9 /* Sparkle Test App.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Sparkle Test App.app";
+			remoteRef = FB6B5F280CFA5B3500DEF3C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FB6B5F2B0CFA5B3500DEF3C9 /* relaunch.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = relaunch.app;
+			remoteRef = FB6B5F2A0CFA5B3500DEF3C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
@@ -500,6 +572,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB6B5F360CFA5BB000DEF3C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sparkle;
+			targetProxy = FB6B5F350CFA5BB000DEF3C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {

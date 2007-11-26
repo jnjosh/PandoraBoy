@@ -31,6 +31,7 @@ Known problems:
     * Works now with Webkit 3 (10.5 and 10.4.11)
     * Removed redundant shortcut keys from menu items
     * Removed dependencies on frozensilicon.net
+    * Moved Sparkle to googlecode
     
 For the future: 
     * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 

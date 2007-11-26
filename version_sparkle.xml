@@ -13,10 +13,10 @@
 type="application/octet-stream"/> 
         </item> 
         <item> 
-            <title>Version 0.4b2</title> 
+            <title>Version 0.4b3</title> 
             <description>http://pandoraboy.googlecode.com/files/CHANGES-0.4b2.txt</description>
-            <pubDate>Sat, 24 Nov 2007 12:00:00 -0500</pubDate> 
-            <enclosure sparkle:version="0.4b2" url="http://pandoraboy.googlecode.com/files/PandoraBoy-0.4b2.dmg" length="2094080" type="application/octet-stream"/> 
+            <pubDate>Sun, 25 Nov 2007 22:08:00 -0500</pubDate> 
+            <enclosure sparkle:version="0.4b3" url="http://pandoraboy.googlecode.com/files/PandoraBoy-0.4b2.dmg" length="772216" type="application/octet-stream"/> 
         </item> 
     </channel> 
 </rss>

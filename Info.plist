@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>FZSL</string>
 	<key>CFBundleVersion</key>
-	<string>0.4b1</string>
+	<string>0.4</string>
 	<key>NSAppleScriptEnabled</key>
 	<string>YES</string>
 	<key>NSMainNibFile</key>

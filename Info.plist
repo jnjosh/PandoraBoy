@@ -31,6 +31,6 @@
 	<key>OSAScriptingDefinition</key>
 	<string>PandoraBoy.sdef</string>
 	<key>SUFeedURL</key> 
-    <string>http://www.frozensilicon.net/version_sparkle.xml</string>
+    <string>http://pandoraboy.googlecode.com/svn/appcast/version_sparkle.xml</string>
 </dict>
 </plist>

@@ -70,6 +70,9 @@
 		FB5301F40CF886650083F18C /* PlaylistURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */; };
 		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
+		FB6B5E120CF9EE6100DEF3C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6B5E110CF9EE6100DEF3C9 /* Sparkle.framework */; };
+		FB6B5E260CF9EE7400DEF3C9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB6B5E110CF9EE6100DEF3C9 /* Sparkle.framework */; };
+		FB6B5EEE0CFA37F000DEF3C9 /* version_sparkle.xml in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */; };
 		FBA18D140CF5DEBF00CB424F /* PlaylistGuiController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
 		FBC365050BC9C1490052A3A9 /* Track.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC365030BC9C1490052A3A9 /* Track.h */; };
@@ -88,6 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FB6B5E260CF9EE7400DEF3C9 /* Sparkle.framework in CopyFiles */,
 				3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */,
 				3D6942420AA37A1300899D49 /* GrowlNotification.h in CopyFiles */,
 				3D6942930AA3D89400899D49 /* PandoraControl.h in CopyFiles */,
@@ -184,6 +188,8 @@
 		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
 		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
 		FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = SongNotification.html; sourceTree = "<group>"; };
+		FB6B5E110CF9EE6100DEF3C9 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version_sparkle.xml; sourceTree = "<group>"; };
 		FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PlaylistGuiController.h; sourceTree = "<group>"; };
 		FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PlaylistGuiController.m; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 				3D0609E50AB0BA9C008DC718 /* IOKit.framework in Frameworks */,
 				3DB581700ABB0155004452C3 /* Carbon.framework in Frameworks */,
 				3D0319AC0B18033A00B4DD61 /* WebKit.framework in Frameworks */,
+				FB6B5E120CF9EE6100DEF3C9 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +250,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D0319AB0B18033A00B4DD61 /* WebKit.framework */,
 				3DB5816F0ABB0155004452C3 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -315,8 +323,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3D0319AB0B18033A00B4DD61 /* WebKit.framework */,
-				3D6942240AA378BF00899D49 /* Growl.framework */,
+				FB6B5EA70CF9EE9100DEF3C9 /* Third Party Frameworks */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -372,11 +379,21 @@
 		FB3856B60BC993B1005653C3 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */,
 				FB3856EE0BC9973F005653C3 /* README.DNC.rtf */,
 				FB3856B70BC993C9005653C3 /* Changelog.txt */,
 				FB4D23500BCB092700DCC767 /* README.Applescript.txt */,
 			);
 			name = Documentation;
+			sourceTree = "<group>";
+		};
+		FB6B5EA70CF9EE9100DEF3C9 /* Third Party Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB6B5E110CF9EE6100DEF3C9 /* Sparkle.framework */,
+				3D6942240AA378BF00899D49 /* Growl.framework */,
+			);
+			name = "Third Party Frameworks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +466,7 @@
 				3DBE1B000B76B37400DB83CA /* ThumbsDown.scpt in Resources */,
 				3DBE1B010B76B37400DB83CA /* ThumbsUp.scpt in Resources */,
 				FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */,
+				FB6B5EEE0CFA37F000DEF3C9 /* version_sparkle.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,11 +540,13 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_3)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_4)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_5)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_3 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_4 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_5 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -561,11 +581,13 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_3)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_4)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_5)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_3 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_4 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_5 = "\"$(SRCROOT)\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;

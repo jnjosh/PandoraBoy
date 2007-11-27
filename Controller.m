@@ -26,6 +26,7 @@
 #import "AppleRemote.h"
 #import <WebKit/WebKit.h>
 #import "PlaylistURLProtocol.h"
+#import "ResourceURLProtocol.h"
 
 extern NSString *PBPandoraURL;
 NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
@@ -228,6 +229,7 @@ typedef enum {
     //	NSLog(@"_dashboardBehavoir: %d", [webView _dashboardBehavior:WebDashboardBehaviorAlwaysSendActiveNullEventsToPlugIns]);
 
     [NSURLProtocol registerClass:[PlaylistURLProtocol class]];
+    [NSURLProtocol registerClass:[ResourceURLProtocol class]];
 
 	[self loadPandora];
     [[SongNotification sharedNotification] loadNotifier:notificationView];

@@ -23,6 +23,7 @@
 #import "WebKit/WebFrame.h"
 #import "PandoraControl.h"
 #import "Playlist.h"
+#import "ResourceURL.h"
 
 static SongNotification* sharedInstance = nil;
 
@@ -93,13 +94,11 @@ NSString *PBPlayerStatePlayingString = @"Playing";
 }
 
 - (void) loadNotifier: (WebView*) view {
-    NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
-    NSString *notifierPath = [thisBundle pathForResource:@"SongNotification"
-                                                  ofType:@"html"];
-	[[view mainFrame] loadRequest:[NSURLRequest requestWithURL:
-        [NSURL fileURLWithPath:notifierPath]]];
-	 id win = [view windowScriptObject]; 
-	 [win setValue:self forKey:@"SongNotification"];
+    ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:@"/SongNotification.html"];
+	[[view mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
+
+    id win = [view windowScriptObject]; 
+    [win setValue:self forKey:@"SongNotification"];
 }
 
 - (void) sendPlayerInfoNotification {

@@ -32,6 +32,9 @@ Known problems:
     * Removed redundant shortcut keys from menu items
     * Removed dependencies on frozensilicon.net
     * Moved Sparkle to googlecode
+
+0.4.1
+    * Fixed flash security error caused by local SongNotification.html
     
 For the future: 
     * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 

@@ -3,9 +3,13 @@ PRODUCT=PandoraBoy
 ICON=images/VolumeIcon.icns
 basedir=`pwd`/`dirname $0`
 cd $basedir
+VERSION=`defaults read $basedir/Info CFBundleVersion`
+
+echo "Packaging $PRODUCT $VERSION... Press ENTER or ^C"
+read
+
 xcodebuild
 if [ $? != 0 ]; then 
   exit
 fi
-VERSION=`defaults read $basedir/build/Release/$PRODUCT.app/Contents/Info CFBundleVersion`
-perl dmg/pkg-dmg.pl --source build/Release/$PRODUCT.app --target dmg/$PRODUCT-$VERSION.dmg --sourcefile --volname $PRODUCT\ $VERSION --icon $ICON --mkdir /.background --copy dmg/dmgBackground.png:/.background/background.png --copy dmg/dmgDS_Store:/.DS_Store --copy Changelog.txt --copy License.txt --copy Applescripts --copy dmg/Applications
+perl dmg/pkg-dmg.pl --source build/Release/$PRODUCT.app --target dmg/$PRODUCT-$VERSION.dmg --sourcefile --format UDZO --volname $PRODUCT\ $VERSION --icon $ICON --mkdir /.background --copy dmg/dmgBackground.png:/.background/background.png --copy dmg/dmgDS_Store:/.DS_Store --copy Changelog.txt --copy License.txt --copy Applescripts --copy dmg/Applications

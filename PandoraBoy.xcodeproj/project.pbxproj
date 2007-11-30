@@ -55,6 +55,7 @@
 		FB6B5F2C0CFA5B4B00DEF3C9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */; };
 		FB6B5F6A0CFA5D3900DEF3C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
+		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
@@ -189,6 +190,7 @@
 		FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = "third-party/Sparkle/Sparkle.xcodeproj"; sourceTree = "<group>"; };
 		FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PlaylistGuiController.h; sourceTree = "<group>"; };
 		FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PlaylistGuiController.m; sourceTree = "<group>"; };
+		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		FBF742000BD1C3AC007F85D5 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				FB3856EE0BC9973F005653C3 /* README.DNC.rtf */,
 				FB3856B70BC993C9005653C3 /* Changelog.txt */,
 				FB4D23500BCB092700DCC767 /* README.Applescript.txt */,
+				FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				3D04444E0B758EAE00F1BA8B /* thumbs_up.png in Resources */,
 				FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */,
 				FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */,
+				FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

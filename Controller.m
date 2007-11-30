@@ -223,6 +223,11 @@ typedef enum {
   NSLog(@"Restored!!!");
 }
 
+- (void)windowWillClose:(NSNotification *)aNotification
+{
+    [NSApp terminate:self];
+}
+
 @end
 
 @implementation Controller (AppleRemote)

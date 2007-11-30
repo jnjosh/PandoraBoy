@@ -175,15 +175,6 @@
   [[GlobalHotkey sharedHotkey] unregisterHotkeys];
   [[GlobalHotkey sharedHotkey] registerHotkeys];
 
-  if([[NSUserDefaults standardUserDefaults] boolForKey:@"AppleRemoteEnabled"]==YES) {
-    [[AppleRemote sharedRemote] setOpenInExclusiveMode:false];
-    [[AppleRemote sharedRemote] setListeningToRemote:true];
-  }
-  else {
-    [[AppleRemote sharedRemote] setOpenInExclusiveMode:false];
-    [[AppleRemote sharedRemote] setListeningToRemote:false];
-  }
-
 //  NSString *username = [[NSUserDefaults standardUserDefaults] 
 //			stringForKey:@"LastFmUsername"];
 //  if(username != nil && LastFmPassword != nil) 

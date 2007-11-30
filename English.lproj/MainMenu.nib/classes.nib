@@ -2,7 +2,6 @@
     IBClasses = (
         {
             ACTIONS = {
-                checkVersionNumber = id; 
                 dislikeSong = id; 
                 displayHelp = id; 
                 fullVolume = id; 

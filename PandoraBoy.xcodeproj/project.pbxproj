@@ -14,7 +14,6 @@
 		3D04444C0B758EAE00F1BA8B /* pandoraboy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444450B758EAE00F1BA8B /* pandoraboy.icns */; };
 		3D04444D0B758EAE00F1BA8B /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444460B758EAE00F1BA8B /* thumbs_down.png */; };
 		3D04444E0B758EAE00F1BA8B /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444470B758EAE00F1BA8B /* thumbs_up.png */; };
-		3D0609430AB0B654008DC718 /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0609410AB0B654008DC718 /* AppleRemote.m */; };
 		3D0609E50AB0BA9C008DC718 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0609E40AB0BA9C008DC718 /* IOKit.framework */; };
 		3D4400D10B758BC10022A3D7 /* CTGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C50B758BC10022A3D7 /* CTGradient.m */; };
 		3D4400D30B758BC10022A3D7 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C70B758BC10022A3D7 /* SRCommon.m */; };
@@ -42,6 +41,12 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		FB27A1BA0CFF03A80038475D /* AppleRemote.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB27A1B80CFF03A80038475D /* AppleRemote.h */; };
+		FB27A1BB0CFF03A80038475D /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A1B90CFF03A80038475D /* AppleRemote.m */; };
+		FB27A2110CFF9D6C0038475D /* HIDRemoteControlDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB27A20F0CFF9D6C0038475D /* HIDRemoteControlDevice.h */; };
+		FB27A2120CFF9D6C0038475D /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */; };
+		FB27A2160CFF9DB90038475D /* RemoteControl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB27A2140CFF9DB90038475D /* RemoteControl.h */; };
+		FB27A2170CFF9DB90038475D /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2150CFF9DB90038475D /* RemoteControl.m */; };
 		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
 		FB4631400CFBA3500098407B /* ResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */; };
 		FB4632680CFBBE830098407B /* ResourceURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4632660CFBBE830098407B /* ResourceURL.m */; };
@@ -94,6 +99,9 @@
 			files = (
 				FB6B5F2C0CFA5B4B00DEF3C9 /* Sparkle.framework in CopyFiles */,
 				3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */,
+				FB27A1BA0CFF03A80038475D /* AppleRemote.h in CopyFiles */,
+				FB27A2110CFF9D6C0038475D /* HIDRemoteControlDevice.h in CopyFiles */,
+				FB27A2160CFF9DB90038475D /* RemoteControl.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +123,6 @@
 		3D0444450B758EAE00F1BA8B /* pandoraboy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = pandoraboy.icns; path = images/pandoraboy.icns; sourceTree = "<group>"; };
 		3D0444460B758EAE00F1BA8B /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbs_down.png; path = images/thumbs_down.png; sourceTree = "<group>"; };
 		3D0444470B758EAE00F1BA8B /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbs_up.png; path = images/thumbs_up.png; sourceTree = "<group>"; };
-		3D0609400AB0B653008DC718 /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppleRemote.h; sourceTree = "<group>"; };
-		3D0609410AB0B654008DC718 /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppleRemote.m; sourceTree = "<group>"; };
 		3D0609E40AB0BA9C008DC718 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		3D4400C40B758BC10022A3D7 /* CTGradient.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CTGradient.h; path = ShortcutRecorder/CTGradient.h; sourceTree = "<group>"; };
 		3D4400C50B758BC10022A3D7 /* CTGradient.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = CTGradient.m; path = ShortcutRecorder/CTGradient.m; sourceTree = "<group>"; };
@@ -162,6 +168,12 @@
 		3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */ = {isa = PBXFileReference; explicitFileType = text.sdef; fileEncoding = 30; path = PandoraBoy.sdef; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* PandoraBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PandoraBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB27A1B80CFF03A80038475D /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AppleRemote.h; path = RemoteControlWrapper/AppleRemote.h; sourceTree = "<group>"; };
+		FB27A1B90CFF03A80038475D /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AppleRemote.m; path = RemoteControlWrapper/AppleRemote.m; sourceTree = "<group>"; };
+		FB27A20F0CFF9D6C0038475D /* HIDRemoteControlDevice.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = HIDRemoteControlDevice.h; path = RemoteControlWrapper/HIDRemoteControlDevice.h; sourceTree = "<group>"; };
+		FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HIDRemoteControlDevice.m; path = RemoteControlWrapper/HIDRemoteControlDevice.m; sourceTree = "<group>"; };
+		FB27A2140CFF9DB90038475D /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = RemoteControl.h; path = RemoteControlWrapper/RemoteControl.h; sourceTree = "<group>"; };
+		FB27A2150CFF9DB90038475D /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = RemoteControl.m; path = RemoteControlWrapper/RemoteControl.m; sourceTree = "<group>"; };
 		FB38569E0BC9913F005653C3 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB3856B70BC993C9005653C3 /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		FB3856EE0BC9973F005653C3 /* README.DNC.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.DNC.rtf; sourceTree = "<group>"; };
@@ -203,10 +215,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FB27A2130CFF9D750038475D /* RemoteControlWrapper */,
 				3DDA24250B74F5D000F500BD /* Commands.h */,
 				3DDA24260B74F5D000F500BD /* Commands.m */,
-				3D0609400AB0B653008DC718 /* AppleRemote.h */,
-				3D0609410AB0B654008DC718 /* AppleRemote.m */,
 				3D69452F0AAA19D300899D49 /* GlobalHotkey.h */,
 				3D6945300AAA19D300899D49 /* GlobalHotkey.m */,
 				3D7F771D0A9EB1DB004B0146 /* Controller.h */,
@@ -365,6 +376,19 @@
 			name = ShortcutRecorder;
 			sourceTree = "<group>";
 		};
+		FB27A2130CFF9D750038475D /* RemoteControlWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				FB27A1B80CFF03A80038475D /* AppleRemote.h */,
+				FB27A1B90CFF03A80038475D /* AppleRemote.m */,
+				FB27A20F0CFF9D6C0038475D /* HIDRemoteControlDevice.h */,
+				FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */,
+				FB27A2140CFF9DB90038475D /* RemoteControl.h */,
+				FB27A2150CFF9DB90038475D /* RemoteControl.m */,
+			);
+			name = RemoteControlWrapper;
+			sourceTree = "<group>";
+		};
 		FB3856B60BC993B1005653C3 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,7 +524,6 @@
 				3D6942940AA3D89400899D49 /* PandoraControl.m in Sources */,
 				3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */,
 				3D6946960AAC91DF00899D49 /* PreferenceController.m in Sources */,
-				3D0609430AB0B654008DC718 /* AppleRemote.m in Sources */,
 				3DDA24280B74F5D000F500BD /* Commands.m in Sources */,
 				3D4400D10B758BC10022A3D7 /* CTGradient.m in Sources */,
 				3D4400D30B758BC10022A3D7 /* SRCommon.m in Sources */,
@@ -514,6 +537,9 @@
 				FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */,
 				FB4631400CFBA3500098407B /* ResourceURLProtocol.m in Sources */,
 				FB4632680CFBBE830098407B /* ResourceURL.m in Sources */,
+				FB27A1BB0CFF03A80038475D /* AppleRemote.m in Sources */,
+				FB27A2120CFF9D6C0038475D /* HIDRemoteControlDevice.m in Sources */,
+				FB27A2170CFF9DB90038475D /* RemoteControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

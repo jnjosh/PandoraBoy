@@ -23,13 +23,15 @@
 #import "SongNotification.h"
 #import "PandoraControl.h"
 #import "GlobalHotkey.h"
-#import "AppleRemote.h"
 #import <WebKit/WebKit.h>
 #import "PlaylistURLProtocol.h"
 #import "ResourceURLProtocol.h"
 
 extern NSString *PBPandoraURL;
 NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
+
+extern NSString *PBAppleRemoteEnabled;
+NSString *PBAppleRemoteEnabled = @"AppleRemoteEnabled";
 
 typedef enum {
     WebDashboardBehaviorAlwaysSendMouseEventsToAllWindows,
@@ -47,22 +49,30 @@ typedef enum {
     NSMutableDictionary *userDefaultsValuesDict = [NSMutableDictionary
 						    dictionary];
     [userDefaultsValuesDict setObject:@"YES"
-			    forKey:@"AppleRemoteEnabled"];
+			    forKey:PBAppleRemoteEnabled];
     [userDefaultsValuesDict setObject:@"NO"
 			    forKey:@"DoNotShowStartupWindow2"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:
 		      userDefaultsValuesDict];      //Register the defaults
     [[NSUserDefaults standardUserDefaults] synchronize];  //And sync them
-	
-	if([[NSUserDefaults standardUserDefaults] boolForKey:@"AppleRemoteEnabled"]==YES) {
-		[[AppleRemote sharedRemote] setOpenInExclusiveMode:false];
-		[[AppleRemote sharedRemote] setListeningToRemote:true];
-	}
+
+    appleRemote = [[AppleRemote alloc] initWithDelegate:self];
+    if([[NSUserDefaults standardUserDefaults] boolForKey:PBAppleRemoteEnabled]) {
+        [appleRemote startListening:self];
+    }
+
+    [[NSUserDefaults standardUserDefaults] addObserver:self
+                                            forKeyPath:PBAppleRemoteEnabled
+                                               options: NSKeyValueObservingOptionNew
+                                               context:nil];
   }
   return self;
 }
 
 - (void) dealloc {
+    [appleRemote release];
+    [[NSUserDefaults standardUserDefaults] removeObserver:self
+                                               forKeyPath:PBAppleRemoteEnabled];
     [super dealloc];
 }
 
@@ -74,49 +84,6 @@ typedef enum {
   [[GlobalHotkey sharedHotkey] registerHotkeyHandler];
   [[GlobalHotkey sharedHotkey] registerHotkeys];
 
-  [[AppleRemote sharedRemote] setDelegate: self];
-}
-
-// delegate methods for AppleRemote
-- (void) appleRemoteButton: (AppleRemoteEventIdentifier)buttonIdentifier pressedDown: (BOOL) pressedDown 
-{
-	switch(buttonIdentifier) {
-		case kRemoteButtonVolume_Plus:
-		  //if (pressedDown)
-		  //  [[PandoraControl sharedController] raiseVolume]; 
-		  break;
-		case kRemoteButtonVolume_Minus:
-		  //if (pressedDown)
-		  //  [[PandoraControl sharedController] lowerVolume]; 
-		  break;			
-/*		case kRemoteButtonMenu:
-			buttonName = @"Menu";
-			if (pressedDown) pressed = @"(down)"; else pressed = @"(up)";
-			break; */			
-		case kRemoteButtonPlay:
-		  if (pressedDown)
-		    [[PandoraControl sharedController] playPause]; 
-		  break;			
-		case kRemoteButtonRight:	
-		  if (pressedDown)
-		    [[PandoraControl sharedController] nextSong]; 
-		  break;			
-		case kRemoteButtonLeft:
-		  if (pressedDown)
-		    [[PandoraControl sharedController] likeSong];
-			break;			
-		case kRemoteButtonRight_Hold:
-		  if (pressedDown)
-		    [[PandoraControl sharedController] dislikeSong];
-			break;	
-		case kRemoteButtonLeft_Hold:
-			break;			
-		case kRemoteButtonPlay_Sleep:
-			break;			
-		default:
-			NSLog(@"Unmapped event for button %d", buttonIdentifier); 
-			break;
-	}
 }
 
 - (void) loadPandora 
@@ -227,6 +194,8 @@ typedef enum {
     //	[notificationView _setDashboardBehavior:WebDashboardBehaviorAlwaysSendActiveNullEventsToPlugIns to:YES];
     //	
     //	NSLog(@"_dashboardBehavoir: %d", [webView _dashboardBehavior:WebDashboardBehaviorAlwaysSendActiveNullEventsToPlugIns]);
+    
+    // Here's the fix: http://lists.apple.com/archives/webkitsdk-dev/2006/Dec/msg00011.html
 
     [NSURLProtocol registerClass:[PlaylistURLProtocol class]];
     [NSURLProtocol registerClass:[ResourceURLProtocol class]];
@@ -253,4 +222,67 @@ typedef enum {
   [[PandoraControl sharedController] setControlEnabled];
   NSLog(@"Restored!!!");
 }
+
+@end
+
+@implementation Controller (AppleRemote)
+
+// delegate methods for AppleRemote
+- (void) sendRemoteButtonEvent: (RemoteControlEventIdentifier) event 
+                   pressedDown: (BOOL) pressedDown 
+                 remoteControl: (RemoteControl*) remoteControl
+{
+    if( pressedDown )
+    {
+        switch(event) {
+            case kRemoteButtonPlus:
+                [[PandoraControl sharedController] raiseVolume]; 
+                break;
+            case kRemoteButtonMinus:
+                [[PandoraControl sharedController] lowerVolume]; 
+                break;			
+            case kRemoteButtonMenu:
+                break;
+            case kRemoteButtonMenu_Hold:
+                break;
+            case kRemoteButtonPlay:
+                [[PandoraControl sharedController] playPause]; 
+                break;
+            case kRemoteButtonPlay_Hold:
+                break;
+            case kRemoteButtonRight:	
+                [[PandoraControl sharedController] nextSong]; 
+                break;			
+            case kRemoteButtonLeft:
+                [[PandoraControl sharedController] likeSong];
+                break;			
+            case kRemoteButtonLeft_Hold:
+                break;			
+            case kRemoteButtonRight_Hold:
+                [[PandoraControl sharedController] dislikeSong];
+                break;	
+            default:
+                NSLog(@"Unmapped event for button %d", event); 
+                break;
+        }
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if( [object isEqualTo:userDefaults] &&
+        [keyPath isEqualTo:PBAppleRemoteEnabled] )
+    {
+        if( [userDefaults boolForKey:PBAppleRemoteEnabled] ) {
+            [appleRemote startListening:self];
+        }
+        else {
+            [appleRemote stopListening:self];
+        }
+    }
+    else {
+        NSLog(@"BUG:Received observeValueForKeyPath on %@", object);
+    }
+}
+
 @end

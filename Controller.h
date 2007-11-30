@@ -24,6 +24,7 @@
 #import <WebKit/WebPolicyDelegate.h>
 #import <WebKit/WebView.h>
 #import "Playlist.h"
+#import "AppleRemote.h"
 
 @interface Controller : NSObject
 {
@@ -31,6 +32,7 @@
     IBOutlet NSWindow *pandoraWindow; 
     IBOutlet NSWindow *startupWindow; 
     IBOutlet WebView *notificationView;
+    AppleRemote *appleRemote;
 }
 
 -(void) loadPandora;

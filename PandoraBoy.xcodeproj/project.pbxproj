@@ -41,55 +41,21 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		FB27A1BA0CFF03A80038475D /* AppleRemote.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB27A1B80CFF03A80038475D /* AppleRemote.h */; };
 		FB27A1BB0CFF03A80038475D /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A1B90CFF03A80038475D /* AppleRemote.m */; };
-		FB27A2110CFF9D6C0038475D /* HIDRemoteControlDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB27A20F0CFF9D6C0038475D /* HIDRemoteControlDevice.h */; };
 		FB27A2120CFF9D6C0038475D /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */; };
-		FB27A2160CFF9DB90038475D /* RemoteControl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB27A2140CFF9DB90038475D /* RemoteControl.h */; };
 		FB27A2170CFF9DB90038475D /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2150CFF9DB90038475D /* RemoteControl.m */; };
 		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
 		FB4631400CFBA3500098407B /* ResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */; };
 		FB4632680CFBBE830098407B /* ResourceURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4632660CFBBE830098407B /* ResourceURL.m */; };
 		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
+		FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
+		FB691B4E0D01F2C700B027ED /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
-		FB6B5F2C0CFA5B4B00DEF3C9 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */; };
-		FB6B5F6A0CFA5D3900DEF3C9 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FB6B5F260CFA5B3500DEF3C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = Sparkle;
-		};
-		FB6B5F280CFA5B3500DEF3C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61B5F90209C4CEE200B25A18;
-			remoteInfo = "Sparkle Test App";
-		};
-		FB6B5F2A0CFA5B3500DEF3C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D1E42C2F0CE754AE00F50EB9;
-			remoteInfo = "Relaunch Tool";
-		};
-		FB6B5F350CFA5BB000DEF3C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = Sparkle;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3D6942280AA378EC00899D49 /* CopyFiles */ = {
@@ -98,11 +64,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FB6B5F2C0CFA5B4B00DEF3C9 /* Sparkle.framework in CopyFiles */,
+				FB691B4E0D01F2C700B027ED /* Sparkle.framework in CopyFiles */,
 				3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */,
-				FB27A1BA0CFF03A80038475D /* AppleRemote.h in CopyFiles */,
-				FB27A2110CFF9D6C0038475D /* HIDRemoteControlDevice.h in CopyFiles */,
-				FB27A2160CFF9DB90038475D /* RemoteControl.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,9 +148,9 @@
 		FB4D23500BCB092700DCC767 /* README.Applescript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.Applescript.txt; sourceTree = "<group>"; wrapsLines = 1; };
 		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
 		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
+		FB691B490D01F2B500B027ED /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = SongNotification.html; sourceTree = "<group>"; };
 		FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version_sparkle.xml; sourceTree = "<group>"; };
-		FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = "third-party/Sparkle/Sparkle.xcodeproj"; sourceTree = "<group>"; };
 		FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PlaylistGuiController.h; sourceTree = "<group>"; };
 		FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PlaylistGuiController.m; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
@@ -202,12 +165,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB6B5F6A0CFA5D3900DEF3C9 /* Sparkle.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */,
 				3D0609E50AB0BA9C008DC718 /* IOKit.framework in Frameworks */,
 				3DB581700ABB0155004452C3 /* Carbon.framework in Frameworks */,
 				3D0319AC0B18033A00B4DD61 /* WebKit.framework in Frameworks */,
+				FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +244,6 @@
 		29B97314FDCFA39411CA2CEA /* PandoraBoy */ = {
 			isa = PBXGroup;
 			children = (
-				FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */,
 				FB3856B60BC993B1005653C3 /* Documentation */,
 				3DC9FC780B74FED200FF4370 /* Shortcut Recorder */,
 				3DDA241D0B74F58800F500BD /* AppleScript */,
@@ -406,19 +368,10 @@
 		FB6B5EA70CF9EE9100DEF3C9 /* Third Party Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB691B490D01F2B500B027ED /* Sparkle.framework */,
 				3D6942240AA378BF00899D49 /* Growl.framework */,
 			);
 			name = "Third Party Frameworks";
-			sourceTree = "<group>";
-		};
-		FB6B5F1C0CFA5B3500DEF3C9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */,
-				FB6B5F290CFA5B3500DEF3C9 /* Sparkle Test App.app */,
-				FB6B5F2B0CFA5B3500DEF3C9 /* relaunch.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,13 +383,12 @@
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
-				8D11072E0486CEB800E47090 /* Frameworks */,
 				3D6942280AA378EC00899D49 /* CopyFiles */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FB6B5F360CFA5BB000DEF3C9 /* PBXTargetDependency */,
 			);
 			name = PandoraBoy;
 			productInstallPath = "$(HOME)/Applications";
@@ -453,41 +405,11 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* PandoraBoy */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FB6B5F1C0CFA5B3500DEF3C9 /* Products */;
-					ProjectRef = FB6B5F1B0CFA5B3500DEF3C9 /* Sparkle.xcodeproj */;
-				},
-			);
 			targets = (
 				8D1107260486CEB800E47090 /* PandoraBoy */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FB6B5F270CFA5B3500DEF3C9 /* Sparkle.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Sparkle.framework;
-			remoteRef = FB6B5F260CFA5B3500DEF3C9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FB6B5F290CFA5B3500DEF3C9 /* Sparkle Test App.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Sparkle Test App.app";
-			remoteRef = FB6B5F280CFA5B3500DEF3C9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FB6B5F2B0CFA5B3500DEF3C9 /* relaunch.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = relaunch.app;
-			remoteRef = FB6B5F2A0CFA5B3500DEF3C9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
@@ -549,14 +471,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		FB6B5F360CFA5BB000DEF3C9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Sparkle;
-			targetProxy = FB6B5F350CFA5BB000DEF3C9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -597,12 +511,14 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_4)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_5)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_6)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_3 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_4 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_5 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_6 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -638,12 +554,14 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_4)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_5)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_6)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_3 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_4 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_5 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_6 = "\"$(SRCROOT)\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;

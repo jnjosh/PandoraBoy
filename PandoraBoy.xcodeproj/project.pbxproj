@@ -51,6 +51,10 @@
 		FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB691B4E0D01F2C700B027ED /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
+		FB936CB50D0108C9007AD10A /* ProxyURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */; };
+		FB936CB60D0108C9007AD10A /* ProxyURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */; };
+		FB936D690D01BB69007AD10A /* ArtworkURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */; };
+		FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
@@ -66,6 +70,8 @@
 			files = (
 				FB691B4E0D01F2C700B027ED /* Sparkle.framework in CopyFiles */,
 				3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */,
+				FB936CB50D0108C9007AD10A /* ProxyURLProtocol.h in CopyFiles */,
+				FB936D690D01BB69007AD10A /* ArtworkURLProtocol.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +157,10 @@
 		FB691B490D01F2B500B027ED /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = SongNotification.html; sourceTree = "<group>"; };
 		FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version_sparkle.xml; sourceTree = "<group>"; };
+		FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyURLProtocol.h; sourceTree = "<group>"; };
+		FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyURLProtocol.m; sourceTree = "<group>"; };
+		FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkURLProtocol.h; sourceTree = "<group>"; };
+		FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkURLProtocol.m; sourceTree = "<group>"; };
 		FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PlaylistGuiController.h; sourceTree = "<group>"; };
 		FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PlaylistGuiController.m; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
@@ -202,12 +212,7 @@
 				FBC365040BC9C1490052A3A9 /* Track.m */,
 				FBF742000BD1C3AC007F85D5 /* Playlist.h */,
 				FBF742010BD1C3AC007F85D5 /* Playlist.m */,
-				FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */,
-				FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */,
-				FB4632650CFBBE830098407B /* ResourceURL.h */,
-				FB4632660CFBBE830098407B /* ResourceURL.m */,
-				FB46313D0CFBA3500098407B /* ResourceURLProtocol.h */,
-				FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */,
+				FB936CB90D0108DD007AD10A /* URLProtocols */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -374,6 +379,23 @@
 			name = "Third Party Frameworks";
 			sourceTree = "<group>";
 		};
+		FB936CB90D0108DD007AD10A /* URLProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */,
+				FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */,
+				FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */,
+				FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */,
+				FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */,
+				FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */,
+				FB4632650CFBBE830098407B /* ResourceURL.h */,
+				FB4632660CFBBE830098407B /* ResourceURL.m */,
+				FB46313D0CFBA3500098407B /* ResourceURLProtocol.h */,
+				FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */,
+			);
+			name = URLProtocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -466,6 +488,8 @@
 				FB27A1BB0CFF03A80038475D /* AppleRemote.m in Sources */,
 				FB27A2120CFF9D6C0038475D /* HIDRemoteControlDevice.m in Sources */,
 				FB27A2170CFF9DB90038475D /* RemoteControl.m in Sources */,
+				FB936CB60D0108C9007AD10A /* ProxyURLProtocol.m in Sources */,
+				FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

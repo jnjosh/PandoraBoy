@@ -12,6 +12,7 @@
                 playPause = id; 
                 raiseVolume = id; 
                 refreshPandora = id; 
+                sendStationChange = id; 
             }; 
             CLASS = Controller; 
             LANGUAGE = ObjC; 

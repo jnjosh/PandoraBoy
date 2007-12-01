@@ -50,6 +50,9 @@
 - (IBAction)lowerVolume:(id)sender;
 - (IBAction)fullVolume:(id)sender;
 - (IBAction)mute:(id)sender;
+//HACK
+- (IBAction)sendStationChange:(id)sender; 
+
 
 //WebView delegates 
 - (void)webView:(WebView *)sender setFrame:(NSRect)frame;

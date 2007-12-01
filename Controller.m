@@ -24,8 +24,7 @@
 #import "PandoraControl.h"
 #import "GlobalHotkey.h"
 #import <WebKit/WebKit.h>
-#import "PlaylistURLProtocol.h"
-#import "ResourceURLProtocol.h"
+#import "ProxyURLProtocol.h"
 
 extern NSString *PBPandoraURL;
 NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
@@ -100,6 +99,18 @@ typedef enum {
 - (IBAction)lowerVolume:(id)sender { [[PandoraControl sharedController] lowerVolume]; }
 - (IBAction)fullVolume:(id)sender  { [[PandoraControl sharedController] fullVolume]; }
 - (IBAction)mute:(id)sender        { [[PandoraControl sharedController] mute]; }
+
+// HACK
+- (IBAction)sendStationChange:(id)sender {
+    NSLog(@"DEBUG:sendStationChange");
+    WebScriptObject *scriptObject = [[webView windowScriptObject] valueForKey:@"Pandora"];
+//    NSLog(@"DEBUG:scriptObject:%@", [scriptObject valueForKey:@"Pandora"]);
+//HERE
+    [scriptObject callWebScriptMethod:@"launchStationFromId" withArguments:[NSArray arrayWithObject:@"6021290750249495"]];
+    NSLog(@"DEBUG:getBaseUrl:%@", [scriptObject callWebScriptMethod:@"getBaseUrl" withArguments:nil]);
+
+}
+
 
 - (IBAction) refreshPandora:(id)sender { [[webView mainFrame] reload]; }
 
@@ -197,8 +208,7 @@ typedef enum {
     
     // Here's the fix: http://lists.apple.com/archives/webkitsdk-dev/2006/Dec/msg00011.html
 
-    [NSURLProtocol registerClass:[PlaylistURLProtocol class]];
-    [NSURLProtocol registerClass:[ResourceURLProtocol class]];
+    [ProxyURLProtocol registerProxyProtocols];
 
 	[self loadPandora];
     [[SongNotification sharedNotification] loadNotifier:notificationView];

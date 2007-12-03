@@ -58,6 +58,12 @@
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
+		FBC404320D039F0600B179F9 /* StationsURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC404300D039F0600B179F9 /* StationsURLProtocol.h */; };
+		FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404310D039F0600B179F9 /* StationsURLProtocol.m */; };
+		FBC404450D03A22B00B179F9 /* StationList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC404430D03A22B00B179F9 /* StationList.h */; };
+		FBC404460D03A22B00B179F9 /* StationList.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404440D03A22B00B179F9 /* StationList.m */; };
+		FBC404510D03A31600B179F9 /* Station.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC4044F0D03A31600B179F9 /* Station.h */; };
+		FBC404520D03A31600B179F9 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404500D03A31600B179F9 /* Station.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +78,9 @@
 				3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */,
 				FB936CB50D0108C9007AD10A /* ProxyURLProtocol.h in CopyFiles */,
 				FB936D690D01BB69007AD10A /* ArtworkURLProtocol.h in CopyFiles */,
+				FBC404320D039F0600B179F9 /* StationsURLProtocol.h in CopyFiles */,
+				FBC404450D03A22B00B179F9 /* StationList.h in CopyFiles */,
+				FBC404510D03A31600B179F9 /* Station.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +175,12 @@
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		FBC404300D039F0600B179F9 /* StationsURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsURLProtocol.h; sourceTree = "<group>"; };
+		FBC404310D039F0600B179F9 /* StationsURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsURLProtocol.m; sourceTree = "<group>"; };
+		FBC404430D03A22B00B179F9 /* StationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationList.h; sourceTree = "<group>"; };
+		FBC404440D03A22B00B179F9 /* StationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationList.m; sourceTree = "<group>"; };
+		FBC4044F0D03A31600B179F9 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		FBC404500D03A31600B179F9 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
 		FBF742000BD1C3AC007F85D5 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		FBF742010BD1C3AC007F85D5 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +227,10 @@
 				FBC365040BC9C1490052A3A9 /* Track.m */,
 				FBF742000BD1C3AC007F85D5 /* Playlist.h */,
 				FBF742010BD1C3AC007F85D5 /* Playlist.m */,
+				FBC4044F0D03A31600B179F9 /* Station.h */,
+				FBC404500D03A31600B179F9 /* Station.m */,
+				FBC404430D03A22B00B179F9 /* StationList.h */,
+				FBC404440D03A22B00B179F9 /* StationList.m */,
 				FB936CB90D0108DD007AD10A /* URLProtocols */,
 			);
 			name = Classes;
@@ -392,6 +411,8 @@
 				FB4632660CFBBE830098407B /* ResourceURL.m */,
 				FB46313D0CFBA3500098407B /* ResourceURLProtocol.h */,
 				FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */,
+				FBC404300D039F0600B179F9 /* StationsURLProtocol.h */,
+				FBC404310D039F0600B179F9 /* StationsURLProtocol.m */,
 			);
 			name = URLProtocols;
 			sourceTree = "<group>";
@@ -490,6 +511,9 @@
 				FB27A2170CFF9DB90038475D /* RemoteControl.m in Sources */,
 				FB936CB60D0108C9007AD10A /* ProxyURLProtocol.m in Sources */,
 				FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */,
+				FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */,
+				FBC404460D03A22B00B179F9 /* StationList.m in Sources */,
+				FBC404520D03A31600B179F9 /* Station.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

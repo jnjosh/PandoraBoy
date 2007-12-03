@@ -11,6 +11,7 @@
 #import "PlaylistURLProtocol.h"
 #import "ArtworkURLProtocol.h"
 #import "ResourceURLProtocol.h"
+#import "StationsURLProtocol.h"
 
 static NSString *PBProxyURLHeader = @"X-PB";
 
@@ -57,9 +58,12 @@ static NSString *PBProxyURLHeader = @"X-PB";
 // Class methods
 
 + (void)registerProxyProtocols {
+    [NSURLProtocol registerClass:[self class]];
+    
+    [NSURLProtocol registerClass:[ResourceURLProtocol class]];
+    [NSURLProtocol registerClass:[StationsURLProtocol class]];
     [NSURLProtocol registerClass:[PlaylistURLProtocol class]];
     [NSURLProtocol registerClass:[ArtworkURLProtocol class]];
-    [NSURLProtocol registerClass:[ResourceURLProtocol class]];
 }    
 
 + (BOOL)canInitWithRequest:(NSURLRequest *)request
@@ -81,6 +85,8 @@ static NSString *PBProxyURLHeader = @"X-PB";
       cachedResponse:(NSCachedURLResponse *)cachedResponse
               client:(id <NSURLProtocolClient>)client
 {
+//    NSLog(@"DEBUG:initWithRequest:%@", [request URL]);
+    
     // Modify request
     NSMutableURLRequest *myRequest = [request mutableCopy];
     [myRequest setValue:@"" forHTTPHeaderField:PBProxyURLHeader];

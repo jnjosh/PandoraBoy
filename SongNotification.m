@@ -21,7 +21,6 @@
 
 #import "SongNotification.h"
 #import "WebKit/WebFrame.h"
-#import "PandoraControl.h"
 #import "Playlist.h"
 #import "ResourceURL.h"
 

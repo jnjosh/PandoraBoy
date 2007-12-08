@@ -21,7 +21,6 @@
 
 #import "Controller.h"
 #import "SongNotification.h"
-#import "PandoraControl.h"
 #import "GlobalHotkey.h"
 #import <WebKit/WebKit.h>
 #import "ProxyURLProtocol.h"
@@ -324,14 +323,12 @@ typedef enum {
 
 -(void)windowDidMiniaturize:(NSNotification *)aNotification
 {
-  [[PandoraControl sharedController] setControlDisabled];
-  NSLog(@"Minaturized!!!");
+  [self setControlDisabled];
 }
 
 -(void)windowDidDeminiaturize:(NSNotification *)aNotification
 {
-  [[PandoraControl sharedController] setControlEnabled];
-  NSLog(@"Restored!!!");
+  [self setControlEnabled];
 }
 
 - (void)windowWillClose:(NSNotification *)aNotification
@@ -343,7 +340,7 @@ typedef enum {
 
 @implementation Controller (AppleRemote)
 
-// delegate methods for AppleRemote
+// delegate methods for AppleRemote -- This might move to another object
 - (void) sendRemoteButtonEvent: (RemoteControlEventIdentifier) event 
                    pressedDown: (BOOL) pressedDown 
                  remoteControl: (RemoteControl*) remoteControl
@@ -352,30 +349,30 @@ typedef enum {
     {
         switch(event) {
             case kRemoteButtonPlus:
-                [[PandoraControl sharedController] raiseVolume]; 
+                [self raiseVolume:self]; 
                 break;
             case kRemoteButtonMinus:
-                [[PandoraControl sharedController] lowerVolume]; 
+                [self lowerVolume:self];
                 break;			
             case kRemoteButtonMenu:
                 break;
             case kRemoteButtonMenu_Hold:
                 break;
             case kRemoteButtonPlay:
-                [[PandoraControl sharedController] playPause]; 
+                [self playPause:self];
                 break;
             case kRemoteButtonPlay_Hold:
                 break;
             case kRemoteButtonRight:	
-                [[PandoraControl sharedController] nextSong]; 
+                [self nextSong:self];
                 break;			
             case kRemoteButtonLeft:
-                [[PandoraControl sharedController] likeSong];
+                [self likeSong:self];
                 break;			
             case kRemoteButtonLeft_Hold:
                 break;			
             case kRemoteButtonRight_Hold:
-                [[PandoraControl sharedController] dislikeSong];
+                [self dislikeSong:self];
                 break;	
             default:
                 NSLog(@"Unmapped event for button %d", event); 

@@ -7,12 +7,38 @@
 //
 
 #import "StationList.h"
+#import "Controller.h"
 
-static StationList *sharedStationList = nil;
+static StationList *_sharedStationList = nil;
+
+extern NSString *PBQuickMixMenuItemTitle;
+NSString *PBQuickMixMenuItemTitle = @"QuickMix";
 
 @implementation StationList
 
 // Accessors
+- (Station *)currentStation {
+    return [[_currentStation retain] autorelease];
+}
+
+- (void)setCurrentStation:(Station *)value {
+    if (_currentStation != value) {
+        [_currentStation release];
+        _currentStation = [value retain];
+    }
+}
+
+- (Station *)quickMixStation {
+    return [[_quickMixStation retain] autorelease];
+}
+
+- (void)setQuickMixStation:(Station *)value {
+    if (_quickMixStation != value) {
+        [_quickMixStation release];
+        _quickMixStation = [value retain];
+    }
+}
+
 - (NSMutableArray *)stationList {
     if (!_stationList) {
         _stationList = [[NSMutableArray alloc] init];
@@ -65,17 +91,29 @@ static StationList *sharedStationList = nil;
 
 // Initializers
 - (id) init {
-	if (sharedStationList) return sharedStationList;
+	if (_sharedStationList) return _sharedStationList;
     
-    sharedStationList  = [super init];
+    _sharedStationList  = [super init];
     if (self != nil) {
         _stationList        = [[NSMutableArray alloc] initWithCapacity:10];
+        _currentStation     = nil;
+        _quickMixStation    = nil;
+        
         _parsingStationIsQuickMix = NO;
         _parsingStationName = nil;
         _parsingKey         = nil;
         _parsingString      = nil;
     }
-    return sharedStationList;
+    return _sharedStationList;
+}
+
+- (void) awakeFromNib {
+    [_stationsMenu addItem:[NSMenuItem separatorItem]];
+    NSMenuItem *menuItem = [_stationsMenu addItemWithTitle:PBQuickMixMenuItemTitle
+                                                    action:@selector(changeStation:)
+                                             keyEquivalent:@""];
+    [menuItem setEnabled:NO];
+    [menuItem setTarget:[Controller sharedController]];
 }
 
 - (void) dealloc {
@@ -87,9 +125,9 @@ static StationList *sharedStationList = nil;
 }
 
 + (StationList *)sharedStationList {
-	if (sharedStationList) return sharedStationList;
-	sharedStationList = [[StationList alloc] init];
-	return sharedStationList;
+	if (_sharedStationList) return _sharedStationList;
+	_sharedStationList = [[StationList alloc] init];
+	return _sharedStationList;
 }
 
 - (void)initFromData:(NSData *)data {
@@ -99,7 +137,52 @@ static StationList *sharedStationList = nil;
 }
 
 - (void)addStationWithName:(NSString *)name identifier:(NSString *)identifier isQuickMix:(BOOL)isQuickMix {
-    [[self stationList] addObject:[Station stationWithName:name identifier:identifier isQuickMix:isQuickMix]];
+    Station *station = [Station stationWithName:name
+                                     identifier:identifier
+                                     isQuickMix:isQuickMix];
+        if( ! name || ! identifier ) {
+        NSLog(@"BUG:addStationWithName called with nil:%@:%@", name, identifier);
+        return;
+    }
+    
+    // FIXME: I don't know what happens if someone shares a QuickMix station
+    // with you. I might have to check the identifier, too.
+    if( isQuickMix ) {
+        [self setQuickMixStation:station];
+        NSMenuItem *quickMixStationMenuItem = [_stationsMenu itemWithTitle:PBQuickMixMenuItemTitle];
+        if( ! quickMixStationMenuItem ) {
+            NSLog(@"BUG:Couldn't find QuickMix station menu item");
+            return;
+        }        
+        [quickMixStationMenuItem setEnabled:YES];
+        [quickMixStationMenuItem setRepresentedObject:station];
+
+    }
+    else {
+        [[self stationList] addObject:station];
+        NSMenuItem *menuItem = [_stationsMenu insertItemWithTitle:name
+                                                        action:@selector(changeStation:)
+                                                 keyEquivalent:@""
+                                                          atIndex:[_stationsMenu numberOfItems] - 2];
+        [menuItem setTarget:[Controller sharedController]];
+        [menuItem setRepresentedObject:station];
+    }
+}
+
+- (Station *)stationForIdentifier:(NSString*)stationId {
+    NSEnumerator *e = [[self stationList] objectEnumerator];
+    Station *station;
+    while( station = [e nextObject] ) {
+        if( [[station identifier] isEqualToString:stationId] ) {
+            return station;
+        }
+    }
+    return nil;
+}
+
+- (void)setCurrentStationFromIdentifier:(NSString*)stationId {
+    NSLog(@"DEBUG: setCurrentStationFromIdentifier:%@:%@", stationId, [[self stationForIdentifier:stationId] name]);
+    [self setCurrentStation:[self stationForIdentifier:stationId]];
 }
 
 // XMLParser delegates
@@ -135,5 +218,4 @@ static StationList *sharedStationList = nil;
         [self setParsingString:nil];
     }
 }
-
 @end

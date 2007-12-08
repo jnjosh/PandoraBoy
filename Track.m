@@ -84,8 +84,11 @@ int const PBThumbsUpRating = 1;
 }
 
 - (void)setValue:(NSString *)value forProperty:(NSString *)property {
+    if( property == nil ) {
+        NSLog(@"WARNING: Tried to set a nil Track property to \"%@\"", value );
+        return;
+    }
     if( value == nil ) { value = @""; }
-	//NSLog(@"Setting property: %@ to value: %@", property, value);
     [[self properties] setObject:value forKey:property];
 }
 

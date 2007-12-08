@@ -25,6 +25,7 @@
 #import <WebKit/WebView.h>
 #import "Playlist.h"
 #import "AppleRemote.h"
+#import "GrowlNotification.h"
 
 @interface Controller : NSObject
 {
@@ -32,12 +33,23 @@
     IBOutlet NSWindow *pandoraWindow; 
     IBOutlet NSWindow *startupWindow; 
     IBOutlet WebView *notificationView;
+    NSView *webNetscapePlugin;
     AppleRemote *appleRemote;
+    bool controlDisabled;
+    GrowlNotification *_growl;    
 }
 
 -(void) loadPandora;
 
++ (Controller*) sharedController; 
+
+- (void) setControlDisabled; 
+- (void) setControlEnabled; 
+
 // Accessors
+
+- (GrowlNotification *)growl;
+- (void)setGrowl:(GrowlNotification *)value;
 
 // Actions
 - (IBAction)refreshPandora:(id)sender; 
@@ -50,9 +62,10 @@
 - (IBAction)lowerVolume:(id)sender;
 - (IBAction)fullVolume:(id)sender;
 - (IBAction)mute:(id)sender;
-//HACK
-- (IBAction)sendStationChange:(id)sender; 
+- (IBAction)changeStation:(id)sender; 
 
+- (bool) sendKeyPress: (int)keyCode withModifiers:(int)modiFiers; 
+- (bool) sendKeyPress: (int)keyCode;
 
 //WebView delegates 
 - (void)webView:(WebView *)sender setFrame:(NSRect)frame;

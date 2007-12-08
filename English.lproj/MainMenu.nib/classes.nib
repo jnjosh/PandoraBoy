@@ -46,6 +46,13 @@
             CLASS = SUUpdater; 
             LANGUAGE = ObjC; 
             SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {changeStation = id; }; 
+            CLASS = StationList; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {"_stationsMenu" = NSMenu; }; 
+            SUPERCLASS = NSObject; 
         }
     ); 
     IBVersion = 1; 

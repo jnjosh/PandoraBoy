@@ -36,6 +36,13 @@ Known problems:
 0.4.1
     * Fixed flash security error caused by local SongNotification.html
     
+0.4.2
+    * Fixes Apple Remote for Leopard
+
+0.4.3
+    * Fixes occassional crash due to missing key in playlist data (Issue18)
+    * Added Stations menu
+
 For the future: 
     * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 
     * iTunes store integration -- build a itunes store "playlist" that allows users to easily purchase songs they have heard. 

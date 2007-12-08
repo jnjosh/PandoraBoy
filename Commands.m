@@ -19,7 +19,7 @@
 *  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA          *
 ***************************************************************************/
 #import "Commands.h"
-#import "PandoraControl.h"
+#import "Controller.h"
 #import "Playlist.h"
 
 // FIXME? This would all be much shorter with a superclass that looked up
@@ -29,7 +29,7 @@
 @implementation playPauseCommand
 -(id)performDefaultImplementation
 {
-	[[PandoraControl sharedController] playPause];
+	[[Controller sharedController] playPause:self];
 	return self;
 }
 @end
@@ -37,7 +37,7 @@
 @implementation skipCommand
 -(id)performDefaultImplementation
 {
-	[[PandoraControl sharedController] nextSong];
+	[[Controller sharedController] nextSong:self];
 	return self;
 }
 @end
@@ -45,7 +45,7 @@
 @implementation thumbsUpCommand
 -(id)performDefaultImplementation
 {
-	[[PandoraControl sharedController] likeSong];
+	[[Controller sharedController] likeSong:self];
 	return self;
 }
 @end
@@ -53,7 +53,7 @@
 @implementation thumbsDownCommand
 -(id)performDefaultImplementation
 {
-	[[PandoraControl sharedController] dislikeSong];
+	[[Controller sharedController] dislikeSong:self];
 	return self;
 }
 @end
@@ -62,7 +62,7 @@
 -(id)performDefaultImplementation
 {
 	// FIXME: This should take an (optional?) "count" parameter
-	[[PandoraControl sharedController] raiseVolume];
+	[[Controller sharedController] raiseVolume:self];
 	return self;
 }
 @end
@@ -71,7 +71,7 @@
 -(id)performDefaultImplementation
 {
 	// FIXME: This should take an (optional?) "count" parameter
-	[[PandoraControl sharedController] lowerVolume];
+	[[Controller sharedController] lowerVolume:self];
 	return self;
 }
 @end
@@ -79,7 +79,7 @@
 @implementation fullVolumeCommand
 -(id)performDefaultImplementation
 {
-	[[PandoraControl sharedController] fullVolume];
+	[[Controller sharedController] fullVolume:self];
 	return self;
 }
 @end
@@ -87,7 +87,7 @@
 @implementation muteCommand
 -(id)performDefaultImplementation
 {
-	[[PandoraControl sharedController] mute];
+	[[Controller sharedController] mute:self];
 	return self;
 }
 @end

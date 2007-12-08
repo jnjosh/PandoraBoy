@@ -32,6 +32,8 @@ NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
 extern NSString *PBAppleRemoteEnabled;
 NSString *PBAppleRemoteEnabled = @"AppleRemoteEnabled";
 
+static Controller* _sharedInstance = nil;
+
 typedef enum {
     WebDashboardBehaviorAlwaysSendMouseEventsToAllWindows,
     WebDashboardBehaviorAlwaysSendActiveNullEventsToPlugIns,
@@ -43,7 +45,9 @@ typedef enum {
 
 - (id) init 
 {
-  if(self = [super init]) {
+    if (_sharedInstance) return _sharedInstance;
+
+  if(_sharedInstance = [super init]) {
     // Setup all the different default options
     NSMutableDictionary *userDefaultsValuesDict = [NSMutableDictionary
 						    dictionary];
@@ -64,11 +68,15 @@ typedef enum {
                                             forKeyPath:PBAppleRemoteEnabled
                                                options: NSKeyValueObservingOptionNew
                                                context:nil];
+    controlDisabled = false; 
+    [self setGrowl:[[GrowlNotification alloc] init]];
+
   }
-  return self;
+  return _sharedInstance;
 }
 
 - (void) dealloc {
+    [_growl release];
     [appleRemote release];
     [[NSUserDefaults standardUserDefaults] removeObserver:self
                                                forKeyPath:PBAppleRemoteEnabled];
@@ -77,12 +85,65 @@ typedef enum {
 
 - (void)awakeFromNib
 {
-
-  //[[LastFm sharedLastFm] test]; 
-
   [[GlobalHotkey sharedHotkey] registerHotkeyHandler];
   [[GlobalHotkey sharedHotkey] registerHotkeys];
+}
 
++ (Controller*) sharedController
+{
+	if (_sharedInstance) return _sharedInstance;
+	_sharedInstance = [[Controller alloc] init];
+	return _sharedInstance;
+}
+
+- (void) setControlDisabled 
+{
+    controlDisabled = true;
+}
+
+- (void) setControlEnabled 
+{
+    controlDisabled = false;
+}
+
+- (GrowlNotification *)growl {
+    return [[_growl retain] autorelease];
+}
+
+- (void)setGrowl:(GrowlNotification *)value {
+    if (_growl != value) {
+        [_growl release];
+        _growl = [value retain];
+    }
+}
+
+- (bool) sendKeyPress: (int)keyCode withModifiers:(int)modifiers
+{
+    if(!controlDisabled) {
+        //Generate the keyDown EventRecord
+        EventRecord myrecord; 
+        myrecord.what = keyDown; 
+        myrecord.message = keyCode; 
+        myrecord.message = myrecord.message << 8; 
+        myrecord.modifiers = modifiers; 
+        
+        //Send the keyDown press
+        [(id)webNetscapePlugin sendEvent:(NSEvent *)&myrecord];
+        
+        //Make it a keyUp EventRecord and resend it
+        myrecord.what = keyUp;
+        [(id)webNetscapePlugin sendEvent:(NSEvent *)&myrecord];
+        return true; 
+    }
+    else {
+        NSRunAlertPanel(@"Could not control Pandora", @"Global Hotkeys and the Apple Remote cannot control PandoraBoy while it is minimized. This is a bug that will hopefully be fixed soon. Until then, please restore PandoraBoy and try again.", @"OK", nil, nil);
+        return false; 
+    }
+}
+
+- (bool) sendKeyPress: (int)keyCode
+{
+    return [self sendKeyPress: keyCode withModifiers: 0];
 }
 
 - (void) loadPandora 
@@ -90,27 +151,65 @@ typedef enum {
     [[webView mainFrame] loadRequest:
         [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];
 }
-
-- (IBAction)playPause:(id)sender   { [[PandoraControl sharedController] playPause]; }
-- (IBAction)nextSong:(id)sender    { [[PandoraControl sharedController] nextSong]; }
-- (IBAction)likeSong:(id)sender    { [[PandoraControl sharedController] likeSong]; }
-- (IBAction)dislikeSong:(id)sender { [[PandoraControl sharedController] dislikeSong]; }
-- (IBAction)raiseVolume:(id)sender { [[PandoraControl sharedController] raiseVolume]; }
-- (IBAction)lowerVolume:(id)sender { [[PandoraControl sharedController] lowerVolume]; }
-- (IBAction)fullVolume:(id)sender  { [[PandoraControl sharedController] fullVolume]; }
-- (IBAction)mute:(id)sender        { [[PandoraControl sharedController] mute]; }
-
-// HACK
-- (IBAction)sendStationChange:(id)sender {
-    NSLog(@"DEBUG:sendStationChange");
-    WebScriptObject *scriptObject = [[webView windowScriptObject] valueForKey:@"Pandora"];
-//    NSLog(@"DEBUG:scriptObject:%@", [scriptObject valueForKey:@"Pandora"]);
-//HERE
-    [scriptObject callWebScriptMethod:@"launchStationFromId" withArguments:[NSArray arrayWithObject:@"6021290750249495"]];
-    NSLog(@"DEBUG:getBaseUrl:%@", [scriptObject callWebScriptMethod:@"getBaseUrl" withArguments:nil]);
-
+- (IBAction) nextSong:(id)sender
+{
+    //Right-arrow
+    [self sendKeyPress: 124];  
 }
 
+- (IBAction) playPause:(id)sender
+{
+    //Space-bar
+    [self sendKeyPress: 49];
+}
+
+- (IBAction) likeSong:(id)sender
+{
+    //Plus
+    if([self sendKeyPress: 69])
+        [[self growl] pandoraLikeSong];
+}
+
+- (IBAction) dislikeSong:(id)sender
+{
+    //Minus
+    if([self sendKeyPress: 78])
+        [[self growl] pandoraDislikeSong];
+}
+
+- (IBAction) raiseVolume:(id)sender
+{
+    //Up-Arrow
+    int i;
+    for(i = 0; i < 4; i++)
+        [self sendKeyPress: 126];		
+}
+
+- (IBAction) lowerVolume:(id)sender
+{
+    //Down-Arrow -- currently we don't get multiple keypresses --- so send a bunch of keypress events to make up for it
+    int i;
+    for(i = 0; i < 4; i++)
+        [self sendKeyPress: 125];	
+}
+
+- (IBAction) fullVolume:(id)sender
+{
+    //Shift + Up-Arrow
+    [self sendKeyPress: 126 withModifiers: shiftKey];
+}
+
+- (IBAction) mute:(id)sender
+{
+    //Shift + Down-Arrow
+    [self sendKeyPress: 125 withModifiers: shiftKey]; 
+}
+
+- (IBAction)changeStation:(id)sender {
+    NSLog(@"DEBUG:changeStation:%@:%@:%@",sender, [sender representedObject], [[sender representedObject] identifier]);
+    WebScriptObject *scriptObject = [[webView windowScriptObject] valueForKey:@"Pandora"];
+    [scriptObject callWebScriptMethod:@"launchStationFromId" withArguments:[NSArray arrayWithObject:[[sender representedObject] identifier]]];
+}
 
 - (IBAction) refreshPandora:(id)sender { [[webView mainFrame] reload]; }
 
@@ -146,7 +245,6 @@ typedef enum {
     {
         // Find the subview that isn't of size 0
         NSArray *subviews = [[webView hitTest:NSZeroPoint] subviews];
-        NSView *webNetscapePlugin;
         int i;
         for( i = 0; i < [subviews count]; i++ )
         {
@@ -160,13 +258,11 @@ typedef enum {
         if( webNetscapePlugin )
         {
             [pandoraWindow makeFirstResponder: webNetscapePlugin];
-            [[PandoraControl sharedController] setWebPlugin: webNetscapePlugin];
         }
         else
         {
             NSLog(@"ERROR: Could not find webNetscapePlugin");
         }
-        [[PandoraControl sharedController] setPandoraWindow:pandoraWindow];
     }
 }
 

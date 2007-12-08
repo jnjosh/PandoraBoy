@@ -85,7 +85,7 @@ static NSString *PBProxyURLHeader = @"X-PB";
       cachedResponse:(NSCachedURLResponse *)cachedResponse
               client:(id <NSURLProtocolClient>)client
 {
-//    NSLog(@"DEBUG:initWithRequest:%@", [request URL]);
+    NSLog(@"DEBUG:initWithRequest:%@", [request URL]);
     
     // Modify request
     NSMutableURLRequest *myRequest = [request mutableCopy];
@@ -140,6 +140,9 @@ static NSString *PBProxyURLHeader = @"X-PB";
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
+//    if( [[[[self request] URL] absoluteString] rangeOfString:@"method=sync"].location != NSNotFound ) {
+//        NSLog(@"DEBUG:sync:%@", [[[NSString alloc] initWithData:[self data] encoding:NSASCIIStringEncoding] autorelease]);
+//    }
     [[self client] URLProtocolDidFinishLoading:self];
 }
 

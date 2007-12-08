@@ -20,7 +20,7 @@
  ***************************************************************************/
 
 #import "GlobalHotkey.h"
-#import "PandoraControl.h"
+#import "Controller.h"
 
 static GlobalHotkey* sharedInstance = nil;
 
@@ -46,28 +46,28 @@ void *userData)
 
   switch(hotKeyId) {
   case NEXT_SONG:
-    [[PandoraControl sharedController] nextSong];
+      [[Controller sharedController] nextSong:nil];
     break;
   case PLAY_PAUSE:
-    [[PandoraControl sharedController] playPause];
+      [[Controller sharedController] playPause:nil];
     break;
   case LIKE_SONG:
-    [[PandoraControl sharedController] likeSong];    
+      [[Controller sharedController] likeSong:nil];    
     break;
   case DISLIKE_SONG:
-    [[PandoraControl sharedController] dislikeSong];
+      [[Controller sharedController] dislikeSong:nil];
     break; 
   case RAISE_VOLUME:
-    [[PandoraControl sharedController] raiseVolume];
+      [[Controller sharedController] raiseVolume:nil];
     break; 
   case LOWER_VOLUME:
-    [[PandoraControl sharedController] lowerVolume];
+      [[Controller sharedController] lowerVolume:nil];
     break; 
   case FULL_VOLUME:
-    [[PandoraControl sharedController] fullVolume];
+      [[Controller sharedController] fullVolume:nil];
     break; 
   case MUTE:
-    [[PandoraControl sharedController] mute];
+      [[Controller sharedController] mute:nil];
     break; 
 
   }

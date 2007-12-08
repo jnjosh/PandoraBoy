@@ -16,9 +16,21 @@
     NSString *_parsingStationName;
     NSString *_parsingKey;
     NSMutableString *_parsingString;
+    
+    Station *_currentStation;
+    Station *_quickMixStation;
+    
+    IBOutlet NSMenu *_stationsMenu;
 }
 
 + (StationList *)sharedStationList;
+
+- (Station *)currentStation;
+- (void)setCurrentStation:(Station *)value;
+
 - (void)initFromData:(NSData *)data;
+
+- (Station *)stationForIdentifier:(NSString*)stationId;
+- (void)setCurrentStationFromIdentifier:(NSString*)stationId;
 
 @end

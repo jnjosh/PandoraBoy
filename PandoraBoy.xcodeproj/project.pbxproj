@@ -29,7 +29,6 @@
 		3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6942410AA37A1300899D49 /* GrowlNotification.m */; };
-		3D6942940AA3D89400899D49 /* PandoraControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6942920AA3D89400899D49 /* PandoraControl.m */; };
 		3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6945300AAA19D300899D49 /* GlobalHotkey.m */; };
 		3D6946920AAC908900899D49 /* keyboardVals.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D6946900AAC908900899D49 /* keyboardVals.plist */; };
 		3D6946960AAC91DF00899D49 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6946940AAC91DF00899D49 /* PreferenceController.m */; };
@@ -124,8 +123,6 @@
 		3D6942240AA378BF00899D49 /* Growl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		3D6942400AA37A1300899D49 /* GrowlNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotification.h; sourceTree = "<group>"; };
 		3D6942410AA37A1300899D49 /* GrowlNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotification.m; sourceTree = "<group>"; };
-		3D6942910AA3D89400899D49 /* PandoraControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraControl.h; sourceTree = "<group>"; };
-		3D6942920AA3D89400899D49 /* PandoraControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraControl.m; sourceTree = "<group>"; };
 		3D69452F0AAA19D300899D49 /* GlobalHotkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHotkey.h; sourceTree = "<group>"; };
 		3D6945300AAA19D300899D49 /* GlobalHotkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalHotkey.m; sourceTree = "<group>"; };
 		3D6946900AAC908900899D49 /* keyboardVals.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = keyboardVals.plist; sourceTree = "<group>"; };
@@ -214,8 +211,6 @@
 				3D7F771E0A9EB1DB004B0146 /* Controller.m */,
 				3D693FA30AA1EDA600899D49 /* SongNotification.h */,
 				3D693FA40AA1EDA600899D49 /* SongNotification.m */,
-				3D6942910AA3D89400899D49 /* PandoraControl.h */,
-				3D6942920AA3D89400899D49 /* PandoraControl.m */,
 				3D6942400AA37A1300899D49 /* GrowlNotification.h */,
 				3D6942410AA37A1300899D49 /* GrowlNotification.m */,
 				32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */,
@@ -490,7 +485,6 @@
 				3D7F771F0A9EB1DB004B0146 /* Controller.m in Sources */,
 				3D693FA50AA1EDA600899D49 /* SongNotification.m in Sources */,
 				3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */,
-				3D6942940AA3D89400899D49 /* PandoraControl.m in Sources */,
 				3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */,
 				3D6946960AAC91DF00899D49 /* PreferenceController.m in Sources */,
 				3DDA24280B74F5D000F500BD /* Commands.m in Sources */,

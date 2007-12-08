@@ -17,7 +17,7 @@ static Playlist* sharedInstance = nil;
 	if (sharedInstance) return sharedInstance;
 
     sharedInstance  = [super init];
-    if (self != nil) {
+    if (sharedInstance != nil) {
         _trackInfo     = [[NSMutableSet alloc] initWithCapacity:100];
         _playedTracks  = [[NSMutableArray alloc] initWithCapacity:100];
         _artwork       = [[NSMutableDictionary alloc] initWithCapacity:100];

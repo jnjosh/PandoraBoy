@@ -46,6 +46,7 @@
     r.length   = endRange.location - r.location;
     
     NSString *stationId = [urlString substringWithRange:r];
+    NSLog(@"DEBUG:Setting current station to %@", stationId);
     [[StationList sharedStationList] setCurrentStationFromIdentifier:stationId];
 }
 

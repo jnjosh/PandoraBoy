@@ -55,6 +55,7 @@
 		FB936D690D01BB69007AD10A /* ArtworkURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */; };
 		FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
+		FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */ = {isa = PBXBuildFile; fileRef = FBA24C4A0D0B0329003F7B70 /* play.gif */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBC404320D039F0600B179F9 /* StationsURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC404300D039F0600B179F9 /* StationsURLProtocol.h */; };
@@ -169,6 +170,7 @@
 		FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkURLProtocol.m; sourceTree = "<group>"; };
 		FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PlaylistGuiController.h; sourceTree = "<group>"; };
 		FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PlaylistGuiController.m; sourceTree = "<group>"; };
+		FBA24C4A0D0B0329003F7B70 /* play.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = play.gif; path = images/play.gif; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FBA24C4A0D0B0329003F7B70 /* play.gif */,
 				FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */,
 				FB3856AA0BC9919B005653C3 /* Localizable.strings */,
 				3D0444420B758EAE00F1BA8B /* General.tiff */,
@@ -471,6 +474,7 @@
 				FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */,
 				FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */,
 				FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */,
+				FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

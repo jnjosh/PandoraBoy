@@ -6,40 +6,21 @@
  /* Shamelessly stolen from PandoraFM.real-ity.com */
 Pandora = {
     fireEvent: function(eventName, argument) {
+/* HACK */
+        var mySongNotification = window.SongNotification;
+//        mySongNotification.pandoraEvent__(eventName, argument);
+        
         if (eventName == "SongPlayed") {
-            pandoraSongPlayed(argument.songName, argument.artistName);
+            mySongNotification.pandoraSongPlayed__(argument.songName,argument.artistName); 
         }
-	if (eventName == "SongPaused") {
-           pandoraSongPaused();
+        if (eventName == "SongPaused") {
+            mySongNotification.pandoraSongPaused(); 
+        }
+        if (eventName == "StationPlayed") {
+            mySongNotification.pandoraStationPlayed__(argument.stationName, argument.stationId);
         }
     }
 }; 
-
-function pandoraSongPlayed(song, artist) {
-        var mySongNotification = window.SongNotification; 
-        mySongNotification.pandoraSongPlayed__(song,artist); 
-//	alert("Artist: "+artist+"\nSong: "+song);
-}
-
-function pandoraSongPaused() {
-        var mySongNotification = window.SongNotification; 
-        mySongNotification.pandoraSongPaused(); 
-//	alert("Paused"); 
-}
-
-
-function pandoraEventsError(errormsg) {
-        var mySongNotification = window.SongNotification; 
-        mySongNotification.pandoraEventsError_(errormsg); 
-//	alert("PandoraFM Error in talking to Pandora: " + errormsg);
-}
-
-
-function pandoraSongEnded(song, artist) {
-        var mySongNotification = window.SongNotification; 
-        mySongNotification.pandoraSongEnded__(song, artist); 
-//	alert("Artist: "+artist+"\nSong: "+song);
-}
 
 </script>
  

@@ -20,6 +20,9 @@
     Station *_currentStation;
     Station *_quickMixStation;
     
+    NSImage *_playImage;
+    NSImage *_noPlayImage;
+    
     IBOutlet NSMenu *_stationsMenu;
 }
 
@@ -32,5 +35,7 @@
 
 - (Station *)stationForIdentifier:(NSString*)stationId;
 - (void)setCurrentStationFromIdentifier:(NSString*)stationId;
+
+- (Station *)quickMixStation;
 
 @end

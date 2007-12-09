@@ -17,17 +17,38 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
 @implementation StationList
 
 // Accessors
+- (void)setImage:(NSImage*)image forStation:(Station*)station {
+    if( ! station ) { return; }
+
+    NSMenuItem *menuItem;
+    
+    if( [station isEqualTo:[self quickMixStation]] ) {
+        menuItem = [_stationsMenu itemWithTitle:PBQuickMixMenuItemTitle];
+    }
+    else {
+        menuItem = [_stationsMenu itemWithTitle:[station name]];
+    }
+    if( ! menuItem ) {
+        NSLog(@"BUG:Couldn't find menu item with title: %@", [station name]);
+        return;
+    }
+    [menuItem setImage:image];
+}
+
 - (Station *)currentStation {
     return [[_currentStation retain] autorelease];
 }
 
 - (void)setCurrentStation:(Station *)value {
     if (_currentStation != value) {
+        // Maybe this should be moved into an observer
+        [self setImage:_noPlayImage forStation:_currentStation];            
         [_currentStation release];
         _currentStation = [value retain];
+        [self setImage:_playImage forStation:_currentStation];
     }
 }
-
+    
 - (Station *)quickMixStation {
     return [[_quickMixStation retain] autorelease];
 }
@@ -103,6 +124,9 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
         _parsingStationName = nil;
         _parsingKey         = nil;
         _parsingString      = nil;
+        
+        _playImage = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"play" ofType:@"gif"]];
+        _noPlayImage = [[NSImage alloc] initWithSize:[_playImage size]];
     }
     return _sharedStationList;
 }
@@ -113,7 +137,7 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
                                                     action:@selector(changeStation:)
                                              keyEquivalent:@""];
     [menuItem setEnabled:NO];
-    [menuItem setTarget:[Controller sharedController]];
+    [menuItem setImage:_noPlayImage];
 }
 
 - (void) dealloc {
@@ -147,29 +171,33 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
     
     // FIXME: I don't know what happens if someone shares a QuickMix station
     // with you. I might have to check the identifier, too.
+    NSMenuItem *menuItem;
     if( isQuickMix ) {
         [self setQuickMixStation:station];
-        NSMenuItem *quickMixStationMenuItem = [_stationsMenu itemWithTitle:PBQuickMixMenuItemTitle];
-        if( ! quickMixStationMenuItem ) {
+        menuItem = [_stationsMenu itemWithTitle:PBQuickMixMenuItemTitle];
+        if( ! menuItem ) {
             NSLog(@"BUG:Couldn't find QuickMix station menu item");
             return;
         }        
-        [quickMixStationMenuItem setEnabled:YES];
-        [quickMixStationMenuItem setRepresentedObject:station];
-
     }
     else {
         [[self stationList] addObject:station];
-        NSMenuItem *menuItem = [_stationsMenu insertItemWithTitle:name
-                                                        action:@selector(changeStation:)
-                                                 keyEquivalent:@""
-                                                          atIndex:[_stationsMenu numberOfItems] - 2];
-        [menuItem setTarget:[Controller sharedController]];
-        [menuItem setRepresentedObject:station];
+        menuItem = [_stationsMenu insertItemWithTitle:name
+                                               action:@selector(changeStation:)
+                                        keyEquivalent:@""
+                                              atIndex:[_stationsMenu numberOfItems] - 2];
     }
+    [menuItem setEnabled:YES];
+    [menuItem setTarget:[Controller sharedController]];
+    [menuItem setRepresentedObject:station];
+    [menuItem setImage:_noPlayImage];
 }
 
 - (Station *)stationForIdentifier:(NSString*)stationId {
+    if( [[[self quickMixStation] identifier] isEqualToString:stationId] ) {
+        return [self quickMixStation];
+    }
+    
     NSEnumerator *e = [[self stationList] objectEnumerator];
     Station *station;
     while( station = [e nextObject] ) {
@@ -177,11 +205,11 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
             return station;
         }
     }
+    NSLog(@"ERROR: Couldn't find station:%@", stationId);
     return nil;
 }
 
 - (void)setCurrentStationFromIdentifier:(NSString*)stationId {
-    NSLog(@"DEBUG: setCurrentStationFromIdentifier:%@:%@", stationId, [[self stationForIdentifier:stationId] name]);
     [self setCurrentStation:[self stationForIdentifier:stationId]];
 }
 

@@ -69,7 +69,6 @@ typedef enum {
                                                context:nil];
     controlDisabled = false; 
     [self setGrowl:[[GrowlNotification alloc] init]];
-
   }
   return _sharedInstance;
 }
@@ -86,6 +85,7 @@ typedef enum {
 {
   [[GlobalHotkey sharedHotkey] registerHotkeyHandler];
   [[GlobalHotkey sharedHotkey] registerHotkeys];
+
 }
 
 + (Controller*) sharedController
@@ -205,9 +205,10 @@ typedef enum {
 }
 
 - (IBAction)changeStation:(id)sender {
-    NSLog(@"DEBUG:changeStation:%@:%@:%@",sender, [sender representedObject], [[sender representedObject] identifier]);
-    WebScriptObject *scriptObject = [[webView windowScriptObject] valueForKey:@"Pandora"];
-    [scriptObject callWebScriptMethod:@"launchStationFromId" withArguments:[NSArray arrayWithObject:[[sender representedObject] identifier]]];
+    // It seems that _pandoraScriptObject can't be cached; it changes sometimes.
+    WebScriptObject *_pandoraScriptObject = [[webView windowScriptObject] valueForKey:@"Pandora"];
+    [_pandoraScriptObject callWebScriptMethod:@"launchStationFromId" 
+                                withArguments:[NSArray arrayWithObject:[[sender representedObject] identifier]]];
 }
 
 - (IBAction) refreshPandora:(id)sender { [[webView mainFrame] reload]; }
@@ -240,8 +241,9 @@ typedef enum {
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-    if( [sender isEqual:webView] )
+    if( [sender isEqualTo:webView] && [frame parentFrame] == nil)
     {
+        NSLog(@"DEBUG:webView didFinishLoadForFrame:%@", [frame parentFrame]);
         // Find the subview that isn't of size 0
         NSArray *subviews = [[webView hitTest:NSZeroPoint] subviews];
         int i;

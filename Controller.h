@@ -36,7 +36,7 @@
     NSView *webNetscapePlugin;
     AppleRemote *appleRemote;
     bool controlDisabled;
-    GrowlNotification *_growl;    
+    GrowlNotification *_growl;
 }
 
 -(void) loadPandora;

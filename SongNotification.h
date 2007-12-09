@@ -71,7 +71,5 @@ typedef enum _PBPlayerStates {
 // Delegate functions from Pandora notification system
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 
 - (void) pandoraSongPaused; 
-- (void) pandoraEventsError: (NSString*)errormsg; 
-- (void) pandoraSongEnded: (NSString*)name :(NSString*)artist; 
-
+- (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier;
 @end

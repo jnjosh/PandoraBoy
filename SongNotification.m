@@ -23,11 +23,13 @@
 #import "WebKit/WebFrame.h"
 #import "Playlist.h"
 #import "ResourceURL.h"
+#import "StationList.h"
 
 static SongNotification* sharedInstance = nil;
 
 NSString *PBPlayerInfoNotificationName = @"net.frozensilicon.pandoraBoy.playerInfo";
 
+// These keys are intended to match iTunes. We don't need them all.
 NSString *PBPlayerInfoArtistKey      = @"Artist";
 NSString *PBPlayerInfoNameKey        = @"Name";
 NSString *PBPlayerInfoGenreKey       = @"Genre";
@@ -140,15 +142,11 @@ NSString *PBPlayerStatePlayingString = @"Playing";
     [self sendPlayerInfoNotification];
 }
 
-- (void) pandoraEventsError: (NSString*)errormsg
-{
-  NSLog( @"pandoraEventsError: %@", errormsg); 
+- (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier {
+    NSLog(@"pandoraStationPlayed:%@:%@", name, identifier);
+    [[StationList sharedStationList] setCurrentStationFromIdentifier:identifier];
 }
 
-- (void) pandoraSongEnded: (NSString*)name :(NSString*)artist
-{
-  NSLog( @"pandoraSongEnded name: %@, artist: %@", name, artist); 
-}
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector { return NO; }
 

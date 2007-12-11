@@ -41,6 +41,9 @@
     StationList *_stationList;
     
     PlayerController *_playerController;
+    
+    NSImage *_thumbsUpImage;
+    NSImage *_thumbsDownImage;
 }
 
 + (Controller*) sharedController; 
@@ -49,6 +52,9 @@
 
 - (GrowlNotification *)growl;
 - (void)setGrowl:(GrowlNotification *)value;
+
+- (NSImage*)thumbsUpImage;
+- (NSImage*)thumbsDownImage;
 
 // Actions
 - (IBAction)displayHelp:(id)sender; 

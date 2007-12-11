@@ -11,8 +11,8 @@
 #import "Track.h"
 
 @interface Playlist : NSObject {
-    NSMutableSet *_trackInfo;
-    NSMutableArray *_playedTracks;
+    NSMutableDictionary *_trackInfo;
+    NSMutableArray      *_playedTracks;
     NSMutableDictionary *_artworkLibrary;
 
     Track *_parsingTrack;
@@ -25,9 +25,6 @@
 - (id)init;
 
 // Accessors
-- (NSMutableSet *)trackInfo;
-- (void)setTrackInfo:(NSMutableSet *)value;
-
 - (NSMutableArray *)playedTracks;
 - (void)setPlayedTracks:(NSMutableArray *)value;
 
@@ -51,7 +48,7 @@
 - (void)addInfoFromData:(NSData *)data;
 - (void)addPlayedTrack:(Track *)track;
 - (Track *)currentTrack;
-
+- (Track*)trackForProvisionalTrack:(Track*)track;
 
 // XMLParser delegates
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;

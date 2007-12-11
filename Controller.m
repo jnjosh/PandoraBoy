@@ -59,6 +59,12 @@ static Controller* _sharedInstance = nil;
         [self setGrowl:[[GrowlNotification alloc] init]];
         
         _playerController = [[PlayerController alloc] init];
+        
+        _thumbsUpImage = [[NSImage alloc] initWithContentsOfFile:
+            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
+        _thumbsDownImage = [[NSImage alloc] initWithContentsOfFile:
+            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]];
+        
   }
   return _sharedInstance;
 }
@@ -67,6 +73,8 @@ static Controller* _sharedInstance = nil;
     [_growl release];
     [_playerController release];
     [appleRemote release];
+    [_thumbsUpImage release];
+    [_thumbsDownImage release];
     [[NSUserDefaults standardUserDefaults] removeObserver:self
                                                forKeyPath:PBAppleRemoteEnabled];
     [super dealloc];
@@ -95,6 +103,14 @@ static Controller* _sharedInstance = nil;
         [_growl release];
         _growl = [value retain];
     }
+}
+
+- (NSImage*)thumbsUpImage {
+    return [[_thumbsUpImage retain] autorelease];
+}
+
+- (NSImage*)thumbsDownImage {
+    return [[_thumbsDownImage retain] autorelease];
 }
 
 - (IBAction) displayHelp:(id)sender

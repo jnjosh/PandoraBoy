@@ -23,6 +23,7 @@
 #import "Playlist.h"
 #import "PlayerController.h"
 #import "Track.h"
+#import "Controller.h"
 
 @implementation GrowlNotification
 
@@ -32,11 +33,7 @@
 {
 	if ( self = [super init] ) {
         [GrowlApplicationBridge setGrowlDelegate: self];
-//        [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-//                                                            selector:@selector(playerInfoChanged:)
-//                                                                name:PBPlayerInfoNotificationName
-//                                                              object:nil
-//                                                  suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self
                selector:@selector(songPlayed:)
@@ -48,26 +45,23 @@
                    name:PBSongPausedNotification
                  object:nil];
         
-        thumbsUpImage = [[NSImage alloc] initWithContentsOfFile:
-            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
-        thumbsDownImage = [[NSImage alloc] initWithContentsOfFile:
-            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]];
-	}
+        [nc addObserver:self
+               selector:@selector(songThumbed:)
+                   name:PBSongThumbedNotification
+                 object:nil];
+    }
 	
 	return self;
 }
 
 - (void) dealloc 
 {
-//    [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [thumbsUpImage release];
-    [thumbsDownImage release];
 	[super dealloc];
 }
 
 - (void) songPlayed:(NSNotification*)notification {
-    Track *track = [[notification userInfo] objectForKey:PBCurrentTrackKey];
+    Track *track = [notification object];
     
     NSImage *artwork = [track thumbedArtworkImage];
     [GrowlApplicationBridge notifyWithTitle:[track name]
@@ -82,7 +76,7 @@
 }
 
 - (void) songPaused:(NSNotification*)notification {
-    Track *track = [[notification userInfo] objectForKey:PBCurrentTrackKey];
+    Track *track = [notification object];
     
     NSString *title  = [[track name] stringByAppendingFormat:@" (%@)", NSLocalizedString(@"paused", @"")];
     NSImage *artwork = [track thumbedArtworkImage];
@@ -98,6 +92,32 @@
                                clickContext:nil];
 }
 
+- (void) songThumbed:(NSNotification*)notification {
+    Track *track = [notification object];
+    
+    NSData *icon;
+    switch ([track rating]) {
+        case PBThumbsUpRating:
+            icon = [[[Controller sharedController] thumbsUpImage] TIFFRepresentation];
+            break;
+        case PBThumbsDownRating:
+            icon = [[[Controller sharedController] thumbsDownImage] TIFFRepresentation];
+            break;
+        default:
+            NSLog(@"BUG:Bad rating passed to songThumbed:%d", [track rating]);
+            return;
+            break;
+    }
+
+    [GrowlApplicationBridge
+        notifyWithTitle:[track name]
+            description:[track artist]
+       notificationName:PBSongThumbedNotification
+               iconData:icon
+               priority:0
+               isSticky:false
+           clickContext:nil];
+}
 
 //- (void) playerInfoChanged:(NSNotification*)aNotification {
 //    Track *track = [[Playlist sharedPlaylist] currentTrack];
@@ -136,33 +156,33 @@
 //    [artwork release];
 //}
 
-- (void) pandoraLikeSong
-{
-    Track *track = [[Playlist sharedPlaylist] currentTrack];
-    
-    [GrowlApplicationBridge
-        notifyWithTitle:[track name]
-            description:[track artist]
-       notificationName:PBSongThumbedNotification
-               iconData:[thumbsUpImage TIFFRepresentation]
-               priority:0
-               isSticky:false
-           clickContext:nil];
-}
-
-- (void) pandoraDislikeSong
-{
-    Track *track = [[Playlist sharedPlaylist] currentTrack];
-    
-    [GrowlApplicationBridge
-        notifyWithTitle:[track name]
-            description:[track artist]
-       notificationName:PBSongThumbedNotification
-               iconData:[thumbsDownImage TIFFRepresentation]
-               priority:0
-               isSticky:false
-           clickContext:nil];
-}
+//- (void) pandoraLikeSong
+//{
+//    Track *track = [[Playlist sharedPlaylist] currentTrack];
+//    
+//    [GrowlApplicationBridge
+//        notifyWithTitle:[track name]
+//            description:[track artist]
+//       notificationName:PBSongThumbedNotification
+//               iconData:[thumbsUpImage TIFFRepresentation]
+//               priority:0
+//               isSticky:false
+//           clickContext:nil];
+//}
+//
+//- (void) pandoraDislikeSong
+//{
+//    Track *track = [[Playlist sharedPlaylist] currentTrack];
+//    
+//    [GrowlApplicationBridge
+//        notifyWithTitle:[track name]
+//            description:[track artist]
+//       notificationName:PBSongThumbedNotification
+//               iconData:[thumbsDownImage TIFFRepresentation]
+//               priority:0
+//               isSticky:false
+//           clickContext:nil];
+//}
 
 // delegate methods for GrowlApplicationBridge
 - (NSDictionary *) registrationDictionaryForGrowl {

@@ -18,7 +18,7 @@ static Playlist* sharedInstance = nil;
 
     sharedInstance  = [super init];
     if (sharedInstance != nil) {
-        _trackInfo      = [[NSMutableSet alloc] initWithCapacity:100];
+        _trackInfo      = [[NSMutableDictionary alloc] initWithCapacity:100];
         _playedTracks   = [[NSMutableArray alloc] initWithCapacity:100];
         _artworkLibrary = [[NSMutableDictionary alloc] initWithCapacity:100];
         _parsingTrack   = nil;
@@ -51,17 +51,6 @@ static Playlist* sharedInstance = nil;
     if (_artworkLibrary != value) {
         [_artworkLibrary release];
         _artworkLibrary = [value retain];
-    }
-}
-
-- (NSMutableSet *)trackInfo {
-    return [[_trackInfo retain] autorelease];
-}
-
-- (void)setTrackInfo:(NSMutableSet *)value {
-    if (_trackInfo != value) {
-        [_trackInfo release];
-        _trackInfo = [value retain];
     }
 }
 
@@ -154,16 +143,33 @@ static Playlist* sharedInstance = nil;
 	return nil;
 }
 
+- (id)keyForTrack:(Track *)track {
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+        [track name], @"name",
+        [track artist], @"artist",
+        nil];
+}
+
+- (void)addTrackInfo:(Track *)track {
+    id key = [self keyForTrack:track];
+    if( ! [_trackInfo objectForKey:key] ) {
+        [_trackInfo setValue:track forKey:key];
+    }
+}
+
 - (void)addPlayedTrack:(Track *)track {
-    Track *trackWithInfo = [[self trackInfo] member:track];
-	if( trackWithInfo) {
-        // NSMutableArray does not send out KVC updates. This means that NSArrayController (and our gui by extension)
-        // do not see changes the the playedTracks array unless the notifications are explicitly sent out. 
-        // Notify the ArrayController that we are about to add a key. 
+	if( track ) {
         [self willChangeValueForKey:@"_playedTracks"];
-        [[self playedTracks] insertObject:trackWithInfo atIndex:0];
+        [[self playedTracks] insertObject:track atIndex:0];
         [self didChangeValueForKey:@"_playedTracks"];	
     }
+    else {
+        NSLog(@"BUG:addPlayedTrack passed nil");
+    }
+}
+
+- (Track*)trackForProvisionalTrack:(Track*)track {
+    return [_trackInfo objectForKey:[self keyForTrack:track]];
 }
 
 // XMLParser delegates
@@ -181,12 +187,14 @@ static Playlist* sharedInstance = nil;
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    Track *parsingTrack = [self parsingTrack];
+    
     if( [elementName isEqualToString:@"name"] ) {
         [self setParsingKey:(NSString*)[self parsingString]];
         [self setParsingString:nil];
     }
     else if( [elementName isEqualToString:@"value"] ) {
-        [[self parsingTrack] setValue:(NSString*)[self parsingString] forProperty:[self parsingKey]];
+        [parsingTrack setValue:(NSString*)[self parsingString] forProperty:[self parsingKey]];
         if( [[self parsingKey] isEqualToString:@"artRadio"] )
         {
             [self setNeedArtworkForURLString:[self parsingString]];
@@ -195,10 +203,8 @@ static Playlist* sharedInstance = nil;
         [self setParsingString:nil];
     }
     else if( [elementName isEqualToString:@"struct"] ) {
-        if( [[self trackInfo] member:[self parsingTrack]] == nil ) {
-            [[self trackInfo] addObject:[self parsingTrack]];
-            [self setParsingTrack:nil];
-        }
+        [self addTrackInfo:parsingTrack];
+        [self setParsingTrack:nil];
     }
 }
 @end

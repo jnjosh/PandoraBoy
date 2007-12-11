@@ -8,14 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-extern int const PBThumbsUpRating;
-extern int const PBUnsetRating;
-extern int const PBThumbsDownRating;
+#define PBThumbsUpRating    1
+#define PBUnsetRating       0
+#define PBThumbsDownRating -1
 
 @interface Track : NSObject {
     NSMutableDictionary *_properties;
 	NSImage  *_artworkImage;
-    NSImage *_thumbsUpImage;
 }
 
 - (NSMutableDictionary *)properties;

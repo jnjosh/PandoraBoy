@@ -8,10 +8,7 @@
 
 #import "Track.h"
 #import "Playlist.h"
-
-int const PBThumbsUpRating   = 1;
-int const PBUnsetRating      = 0;
-int const PBThumbsDownRating = -1; // This is a guess
+#import "Controller.h"
 
 @implementation Track
 
@@ -19,15 +16,12 @@ int const PBThumbsDownRating = -1; // This is a guess
 {
 	if ( self = [super init] ) {
         [self setProperties:[[NSMutableDictionary alloc] initWithCapacity:25]];
-        _thumbsUpImage = [[NSImage alloc] initWithContentsOfFile:
-            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];        
 	}
 	return self;
 }
 
 - (void) dealloc 
 {
-    [_thumbsUpImage release];
     [_properties release];
 	[_artworkImage release];
 	[super dealloc];
@@ -90,7 +84,7 @@ int const PBThumbsDownRating = -1; // This is a guess
     if( [self rating] == PBThumbsUpRating ) {
         NSImage *thumbed = [[self artworkImage] copy];
         [thumbed lockFocus];
-        [_thumbsUpImage dissolveToPoint:NSMakePoint(50, 10) fraction:0.65];
+        [[[Controller sharedController] thumbsUpImage] dissolveToPoint:NSMakePoint(50, 10) fraction:0.65];
         [thumbed unlockFocus];
         return [thumbed autorelease];
     }
@@ -116,10 +110,10 @@ int const PBThumbsDownRating = -1; // This is a guess
 // Initializers
 
 + (Track *)trackWithName:(NSString*)name artist:(NSString*)artist {
-    Track *track = [[Track alloc] init];
-    [track setName:name];
-    [track setArtist:artist];
-    return [track autorelease];
+    Track *provisionalTrack = [[[Track alloc] init] autorelease];
+    [provisionalTrack setName:name];
+    [provisionalTrack setArtist:artist];
+    return [[Playlist sharedPlaylist] trackForProvisionalTrack:provisionalTrack];
 }
 
 // NSScriptObjectSpecifiers protocol

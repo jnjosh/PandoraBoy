@@ -24,14 +24,9 @@
 #import <Growl/GrowlApplicationBridge.h>
 
 @interface GrowlNotification : NSObject <GrowlApplicationBridgeDelegate> {
-    NSImage *thumbsUpImage;
-    NSImage *thumbsDownImage;
 }
 
 //- (void) playerInfoChanged:(NSNotification*)aNotification;
-
-- (void) pandoraLikeSong; 
-- (void) pandoraDislikeSong; 
 
 // delegate methods for GrowlApplicationBridge
 - (NSDictionary *) registrationDictionaryForGrowl;

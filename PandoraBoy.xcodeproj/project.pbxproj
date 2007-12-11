@@ -25,7 +25,6 @@
 		3D4400E20B758BE20022A3D7 /* SRRemoveShortcutPressed.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400DE0B758BE20022A3D7 /* SRRemoveShortcutPressed.tif */; };
 		3D4400E30B758BE20022A3D7 /* SRRemoveShortcutRollover.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400DF0B758BE20022A3D7 /* SRRemoveShortcutRollover.tif */; };
 		3D4400E40B758BE20022A3D7 /* SRSnapback.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400E00B758BE20022A3D7 /* SRSnapback.tiff */; };
-		3D693FA50AA1EDA600899D49 /* SongNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D693FA40AA1EDA600899D49 /* SongNotification.m */; };
 		3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6942410AA37A1300899D49 /* GrowlNotification.m */; };
@@ -68,6 +67,8 @@
 		FBC404460D03A22B00B179F9 /* StationList.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404440D03A22B00B179F9 /* StationList.m */; };
 		FBC404510D03A31600B179F9 /* Station.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC4044F0D03A31600B179F9 /* Station.h */; };
 		FBC404520D03A31600B179F9 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404500D03A31600B179F9 /* Station.m */; };
+		FBDBAC550D0F196100476C66 /* DistributedNotification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBDBAC530D0F196100476C66 /* DistributedNotification.h */; };
+		FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDBAC540D0F196100476C66 /* DistributedNotification.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 				FBC404510D03A31600B179F9 /* Station.h in CopyFiles */,
 				FB6192760D0C9B7A00667BF3 /* PlayerController.h in CopyFiles */,
 				FBAA77790D0E33A6006C957B /* FeedbackURLProtocol.h in CopyFiles */,
+				FBDBAC550D0F196100476C66 /* DistributedNotification.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +127,6 @@
 		3D4400DE0B758BE20022A3D7 /* SRRemoveShortcutPressed.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRRemoveShortcutPressed.tif; path = ShortcutRecorder/images/SRRemoveShortcutPressed.tif; sourceTree = "<group>"; };
 		3D4400DF0B758BE20022A3D7 /* SRRemoveShortcutRollover.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRRemoveShortcutRollover.tif; path = ShortcutRecorder/images/SRRemoveShortcutRollover.tif; sourceTree = "<group>"; };
 		3D4400E00B758BE20022A3D7 /* SRSnapback.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRSnapback.tiff; path = ShortcutRecorder/images/SRSnapback.tiff; sourceTree = "<group>"; };
-		3D693FA30AA1EDA600899D49 /* SongNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongNotification.h; sourceTree = "<group>"; };
-		3D693FA40AA1EDA600899D49 /* SongNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongNotification.m; sourceTree = "<group>"; };
 		3D6942240AA378BF00899D49 /* Growl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		3D6942400AA37A1300899D49 /* GrowlNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotification.h; sourceTree = "<group>"; };
 		3D6942410AA37A1300899D49 /* GrowlNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotification.m; sourceTree = "<group>"; };
@@ -190,6 +190,8 @@
 		FBC404440D03A22B00B179F9 /* StationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationList.m; sourceTree = "<group>"; };
 		FBC4044F0D03A31600B179F9 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
 		FBC404500D03A31600B179F9 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
+		FBDBAC530D0F196100476C66 /* DistributedNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributedNotification.h; sourceTree = "<group>"; };
+		FBDBAC540D0F196100476C66 /* DistributedNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributedNotification.m; sourceTree = "<group>"; };
 		FBF742000BD1C3AC007F85D5 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		FBF742010BD1C3AC007F85D5 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -423,10 +425,10 @@
 			children = (
 				3DDA24250B74F5D000F500BD /* Commands.h */,
 				3DDA24260B74F5D000F500BD /* Commands.m */,
-				3D693FA30AA1EDA600899D49 /* SongNotification.h */,
-				3D693FA40AA1EDA600899D49 /* SongNotification.m */,
 				3D6942400AA37A1300899D49 /* GrowlNotification.h */,
 				3D6942410AA37A1300899D49 /* GrowlNotification.m */,
+				FBDBAC530D0F196100476C66 /* DistributedNotification.h */,
+				FBDBAC540D0F196100476C66 /* DistributedNotification.m */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -533,7 +535,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				3D7F771F0A9EB1DB004B0146 /* Controller.m in Sources */,
-				3D693FA50AA1EDA600899D49 /* SongNotification.m in Sources */,
 				3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */,
 				3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */,
 				3D6946960AAC91DF00899D49 /* PreferenceController.m in Sources */,
@@ -560,6 +561,7 @@
 				FBC404520D03A31600B179F9 /* Station.m in Sources */,
 				FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */,
 				FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */,
+				FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

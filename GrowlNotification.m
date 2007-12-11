@@ -49,6 +49,11 @@
                selector:@selector(songThumbed:)
                    name:PBSongThumbedNotification
                  object:nil];
+        
+        [nc addObserver:self
+               selector:@selector(stationChanged:)
+                   name:PBStationChangedNotification
+                 object:nil];
     }
 	
 	return self;
@@ -117,6 +122,17 @@
                priority:0
                isSticky:false
            clickContext:nil];
+}
+
+- (void) stationChanged:(NSNotification*)notification {
+    Station *station = [notification object];
+    [GrowlApplicationBridge notifyWithTitle:NSLocalizedString(@"Now Playing Station:", @"")
+                                description:[station name]
+                           notificationName:PBStationChangedNotification
+                                   iconData:nil
+                                   priority:0
+                                   isSticky:false
+                               clickContext:nil];
 }
 
 //- (void) playerInfoChanged:(NSNotification*)aNotification {
@@ -190,6 +206,7 @@
 				    PBSongPlayedNotification,
                     PBSongPausedNotification,
                     PBSongThumbedNotification,
+                    PBStationChangedNotification,
 				    nil];
 
   NSDictionary *regDict = [NSDictionary dictionaryWithObjectsAndKeys:

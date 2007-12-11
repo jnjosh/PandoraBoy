@@ -56,8 +56,8 @@ static Controller* _sharedInstance = nil;
                                                 forKeyPath:PBAppleRemoteEnabled
                                                    options: NSKeyValueObservingOptionNew
                                                    context:nil];
-        [self setGrowl:[[GrowlNotification alloc] init]];
-        
+        _growl = [[GrowlNotification alloc] init];
+        _distributedNotification = [[DistributedNotification alloc] init];
         _playerController = [[PlayerController alloc] init];
         
         _thumbsUpImage = [[NSImage alloc] initWithContentsOfFile:
@@ -71,6 +71,7 @@ static Controller* _sharedInstance = nil;
 
 - (void) dealloc {
     [_growl release];
+    [_distributedNotification release];
     [_playerController release];
     [appleRemote release];
     [_thumbsUpImage release];
@@ -92,17 +93,6 @@ static Controller* _sharedInstance = nil;
 	if (_sharedInstance) return _sharedInstance;
 	_sharedInstance = [[Controller alloc] init];
 	return _sharedInstance;
-}
-
-- (GrowlNotification *)growl {
-    return [[_growl retain] autorelease];
-}
-
-- (void)setGrowl:(GrowlNotification *)value {
-    if (_growl != value) {
-        [_growl release];
-        _growl = [value retain];
-    }
 }
 
 - (NSImage*)thumbsUpImage {

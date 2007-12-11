@@ -98,7 +98,7 @@
 }
 
 - (void)setValue:(NSString *)value forProperty:(NSString *)property {
-    NSLog(@"DEBUG:Track:%@=%@", property, value);
+    //NSLog(@"DEBUG:Track:%@=%@", property, value);
     if( property == nil ) {
         NSLog(@"WARNING: Tried to set a nil Track property to \"%@\"", value );
         return;

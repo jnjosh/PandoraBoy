@@ -20,7 +20,6 @@
  ***************************************************************************/
 
 #import <Cocoa/Cocoa.h>
-#import "SongNotification.h"
 #import <Growl/GrowlApplicationBridge.h>
 
 @interface GrowlNotification : NSObject <GrowlApplicationBridgeDelegate> {

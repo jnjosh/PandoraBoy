@@ -26,6 +26,7 @@
 #import "Playlist.h"
 #import "AppleRemote.h"
 #import "GrowlNotification.h"
+#import "DistributedNotification.h"
 #import "StationList.h"
 #import "PlayerController.h"
 
@@ -39,6 +40,7 @@
     GrowlNotification *_growl;
     Playlist *_playlist;
     StationList *_stationList;
+    DistributedNotification *_distributedNotification;
     
     PlayerController *_playerController;
     
@@ -49,10 +51,6 @@
 + (Controller*) sharedController; 
 
 // Accessors
-
-- (GrowlNotification *)growl;
-- (void)setGrowl:(GrowlNotification *)value;
-
 - (NSImage*)thumbsUpImage;
 - (NSImage*)thumbsDownImage;
 

@@ -39,6 +39,7 @@ NSString *PBPlayerStateKey    = @"currentState";
 NSString *PBSongPlayedNotification = @"Song Playing";
 NSString *PBSongPausedNotification = @"Song Paused";
 NSString *PBSongThumbedNotification = @"Song Thumbed";
+NSString *PBStationChangedNotification = @"Station Changed";
 
 @interface PlayerController (Private)
 - (BOOL)controlDisabled;
@@ -328,6 +329,8 @@ NSString *PBSongThumbedNotification = @"Song Thumbed";
 - (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier {
     NSLog(@"pandoraStationPlayed:%@:%@", name, identifier);
     [[StationList sharedStationList] setCurrentStationFromIdentifier:identifier];
+    [[NSNotificationCenter defaultCenter] postNotificationName:PBStationChangedNotification
+                                                        object:[self currentStation]];
 }
 
 - (void) pandoraEventFired:(NSString*)eventName :(NSString*)argument {

@@ -9,7 +9,9 @@
 #import "Track.h"
 #import "Playlist.h"
 
-int const PBThumbsUpRating = 1;
+int const PBThumbsUpRating   = 1;
+int const PBUnsetRating      = 0;
+int const PBThumbsDownRating = -1; // This is a guess
 
 @implementation Track
 
@@ -17,14 +19,16 @@ int const PBThumbsUpRating = 1;
 {
 	if ( self = [super init] ) {
         [self setProperties:[[NSMutableDictionary alloc] initWithCapacity:25]];
+        _thumbsUpImage = [[NSImage alloc] initWithContentsOfFile:
+            [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];        
 	}
 	return self;
 }
 
 - (void) dealloc 
 {
+    [_thumbsUpImage release];
     [_properties release];
-    [_artwork release];
 	[_artworkImage release];
 	[super dealloc];
 }
@@ -53,7 +57,7 @@ int const PBThumbsUpRating = 1;
 }
 
 - (void)setArtist:(NSString *)value {
-    return [self setValue:value forProperty:@"artistSummary"];
+    [self setValue:value forProperty:@"artistSummary"];
 }
 
 - (NSString *)album {
@@ -68,15 +72,31 @@ int const PBThumbsUpRating = 1;
     return [[self valueForProperty:@"rating"] intValue];
 }
 
-- (NSData *)artwork {
-    return [[Playlist sharedPlaylist] artworkForURLString:[self valueForProperty:@"artRadio"]];
+- (void)setRating:(int)value {
+    NSLog(@"setRating:%d", value);
+    [self setValue:[[NSNumber numberWithInt:value] stringValue] forProperty:@"rating"];
 }
 
 - (NSImage *)artworkImage { 
 	if( ! _artworkImage) { 
-		_artworkImage = [[NSImage alloc] initWithData:[self artwork]];
+        _artworkImage = [[Playlist sharedPlaylist] artworkImageForURLString:[self valueForProperty:@"artRadio"]];
+        [_artworkImage retain];
 	}
 	return _artworkImage;
+}
+
+- (NSImage *)thumbedArtworkImage {
+    // Don't cache this; the rating might change
+    if( [self rating] == PBThumbsUpRating ) {
+        NSImage *thumbed = [[self artworkImage] copy];
+        [thumbed lockFocus];
+        [_thumbsUpImage dissolveToPoint:NSMakePoint(50, 10) fraction:0.65];
+        [thumbed unlockFocus];
+        return [thumbed autorelease];
+    }
+    else {
+        return [self artworkImage];
+    }
 }
 
 - (NSString *)valueForProperty:(NSString *)property {
@@ -84,6 +104,7 @@ int const PBThumbsUpRating = 1;
 }
 
 - (void)setValue:(NSString *)value forProperty:(NSString *)property {
+    NSLog(@"DEBUG:Track:%@=%@", property, value);
     if( property == nil ) {
         NSLog(@"WARNING: Tried to set a nil Track property to \"%@\"", value );
         return;

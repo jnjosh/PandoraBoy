@@ -1,9 +1,19 @@
 {
     IBClasses = (
         {
+            ACTIONS = {displayHelp = id; }; 
+            CLASS = Controller; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {playerController = PlayerController; startupWindow = NSWindow; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {CLASS = PandoraControl; LANGUAGE = ObjC; SUPERCLASS = NSWindowController; }, 
+        {
             ACTIONS = {
+                changeStation = id; 
                 dislikeSong = id; 
-                displayHelp = id; 
                 fullVolume = id; 
                 likeSong = id; 
                 lowerVolume = id; 
@@ -12,21 +22,12 @@
                 playPause = id; 
                 raiseVolume = id; 
                 refreshPandora = id; 
-                sendStationChange = id; 
             }; 
-            CLASS = Controller; 
+            CLASS = PlayerController; 
             LANGUAGE = ObjC; 
-            OUTLETS = {
-                notificationView = WebView; 
-                pandoraWindow = NSWindow; 
-                startupWindow = NSWindow; 
-                webView = WebView; 
-            }; 
+            OUTLETS = {apiWebView = WebView; pandoraWebView = WebView; pandoraWindow = NSWindow; }; 
             SUPERCLASS = NSObject; 
         }, 
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
-        {CLASS = PandoraControl; LANGUAGE = ObjC; SUPERCLASS = NSWindowController; }, 
         {CLASS = Playlist; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {
             CLASS = PlaylistGuiController; 

@@ -3,12 +3,21 @@
 
 //GEK 20060404 Custom functions to react to Pandora's event calls.
 
- /* Shamelessly stolen from PandoraFM.real-ity.com */
+ /* With thanks to PandoraFM.real-ity.com */
+ /* Known events: 
+                  PandoraEnded:
+                  PandoraStarted:
+                  SongEnded:songName:artistName:songURL:artURL (no matter how it ended)
+                  SongPlayed:songName:artistName:songURL:artURL
+                  StationEnded:stationName:stationId:isShared:isQuickMix
+                  StationPlayed:stationName:stationId:isShared:isQuickMix
+    Non-events: Station creation, thumbs, Zzz
+*/
+
 Pandora = {
     fireEvent: function(eventName, argument) {
-/* HACK */
         var mySongNotification = window.SongNotification;
-//        mySongNotification.pandoraEvent__(eventName, argument);
+//        mySongNotification.pandoraEventFired__(eventName, this.getProps(argument));
         
         if (eventName == "SongPlayed") {
             mySongNotification.pandoraSongPlayed__(argument.songName,argument.artistName); 
@@ -19,8 +28,16 @@ Pandora = {
         if (eventName == "StationPlayed") {
             mySongNotification.pandoraStationPlayed__(argument.stationName, argument.stationId);
         }
+    },
+
+    getProps: function(obj) {
+        var result = "";
+        for (var propertyName in obj) {
+            result += "." + propertyName + " = " + obj[propertyName] + "\n";
+        }
+        return result;
     }
-}; 
+};
 
 </script>
  

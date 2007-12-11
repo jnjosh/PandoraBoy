@@ -12,9 +12,9 @@
 
 @implementation PlaylistGuiController
 
--(void)awakeFromNib {
-	[playlistGuiWindow setExcludedFromWindowsMenu:YES];
-}
+//-(void)awakeFromNib {
+//	[playlistGuiWindow setExcludedFromWindowsMenu:YES];
+//}
 
 - (void)openSongUrlForSelection:(NSArray*)selection
 {
@@ -25,9 +25,9 @@
 	}
 }
 
-- (BOOL)windowShouldClose:(id)sender 
-{
-	//[sender orderOut:self];
-	return YES;
-}
+//- (BOOL)windowShouldClose:(id)sender 
+//{
+//	//[sender orderOut:self];
+//	return YES;
+//}
 @end

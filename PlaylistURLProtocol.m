@@ -26,26 +26,7 @@
     Playlist *sharedPlaylist = [Playlist sharedPlaylist];
     [sharedPlaylist addInfoFromData:[self data]];
     
-    NSString *startAnchor = @"&arg1=";
-    NSString *endAnchor   = @"&arg2=";
-    NSString *urlString = [[[self request] URL] absoluteString];
-    NSRange startRange = [urlString rangeOfString:startAnchor];
-    if( startRange.location == NSNotFound ) {
-        NSLog(@"BUG:Couldn't find startAnchor in %@", urlString);
-        return;
-    }
-    
-    NSRange endRange = [urlString rangeOfString:endAnchor];
-    if( endRange.location == NSNotFound ) {
-        NSLog(@"BUG:Couldn't find endAnchor in %@", urlString);
-        return;
-    }
-    
-    NSRange r;
-    r.location = startRange.location + [startAnchor length];
-    r.length   = endRange.location - r.location;
-    
-    NSString *stationId = [urlString substringWithRange:r];
+    NSString *stationId = [self valueForParameter:@"arg1"];
     NSLog(@"DEBUG:Setting current station to %@", stationId);
     [[StationList sharedStationList] setCurrentStationFromIdentifier:stationId];
 }

@@ -14,6 +14,5 @@
 
 
 - (void)openSongUrlForSelection:(NSArray*)selection; 
-- (BOOL)windowShouldClose:(id)sender;
 
 @end

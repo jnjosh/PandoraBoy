@@ -9,11 +9,13 @@
 #import <Cocoa/Cocoa.h>
 
 extern int const PBThumbsUpRating;
+extern int const PBUnsetRating;
+extern int const PBThumbsDownRating;
 
 @interface Track : NSObject {
     NSMutableDictionary *_properties;
-    NSData   *_artwork;
-	NSImage  *_artworkImage; 
+	NSImage  *_artworkImage;
+    NSImage *_thumbsUpImage;
 }
 
 - (NSMutableDictionary *)properties;
@@ -25,12 +27,13 @@ extern int const PBThumbsUpRating;
 - (NSString *)artist;
 - (void)setArtist:(NSString *)value;
 
-- (NSData *)artwork;
 - (NSImage *)artworkImage; 
+- (NSImage *)thumbedArtworkImage;
 
 - (NSString *)album;
 - (NSString *)songUrl;
 - (int)rating;
+- (void)setRating:(int)value;
 
 + (Track *)trackWithName:(NSString*)name artist:(NSString*)artist;
 

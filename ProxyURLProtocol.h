@@ -20,5 +20,6 @@
 + (void)registerProxyProtocols;
 
 - (NSMutableData *)data;
+- (NSString*)valueForParameter:(NSString*)parameter;
 
 @end

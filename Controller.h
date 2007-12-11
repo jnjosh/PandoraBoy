@@ -26,25 +26,24 @@
 #import "Playlist.h"
 #import "AppleRemote.h"
 #import "GrowlNotification.h"
+#import "StationList.h"
+#import "PlayerController.h"
 
 @interface Controller : NSObject
 {
-    IBOutlet WebView *webView;
-    IBOutlet NSWindow *pandoraWindow; 
     IBOutlet NSWindow *startupWindow; 
-    IBOutlet WebView *notificationView;
-    NSView *webNetscapePlugin;
+    IBOutlet PlayerController *playerController;
+    
     AppleRemote *appleRemote;
     bool controlDisabled;
     GrowlNotification *_growl;
+    Playlist *_playlist;
+    StationList *_stationList;
+    
+    PlayerController *_playerController;
 }
 
--(void) loadPandora;
-
 + (Controller*) sharedController; 
-
-- (void) setControlDisabled; 
-- (void) setControlEnabled; 
 
 // Accessors
 
@@ -52,32 +51,10 @@
 - (void)setGrowl:(GrowlNotification *)value;
 
 // Actions
-- (IBAction)refreshPandora:(id)sender; 
 - (IBAction)displayHelp:(id)sender; 
-- (IBAction)playPause:(id)sender;
-- (IBAction)nextSong:(id)sender;
-- (IBAction)likeSong:(id)sender;
-- (IBAction)dislikeSong:(id)sender;
-- (IBAction)raiseVolume:(id)sender;
-- (IBAction)lowerVolume:(id)sender;
-- (IBAction)fullVolume:(id)sender;
-- (IBAction)mute:(id)sender;
-- (IBAction)changeStation:(id)sender; 
-
-- (bool) sendKeyPress: (int)keyCode withModifiers:(int)modiFiers; 
-- (bool) sendKeyPress: (int)keyCode;
-
-//WebView delegates 
-- (void)webView:(WebView *)sender setFrame:(NSRect)frame;
-- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
-- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener;
 
 @end
 
 @interface Controller(NSApplicationNotifications)
 -(void)applicationDidFinishLaunching:(NSNotification*)notification;
-@end
-
-@interface Controller (NSWindowDelegate)
-- (void)windowDidMiniaturize:(NSNotification *)aNotification;
 @end

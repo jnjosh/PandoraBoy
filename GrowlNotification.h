@@ -23,17 +23,12 @@
 #import "SongNotification.h"
 #import <Growl/GrowlApplicationBridge.h>
 
-extern NSString *PBGrowlNotificationSongPlaying;
-extern NSString *PBGrowlNotificationSongPaused;
-extern NSString *PBGrowlNotificationSongThumbed;
-extern NSString *PBGrowlNotificationError;
-
 @interface GrowlNotification : NSObject <GrowlApplicationBridgeDelegate> {
     NSImage *thumbsUpImage;
     NSImage *thumbsDownImage;
 }
 
-- (void) playerInfoChanged:(NSNotification*)aNotification;
+//- (void) playerInfoChanged:(NSNotification*)aNotification;
 
 - (void) pandoraLikeSong; 
 - (void) pandoraDislikeSong; 

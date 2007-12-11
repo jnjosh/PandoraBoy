@@ -21,11 +21,8 @@
 
 #import "GrowlNotification.h"
 #import "Playlist.h"
-
-NSString *PBGrowlNotificationSongPlaying = @"Song Playing";
-NSString *PBGrowlNotificationSongPaused  = @"Song Paused";
-NSString *PBGrowlNotificationSongThumbed = @"Song Thumbed";
-NSString *PBGrowlNotificationError       = @"Error";
+#import "PlayerController.h"
+#import "Track.h"
 
 @implementation GrowlNotification
 
@@ -35,11 +32,22 @@ NSString *PBGrowlNotificationError       = @"Error";
 {
 	if ( self = [super init] ) {
         [GrowlApplicationBridge setGrowlDelegate: self];
-        [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-                                                            selector:@selector(playerInfoChanged:)
-                                                                name:PBPlayerInfoNotificationName
-                                                              object:nil
-                                                  suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+//        [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+//                                                            selector:@selector(playerInfoChanged:)
+//                                                                name:PBPlayerInfoNotificationName
+//                                                              object:nil
+//                                                  suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self
+               selector:@selector(songPlayed:)
+                   name:PBSongPlayedNotification
+                 object:nil];
+
+        [nc addObserver:self
+               selector:@selector(songPaused:)
+                   name:PBSongPausedNotification
+                 object:nil];
+        
         thumbsUpImage = [[NSImage alloc] initWithContentsOfFile:
             [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_up.png"]];
         thumbsDownImage = [[NSImage alloc] initWithContentsOfFile:
@@ -51,48 +59,82 @@ NSString *PBGrowlNotificationError       = @"Error";
 
 - (void) dealloc 
 {
-    [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
+//    [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [thumbsUpImage release];
     [thumbsDownImage release];
 	[super dealloc];
 }
 
-- (void) playerInfoChanged:(NSNotification*)aNotification {
-    Track *track = [[Playlist sharedPlaylist] currentTrack];
+- (void) songPlayed:(NSNotification*)notification {
+    Track *track = [[notification userInfo] objectForKey:PBCurrentTrackKey];
     
-    int playerState = [[[aNotification userInfo] valueForKey:PBPlayerInfoPlayerStateKey] intValue];
-    NSString *notificationName;;
-    NSString *title;
-    if( playerState == PBPlayerStatePlaying ) {
-        notificationName = PBGrowlNotificationSongPlaying;
-        title = [track name];
-    }
-    else if( playerState == PBPlayerStatePaused ) {
-        notificationName = PBGrowlNotificationSongPaused;
-        title = [[track name] stringByAppendingFormat:@" (%@)", NSLocalizedString(@"paused", @"")];
-    }
-    else {
-        NSLog(@"BUG:playerInfoChanged called with illegal state: %@", playerState);
-    }
-
-    NSImage *artwork = [[NSImage alloc] initWithData:[track artwork]];
-    if( [track rating] == PBThumbsUpRating ) {
-        [artwork lockFocus];
-        [thumbsUpImage dissolveToPoint:NSMakePoint(50, 10) fraction:0.65];
-        [artwork unlockFocus];
-    }
-    
-    [GrowlApplicationBridge notifyWithTitle:title
+    NSImage *artwork = [track thumbedArtworkImage];
+    [GrowlApplicationBridge notifyWithTitle:[track name]
                                 description:[NSString stringWithFormat:@"%@: %@\n%@: %@", 
                                     NSLocalizedString(@"by", @""), [track artist],
                                     NSLocalizedString(@"on", @""), [track album], nil]
-                           notificationName:notificationName
+                           notificationName:PBSongPlayedNotification
                                    iconData:[artwork TIFFRepresentation]
                                    priority:0
                                    isSticky:false
                                clickContext:nil];
-    [artwork release];
 }
+
+- (void) songPaused:(NSNotification*)notification {
+    Track *track = [[notification userInfo] objectForKey:PBCurrentTrackKey];
+    
+    NSString *title  = [[track name] stringByAppendingFormat:@" (%@)", NSLocalizedString(@"paused", @"")];
+    NSImage *artwork = [track thumbedArtworkImage];
+
+    [GrowlApplicationBridge notifyWithTitle:title
+                                description:[NSString stringWithFormat:@"%@: %@\n%@: %@", 
+                                    NSLocalizedString(@"by", @""), [track artist],
+                                    NSLocalizedString(@"on", @""), [track album], nil]
+                           notificationName:PBSongPausedNotification
+                                   iconData:[artwork TIFFRepresentation]
+                                   priority:0
+                                   isSticky:false
+                               clickContext:nil];
+}
+
+
+//- (void) playerInfoChanged:(NSNotification*)aNotification {
+//    Track *track = [[Playlist sharedPlaylist] currentTrack];
+//    
+//    int playerState = [[[aNotification userInfo] valueForKey:PBPlayerInfoPlayerStateKey] intValue];
+//    NSString *notificationName;;
+//    NSString *title;
+//    if( playerState == PBPlayerStatePlaying ) {
+//        notificationName = PBGrowlNotificationSongPlaying;
+//        title = [track name];
+//    }
+//    else if( playerState == PBPlayerStatePaused ) {
+//        notificationName = PBGrowlNotificationSongPaused;
+//        title = [[track name] stringByAppendingFormat:@" (%@)", NSLocalizedString(@"paused", @"")];
+//    }
+//    else {
+//        NSLog(@"BUG:playerInfoChanged called with illegal state: %@", playerState);
+//    }
+//
+//    NSImage *artwork = [[NSImage alloc] initWithData:[track artwork]];
+//    if( [track rating] == PBThumbsUpRating ) {
+//        [artwork lockFocus];
+//        [thumbsUpImage dissolveToPoint:NSMakePoint(50, 10) fraction:0.65];
+//        [artwork unlockFocus];
+//    }
+//    
+//    [GrowlApplicationBridge notifyWithTitle:title
+//                                description:[NSString stringWithFormat:@"%@: %@\n%@: %@", 
+//                                    NSLocalizedString(@"by", @""), [track artist],
+//                                    NSLocalizedString(@"on", @""), [track album], nil]
+//                           notificationName:notificationName
+//                                   iconData:[artwork TIFFRepresentation]
+//                                   priority:0
+//                                   isSticky:false
+//                               clickContext:nil];
+//    [artwork release];
+//}
 
 - (void) pandoraLikeSong
 {
@@ -101,7 +143,7 @@ NSString *PBGrowlNotificationError       = @"Error";
     [GrowlApplicationBridge
         notifyWithTitle:[track name]
             description:[track artist]
-       notificationName:PBGrowlNotificationSongThumbed
+       notificationName:PBSongThumbedNotification
                iconData:[thumbsUpImage TIFFRepresentation]
                priority:0
                isSticky:false
@@ -115,7 +157,7 @@ NSString *PBGrowlNotificationError       = @"Error";
     [GrowlApplicationBridge
         notifyWithTitle:[track name]
             description:[track artist]
-       notificationName:PBGrowlNotificationSongThumbed
+       notificationName:PBSongThumbedNotification
                iconData:[thumbsDownImage TIFFRepresentation]
                priority:0
                isSticky:false
@@ -125,9 +167,9 @@ NSString *PBGrowlNotificationError       = @"Error";
 // delegate methods for GrowlApplicationBridge
 - (NSDictionary *) registrationDictionaryForGrowl {
   NSArray *notifications = [NSArray arrayWithObjects:
-				    PBGrowlNotificationSongPlaying,
-                    PBGrowlNotificationSongPaused,
-                    PBGrowlNotificationSongThumbed,
+				    PBSongPlayedNotification,
+                    PBSongPausedNotification,
+                    PBSongThumbedNotification,
 				    nil];
 
   NSDictionary *regDict = [NSDictionary dictionaryWithObjectsAndKeys:

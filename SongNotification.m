@@ -19,11 +19,14 @@
  *  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA          *
  ***************************************************************************/
 
+// PandoraBoyNotification manages NSDistributedNotificationCenter messages
+
 #import "SongNotification.h"
 #import "WebKit/WebFrame.h"
 #import "Playlist.h"
 #import "ResourceURL.h"
 #import "StationList.h"
+#import "PlayerController.h"
 
 static SongNotification* sharedInstance = nil;
 
@@ -45,10 +48,6 @@ NSString *PBPlayerInfoRatingKey      = @"Rating";
 NSString *PBPlayerInfoDiscNumberKey  = @"Disc Number";
 NSString *PBPlayerInfoDiscCountKey   = @"Disc Count";
 
-NSString *PBPlayerStateStoppedString = @"Stopped";
-NSString *PBPlayerStatePausedString  = @"Paused";
-NSString *PBPlayerStatePlayingString = @"Playing";
-
 @implementation SongNotification
 
 #pragma public interface
@@ -58,7 +57,6 @@ NSString *PBPlayerStatePlayingString = @"Playing";
 	if (sharedInstance) return sharedInstance;
 	
 	if ( self = [super init] ) {
-        [self setPlayerState:PBPlayerStateStopped];
 	}
 	return self;
 }
@@ -75,41 +73,15 @@ NSString *PBPlayerStatePlayingString = @"Playing";
 	return sharedInstance;
 }
 
-- (int)playerState {
-    return _playerState;
-}
-
-- (void)setPlayerState:(int)value {
-    if (_playerState != value) {
-        _playerState = value;
-    }
-}
-
-- (NSString *)playerStateAsString {
-    switch ([self playerState]) {
-        case PBPlayerStateStopped: return PBPlayerStateStoppedString;
-        case PBPlayerStatePaused:  return PBPlayerStatePausedString;
-        case PBPlayerStatePlaying: return PBPlayerStatePlayingString;
-    }
-    return @"";
-}
-
-- (void) loadNotifier: (WebView*) view {
-    ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:@"/SongNotification.html"];
-	[[view mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
-
-    id win = [view windowScriptObject]; 
-    [win setValue:self forKey:@"SongNotification"];
-}
-
 - (void) sendPlayerInfoNotification {
     Playlist *playlist = [Playlist sharedPlaylist];
     Track *currentTrack = [playlist currentTrack];
+    int playerState = [[PlayerController sharedController] playerState];
     if( currentTrack && ! [[currentTrack name] isEqualToString:@""] ) {
         NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
-            [currentTrack name],                         PBPlayerInfoNameKey, 
-            [currentTrack artist],                       PBPlayerInfoArtistKey,
-            [NSNumber numberWithInt:[self playerState]], PBPlayerInfoPlayerStateKey,
+            [currentTrack name],                  PBPlayerInfoNameKey, 
+            [currentTrack artist],                PBPlayerInfoArtistKey,
+            [NSNumber numberWithInt:playerState], PBPlayerInfoPlayerStateKey,
             nil];
 
         [[NSDistributedNotificationCenter defaultCenter]
@@ -118,36 +90,5 @@ NSString *PBPlayerStatePlayingString = @"Playing";
                         userInfo:dict];
     }
 }
-
-// Delegate methods from Pandora's notification system
-- (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist
-{
-    NSLog( @"pandoraSongPlayed name: %@, artist: %@", name, artist); 
-
-    // FIXME: playlist isn't implemented yet
-    Playlist *playlist = [Playlist sharedPlaylist];
-    Track *track = [Track trackWithName:name artist:artist];
-    // We get called for both track change and unpause, so make sure this isn't the current track
-    if( ! [track isEqualToTrack:[playlist currentTrack]] ) {
-        [playlist addPlayedTrack:track];
-    }
-    [self setPlayerState:PBPlayerStatePlaying];
-    [self sendPlayerInfoNotification];
-}
-
-- (void) pandoraSongPaused
-{
-    NSLog( @"pandoraSongPaused"); 
-    [self setPlayerState:PBPlayerStatePaused];
-    [self sendPlayerInfoNotification];
-}
-
-- (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier {
-    NSLog(@"pandoraStationPlayed:%@:%@", name, identifier);
-    [[StationList sharedStationList] setCurrentStationFromIdentifier:identifier];
-}
-
-
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector { return NO; }
 
 @end

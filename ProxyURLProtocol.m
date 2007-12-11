@@ -12,6 +12,7 @@
 #import "ArtworkURLProtocol.h"
 #import "ResourceURLProtocol.h"
 #import "StationsURLProtocol.h"
+#import "FeedbackURLProtocol.h"
 
 static NSString *PBProxyURLHeader = @"X-PB";
 
@@ -62,6 +63,7 @@ static NSString *PBProxyURLHeader = @"X-PB";
     
     [NSURLProtocol registerClass:[ResourceURLProtocol class]];
     [NSURLProtocol registerClass:[StationsURLProtocol class]];
+    [NSURLProtocol registerClass:[FeedbackURLProtocol class]];
     [NSURLProtocol registerClass:[PlaylistURLProtocol class]];
     [NSURLProtocol registerClass:[ArtworkURLProtocol class]];
 }    
@@ -85,7 +87,7 @@ static NSString *PBProxyURLHeader = @"X-PB";
       cachedResponse:(NSCachedURLResponse *)cachedResponse
               client:(id <NSURLProtocolClient>)client
 {
-    NSLog(@"DEBUG:initWithRequest:%@", [request URL]);
+//    NSLog(@"DEBUG:initWithRequest:%@", [request URL]);
     
     // Modify request
     NSMutableURLRequest *myRequest = [request mutableCopy];
@@ -140,10 +142,24 @@ static NSString *PBProxyURLHeader = @"X-PB";
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-//    if( [[[[self request] URL] absoluteString] rangeOfString:@"method=getStations"].location != NSNotFound ) {
+//    if( [[[[self request] URL] absoluteString] rangeOfString:@"method=addFeedback"].location != NSNotFound ) {
 //        NSLog(@"DEBUG:getStations:%@", [[[NSString alloc] initWithData:[self data] encoding:NSASCIIStringEncoding] autorelease]);
 //    }
     [[self client] URLProtocolDidFinishLoading:self];
 }
 
+-(NSString*)valueForParameter:(NSString*)parameter {
+    NSString *query = [[[self request] URL] query];
+
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSEnumerator *e = [pairs objectEnumerator];
+    NSString *aKeyValue;
+    while( aKeyValue = [e nextObject] ) {
+        NSArray *split = [aKeyValue componentsSeparatedByString:@"="];
+        if( [[split objectAtIndex:0] isEqualToString:parameter] ) {
+            return [split objectAtIndex:1];
+        }
+    }
+    return nil;
+}    
 @end

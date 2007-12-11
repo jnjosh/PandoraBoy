@@ -40,36 +40,12 @@ extern NSString *PBPlayerInfoRatingKey;
 extern NSString *PBPlayerInfoDiscNumberKey;
 extern NSString *PBPlayerInfoDiscCountKey;
 
-extern NSString *PBPlayerStateStoppedString;
-extern NSString *PBPlayerStatePlayingString;
-extern NSString *PBPlayerStatePausedString;
-
-typedef enum _PBPlayerStates {
-    PBPlayerStateStopped = 'stop',
-    PBPlayerStatePlaying = 'play',
-    PBPlayerStatePaused  = 'paus'
-} PBPlayerStates;
-
 @interface SongNotification : NSObject {
     int _playerState;
 }
 
-- (int)playerState;
-- (void)setPlayerState:(int)value;
-- (NSString *)playerStateAsString;
-
 + (SongNotification*) sharedNotification; 
 
-- (void) loadNotifier: (WebView*)view; 
 - (void) sendPlayerInfoNotification;
 
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector;
-
-//- (void) getArtworkAndPostNotification:(NSDictionary *)info;
-//- (BOOL) artworkIsStable: (NSBitmapImageRep*)bitmap;
-
-// Delegate functions from Pandora notification system
-- (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 
-- (void) pandoraSongPaused; 
-- (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier;
 @end

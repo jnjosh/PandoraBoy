@@ -29,7 +29,7 @@
 @implementation playPauseCommand
 -(id)performDefaultImplementation
 {
-	[[Controller sharedController] playPause:self];
+	[[PlayerController sharedController] playPause:self];
 	return self;
 }
 @end
@@ -37,7 +37,7 @@
 @implementation skipCommand
 -(id)performDefaultImplementation
 {
-	[[Controller sharedController] nextSong:self];
+	[[PlayerController sharedController] nextSong:self];
 	return self;
 }
 @end
@@ -45,7 +45,7 @@
 @implementation thumbsUpCommand
 -(id)performDefaultImplementation
 {
-	[[Controller sharedController] likeSong:self];
+	[[PlayerController sharedController] likeSong:self];
 	return self;
 }
 @end
@@ -53,7 +53,7 @@
 @implementation thumbsDownCommand
 -(id)performDefaultImplementation
 {
-	[[Controller sharedController] dislikeSong:self];
+	[[PlayerController sharedController] dislikeSong:self];
 	return self;
 }
 @end
@@ -62,7 +62,7 @@
 -(id)performDefaultImplementation
 {
 	// FIXME: This should take an (optional?) "count" parameter
-	[[Controller sharedController] raiseVolume:self];
+	[[PlayerController sharedController] raiseVolume:self];
 	return self;
 }
 @end
@@ -71,7 +71,7 @@
 -(id)performDefaultImplementation
 {
 	// FIXME: This should take an (optional?) "count" parameter
-	[[Controller sharedController] lowerVolume:self];
+	[[PlayerController sharedController] lowerVolume:self];
 	return self;
 }
 @end
@@ -79,7 +79,7 @@
 @implementation fullVolumeCommand
 -(id)performDefaultImplementation
 {
-	[[Controller sharedController] fullVolume:self];
+	[[PlayerController sharedController] fullVolume:self];
 	return self;
 }
 @end
@@ -87,7 +87,7 @@
 @implementation muteCommand
 -(id)performDefaultImplementation
 {
-	[[Controller sharedController] mute:self];
+	[[PlayerController sharedController] mute:self];
 	return self;
 }
 @end
@@ -102,7 +102,7 @@
 }
 
 - (int)playerState {
-    return [[SongNotification sharedNotification] playerState];
+    return [[PlayerController sharedController] playerState];
 }
 
 @end

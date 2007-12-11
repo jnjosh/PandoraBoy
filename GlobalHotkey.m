@@ -20,7 +20,7 @@
  ***************************************************************************/
 
 #import "GlobalHotkey.h"
-#import "Controller.h"
+#import "PlayerController.h"
 
 static GlobalHotkey* sharedInstance = nil;
 
@@ -44,30 +44,34 @@ void *userData)
 		    sizeof(hkCom),NULL,&hkCom);
   PandoraHotKeyIds hotKeyId = hkCom.id; 
 
+  // Is there a better way to get to the playerController?
+  PlayerController *playerController = [PlayerController sharedController];
+  
   switch(hotKeyId) {
+      
   case NEXT_SONG:
-      [[Controller sharedController] nextSong:nil];
+      [playerController nextSong:nil];
     break;
   case PLAY_PAUSE:
-      [[Controller sharedController] playPause:nil];
+      [playerController playPause:nil];
     break;
   case LIKE_SONG:
-      [[Controller sharedController] likeSong:nil];    
+      [playerController likeSong:nil];    
     break;
   case DISLIKE_SONG:
-      [[Controller sharedController] dislikeSong:nil];
+      [playerController dislikeSong:nil];
     break; 
   case RAISE_VOLUME:
-      [[Controller sharedController] raiseVolume:nil];
+      [playerController raiseVolume:nil];
     break; 
   case LOWER_VOLUME:
-      [[Controller sharedController] lowerVolume:nil];
+      [playerController lowerVolume:nil];
     break; 
   case FULL_VOLUME:
-      [[Controller sharedController] fullVolume:nil];
+      [playerController fullVolume:nil];
     break; 
   case MUTE:
-      [[Controller sharedController] mute:nil];
+      [playerController mute:nil];
     break; 
 
   }

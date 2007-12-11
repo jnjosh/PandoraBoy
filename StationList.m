@@ -188,7 +188,7 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
                                               atIndex:[_stationsMenu numberOfItems] - 2];
     }
     [menuItem setEnabled:YES];
-    [menuItem setTarget:[Controller sharedController]];
+    [menuItem setTarget:[PlayerController sharedController]];
     [menuItem setRepresentedObject:station];
     [menuItem setImage:_noPlayImage];
 }

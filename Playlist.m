@@ -18,11 +18,11 @@ static Playlist* sharedInstance = nil;
 
     sharedInstance  = [super init];
     if (sharedInstance != nil) {
-        _trackInfo     = [[NSMutableSet alloc] initWithCapacity:100];
-        _playedTracks  = [[NSMutableArray alloc] initWithCapacity:100];
-        _artwork       = [[NSMutableDictionary alloc] initWithCapacity:100];
-        _parsingTrack  = nil;
-        _parsingString = nil;
+        _trackInfo      = [[NSMutableSet alloc] initWithCapacity:100];
+        _playedTracks   = [[NSMutableArray alloc] initWithCapacity:100];
+        _artworkLibrary = [[NSMutableDictionary alloc] initWithCapacity:100];
+        _parsingTrack   = nil;
+        _parsingString  = nil;
     }
     return sharedInstance;
 }
@@ -34,7 +34,7 @@ static Playlist* sharedInstance = nil;
 }
 
 - (void) dealloc {
-    [_artwork release];
+    [_artworkLibrary release];
     [_trackInfo release];
     [_playedTracks release];
     [_parsingTrack release];
@@ -43,14 +43,14 @@ static Playlist* sharedInstance = nil;
 }
 
 // Accessors
-- (NSMutableDictionary *)artwork {
-    return [[_artwork retain] autorelease];
+- (NSMutableDictionary *)artworkLibrary {
+    return [[_artworkLibrary retain] autorelease];
 }
 
-- (void)setArtwork:(NSMutableDictionary *)value {
-    if (_artwork != value) {
-        [_artwork release];
-        _artwork = [value retain];
+- (void)setArtworkLibrary:(NSMutableDictionary *)value {
+    if (_artworkLibrary != value) {
+        [_artworkLibrary release];
+        _artworkLibrary = [value retain];
     }
 }
 
@@ -123,25 +123,27 @@ static Playlist* sharedInstance = nil;
 - (void)addArtworkFromData:(NSData *)data forURL:(NSURL *)url {
     NSString *key = [self keyForURLString:[url absoluteString]];
     if( data && key ) {
-        [[self artwork] setObject:data forKey:key];
+        [[self artworkLibrary] setObject:data forKey:key];
     }
 }
 
-- (NSData *)artworkForURLString:(NSString *)urlString {
-    id artwork = [[self artwork] objectForKey:[self keyForURLString:urlString]];
-    if( [artwork isKindOfClass:[NSData class]] ) { return artwork; }
+- (NSImage *)artworkImageForURLString:(NSString *)urlString {
+    id artworkData = [[self artworkLibrary] objectForKey:[self keyForURLString:urlString]];
+    if( [artworkData isKindOfClass:[NSData class]] ) { 
+        return [[[NSImage alloc] initWithData:artworkData] autorelease];
+    }
     return nil;
 }
 
 - (BOOL)needArtworkForURLString:(NSString *)urlString {
     // If there's a key there, but no data, then we need artwork
     NSString *key = [self keyForURLString:urlString];
-    return( [[[self artwork] objectForKey:key] isEqual:@""] );
+    return( [[[self artworkLibrary] objectForKey:key] isEqual:@""] );
 }
 
 - (void)setNeedArtworkForURLString:(NSString *)urlString {
-    if( urlString && ! [self artworkForURLString:urlString] ) {
-        [[self artwork] setObject:@"" forKey:[self keyForURLString:urlString]];
+    if( urlString && ! [self artworkImageForURLString:urlString] ) {
+        [[self artworkLibrary] setObject:@"" forKey:[self keyForURLString:urlString]];
     }
 }
 

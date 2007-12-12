@@ -48,7 +48,35 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
         [self setImage:_playImage forStation:_currentStation];
     }
 }
-    
+ 
+- (Station *)nextStation {
+    int index;
+    if( [[self currentStation] isQuickMix] ) {
+        index = 0;
+    }
+    else {
+        index = [_stationList indexOfObject:[self currentStation]] + 1;
+        if( index >= [_stationList count] ) {
+            index = 0;
+        }        
+    }
+    return [_stationList objectAtIndex:index];
+}
+        
+- (Station *)previousStation {
+    int index;
+    if( [[self currentStation] isQuickMix] ) {
+        index = [_stationList count] - 1;
+    }
+    else {
+        index = [_stationList indexOfObject:[self currentStation]] - 1;
+        if( index < 0 ) {
+            index = [_stationList count] - 1;
+        }
+    }
+    return [_stationList objectAtIndex:index];
+}
+
 - (Station *)quickMixStation {
     return [[_quickMixStation retain] autorelease];
 }
@@ -134,7 +162,7 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
 - (void) awakeFromNib {
     [_stationsMenu addItem:[NSMenuItem separatorItem]];
     NSMenuItem *menuItem = [_stationsMenu addItemWithTitle:PBQuickMixMenuItemTitle
-                                                    action:@selector(changeStation:)
+                                                    action:@selector(setStationToSender:)
                                              keyEquivalent:@""];
     [menuItem setEnabled:NO];
     [menuItem setImage:_noPlayImage];
@@ -183,7 +211,7 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
     else {
         [[self stationList] addObject:station];
         menuItem = [_stationsMenu insertItemWithTitle:name
-                                               action:@selector(changeStation:)
+                                               action:@selector(setStationToSender:)
                                         keyEquivalent:@""
                                               atIndex:[_stationsMenu numberOfItems] - 2];
     }

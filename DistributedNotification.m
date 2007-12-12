@@ -59,7 +59,6 @@ NSString *PBPlayerInfoDiscCountKey   = @"Disc Count";
 }
 
 - (void) sendNotificationWithTrack:(Track*)track playerState:(int)playerState {
-    NSLog(@"DEBUG:sendNotificationWithTrack:%@:%d", track, playerState);
     if( track ) {
         NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
             [track name],                         PBPlayerInfoNameKey, 

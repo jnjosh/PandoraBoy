@@ -54,7 +54,9 @@ extern NSString *PBStationChangedNotification;
 - (IBAction)lowerVolume:(id)sender;
 - (IBAction)fullVolume:(id)sender;
 - (IBAction)mute:(id)sender;
-- (IBAction)changeStation:(id)sender; 
+- (IBAction)setStationToSender:(id)sender; 
+- (IBAction)nextStation:(id)sender;
+- (IBAction)previousStation:(id)sender;
 
 - (Track *)currentTrack;
 - (Station *)currentStation;

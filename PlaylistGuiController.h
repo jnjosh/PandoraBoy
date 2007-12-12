@@ -12,6 +12,7 @@
 	IBOutlet NSWindow *playlistGuiWindow;	
 }
 
+- (IBAction)toggleTrackHistoryWindow:(id)sender;
 
 - (void)openSongUrlForSelection:(NSArray*)selection; 
 

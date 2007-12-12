@@ -20,7 +20,6 @@
  ***************************************************************************/
 
 #import "GrowlNotification.h"
-#import "Playlist.h"
 #import "PlayerController.h"
 #import "Track.h"
 #import "Controller.h"
@@ -134,71 +133,6 @@
                                    isSticky:false
                                clickContext:nil];
 }
-
-//- (void) playerInfoChanged:(NSNotification*)aNotification {
-//    Track *track = [[Playlist sharedPlaylist] currentTrack];
-//    
-//    int playerState = [[[aNotification userInfo] valueForKey:PBPlayerInfoPlayerStateKey] intValue];
-//    NSString *notificationName;;
-//    NSString *title;
-//    if( playerState == PBPlayerStatePlaying ) {
-//        notificationName = PBGrowlNotificationSongPlaying;
-//        title = [track name];
-//    }
-//    else if( playerState == PBPlayerStatePaused ) {
-//        notificationName = PBGrowlNotificationSongPaused;
-//        title = [[track name] stringByAppendingFormat:@" (%@)", NSLocalizedString(@"paused", @"")];
-//    }
-//    else {
-//        NSLog(@"BUG:playerInfoChanged called with illegal state: %@", playerState);
-//    }
-//
-//    NSImage *artwork = [[NSImage alloc] initWithData:[track artwork]];
-//    if( [track rating] == PBThumbsUpRating ) {
-//        [artwork lockFocus];
-//        [thumbsUpImage dissolveToPoint:NSMakePoint(50, 10) fraction:0.65];
-//        [artwork unlockFocus];
-//    }
-//    
-//    [GrowlApplicationBridge notifyWithTitle:title
-//                                description:[NSString stringWithFormat:@"%@: %@\n%@: %@", 
-//                                    NSLocalizedString(@"by", @""), [track artist],
-//                                    NSLocalizedString(@"on", @""), [track album], nil]
-//                           notificationName:notificationName
-//                                   iconData:[artwork TIFFRepresentation]
-//                                   priority:0
-//                                   isSticky:false
-//                               clickContext:nil];
-//    [artwork release];
-//}
-
-//- (void) pandoraLikeSong
-//{
-//    Track *track = [[Playlist sharedPlaylist] currentTrack];
-//    
-//    [GrowlApplicationBridge
-//        notifyWithTitle:[track name]
-//            description:[track artist]
-//       notificationName:PBSongThumbedNotification
-//               iconData:[thumbsUpImage TIFFRepresentation]
-//               priority:0
-//               isSticky:false
-//           clickContext:nil];
-//}
-//
-//- (void) pandoraDislikeSong
-//{
-//    Track *track = [[Playlist sharedPlaylist] currentTrack];
-//    
-//    [GrowlApplicationBridge
-//        notifyWithTitle:[track name]
-//            description:[track artist]
-//       notificationName:PBSongThumbedNotification
-//               iconData:[thumbsDownImage TIFFRepresentation]
-//               priority:0
-//               isSticky:false
-//           clickContext:nil];
-//}
 
 // delegate methods for GrowlApplicationBridge
 - (NSDictionary *) registrationDictionaryForGrowl {

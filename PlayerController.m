@@ -203,14 +203,32 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [self sendKeyPress: 125 withModifiers: shiftKey]; 
 }
 
-- (IBAction)changeStation:(id)sender {
+- (void)setStation:(NSString*)identifier {
     // It seems that _pandoraScriptObject can't be cached; it changes sometimes.
     WebScriptObject *_pandoraScriptObject = [[pandoraWebView windowScriptObject] valueForKey:@"Pandora"];
     [_pandoraScriptObject callWebScriptMethod:@"launchStationFromId" 
-                                withArguments:[NSArray arrayWithObject:[[sender representedObject] identifier]]];
+                                withArguments:[NSArray arrayWithObject:identifier]];
+
+    // We set the current station twice on purpose. This time makes sure that
+    // quick (next|previous)Station calls do the right thing. The second
+    // time (in pandoraStationPlayed) makes sure we Growl, etc. and catches
+    // non-PB changes to the station.
+    [[StationList sharedStationList] setCurrentStationFromIdentifier:identifier];
+}
+
+- (IBAction)setStationToSender:(id)sender {
+    [self setStation:[[sender representedObject] identifier]];
 }
 
 - (IBAction) refreshPandora:(id)sender { [[pandoraWebView mainFrame] reload]; }
+
+- (IBAction)nextStation:(id)sender {
+    [self setStation:[[[StationList sharedStationList] nextStation] identifier]];
+}
+    
+- (IBAction)previousStation:(id)sender {
+    [self setStation:[[[StationList sharedStationList] previousStation] identifier]];
+}    
 
 // webView delegates
 

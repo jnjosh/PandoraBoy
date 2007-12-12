@@ -31,6 +31,9 @@
 - (Station *)currentStation;
 - (void)setCurrentStation:(Station *)value;
 
+- (Station *)nextStation;
+- (Station *)previousStation;
+
 - (void)initFromData:(NSData *)data;
 
 - (Station *)stationForIdentifier:(NSString*)stationId;

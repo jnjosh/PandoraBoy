@@ -12,9 +12,16 @@
 
 @implementation PlaylistGuiController
 
-//-(void)awakeFromNib {
-//	[playlistGuiWindow setExcludedFromWindowsMenu:YES];
-//}
+- (IBAction)toggleTrackHistoryWindow:(id)sender {
+    if( [playlistGuiWindow isVisible] ) {
+        [sender setState:NSOffState];
+        [playlistGuiWindow close];
+    }
+    else {
+        [sender setState:NSOnState];
+        [playlistGuiWindow makeKeyAndOrderFront:self];
+    }
+}
 
 - (void)openSongUrlForSelection:(NSArray*)selection
 {
@@ -25,9 +32,4 @@
 	}
 }
 
-//- (BOOL)windowShouldClose:(id)sender 
-//{
-//	//[sender orderOut:self];
-//	return YES;
-//}
 @end

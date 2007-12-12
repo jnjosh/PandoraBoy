@@ -12,16 +12,18 @@
         {CLASS = PandoraControl; LANGUAGE = ObjC; SUPERCLASS = NSWindowController; }, 
         {
             ACTIONS = {
-                changeStation = id; 
                 dislikeSong = id; 
                 fullVolume = id; 
                 likeSong = id; 
                 lowerVolume = id; 
                 mute = id; 
                 nextSong = id; 
+                nextStation = id; 
                 playPause = id; 
+                previousStation = id; 
                 raiseVolume = id; 
                 refreshPandora = id; 
+                setStationToSender = id; 
             }; 
             CLASS = PlayerController; 
             LANGUAGE = ObjC; 
@@ -30,6 +32,7 @@
         }, 
         {CLASS = Playlist; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {
+            ACTIONS = {toggleTrackHistoryWindow = id; }; 
             CLASS = PlaylistGuiController; 
             LANGUAGE = ObjC; 
             OUTLETS = {playlistGuiWindow = NSWindow; }; 

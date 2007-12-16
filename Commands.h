@@ -35,4 +35,5 @@
 - (Track *)currentTrack;
 - (NSArray *)tracks;
 - (int)playerState;
+- (NSArray *)stations;
 @end

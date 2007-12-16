@@ -2,7 +2,7 @@
 //  SRRecorderControl.h
 //  ShortcutRecorder
 //
-//  Copyright 2006 Contributors. All rights reserved.
+//  Copyright 2006-2007 Contributors. All rights reserved.
 //
 //  License: BSD
 //
@@ -19,6 +19,12 @@
 	IBOutlet id delegate;
 }
 
+#pragma mark *** Aesthetics ***
+- (BOOL)animates;
+- (void)setAnimates:(BOOL)an;
+- (SRRecorderStyle)style;
+- (void)setStyle:(SRRecorderStyle)nStyle;
+
 #pragma mark *** Delegate ***
 - (id)delegate;
 - (void)setDelegate:(id)aDelegate;
@@ -28,11 +34,21 @@
 - (unsigned int)allowedFlags;
 - (void)setAllowedFlags:(unsigned int)flags;
 
+- (BOOL)allowsKeyOnly;
+- (void)setAllowsKeyOnly:(BOOL)nAllowsKeyOnly escapeKeysRecord:(BOOL)nEscapeKeysRecord;
+- (BOOL)escapeKeysRecord;
+
+- (BOOL)canCaptureGlobalHotKeys;
+- (void)setCanCaptureGlobalHotKeys:(BOOL)inState;
+
 - (unsigned int)requiredFlags;
 - (void)setRequiredFlags:(unsigned int)flags;
 
 - (KeyCombo)keyCombo;
 - (void)setKeyCombo:(KeyCombo)aKeyCombo;
+
+- (NSString *)keyChars;
+- (NSString *)keyCharsIgnoringModifiers;
 
 #pragma mark *** Autosave Control ***
 

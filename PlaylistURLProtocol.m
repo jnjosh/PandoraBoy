@@ -27,7 +27,6 @@
     [sharedPlaylist addInfoFromData:[self data]];
     
     NSString *stationId = [self valueForParameter:@"arg1"];
-    NSLog(@"DEBUG:Setting current station to %@", stationId);
     [[StationList sharedStationList] setCurrentStationFromIdentifier:stationId];
 }
 

@@ -31,6 +31,8 @@
 - (Station *)currentStation;
 - (void)setCurrentStation:(Station *)value;
 
+- (NSArray *)stationList;
+
 - (Station *)nextStation;
 - (Station *)previousStation;
 

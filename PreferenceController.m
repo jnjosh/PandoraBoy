@@ -19,12 +19,12 @@
  *  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA          *
  ***************************************************************************/
 
-// Some of this preference controller code is taken from PrefController.m which was written by Dustin Bachrach of OpenSoft and released under the GNU GPL
+// Some of this preference controller code is taken from PrefController.m which
+// was written by Dustin Bachrach of OpenSoft and released under the GNU GPL
 
 #import "PreferenceController.h"
 #import "GlobalHotkey.h"
 #import "AppleRemote.h"
-//#import "KeyChain.h"
 
 @implementation PreferenceController
 
@@ -59,7 +59,7 @@
 
 - (void)switchToHotKeysTab {
   [prefTabs selectTabViewItemAtIndex:1];
-  NSRect rect = [self makePreferenceWindowRect:355];
+  NSRect rect = [self makePreferenceWindowRect:375];
   [prefWindow setFrame:rect display:YES animate:YES];
 }
 

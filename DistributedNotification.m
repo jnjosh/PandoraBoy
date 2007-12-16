@@ -52,10 +52,21 @@ NSString *PBPlayerInfoDiscCountKey   = @"Disc Count";
     return self;
 }
 
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
+}
+
 - (void) songPlayed:(NSNotification*)notification {
     Track *track = [notification object];
     [self sendNotificationWithTrack:track
                         playerState:PBPlayerStatePlaying];
+}
+
+- (void) songPaused:(NSNotification*)notification {
+    Track *track = [notification object];
+    [self sendNotificationWithTrack:track
+                        playerState:PBPlayerStatePaused];
 }
 
 - (void) sendNotificationWithTrack:(Track*)track playerState:(int)playerState {

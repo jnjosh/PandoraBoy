@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D0319AC0B18033A00B4DD61 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0319AB0B18033A00B4DD61 /* WebKit.framework */; };
 		3D0444490B758EAE00F1BA8B /* General.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444420B758EAE00F1BA8B /* General.tiff */; };
 		3D04444A0B758EAE00F1BA8B /* KeyboardIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444430B758EAE00F1BA8B /* KeyboardIcon.tiff */; };
 		3D04444B0B758EAE00F1BA8B /* lastfm.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444440B758EAE00F1BA8B /* lastfm.icns */; };
@@ -21,10 +20,6 @@
 		3D4400D70B758BC10022A3D7 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CB0B758BC10022A3D7 /* SRRecorderCell.m */; };
 		3D4400D90B758BC10022A3D7 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */; };
 		3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CF0B758BC10022A3D7 /* SRValidator.m */; };
-		3D4400E10B758BE20022A3D7 /* SRRemoveShortcut.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400DD0B758BE20022A3D7 /* SRRemoveShortcut.tif */; };
-		3D4400E20B758BE20022A3D7 /* SRRemoveShortcutPressed.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400DE0B758BE20022A3D7 /* SRRemoveShortcutPressed.tif */; };
-		3D4400E30B758BE20022A3D7 /* SRRemoveShortcutRollover.tif in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400DF0B758BE20022A3D7 /* SRRemoveShortcutRollover.tif */; };
-		3D4400E40B758BE20022A3D7 /* SRSnapback.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3D4400E00B758BE20022A3D7 /* SRSnapback.tiff */; };
 		3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6942410AA37A1300899D49 /* GrowlNotification.m */; };
@@ -45,6 +40,8 @@
 		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
 		FB4631400CFBA3500098407B /* ResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */; };
 		FB4632680CFBBE830098407B /* ResourceURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4632660CFBBE830098407B /* ResourceURL.m */; };
+		FB4F5E9A0D159EFD005523DA /* NextStation.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB4F5E990D159EFD005523DA /* NextStation.scpt */; };
+		FB4F5E9E0D159F28005523DA /* PreviousStation.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB4F5E9D0D159F28005523DA /* PreviousStation.scpt */; };
 		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
 		FB6192760D0C9B7A00667BF3 /* PlayerController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB6192740D0C9B7A00667BF3 /* PlayerController.h */; };
 		FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6192750D0C9B7A00667BF3 /* PlayerController.m */; };
@@ -57,6 +54,8 @@
 		FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
 		FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */ = {isa = PBXBuildFile; fileRef = FBA24C4A0D0B0329003F7B70 /* play.gif */; };
+		FBA325F50D137B8500AD3D91 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA325F40D137B8500AD3D91 /* AppKit.framework */; };
+		FBA326A60D137BF700AD3D91 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA326A50D137BF700AD3D91 /* WebKit.framework */; };
 		FBAA77790D0E33A6006C957B /* FeedbackURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */; };
 		FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
@@ -89,6 +88,8 @@
 				FB6192760D0C9B7A00667BF3 /* PlayerController.h in CopyFiles */,
 				FBAA77790D0E33A6006C957B /* FeedbackURLProtocol.h in CopyFiles */,
 				FBDBAC550D0F196100476C66 /* DistributedNotification.h in CopyFiles */,
+				FB4F5E9A0D159EFD005523DA /* NextStation.scpt in CopyFiles */,
+				FB4F5E9E0D159F28005523DA /* PreviousStation.scpt in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,13 +98,10 @@
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraBoy_Prefix.pch; sourceTree = "<group>"; };
-		3D0319AB0B18033A00B4DD61 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		3D0444420B758EAE00F1BA8B /* General.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = General.tiff; path = images/General.tiff; sourceTree = "<group>"; };
 		3D0444430B758EAE00F1BA8B /* KeyboardIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = KeyboardIcon.tiff; path = images/KeyboardIcon.tiff; sourceTree = "<group>"; };
 		3D0444440B758EAE00F1BA8B /* lastfm.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = lastfm.icns; path = images/lastfm.icns; sourceTree = "<group>"; };
@@ -123,10 +121,6 @@
 		3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRRecorderControl.m; path = ShortcutRecorder/SRRecorderControl.m; sourceTree = "<group>"; };
 		3D4400CE0B758BC10022A3D7 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRValidator.h; path = ShortcutRecorder/SRValidator.h; sourceTree = "<group>"; };
 		3D4400CF0B758BC10022A3D7 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRValidator.m; path = ShortcutRecorder/SRValidator.m; sourceTree = "<group>"; };
-		3D4400DD0B758BE20022A3D7 /* SRRemoveShortcut.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRRemoveShortcut.tif; path = ShortcutRecorder/images/SRRemoveShortcut.tif; sourceTree = "<group>"; };
-		3D4400DE0B758BE20022A3D7 /* SRRemoveShortcutPressed.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRRemoveShortcutPressed.tif; path = ShortcutRecorder/images/SRRemoveShortcutPressed.tif; sourceTree = "<group>"; };
-		3D4400DF0B758BE20022A3D7 /* SRRemoveShortcutRollover.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRRemoveShortcutRollover.tif; path = ShortcutRecorder/images/SRRemoveShortcutRollover.tif; sourceTree = "<group>"; };
-		3D4400E00B758BE20022A3D7 /* SRSnapback.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SRSnapback.tiff; path = ShortcutRecorder/images/SRSnapback.tiff; sourceTree = "<group>"; };
 		3D6942240AA378BF00899D49 /* Growl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		3D6942400AA37A1300899D49 /* GrowlNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotification.h; sourceTree = "<group>"; };
 		3D6942410AA37A1300899D49 /* GrowlNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotification.m; sourceTree = "<group>"; };
@@ -165,6 +159,8 @@
 		FB4632650CFBBE830098407B /* ResourceURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceURL.h; sourceTree = "<group>"; };
 		FB4632660CFBBE830098407B /* ResourceURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceURL.m; sourceTree = "<group>"; };
 		FB4D23500BCB092700DCC767 /* README.Applescript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.Applescript.txt; sourceTree = "<group>"; wrapsLines = 1; };
+		FB4F5E990D159EFD005523DA /* NextStation.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = NextStation.scpt; sourceTree = "<group>"; };
+		FB4F5E9D0D159F28005523DA /* PreviousStation.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = PreviousStation.scpt; sourceTree = "<group>"; };
 		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
 		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
 		FB6192740D0C9B7A00667BF3 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
@@ -179,6 +175,8 @@
 		FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PlaylistGuiController.h; sourceTree = "<group>"; };
 		FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PlaylistGuiController.m; sourceTree = "<group>"; };
 		FBA24C4A0D0B0329003F7B70 /* play.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = play.gif; path = images/play.gif; sourceTree = "<group>"; };
+		FBA325F40D137B8500AD3D91 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		FBA326A50D137BF700AD3D91 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackURLProtocol.h; sourceTree = "<group>"; };
 		FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackURLProtocol.m; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
@@ -205,8 +203,9 @@
 				3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */,
 				3D0609E50AB0BA9C008DC718 /* IOKit.framework in Frameworks */,
 				3DB581700ABB0155004452C3 /* Carbon.framework in Frameworks */,
-				3D0319AC0B18033A00B4DD61 /* WebKit.framework in Frameworks */,
 				FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */,
+				FBA325F50D137B8500AD3D91 /* AppKit.framework in Frameworks */,
+				FBA326A60D137BF700AD3D91 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,11 +220,7 @@
 				FB61925B0D0C956000667BF3 /* View */,
 				FB61925C0D0C956600667BF3 /* Controller */,
 				FB27A2130CFF9D750038475D /* RemoteControlWrapper */,
-				3D69452F0AAA19D300899D49 /* GlobalHotkey.h */,
-				3D6945300AAA19D300899D49 /* GlobalHotkey.m */,
 				32CA4F630368D1EE00C91783 /* PandoraBoy_Prefix.pch */,
-				3D6946930AAC91DF00899D49 /* PreferenceController.h */,
-				3D6946940AAC91DF00899D49 /* PreferenceController.m */,
 				FB936CB90D0108DD007AD10A /* URLProtocols */,
 			);
 			name = Classes;
@@ -234,7 +229,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3D0319AB0B18033A00B4DD61 /* WebKit.framework */,
+				FBA326A50D137BF700AD3D91 /* WebKit.framework */,
 				3DB5816F0ABB0155004452C3 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -244,9 +239,8 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBA325F40D137B8500AD3D91 /* AppKit.framework */,
 				3D0609E40AB0BA9C008DC718 /* IOKit.framework */,
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
@@ -295,7 +289,6 @@
 				3D0444450B758EAE00F1BA8B /* pandoraboy.icns */,
 				3D0444460B758EAE00F1BA8B /* thumbs_down.png */,
 				3D0444470B758EAE00F1BA8B /* thumbs_up.png */,
-				3DE84F240B755F9C00FD4979 /* ShortcutRecorder */,
 				3D6946900AAC908900899D49 /* keyboardVals.plist */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -345,19 +338,10 @@
 				3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */,
 				3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */,
 				3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */,
+				FB4F5E990D159EFD005523DA /* NextStation.scpt */,
+				FB4F5E9D0D159F28005523DA /* PreviousStation.scpt */,
 			);
 			name = AppleScript;
-			sourceTree = "<group>";
-		};
-		3DE84F240B755F9C00FD4979 /* ShortcutRecorder */ = {
-			isa = PBXGroup;
-			children = (
-				3D4400DD0B758BE20022A3D7 /* SRRemoveShortcut.tif */,
-				3D4400DE0B758BE20022A3D7 /* SRRemoveShortcutPressed.tif */,
-				3D4400DF0B758BE20022A3D7 /* SRRemoveShortcutRollover.tif */,
-				3D4400E00B758BE20022A3D7 /* SRSnapback.tiff */,
-			);
-			name = ShortcutRecorder;
 			sourceTree = "<group>";
 		};
 		FB27A2130CFF9D750038475D /* RemoteControlWrapper */ = {
@@ -416,6 +400,8 @@
 				FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */,
 				FB6192740D0C9B7A00667BF3 /* PlayerController.h */,
 				FB6192750D0C9B7A00667BF3 /* PlayerController.m */,
+				3D6946930AAC91DF00899D49 /* PreferenceController.h */,
+				3D6946940AAC91DF00899D49 /* PreferenceController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -429,6 +415,8 @@
 				3D6942410AA37A1300899D49 /* GrowlNotification.m */,
 				FBDBAC530D0F196100476C66 /* DistributedNotification.h */,
 				FBDBAC540D0F196100476C66 /* DistributedNotification.m */,
+				3D69452F0AAA19D300899D49 /* GlobalHotkey.h */,
+				3D6945300AAA19D300899D49 /* GlobalHotkey.m */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -490,10 +478,15 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = NO;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PandoraBoy" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* PandoraBoy */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* PandoraBoy */,
 			);
@@ -509,10 +502,6 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				3D6946920AAC908900899D49 /* keyboardVals.plist in Resources */,
 				3DDA242F0B74F64E00F500BD /* PandoraBoy.sdef in Resources */,
-				3D4400E10B758BE20022A3D7 /* SRRemoveShortcut.tif in Resources */,
-				3D4400E20B758BE20022A3D7 /* SRRemoveShortcutPressed.tif in Resources */,
-				3D4400E30B758BE20022A3D7 /* SRRemoveShortcutRollover.tif in Resources */,
-				3D4400E40B758BE20022A3D7 /* SRSnapback.tiff in Resources */,
 				3D0444490B758EAE00F1BA8B /* General.tiff in Resources */,
 				3D04444A0B758EAE00F1BA8B /* KeyboardIcon.tiff in Resources */,
 				3D04444B0B758EAE00F1BA8B /* lastfm.icns in Resources */,

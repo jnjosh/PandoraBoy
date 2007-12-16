@@ -26,6 +26,8 @@
 - (NSString *)artist;
 - (void)setArtist:(NSString *)value;
 
+- (NSString *)identifier;
+
 - (NSImage *)artworkImage; 
 - (NSImage *)thumbedArtworkImage;
 

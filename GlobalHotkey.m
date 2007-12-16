@@ -25,57 +25,65 @@
 static GlobalHotkey* sharedInstance = nil;
 
 typedef enum HotKeyIds {
-  NEXT_SONG,
-  PLAY_PAUSE,
-  LIKE_SONG,
-  DISLIKE_SONG,
-  RAISE_VOLUME,
-  LOWER_VOLUME,
-  FULL_VOLUME,
-  MUTE
+    NEXT_SONG,
+    PLAY_PAUSE,
+    LIKE_SONG,
+    DISLIKE_SONG,
+    RAISE_VOLUME,
+    LOWER_VOLUME,
+    FULL_VOLUME,
+    MUTE,
+    PREVIOUS_STATION,
+    NEXT_STATION
 } PandoraHotKeyIds; 
 
 OSStatus HotKeyEventHandler(EventHandlerCallRef nextHandler,EventRef theEvent,
 void *userData)
 {
-  NSLog(@"In Hotkey Handler");
-  EventHotKeyID hkCom; 
-  GetEventParameter(theEvent, kEventParamDirectObject,typeEventHotKeyID,NULL,
-		    sizeof(hkCom),NULL,&hkCom);
-  PandoraHotKeyIds hotKeyId = hkCom.id; 
+    EventHotKeyID hkCom; 
+    GetEventParameter(theEvent, kEventParamDirectObject,typeEventHotKeyID,NULL,
+    sizeof(hkCom),NULL,&hkCom);
+    PandoraHotKeyIds hotKeyId = hkCom.id; 
 
-  // Is there a better way to get to the playerController?
-  PlayerController *playerController = [PlayerController sharedController];
-  
-  switch(hotKeyId) {
+    // Is there a better way to get to the playerController?
+    PlayerController *playerController = [PlayerController sharedController];
       
-  case NEXT_SONG:
-      [playerController nextSong:nil];
-    break;
-  case PLAY_PAUSE:
-      [playerController playPause:nil];
-    break;
-  case LIKE_SONG:
-      [playerController likeSong:nil];    
-    break;
-  case DISLIKE_SONG:
-      [playerController dislikeSong:nil];
-    break; 
-  case RAISE_VOLUME:
-      [playerController raiseVolume:nil];
-    break; 
-  case LOWER_VOLUME:
-      [playerController lowerVolume:nil];
-    break; 
-  case FULL_VOLUME:
-      [playerController fullVolume:nil];
-    break; 
-  case MUTE:
-      [playerController mute:nil];
-    break; 
-
-  }
-  return noErr;
+    switch(hotKeyId) {
+        
+        case NEXT_SONG:
+            [playerController nextSong:nil];
+            break;
+        case PLAY_PAUSE:
+            [playerController playPause:nil];
+            break;
+        case LIKE_SONG:
+            [playerController likeSong:nil];    
+            break;
+        case DISLIKE_SONG:
+            [playerController dislikeSong:nil];
+            break; 
+        case RAISE_VOLUME:
+            [playerController raiseVolume:nil];
+            break; 
+        case LOWER_VOLUME:
+            [playerController lowerVolume:nil];
+            break; 
+        case FULL_VOLUME:
+            [playerController fullVolume:nil];
+            break; 
+        case MUTE:
+            [playerController mute:nil];
+            break;
+        case PREVIOUS_STATION:
+            [playerController previousStation:nil];
+            break;
+        case NEXT_STATION:
+            [playerController nextStation:nil];
+            break;
+        default:
+            NSLog(@"BUG:HotKeyEventHandler got unknown hotKeyId:%d", hotKeyId);
+    }
+    return noErr;
 }
 
 #pragma public interface
@@ -159,21 +167,23 @@ void *userData)
 
 - (bool) registerHotkeys
 {
-  if(hotKeysRegistered == false) {
- 
-	[self registerHotkey:@"ShortcutRecorder GlobalPlay" withSignature:'htk1' refindex:0 andHotKeyId:PLAY_PAUSE]; 
-	[self registerHotkey:@"ShortcutRecorder GlobalNext" withSignature:'htk2' refindex:1 andHotKeyId:NEXT_SONG]; 
-	[self registerHotkey:@"ShortcutRecorder GlobalLikeSong" withSignature:'htk3' refindex:2 andHotKeyId:LIKE_SONG]; 
-	[self registerHotkey:@"ShortcutRecorder GlobalDislikeSong" withSignature:'htk4' refindex:3 andHotKeyId:DISLIKE_SONG]; 
-	[self registerHotkey:@"ShortcutRecorder GlobalUpVol" withSignature:'htk5' refindex:4 andHotKeyId:RAISE_VOLUME]; 
-	[self registerHotkey:@"ShortcutRecorder GlobalDownVol" withSignature:'htk6' refindex:5 andHotKeyId:LOWER_VOLUME]; 
-	//[self registerHotkey:@"GlobalFullVol" withSignature:'htk7' refindex:6 andHotKeyId:FULL_VOLUME]; 
-	//[self registerHotkey:@"GlobalMuteVol" withSignature:'htk8' refindex:7 andHotKeyId:MUTE]; 
-	
-	hotKeysRegistered = true; 
-	return true; 
-  }
-  return false;
+    if(hotKeysRegistered == false) {
+        
+        [self registerHotkey:@"ShortcutRecorder GlobalPlay" withSignature:'htk1' refindex:0 andHotKeyId:PLAY_PAUSE]; 
+        [self registerHotkey:@"ShortcutRecorder GlobalNext" withSignature:'htk2' refindex:1 andHotKeyId:NEXT_SONG]; 
+        [self registerHotkey:@"ShortcutRecorder GlobalLikeSong" withSignature:'htk3' refindex:2 andHotKeyId:LIKE_SONG]; 
+        [self registerHotkey:@"ShortcutRecorder GlobalDislikeSong" withSignature:'htk4' refindex:3 andHotKeyId:DISLIKE_SONG]; 
+        [self registerHotkey:@"ShortcutRecorder GlobalUpVol" withSignature:'htk5' refindex:4 andHotKeyId:RAISE_VOLUME]; 
+        [self registerHotkey:@"ShortcutRecorder GlobalDownVol" withSignature:'htk6' refindex:5 andHotKeyId:LOWER_VOLUME]; 
+        [self registerHotkey:@"ShortcutRecorder GlobalFullVol" withSignature:'htk7' refindex:6 andHotKeyId:FULL_VOLUME]; 
+        [self registerHotkey:@"ShortcutRecorder GlobalMute" withSignature:'htk8' refindex:7 andHotKeyId:MUTE]; 
+        [self registerHotkey:@"ShortcutRecorder GlobalPreviousStation" withSignature:'htk9' refindex:8 andHotKeyId:PREVIOUS_STATION];
+        [self registerHotkey:@"ShortcutRecorder GlobalNextStation" withSignature:'htka' refindex:9 andHotKeyId:NEXT_STATION];
+        
+        hotKeysRegistered = true; 
+        return true; 
+    }
+    return false;
 }
 
 - (bool) unregisterHotkeys

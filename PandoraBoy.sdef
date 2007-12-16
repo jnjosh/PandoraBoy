@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<!-- @version(10.4) -->
 <dictionary title="PandoraBoy Terminology">
 	<!--
 		STANDARD SUITE
@@ -20,12 +21,6 @@
 				<cocoa key="isActive"/>
 			</property>
 			<property name="version" code="vers" description="The version of the application." type="text" access="r"/>
-			<responds-to name="open">
-				<cocoa method="handleOpenScriptCommand:"/>
-			</responds-to>
-			<responds-to name="print">
-				<cocoa method="handlePrintScriptCommand:"/>
-			</responds-to>
 		</class>
 		<class name="window" code="cwin" description="A window.">
 			<cocoa class="NSWindow"/>
@@ -65,12 +60,6 @@
 			<responds-to name="close">
 				<cocoa method="handleCloseScriptCommand:"/>
 			</responds-to>
-			<responds-to name="print">
-				<cocoa method="handlePrintScriptCommand:"/>
-			</responds-to>
-			<responds-to name="save">
-				<cocoa method="handleSaveScriptCommand:"/>
-			</responds-to>
 		</class>
 		<command name="close" code="coreclos" description="Close a document.">
 			<cocoa class="NSCloseCommand"/>
@@ -101,11 +90,24 @@
 		<class name="application" code="capp" description="The Pandora Player">
 			<cocoa class="NSApplication"/>
 			<element type="track" access="r"/>
-			<property name="current track" code="pcur" description="the current track" type="track" access="r">
+			<element type="station" access="r"/>
+			<property name="current track" code="pctr" description="the current track" type="track" access="r">
 				<cocoa key="currentTrack"/>
 			</property>
 			<property name="player state" code="psta" description="Current player state" type="player states">
 				<cocoa key="playerState"/>
+			</property>
+			<property name="current station" code="pstn" description="Current station" type="station">
+				<cocoa key="currentStation"/>
+			</property>
+			<property name="next station" code="pnst" description="Next station in Station List" type="station" access="r">
+				<cocoa key="nextStation"/>
+			</property>
+			<property name="previous station" code="ppst" description="Previous station in Station List" type="station" access="r">
+				<cocoa key="previousStation"/>
+			</property>
+			<property name="quickmix station" code="pqms" description="QuickMix station" type="station" access="r">
+				<cocoa key="quickMixStation"/>
 			</property>
 			<responds-to name="playpause">
 				<cocoa method=" "/>
@@ -114,18 +116,24 @@
 				<cocoa method=" "/>
 			</responds-to>
 		</class>
-		<class name="track" code="trak" description="Track that Pandora has played">
+		<class name="track" code="ctra" description="Track that Pandora has played">
 			<cocoa class="Track"/>
 			<property name="name" code="pnam" description="Name of track" type="text" access="r"/>
 			<property name="artist" code="part" description="Artist of track" type="text" access="r"/>
 			<property name="album" code="palb" description="the album name of the track" type="text" access="r"/>
+			<property name="identifier" code="pid " description="musicId for Track" type="text" access="r"/>
+		</class>
+		<class name="station" code="csta" description="A Pandora Station">
+			<cocoa class="Station"/>
+			<property name="name" code="pnam" description="Name of station" type="text" access="r"/>
+			<property name="identifier" code="pid " description="stationId for Station" type="text" access="r"/>
 		</class>
 		<command name="playpause" code="Pdbyplpa" description="toggle the playing/paused state of the current track">
 			<cocoa class="playPauseCommand"/>
 		</command>
 		<command name="next track" code="Pdbyskip" description="advance to the next track">
 			<cocoa class="skipCommand"/>
-			<synonym name="skip"/>
+			<synonym code="Pdbyskip" name="Pdbyskip"/>
 		</command>
 		<command name="thumbs up" code="Pdbythup" description="set rating to &quot;like&quot;">
 			<cocoa class="thumbsUpCommand"/>

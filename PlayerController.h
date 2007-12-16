@@ -60,6 +60,7 @@ extern NSString *PBStationChangedNotification;
 
 - (Track *)currentTrack;
 - (Station *)currentStation;
+- (void)setStation:(Station*)station;
 
 // Delegate functions from Pandora notification system
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 

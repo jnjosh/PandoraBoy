@@ -18,6 +18,10 @@
     Track *_parsingTrack;
     NSString *_parsingKey;
     NSMutableString *_parsingString;
+    
+    NSImage *_noAlbumArtImage;
+    NSMutableData *_noAlbumArtData;
+    NSURLConnection *_noAlbumArtConnection;
 }
 
 // Initializers
@@ -39,6 +43,8 @@
 
 - (NSMutableDictionary *)artworkLibrary;
 - (void)setArtworkLibrary:(NSMutableDictionary *)value;
+
+- (NSImage*)noAlbumArtImage;
 
 // Methods
 - (void)addArtworkFromData:(NSData *)data forURL:(NSURL *)url;

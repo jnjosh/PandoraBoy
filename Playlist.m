@@ -18,11 +18,22 @@ static Playlist* sharedInstance = nil;
 
     sharedInstance  = [super init];
     if (sharedInstance != nil) {
-        _trackInfo      = [[NSMutableDictionary alloc] initWithCapacity:100];
-        _playedTracks   = [[NSMutableArray alloc] initWithCapacity:100];
-        _artworkLibrary = [[NSMutableDictionary alloc] initWithCapacity:100];
-        _parsingTrack   = nil;
-        _parsingString  = nil;
+        _trackInfo       = [[NSMutableDictionary alloc] initWithCapacity:100];
+        _playedTracks    = [[NSMutableArray alloc] initWithCapacity:100];
+        _artworkLibrary  = [[NSMutableDictionary alloc] initWithCapacity:100];
+        _noAlbumArtImage = nil;
+        _noAlbumArtData  = [[NSMutableData alloc] initWithCapacity:512];
+        _parsingTrack    = nil;
+        _parsingString   = nil;
+        
+        // Load _noAlbumArtImage
+        NSURL *url = [NSURL URLWithString:@"http://www.pandora.com/images/no_album_art.jpg"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        _noAlbumArtConnection=[[NSURLConnection alloc] initWithRequest:request
+                                                              delegate:self];
+        if( ! _noAlbumArtConnection ) {
+            NSLog(@"ERROR: Couldn't fetch noAlbumArt");
+        }
     }
     return sharedInstance;
 }
@@ -98,6 +109,10 @@ static Playlist* sharedInstance = nil;
     }
 }
 
+- (NSImage *)noAlbumArtImage {
+    return [[_noAlbumArtImage retain] autorelease];
+}
+
 // Methods
 - (void)addInfoFromData:(NSData *)data {
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
@@ -105,7 +120,9 @@ static Playlist* sharedInstance = nil;
     [parser parse];
 }
 
+
 - (NSString *)keyForURLString:(NSString *)urlString {
+    // The URL without any extra query stuff
     return [[urlString componentsSeparatedByString:@"?"] objectAtIndex:0];
 }
 
@@ -207,4 +224,29 @@ static Playlist* sharedInstance = nil;
         [self setParsingTrack:nil];
     }
 }
+
+// NSURLConnection delegates (for _noAlbumArtImage)
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    [_noAlbumArtData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [_noAlbumArtData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [_noAlbumArtConnection release];
+    [_noAlbumArtData release];
+    NSLog(@"ERROR: Failed to load noAlbumArt: %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    _noAlbumArtImage = [[NSImage alloc] initWithData:_noAlbumArtData];
+    [_noAlbumArtConnection release];
+    [_noAlbumArtData release];
+}
+
 @end

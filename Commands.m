@@ -101,8 +101,32 @@
     return [[Playlist sharedPlaylist] playedTracks];
 }
 
+- (NSArray *)stations {
+    return [[StationList sharedStationList] stationList];
+}
+
 - (int)playerState {
     return [[PlayerController sharedController] playerState];
+}
+
+- (Station *)currentStation {
+    return [[PlayerController sharedController] currentStation];
+}
+
+- (void)setCurrentStation:(Station*)station {
+    [[PlayerController sharedController] setStation:station];
+}
+
+- (Station *)nextStation {
+    return [[StationList sharedStationList] nextStation];
+}
+
+- (Station *)previousStation {
+    return [[StationList sharedStationList] previousStation];
+}
+
+- (Station *)quickMixStation {
+    return [[StationList sharedStationList] quickMixStation];
 }
 
 @end

@@ -88,7 +88,7 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
     }
 }
 
-- (NSMutableArray *)stationList {
+- (NSArray *)stationList {
     if (!_stationList) {
         _stationList = [[NSMutableArray alloc] init];
     }
@@ -209,7 +209,7 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
         }        
     }
     else {
-        [[self stationList] addObject:station];
+        [_stationList addObject:station];
         menuItem = [_stationsMenu insertItemWithTitle:name
                                                action:@selector(setStationToSender:)
                                         keyEquivalent:@""
@@ -226,7 +226,7 @@ NSString *PBQuickMixMenuItemTitle = @"QuickMix";
         return [self quickMixStation];
     }
     
-    NSEnumerator *e = [[self stationList] objectEnumerator];
+    NSEnumerator *e = [_stationList objectEnumerator];
     Station *station;
     while( station = [e nextObject] ) {
         if( [[station identifier] isEqualToString:stationId] ) {

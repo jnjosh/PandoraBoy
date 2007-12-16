@@ -1,20 +1,26 @@
 PandoraBoy Changelog
-0.1 - Initial Release
-0.2 
-    * New program icon (courtesy of Jawaher Al-Ali <psyche2111@hotmail.com>) 
-    * Applescript support (Rob Napier <rnapier@employees.org>)
-    * Changed the shortcut system to use Shortcut Recorder 
-               (http://wafflesoftware.net/shortcut/) 
-    * Random code cleanup
-    * Moved the code into a publicly available google code svn repository.
-    * Made it so users can click on ads 
-    
-Known problems: 
-    * You still cannot click on non-ad links inside of pandoraboy. This works 
-      with newer version of webkit, but no the one currently used with Tiger (10.4.8) 
-    * The window will not resize to remove the ad space if you have a paid 
-      pandora account. 
+0.5.0
+    * Fixes occassional crash due to missing key in playlist data (Issue18)
+    * Added Stations menu
+    * Added Growl and DNC support for station changing
+    * Added Applescript and Hotkeys for station changing
+    * Remember last window locations (autosave)
 
+0.4.2
+    * Fixes Apple Remote for Leopard
+
+0.4.1
+    * Fixed flash security error caused by local SongNotification.html
+    
+0.4
+    * Works now with Webkit 3 (10.5 and 10.4.11)
+    * Removed redundant shortcut keys from menu items
+    * Removed dependencies on frozensilicon.net
+    * Moved Sparkle to googlecode
+
+0.3.1
+    * Fixed global hotkeys (they were broken in 0.3)
+    
 0.3
     * Code cleanup
     * Major Growl changes. Text is different and can be localized (though no
@@ -24,28 +30,22 @@ Known problems:
     * Major Applescript changes. See README.Applescript.txt.
     * All links (including the backstage menu options) should work now.
 
-0.3.1
-    * Fixed global hotkeys (they were broken in 0.3)
+0.2 
+    * New program icon (courtesy of Jawaher Al-Ali <psyche2111@hotmail.com>) 
+    * Applescript support (Rob Napier <rnapier@employees.org>)
+    * Changed the shortcut system to use Shortcut Recorder 
+               (http://wafflesoftware.net/shortcut/) 
+    * Random code cleanup
+    * Moved the code into a publicly available google code svn repository.
+    * Made it so users can click on ads 
     
-0.4
-    * Works now with Webkit 3 (10.5 and 10.4.11)
-    * Removed redundant shortcut keys from menu items
-    * Removed dependencies on frozensilicon.net
-    * Moved Sparkle to googlecode
+0.1 - Initial Release
 
-0.4.1
-    * Fixed flash security error caused by local SongNotification.html
-    
-0.4.2
-    * Fixes Apple Remote for Leopard
-
-0.4.3
-    * Fixes occassional crash due to missing key in playlist data (Issue18)
-    * Added Stations menu
+Known problems: 
+    * You still cannot click on non-ad links inside of pandoraboy. This works 
+      with newer version of webkit, but no the one currently used with Tiger (10.4.8) 
+    * The window will not resize to remove the ad space if you have a paid 
+      pandora account. 
 
 For the future: 
-    * Better growl support (don't show multiple growl windows at once when users skip songs in rapid succession). Also, offer to install growl if the user doesn't already have it on their computer. 
-    * iTunes store integration -- build a itunes store "playlist" that allows users to easily purchase songs they have heard. 
-    * Log files that have been played to a file       
     * Finish LastFm support (it is partially done)
-    * Replace the thumbs up / thumbs down icons with something that looks a little better

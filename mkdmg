@@ -12,4 +12,4 @@ xcodebuild
 if [ $? != 0 ]; then 
   exit
 fi
-perl dmg/pkg-dmg.pl --source build/Release/$PRODUCT.app --target dmg/$PRODUCT-$VERSION.dmg --sourcefile --format UDZO --volname $PRODUCT\ $VERSION --icon $ICON --mkdir /.background --copy dmg/dmgBackground.png:/.background/background.png --copy dmg/dmgDS_Store:/.DS_Store --copy Changelog.txt --copy License.txt --copy Applescripts --copy dmg/Applications
+perl dmg/pkg-dmg.pl --source build/Release/$PRODUCT.app --target dmg/$PRODUCT-$VERSION.dmg --sourcefile --format UDZO --volname $PRODUCT\ $VERSION --icon $ICON --mkdir /.background --copy dmg/dmgBackground.png:/.background/background.png --copy dmg/dmgDS_Store:/.DS_Store --copy Changelog.txt --copy License.txt --copy dmg/Applications

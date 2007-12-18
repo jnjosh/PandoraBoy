@@ -5,6 +5,7 @@ PandoraBoy Changelog
     * Added Growl and DNC support for station changing
     * Added Applescript and Hotkeys for station changing
     * Remember last window locations (autosave)
+    * Install Applescripts in ~/Library/Scripts/PandoraBoy
 
 0.4.2
     * Fixes Apple Remote for Leopard

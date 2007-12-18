@@ -22,10 +22,26 @@
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
 
+typedef enum HotKeyIds {
+    NEXT_SONG,
+    PLAY_PAUSE,
+    LIKE_SONG,
+    DISLIKE_SONG,
+    RAISE_VOLUME,
+    LOWER_VOLUME,
+    FULL_VOLUME,
+    MUTE,
+    PREVIOUS_STATION,
+    NEXT_STATION
+} PandoraHotKeyIds; 
+
+// FIXME: Curse my lousy C, how do I get this from the enum?
+#define NUM_HOTKEYS 10
+
 @interface GlobalHotkey : NSObject {
   bool hotKeysRegistered; 
-  bool eventRefValid[8];
-  EventHotKeyRef eventHotKeyRefs[8];
+  bool eventRefValid[NUM_HOTKEYS];
+  EventHotKeyRef eventHotKeyRefs[NUM_HOTKEYS];
 
 }
 

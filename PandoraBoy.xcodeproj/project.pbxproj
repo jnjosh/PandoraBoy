@@ -21,7 +21,7 @@
 		3D4400D90B758BC10022A3D7 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */; };
 		3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CF0B758BC10022A3D7 /* SRValidator.m */; };
 		3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
-		3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
+		3D6942310AA3791F00899D49 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6942410AA37A1300899D49 /* GrowlNotification.m */; };
 		3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6945300AAA19D300899D49 /* GlobalHotkey.m */; };
 		3D6946920AAC908900899D49 /* keyboardVals.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D6946900AAC908900899D49 /* keyboardVals.plist */; };
@@ -40,57 +40,68 @@
 		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
 		FB4631400CFBA3500098407B /* ResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */; };
 		FB4632680CFBBE830098407B /* ResourceURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4632660CFBBE830098407B /* ResourceURL.m */; };
-		FB4F5E9A0D159EFD005523DA /* NextStation.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB4F5E990D159EFD005523DA /* NextStation.scpt */; };
-		FB4F5E9E0D159F28005523DA /* PreviousStation.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB4F5E9D0D159F28005523DA /* PreviousStation.scpt */; };
+		FB4F5F180D1617D3005523DA /* PreviousStation.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */; };
+		FB4F5F190D1617D3005523DA /* NextStation.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = FB4F5EEC0D15A0FB005523DA /* NextStation.scpt */; };
+		FB4F5F1A0D1617D3005523DA /* iTunesNextTrack.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */; };
+		FB4F5F1B0D1617D3005523DA /* iTunesPlayPause.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */; };
+		FB4F5F1C0D1617D3005523DA /* LowerVolume.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */; };
+		FB4F5F1D0D1617D3005523DA /* NextTrack.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF50B76B37400DB83CA /* NextTrack.scpt */; };
+		FB4F5F1E0D1617D3005523DA /* PlayPause.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF60B76B37400DB83CA /* PlayPause.scpt */; };
+		FB4F5F1F0D1617D3005523DA /* RaiseVolume.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */; };
+		FB4F5F200D1617D3005523DA /* ThumbsDown.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */; };
+		FB4F5F210D1617D3005523DA /* ThumbsUp.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */; };
 		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
-		FB6192760D0C9B7A00667BF3 /* PlayerController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB6192740D0C9B7A00667BF3 /* PlayerController.h */; };
 		FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6192750D0C9B7A00667BF3 /* PlayerController.m */; };
 		FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
-		FB691B4E0D01F2C700B027ED /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
+		FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
-		FB936CB50D0108C9007AD10A /* ProxyURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */; };
 		FB936CB60D0108C9007AD10A /* ProxyURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */; };
-		FB936D690D01BB69007AD10A /* ArtworkURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */; };
 		FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
 		FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */ = {isa = PBXBuildFile; fileRef = FBA24C4A0D0B0329003F7B70 /* play.gif */; };
 		FBA325F50D137B8500AD3D91 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA325F40D137B8500AD3D91 /* AppKit.framework */; };
 		FBA326A60D137BF700AD3D91 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA326A50D137BF700AD3D91 /* WebKit.framework */; };
-		FBAA77790D0E33A6006C957B /* FeedbackURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */; };
 		FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
-		FBC404320D039F0600B179F9 /* StationsURLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC404300D039F0600B179F9 /* StationsURLProtocol.h */; };
 		FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404310D039F0600B179F9 /* StationsURLProtocol.m */; };
-		FBC404450D03A22B00B179F9 /* StationList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC404430D03A22B00B179F9 /* StationList.h */; };
 		FBC404460D03A22B00B179F9 /* StationList.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404440D03A22B00B179F9 /* StationList.m */; };
-		FBC404510D03A31600B179F9 /* Station.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBC4044F0D03A31600B179F9 /* Station.h */; };
 		FBC404520D03A31600B179F9 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404500D03A31600B179F9 /* Station.m */; };
-		FBDBAC550D0F196100476C66 /* DistributedNotification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBDBAC530D0F196100476C66 /* DistributedNotification.h */; };
 		FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDBAC540D0F196100476C66 /* DistributedNotification.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3D6942280AA378EC00899D49 /* CopyFiles */ = {
+		3D6942280AA378EC00899D49 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FB691B4E0D01F2C700B027ED /* Sparkle.framework in CopyFiles */,
-				3D6942310AA3791F00899D49 /* Growl.framework in CopyFiles */,
-				FB936CB50D0108C9007AD10A /* ProxyURLProtocol.h in CopyFiles */,
-				FB936D690D01BB69007AD10A /* ArtworkURLProtocol.h in CopyFiles */,
-				FBC404320D039F0600B179F9 /* StationsURLProtocol.h in CopyFiles */,
-				FBC404450D03A22B00B179F9 /* StationList.h in CopyFiles */,
-				FBC404510D03A31600B179F9 /* Station.h in CopyFiles */,
-				FB6192760D0C9B7A00667BF3 /* PlayerController.h in CopyFiles */,
-				FBAA77790D0E33A6006C957B /* FeedbackURLProtocol.h in CopyFiles */,
-				FBDBAC550D0F196100476C66 /* DistributedNotification.h in CopyFiles */,
-				FB4F5E9A0D159EFD005523DA /* NextStation.scpt in CopyFiles */,
-				FB4F5E9E0D159F28005523DA /* PreviousStation.scpt in CopyFiles */,
+				FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */,
+				3D6942310AA3791F00899D49 /* Growl.framework in Copy Frameworks */,
 			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4F5F060D16140C005523DA /* Copy Scripts */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Scripts;
+			dstSubfolderSpec = 7;
+			files = (
+				FB4F5F180D1617D3005523DA /* PreviousStation.scpt in Copy Scripts */,
+				FB4F5F190D1617D3005523DA /* NextStation.scpt in Copy Scripts */,
+				FB4F5F1A0D1617D3005523DA /* iTunesNextTrack.scpt in Copy Scripts */,
+				FB4F5F1B0D1617D3005523DA /* iTunesPlayPause.scpt in Copy Scripts */,
+				FB4F5F1C0D1617D3005523DA /* LowerVolume.scpt in Copy Scripts */,
+				FB4F5F1D0D1617D3005523DA /* NextTrack.scpt in Copy Scripts */,
+				FB4F5F1E0D1617D3005523DA /* PlayPause.scpt in Copy Scripts */,
+				FB4F5F1F0D1617D3005523DA /* RaiseVolume.scpt in Copy Scripts */,
+				FB4F5F200D1617D3005523DA /* ThumbsDown.scpt in Copy Scripts */,
+				FB4F5F210D1617D3005523DA /* ThumbsUp.scpt in Copy Scripts */,
+			);
+			name = "Copy Scripts";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -159,8 +170,8 @@
 		FB4632650CFBBE830098407B /* ResourceURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceURL.h; sourceTree = "<group>"; };
 		FB4632660CFBBE830098407B /* ResourceURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceURL.m; sourceTree = "<group>"; };
 		FB4D23500BCB092700DCC767 /* README.Applescript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.Applescript.txt; sourceTree = "<group>"; wrapsLines = 1; };
-		FB4F5E990D159EFD005523DA /* NextStation.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = NextStation.scpt; sourceTree = "<group>"; };
-		FB4F5E9D0D159F28005523DA /* PreviousStation.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = PreviousStation.scpt; sourceTree = "<group>"; };
+		FB4F5EEC0D15A0FB005523DA /* NextStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = NextStation.scpt; path = Applescripts/NextStation.scpt; sourceTree = "<group>"; };
+		FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = PreviousStation.scpt; path = Applescripts/PreviousStation.scpt; sourceTree = "<group>"; };
 		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
 		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
 		FB6192740D0C9B7A00667BF3 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
@@ -259,7 +270,7 @@
 			children = (
 				FB3856B60BC993B1005653C3 /* Documentation */,
 				3DC9FC780B74FED200FF4370 /* Shortcut Recorder */,
-				3DDA241D0B74F58800F500BD /* AppleScript */,
+				3DDA241D0B74F58800F500BD /* Scripts */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -326,9 +337,11 @@
 			name = "Shortcut Recorder";
 			sourceTree = "<group>";
 		};
-		3DDA241D0B74F58800F500BD /* AppleScript */ = {
+		3DDA241D0B74F58800F500BD /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */,
+				FB4F5EEC0D15A0FB005523DA /* NextStation.scpt */,
 				3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */,
 				3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */,
 				3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */,
@@ -338,10 +351,8 @@
 				3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */,
 				3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */,
 				3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */,
-				FB4F5E990D159EFD005523DA /* NextStation.scpt */,
-				FB4F5E9D0D159F28005523DA /* PreviousStation.scpt */,
 			);
-			name = AppleScript;
+			name = Scripts;
 			sourceTree = "<group>";
 		};
 		FB27A2130CFF9D750038475D /* RemoteControlWrapper */ = {
@@ -460,8 +471,9 @@
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
-				3D6942280AA378EC00899D49 /* CopyFiles */,
+				3D6942280AA378EC00899D49 /* Copy Frameworks */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				FB4F5F060D16140C005523DA /* Copy Scripts */,
 			);
 			buildRules = (
 			);

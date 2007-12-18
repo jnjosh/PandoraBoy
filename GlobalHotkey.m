@@ -24,19 +24,6 @@
 
 static GlobalHotkey* sharedInstance = nil;
 
-typedef enum HotKeyIds {
-    NEXT_SONG,
-    PLAY_PAUSE,
-    LIKE_SONG,
-    DISLIKE_SONG,
-    RAISE_VOLUME,
-    LOWER_VOLUME,
-    FULL_VOLUME,
-    MUTE,
-    PREVIOUS_STATION,
-    NEXT_STATION
-} PandoraHotKeyIds; 
-
 OSStatus HotKeyEventHandler(EventHandlerCallRef nextHandler,EventRef theEvent,
 void *userData)
 {
@@ -190,7 +177,7 @@ void *userData)
 {
   if(hotKeysRegistered == true) { 
 	int i; 
-    for(i = 0; i < 8; i++) {
+    for(i = 0; i < NUM_HOTKEYS; i++) {
       if(eventRefValid[i])
 	UnregisterEventHotKey( eventHotKeyRefs[i] );
     }

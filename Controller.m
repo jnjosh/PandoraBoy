@@ -108,6 +108,70 @@ static Controller* _sharedInstance = nil;
   [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:@"http://code.google.com/p/pandoraboy/wiki/FrequentlyAskedQuestions"]];
 }
 
+- (void)installScripts {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    NSString *scriptSourceDirectory = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Scripts"];
+    if( ! [fileManager fileExistsAtPath:scriptSourceDirectory] ) {
+        NSLog(@"ERROR: Couldn't find script source directory in installScripts");
+        return;
+    }
+    
+    NSString *scriptDestinationDirectory;
+    NSArray *libraryDirectories = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES);
+    if( [libraryDirectories count] > 0 ) {
+        scriptDestinationDirectory = [[libraryDirectories objectAtIndex:0] stringByAppendingPathComponent:@"Scripts/PandoraBoy"];
+    }
+    else {
+        NSLog(@"ERROR:Couldn't find Script destination directory in installScripts");
+        return;
+    }
+
+    // Create ~/Library/Scripts if needed
+    NSArray *pathComponents = [scriptDestinationDirectory pathComponents];
+    NSMutableString *currentPath = [NSMutableString stringWithCapacity:[scriptDestinationDirectory length]];
+    NSString *component;
+    NSEnumerator *e = [pathComponents objectEnumerator];
+    while (component = [e nextObject] ) {
+        [currentPath appendString:[@"/" stringByAppendingPathComponent:component]];
+        if( ! [fileManager fileExistsAtPath:currentPath] ) {
+            NSLog(@"DEBUG:creating directory:%@", currentPath);
+            if( ! [fileManager createDirectoryAtPath:currentPath attributes:nil] ) {
+                NSLog(@"ERROR:Couldn't create directory:%@", currentPath);
+                return;
+            }
+        }
+    }    
+    
+    NSDirectoryEnumerator *dirEnumerator = [fileManager enumeratorAtPath:scriptSourceDirectory];
+    NSString *scriptName;
+    while( scriptName = [dirEnumerator nextObject] ) {
+        NSString *scriptSourceFile = [scriptSourceDirectory stringByAppendingPathComponent:scriptName];
+        NSString *scriptDestinationFile = [scriptDestinationDirectory stringByAppendingPathComponent:scriptName];
+
+        // Is the destination as new as the source?
+        // FIXME: If newer, we should prompt the user
+        if( [fileManager fileExistsAtPath:scriptDestinationFile] ) {
+            NSDictionary *destinationAttributes = [fileManager fileAttributesAtPath:scriptDestinationFile
+                                                                       traverseLink:YES];
+            NSDate *destinationFileDate = [destinationAttributes valueForKey:NSFileModificationDate];
+            
+            NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:scriptSourceFile
+                                                                  traverseLink:YES];
+            NSDate *sourceFileDate = [sourceAttributes valueForKey:NSFileModificationDate];
+            if ( [sourceFileDate compare:destinationFileDate] != NSOrderedDescending ) {
+                continue;
+            }
+        }
+
+        NSLog(@"DEBUG:Copying %@ to %@", scriptSourceFile, scriptDestinationFile);
+        if( ! [fileManager copyPath:scriptSourceFile toPath:scriptDestinationFile handler:nil] ) {
+            NSLog(@"ERROR:Could not copy %@ to %@", scriptSourceFile, scriptDestinationFile);
+            return;
+        }
+    }
+}
+    
 // Accessors
 
 @end
@@ -131,6 +195,7 @@ static Controller* _sharedInstance = nil;
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"DoNotShowStartupWindow2"]==NO) {
         [startupWindow makeKeyAndOrderFront:self]; 
     }
+    [self installScripts];
 }
 @end
 

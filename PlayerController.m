@@ -50,9 +50,9 @@ NSString *PBStationChangedNotification = @"Station Changed";
 
 + (PlayerController*) sharedController
 {
-	if (_sharedInstance) return _sharedInstance;
-	_sharedInstance = [[PlayerController alloc] init];
-	return _sharedInstance;
+    if (_sharedInstance) return _sharedInstance;
+    _sharedInstance = [[PlayerController alloc] init];
+    return _sharedInstance;
 }
 
 - (PlayerController *) init {
@@ -66,7 +66,10 @@ NSString *PBStationChangedNotification = @"Station Changed";
 }
 
 - (void) dealloc {
+    [webNetscapePlugin release];
+    [_pendingWebViews release];
     [super dealloc];
+
 }
 
 // Accessors 
@@ -107,6 +110,17 @@ NSString *PBStationChangedNotification = @"Station Changed";
     return @"";
 }
 
+- (void)addPendingWebView:(WebView*)aWebView {
+    if( ! _pendingWebViews ) {
+        _pendingWebViews = [[NSMutableSet alloc] initWithCapacity:1];
+    }
+    [_pendingWebViews addObject:aWebView];
+}
+
+- (void)removePendingWebview:(WebView*)aWebView {
+    [_pendingWebViews removeObject:aWebView];
+}
+
 // Interaction w/ Flash
 - (bool) sendKeyPress: (int)keyCode withModifiers:(int)modifiers
 {
@@ -145,7 +159,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
         [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];
 
     ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:PBAPIPath];
-	[[apiWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
+    [[apiWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
     
     WebScriptObject *win = [apiWebView windowScriptObject]; 
     [win setValue:self forKey:@"SongNotification"];
@@ -180,7 +194,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
     //Up-Arrow
     int i;
     for(i = 0; i < 4; i++)
-        [self sendKeyPress: 126];		
+        [self sendKeyPress: 126];       
 }
 
 - (IBAction) lowerVolume:(id)sender
@@ -188,7 +202,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
     //Down-Arrow -- currently we don't get multiple keypresses --- so send a bunch of keypress events to make up for it
     int i;
     for(i = 0; i < 4; i++)
-        [self sendKeyPress: 125];	
+        [self sendKeyPress: 125];   
 }
 
 - (IBAction) fullVolume:(id)sender
@@ -238,14 +252,15 @@ NSString *PBStationChangedNotification = @"Station Changed";
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
-{	
+{   
     // On Javascript window.open, Webkit sends a null request here, then sends a
-	// loadRequest: to the new WebView, which will include a
-	// decidePolicyForNavigation (which is where we'll open our external
-	// window).
+    // loadRequest: to the new WebView, which will include a
+    // decidePolicyForNavigation (which is where we'll open our external
+    // window).
     WebView *newWebView = [[[WebView alloc] init] autorelease];
     [newWebView setUIDelegate:self];
     [newWebView setPolicyDelegate:self];
+    [self addPendingWebView:newWebView];
     return newWebView;
 }
 
@@ -278,7 +293,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
 
 - (void)webView:(WebView *)sender makeFirstResponder:(NSResponder *)responder
 {
-	// Ignore requests to change the first responder. This way, no matter
+    // Ignore requests to change the first responder. This way, no matter
     // where the user clicks in the window, the webNetscapePluginView (Flash)
     // will always get the keystrokes
 }
@@ -290,12 +305,14 @@ NSString *PBStationChangedNotification = @"Station Changed";
     else {
         [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
         [listener ignore];
+        [self removePendingWebview:sender];
     }
 }
 
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
     [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
     [listener ignore];
+    [self removePendingWebview:sender];
 }
 
 - (id)webView:(WebView *)sender identifierForInitialRequest:(NSURLRequest *)request fromDataSource:(WebDataSource *)dataSource {

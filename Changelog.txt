@@ -1,4 +1,7 @@
 PandoraBoy Changelog
+x.x.x
+    * Should work now with older WebKits (pre-10.4.11) Issue 17
+
 0.5.0
     * Fixes occassional crash due to missing key in playlist data (Issue18)
     * Added Stations menu

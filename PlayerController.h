@@ -40,6 +40,7 @@ extern NSString *PBStationChangedNotification;
     NSView *webNetscapePlugin;
     BOOL _controlDisabled;
     int _playerState;
+    NSMutableSet *_pendingWebViews;
 }
 
 + (PlayerController*) sharedController;

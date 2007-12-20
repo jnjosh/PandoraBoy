@@ -135,7 +135,6 @@ static Controller* _sharedInstance = nil;
     while (component = [e nextObject] ) {
         [currentPath appendString:[@"/" stringByAppendingPathComponent:component]];
         if( ! [fileManager fileExistsAtPath:currentPath] ) {
-            NSLog(@"DEBUG:creating directory:%@", currentPath);
             if( ! [fileManager createDirectoryAtPath:currentPath attributes:nil] ) {
                 NSLog(@"ERROR:Couldn't create directory:%@", currentPath);
                 return;
@@ -164,7 +163,6 @@ static Controller* _sharedInstance = nil;
             }
         }
 
-        NSLog(@"DEBUG:Copying %@ to %@", scriptSourceFile, scriptDestinationFile);
         if( ! [fileManager copyPath:scriptSourceFile toPath:scriptDestinationFile handler:nil] ) {
             NSLog(@"ERROR:Could not copy %@ to %@", scriptSourceFile, scriptDestinationFile);
             return;

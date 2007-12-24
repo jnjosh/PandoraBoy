@@ -44,6 +44,8 @@ extern NSString *PBStationChangedNotification;
     BOOL _isFullScreen;
     NSWindow *_fullScreenWindow;
     NSRect _oldWindowFrame;
+    int _spacerMargin;
+    int _tunerWidth;
 }
 
 + (PlayerController*) sharedController;

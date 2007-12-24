@@ -274,6 +274,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [self setStation:[sender representedObject]];
 }
 
+// FIXME: If we're in full-screen mode, this doesn't center the player
 - (IBAction) refreshPandora:(id)sender { [[pandoraWebView mainFrame] reload]; }
 
 - (IBAction)nextStation:(id)sender {
@@ -290,6 +291,9 @@ NSString *PBStationChangedNotification = @"Station Changed";
         [[self fullScreenWindow] makeKeyAndOrderFront:nil];
 
         _oldWindowFrame = [pandoraWindow frame];
+        WebScriptObject *scriptObject = [pandoraWebView windowScriptObject];
+        _spacerMargin = [[scriptObject evaluateWebScript:@"spacer.style.marginLeft"] intValue];
+        _tunerWidth   = [[scriptObject valueForKey:@"tunerWidth"] intValue];
         [pandoraWindow setLevel:NSScreenSaverWindowLevel];
         [pandoraWindow makeKeyAndOrderFront:nil];
     
@@ -306,6 +310,9 @@ NSString *PBStationChangedNotification = @"Station Changed";
         [animation setDelegate:self];
         [animation startAnimation];
         [animation release];
+        [[self fullScreenWindow] setLevel:NSNormalWindowLevel];
+        [[self fullScreenWindow] orderOut:nil];
+        [pandoraWindow setLevel:NSNormalWindowLevel];
         [self setIsFullScreen:NO];
     }
 }
@@ -463,26 +470,29 @@ NSString *PBStationChangedNotification = @"Station Changed";
     newRect.size.width = srcRect.size.width + (targetRect.size.width - srcRect.size.width)*value;
     newRect.size.height = srcRect.size.height + (targetRect.size.height - srcRect.size.height)*value;
 
-    // NSMenuView menuBarHeight is deprecated, but [[NSApp mainMenu] menuBarHeight]
-    // always returns 0 in 10.4. http://lists.apple.com/archives/Cocoa-dev/2005/Oct/msg01293.html
+    OSStatus error;
     if( (newRect.origin.y + newRect.size.height) >= (screenRect.size.height - [NSMenuView menuBarHeight]) ) {
-        [NSMenu setMenuBarVisible:NO];
+        error = SetSystemUIMode(kUIModeAllHidden,
+                                    kUIOptionDisableProcessSwitch);
+        if( error != noErr ) {
+            NSLog(@"ERROR:Could not hide menu bar:%d", (int)error);
+        }
     }
     else {
-        [NSMenu setMenuBarVisible:YES];
+        error = SetSystemUIMode(kUIModeNormal, 0);
+        if( error != noErr ) {
+            NSLog(@"ERROR:Could not show menu bar:%d", (int)error);
+        }
     }
     
     [pandoraWindow setFrame:newRect display:YES];
 
     WebScriptObject *scriptObject = [pandoraWebView windowScriptObject];
     if( scriptObject ) {
-        // HACK: Get 640 out of page.
-        int leftMargin = (screenRect.size.width - 640) / 2;
-//        int spacerMargin = [[scriptObject evaluateWebScript:@"spacer.style.marginLeft"] intValue];
-        int spacerMargin = 44; // HACK
-        [scriptObject evaluateWebScript:[NSString stringWithFormat:@"tuner_ad.style.marginLeft = %f; TunerContainer.style.marginLeft = %f",  (leftMargin * value), ( (leftMargin - spacerMargin) * value)]];
-//        NSLog(@"DEBUG:spacer:%d", (int)(leftMargin * value) + spacerMargin);
-//        [scriptObject evaluateWebScript:[NSString stringWithFormat:@"spacer.style.marginLeft = %d", (int)(leftMargin * value) + spacerMargin]];
+        int leftMargin = (screenRect.size.width - _tunerWidth) / 2;
+        [scriptObject evaluateWebScript:[NSString stringWithFormat:@"tuner_ad.style.marginLeft = %d; \
+                                                                     TunerContainer.style.marginLeft = %d",
+            (int)(leftMargin * value), (int)((leftMargin - _spacerMargin) * value)]];
     }
 }
 

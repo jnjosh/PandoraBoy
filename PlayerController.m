@@ -11,6 +11,7 @@
 #import <Carbon/Carbon.h>
 #import "ResourceURL.h";
 #import "Controller.h";
+#import "MyAnimation.h"
 
 static PlayerController* _sharedInstance = nil;
 
@@ -44,6 +45,8 @@ NSString *PBStationChangedNotification = @"Station Changed";
 @interface PlayerController (Private)
 - (BOOL)controlDisabled;
 - (void)setControlDisabled:(BOOL)value;
+- (BOOL)isFullScreen;
+- (void)setIsFullScreen:(BOOL)value;
 @end
 
 @implementation PlayerController
@@ -61,6 +64,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
     if (_sharedInstance = [super init] ) {;
         [self setControlDisabled:FALSE];
         [self setPlayerState:PBPlayerStateStopped];
+        [self setIsFullScreen:NO];
     }
     return _sharedInstance;
 }
@@ -68,11 +72,27 @@ NSString *PBStationChangedNotification = @"Station Changed";
 - (void) dealloc {
     [webNetscapePlugin release];
     [_pendingWebViews release];
+    [_fullScreenWindow release];
     [super dealloc];
 
 }
 
-// Accessors 
+- (void) load
+{
+    [[pandoraWebView mainFrame] loadRequest:
+        [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];
+    
+    ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:PBAPIPath];
+    [[apiWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
+    
+    WebScriptObject *win = [apiWebView windowScriptObject]; 
+    [win setValue:self forKey:@"SongNotification"];
+}
+
+/////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Accessors
+
 - (BOOL)controlDisabled {
     return _controlDisabled;
 }
@@ -80,6 +100,16 @@ NSString *PBStationChangedNotification = @"Station Changed";
 - (void)setControlDisabled:(BOOL)value {
     if (_controlDisabled != value) {
         _controlDisabled = value;
+    }
+}
+
+- (BOOL)isFullScreen {
+    return _isFullScreen;
+}
+
+- (void)setIsFullScreen:(BOOL)value {
+    if (_isFullScreen != value) {
+        _isFullScreen = value;
     }
 }
 
@@ -121,7 +151,25 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [_pendingWebViews removeObject:aWebView];
 }
 
-// Interaction w/ Flash
+- (NSWindow*)fullScreenWindow {
+    if( ! _fullScreenWindow ) {
+        NSRect screenRect = [[NSScreen mainScreen] frame];
+        _fullScreenWindow = [[NSWindow alloc] initWithContentRect:screenRect
+                                                        styleMask:NSBorderlessWindowMask
+                                                          backing:NSBackingStoreBuffered
+                                                            defer:NO];
+        [_fullScreenWindow setBackgroundColor:[NSColor blackColor]];
+        [_fullScreenWindow setAlphaValue:0];
+        [_fullScreenWindow setDisplaysWhenScreenProfileChanges:YES];
+    }
+    return _fullScreenWindow;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Flash calls
+
 - (bool) sendKeyPress: (int)keyCode withModifiers:(int)modifiers
 {
     if(! [self controlDisabled] ) {
@@ -153,17 +201,22 @@ NSString *PBStationChangedNotification = @"Station Changed";
     return [self sendKeyPress: keyCode withModifiers: 0];
 }
 
-- (void) load
-{
-    [[pandoraWebView mainFrame] loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];
-
-    ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:PBAPIPath];
-    [[apiWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
+- (void)setStation:(Station*)station {
+    // It seems that _pandoraScriptObject can't be cached; it changes sometimes.
+    WebScriptObject *_pandoraScriptObject = [[pandoraWebView windowScriptObject] valueForKey:@"Pandora"];
+    [_pandoraScriptObject callWebScriptMethod:@"launchStationFromId" 
+                                withArguments:[NSArray arrayWithObject:[station identifier]]];
     
-    WebScriptObject *win = [apiWebView windowScriptObject]; 
-    [win setValue:self forKey:@"SongNotification"];
+    // We set the current station twice on purpose. This time makes sure that
+    // quick (next|previous)Station calls do the right thing. The second
+    // time (in pandoraStationPlayed) makes sure we Growl, etc. and catches
+    // non-PB changes to the station.
+    [[StationList sharedStationList] setCurrentStation:station];
 }
+
+/////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Actions
 
 - (IBAction) nextSong:(id)sender
 {
@@ -217,19 +270,6 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [self sendKeyPress: 125 withModifiers: shiftKey]; 
 }
 
-- (void)setStation:(Station*)station {
-    // It seems that _pandoraScriptObject can't be cached; it changes sometimes.
-    WebScriptObject *_pandoraScriptObject = [[pandoraWebView windowScriptObject] valueForKey:@"Pandora"];
-    [_pandoraScriptObject callWebScriptMethod:@"launchStationFromId" 
-                                withArguments:[NSArray arrayWithObject:[station identifier]]];
-
-    // We set the current station twice on purpose. This time makes sure that
-    // quick (next|previous)Station calls do the right thing. The second
-    // time (in pandoraStationPlayed) makes sure we Growl, etc. and catches
-    // non-PB changes to the station.
-    [[StationList sharedStationList] setCurrentStation:station];
-}
-
 - (IBAction)setStationToSender:(id)sender {
     [self setStation:[sender representedObject]];
 }
@@ -242,9 +282,37 @@ NSString *PBStationChangedNotification = @"Station Changed";
     
 - (IBAction)previousStation:(id)sender {
     [self setStation:[[StationList sharedStationList] previousStation]];
-}    
+}
 
-// webView delegates
+- (IBAction)fullScreenAction:(id)sender {
+    if( ! [self isFullScreen] ) {
+        [[self fullScreenWindow] setLevel:NSScreenSaverWindowLevel];
+        [[self fullScreenWindow] makeKeyAndOrderFront:nil];
+
+        _oldWindowFrame = [pandoraWindow frame];
+        [pandoraWindow setLevel:NSScreenSaverWindowLevel];
+        [pandoraWindow makeKeyAndOrderFront:nil];
+    
+        MyAnimation *animation = [[MyAnimation alloc] initWithDuration:1.5
+                                                        animationCurve:NSAnimationEaseIn];
+        [animation setDelegate:self];
+        [animation startAnimation];
+        [animation release];
+        [self setIsFullScreen:YES];
+        }
+    else {
+        MyAnimation *animation = [[MyAnimation alloc] initWithDuration:1.5
+                                                        animationCurve:NSAnimationEaseOut];
+        [animation setDelegate:self];
+        [animation startAnimation];
+        [animation release];
+        [self setIsFullScreen:NO];
+    }
+}
+
+/////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark WebView delegates
 
 - (void)webView:(WebView *)sender setFrame:(NSRect)frame
 {
@@ -276,15 +344,12 @@ NSString *PBStationChangedNotification = @"Station Changed";
             if( [[subviews objectAtIndex:i] frame].size.height > 0 )
             {
                 webNetscapePlugin = [subviews objectAtIndex:i];
+                [pandoraWindow makeFirstResponder: webNetscapePlugin];
                 break;
             }
         }
         
-        if( webNetscapePlugin )
-        {
-            [pandoraWindow makeFirstResponder: webNetscapePlugin];
-        }
-        else
+        if( ! webNetscapePlugin )
         {
             NSLog(@"ERROR: Could not find webNetscapePlugin");
         }
@@ -320,7 +385,9 @@ NSString *PBStationChangedNotification = @"Station Changed";
     return (request);
 }
 
-// NSWindow Delegates
+/////////////////////////////////////////////////////////////////////
+#pragma mark
+#pragma mark NSWindow Delegates
 
 -(void)windowDidMiniaturize:(NSNotification *)aNotification
 {
@@ -337,7 +404,10 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [NSApp terminate:self];
 }
 
-// Pandora Delegates
+/////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Pandora Delegates
+
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist
 {
     NSLog( @"pandoraSongPlayed name: %@, artist: %@", name, artist); 
@@ -373,5 +443,47 @@ NSString *PBStationChangedNotification = @"Station Changed";
 }
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector { return NO; }
+
+/////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Animation Delegates
+
+- (void)updateAnimationForValue:(float)value {
+    [[self fullScreenWindow] setAlphaValue:value];
+
+    NSRect srcRect = _oldWindowFrame;
+    NSRect screenRect = [[self fullScreenWindow] frame];
+    NSRect targetRect = NSMakeRect( screenRect.origin.x, screenRect.size.height - srcRect.size.height,
+                                    screenRect.size.width, srcRect.size.height);
+    
+    // If this goes offscreen vertically, we'd rather have the title bar visible
+    NSRect newRect;
+    newRect.origin.x = srcRect.origin.x + (targetRect.origin.x - srcRect.origin.x)*value;
+    newRect.origin.y = srcRect.origin.y + (targetRect.origin.y - srcRect.origin.y)*value;
+    newRect.size.width = srcRect.size.width + (targetRect.size.width - srcRect.size.width)*value;
+    newRect.size.height = srcRect.size.height + (targetRect.size.height - srcRect.size.height)*value;
+
+    // NSMenuView menuBarHeight is deprecated, but [[NSApp mainMenu] menuBarHeight]
+    // always returns 0 in 10.4. http://lists.apple.com/archives/Cocoa-dev/2005/Oct/msg01293.html
+    if( (newRect.origin.y + newRect.size.height) >= (screenRect.size.height - [NSMenuView menuBarHeight]) ) {
+        [NSMenu setMenuBarVisible:NO];
+    }
+    else {
+        [NSMenu setMenuBarVisible:YES];
+    }
+    
+    [pandoraWindow setFrame:newRect display:YES];
+
+    WebScriptObject *scriptObject = [pandoraWebView windowScriptObject];
+    if( scriptObject ) {
+        // HACK: Get 640 out of page.
+        int leftMargin = (screenRect.size.width - 640) / 2;
+//        int spacerMargin = [[scriptObject evaluateWebScript:@"spacer.style.marginLeft"] intValue];
+        int spacerMargin = 44; // HACK
+        [scriptObject evaluateWebScript:[NSString stringWithFormat:@"tuner_ad.style.marginLeft = %f; TunerContainer.style.marginLeft = %f",  (leftMargin * value), ( (leftMargin - spacerMargin) * value)]];
+//        NSLog(@"DEBUG:spacer:%d", (int)(leftMargin * value) + spacerMargin);
+//        [scriptObject evaluateWebScript:[NSString stringWithFormat:@"spacer.style.marginLeft = %d", (int)(leftMargin * value) + spacerMargin]];
+    }
+}
 
 @end

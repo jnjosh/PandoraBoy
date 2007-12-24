@@ -68,6 +68,8 @@
 		FBC404460D03A22B00B179F9 /* StationList.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404440D03A22B00B179F9 /* StationList.m */; };
 		FBC404520D03A31600B179F9 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404500D03A31600B179F9 /* Station.m */; };
 		FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDBAC540D0F196100476C66 /* DistributedNotification.m */; };
+		FBF4BD590D1F43180017B6CB /* MyAnimation.h in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FBF4BD570D1F43180017B6CB /* MyAnimation.h */; };
+		FBF4BD5A0D1F43180017B6CB /* MyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF4BD580D1F43180017B6CB /* MyAnimation.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,7 @@
 			files = (
 				FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */,
 				3D6942310AA3791F00899D49 /* Growl.framework in Copy Frameworks */,
+				FBF4BD590D1F43180017B6CB /* MyAnimation.h in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +204,8 @@
 		FBC404500D03A31600B179F9 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
 		FBDBAC530D0F196100476C66 /* DistributedNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributedNotification.h; sourceTree = "<group>"; };
 		FBDBAC540D0F196100476C66 /* DistributedNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributedNotification.m; sourceTree = "<group>"; };
+		FBF4BD570D1F43180017B6CB /* MyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnimation.h; sourceTree = "<group>"; };
+		FBF4BD580D1F43180017B6CB /* MyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnimation.m; sourceTree = "<group>"; };
 		FBF742000BD1C3AC007F85D5 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		FBF742010BD1C3AC007F85D5 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +231,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FBF4BCCF0D1F38B80017B6CB /* Animations */,
 				FB61926F0D0C9A6900667BF3 /* Interfaces */,
 				FB61925A0D0C955800667BF3 /* Model */,
 				FB61925B0D0C956000667BF3 /* View */,
@@ -462,6 +468,15 @@
 			name = URLProtocols;
 			sourceTree = "<group>";
 		};
+		FBF4BCCF0D1F38B80017B6CB /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				FBF4BD570D1F43180017B6CB /* MyAnimation.h */,
+				FBF4BD580D1F43180017B6CB /* MyAnimation.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,11 +505,7 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			attributes = {
-				BuildIndependentTargetsInParallel = NO;
-			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PandoraBoy" */;
-			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* PandoraBoy */;
 			projectDirPath = "";
@@ -563,6 +574,7 @@
 				FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */,
 				FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */,
 				FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */,
+				FBF4BD5A0D1F43180017B6CB /* MyAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

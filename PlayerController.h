@@ -41,6 +41,9 @@ extern NSString *PBStationChangedNotification;
     BOOL _controlDisabled;
     int _playerState;
     NSMutableSet *_pendingWebViews;
+    BOOL _isFullScreen;
+    NSWindow *_fullScreenWindow;
+    NSRect _oldWindowFrame;
 }
 
 + (PlayerController*) sharedController;
@@ -58,6 +61,7 @@ extern NSString *PBStationChangedNotification;
 - (IBAction)setStationToSender:(id)sender; 
 - (IBAction)nextStation:(id)sender;
 - (IBAction)previousStation:(id)sender;
+- (IBAction)fullScreenAction:(id)sender;
 
 - (Track *)currentTrack;
 - (Station *)currentStation;
@@ -73,4 +77,6 @@ extern NSString *PBStationChangedNotification;
 - (void)setPlayerState:(int)value;
 - (NSString *)playerStateAsString;
 
+// Animation delegates
+- (void)updateAnimationForValue:(float)value;
 @end

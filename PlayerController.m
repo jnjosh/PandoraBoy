@@ -296,7 +296,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
         _tunerWidth   = [[scriptObject valueForKey:@"tunerWidth"] intValue];
         [pandoraWindow setLevel:NSScreenSaverWindowLevel];
         [pandoraWindow makeKeyAndOrderFront:nil];
-    
+
         MyAnimation *animation = [[MyAnimation alloc] initWithDuration:1.5
                                                         animationCurve:NSAnimationEaseIn];
         [animation setDelegate:self];
@@ -485,8 +485,6 @@ NSString *PBStationChangedNotification = @"Station Changed";
         }
     }
     
-    [pandoraWindow setFrame:newRect display:YES];
-
     WebScriptObject *scriptObject = [pandoraWebView windowScriptObject];
     if( scriptObject ) {
         int leftMargin = (screenRect.size.width - _tunerWidth) / 2;
@@ -494,6 +492,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
                                                                      TunerContainer.style.marginLeft = %d",
             (int)(leftMargin * value), (int)((leftMargin - _spacerMargin) * value)]];
     }
+    [pandoraWindow setFrame:newRect display:YES];
 }
 
 @end

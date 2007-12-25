@@ -65,8 +65,18 @@ NSString *PBStationChangedNotification = @"Station Changed";
         [self setControlDisabled:FALSE];
         [self setPlayerState:PBPlayerStateStopped];
         [self setIsFullScreen:NO];
+
+        // These are pre-sets, but will be read from the page later
+        _spacerMargin = 44;
+        _tunerWidth = 640;
     }
     return _sharedInstance;
+}
+
+- (void)awakeFromNib {
+    [pandoraWebView setPreferencesIdentifier:@"PandoraBoy"];
+    [[pandoraWebView preferences] setUserStyleSheetEnabled:YES];
+    [[pandoraWebView preferences] setUserStyleSheetLocation:[NSURL fileURLWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"PandoraBoy.css"]]];
 }
 
 - (void) dealloc {
@@ -158,7 +168,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
                                                         styleMask:NSBorderlessWindowMask
                                                           backing:NSBackingStoreBuffered
                                                             defer:NO];
-        [_fullScreenWindow setBackgroundColor:[NSColor blackColor]];
+        [_fullScreenWindow setBackgroundColor:[NSColor blackColor]];           
         [_fullScreenWindow setAlphaValue:0];
         [_fullScreenWindow setDisplaysWhenScreenProfileChanges:YES];
     }
@@ -292,8 +302,13 @@ NSString *PBStationChangedNotification = @"Station Changed";
 
         _oldWindowFrame = [pandoraWindow frame];
         WebScriptObject *scriptObject = [pandoraWebView windowScriptObject];
-        _spacerMargin = [[scriptObject evaluateWebScript:@"spacer.style.marginLeft"] intValue];
-        _tunerWidth   = [[scriptObject valueForKey:@"tunerWidth"] intValue];
+        if( scriptObject ) {
+            _spacerMargin = [[scriptObject evaluateWebScript:@"spacer.style.marginLeft"] intValue];
+            _tunerWidth   = [[scriptObject valueForKey:@"tunerWidth"] intValue];
+        }
+        else {
+            NSLog(@"ERROR: Couldn't get scriptobject.");
+        }
         [pandoraWindow setLevel:NSScreenSaverWindowLevel];
         [pandoraWindow makeKeyAndOrderFront:nil];
 
@@ -356,10 +371,9 @@ NSString *PBStationChangedNotification = @"Station Changed";
             }
         }
         
-        if( ! webNetscapePlugin )
-        {
+        if( ! webNetscapePlugin ) {
             NSLog(@"ERROR: Could not find webNetscapePlugin");
-        }
+        }        
     }
 }
 

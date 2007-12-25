@@ -56,7 +56,7 @@
 		FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
 		FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */ = {isa = PBXBuildFile; fileRef = FB732F530D203A97007E36B2 /* PandoraBoy.css */; };
-		FB73305B0D2074CD007E36B2 /* FullScreenBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB73305A0D2074CD007E36B2 /* FullScreenBackground.jpg */; };
+		FB7331B80D20B390007E36B2 /* background_mini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB7331B70D20B390007E36B2 /* background_mini.jpg */; };
 		FB936CB60D0108C9007AD10A /* ProxyURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */; };
 		FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
@@ -185,7 +185,7 @@
 		FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = SongNotification.html; sourceTree = "<group>"; };
 		FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version_sparkle.xml; sourceTree = "<group>"; };
 		FB732F530D203A97007E36B2 /* PandoraBoy.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PandoraBoy.css; sourceTree = "<group>"; };
-		FB73305A0D2074CD007E36B2 /* FullScreenBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = FullScreenBackground.jpg; path = images/FullScreenBackground.jpg; sourceTree = "<group>"; };
+		FB7331B70D20B390007E36B2 /* background_mini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background_mini.jpg; path = images/background_mini.jpg; sourceTree = "<group>"; };
 		FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyURLProtocol.h; sourceTree = "<group>"; };
 		FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyURLProtocol.m; sourceTree = "<group>"; };
 		FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkURLProtocol.h; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FB73305A0D2074CD007E36B2 /* FullScreenBackground.jpg */,
+				FB7331B70D20B390007E36B2 /* background_mini.jpg */,
 				FBA24C4A0D0B0329003F7B70 /* play.gif */,
 				FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */,
 				FB732F530D203A97007E36B2 /* PandoraBoy.css */,
@@ -542,7 +542,7 @@
 				FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */,
 				FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */,
 				FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */,
-				FB73305B0D2074CD007E36B2 /* FullScreenBackground.jpg in Resources */,
+				FB7331B80D20B390007E36B2 /* background_mini.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

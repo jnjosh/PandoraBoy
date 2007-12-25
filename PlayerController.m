@@ -77,6 +77,18 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [pandoraWebView setPreferencesIdentifier:@"PandoraBoy"];
     [[pandoraWebView preferences] setUserStyleSheetEnabled:YES];
     [[pandoraWebView preferences] setUserStyleSheetLocation:[NSURL fileURLWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"PandoraBoy.css"]]];
+    
+    NSRect windowFrame = [pandoraWindow frame];
+    NSRect imageFrame = NSMakeRect( 0, 0, windowFrame.size.width, 0);
+    NSImageView *imageView = [[NSImageView alloc] initWithFrame:imageFrame];
+    [imageView setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
+    NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"background_mini.jpg"]];
+    [image setFlipped:YES];
+    [imageView setImage:image];
+    [imageView setImageScaling:NSScaleToFit];
+    [[pandoraWindow contentView] addSubview:imageView];
+    [imageView release];
+    [image release];
 }
 
 - (void) dealloc {
@@ -100,6 +112,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
 }
 
 /////////////////////////////////////////////////////////////////////
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -359,7 +372,9 @@ NSString *PBStationChangedNotification = @"Station Changed";
     if( [sender isEqualTo:pandoraWebView] && [frame parentFrame] == nil)
     {
         // Find the subview that isn't of size 0
-        NSArray *subviews = [[pandoraWebView hitTest:NSZeroPoint] subviews];
+        NSPoint point = NSMakePoint([[pandoraWindow contentView] bounds].size.width / 2,
+                                    [[pandoraWindow contentView] bounds].size.width / 3);
+        NSArray *subviews = [[pandoraWebView hitTest:point] subviews];
         int i;
         for( i = 0; i < [subviews count]; i++ )
         {
@@ -475,7 +490,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
     NSRect srcRect = _oldWindowFrame;
     NSRect screenRect = [[self fullScreenWindow] frame];
     NSRect targetRect = NSMakeRect( screenRect.origin.x, screenRect.size.height - srcRect.size.height,
-                                    screenRect.size.width, srcRect.size.height);
+                                    screenRect.size.width, screenRect.size.height);
     
     // If this goes offscreen vertically, we'd rather have the title bar visible
     NSRect newRect;
@@ -485,9 +500,9 @@ NSString *PBStationChangedNotification = @"Station Changed";
     newRect.size.height = srcRect.size.height + (targetRect.size.height - srcRect.size.height)*value;
 
     OSStatus error;
-    if( (newRect.origin.y + newRect.size.height) >= (screenRect.size.height - [NSMenuView menuBarHeight]) ) {
-        error = SetSystemUIMode(kUIModeAllHidden,
-                                    kUIOptionDisableProcessSwitch);
+    // The +1 here is because we're using floats, and we might be a fraction of a pixel over the line.
+    if( (newRect.origin.y + newRect.size.height) >= (screenRect.size.height - [NSMenuView menuBarHeight]) + 1) {
+        error = SetSystemUIMode(kUIModeAllHidden, kUIOptionDisableProcessSwitch);
         if( error != noErr ) {
             NSLog(@"ERROR:Could not hide menu bar:%d", (int)error);
         }
@@ -503,7 +518,8 @@ NSString *PBStationChangedNotification = @"Station Changed";
     if( scriptObject ) {
         int leftMargin = (screenRect.size.width - _tunerWidth) / 2;
         [scriptObject evaluateWebScript:[NSString stringWithFormat:@"tuner_ad.style.marginLeft = %d; \
-                                                                     TunerContainer.style.marginLeft = %d",
+                                                                     tuner_ad.style.width = tuner_ad.style.width + tuner_ad.style.marginLeft; \
+                                                                     TunerContainer.style.marginLeft = %d;",
             (int)(leftMargin * value), (int)((leftMargin - _spacerMargin) * value)]];
     }
     [pandoraWindow setFrame:newRect display:YES];

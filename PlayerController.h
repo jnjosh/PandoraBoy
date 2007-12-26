@@ -42,10 +42,7 @@ extern NSString *PBStationChangedNotification;
     int _playerState;
     NSMutableSet *_pendingWebViews;
     BOOL _isFullScreen;
-    NSWindow *_fullScreenWindow;
-    NSRect _oldWindowFrame;
-    int _spacerMargin;
-    int _tunerWidth;
+    id _fullScreenPlugin;
 }
 
 + (PlayerController*) sharedController;
@@ -79,6 +76,4 @@ extern NSString *PBStationChangedNotification;
 - (void)setPlayerState:(int)value;
 - (NSString *)playerStateAsString;
 
-// Animation delegates
-- (void)updateAnimationForValue:(float)value;
 @end

@@ -38,6 +38,16 @@
 		FB27A2120CFF9D6C0038475D /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */; };
 		FB27A2170CFF9DB90038475D /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2150CFF9DB90038475D /* RemoteControl.m */; };
 		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
+		FB3D82360D21DFD200F0A16D /* PBFullScreenPlugin.h in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB3D82350D21DFD200F0A16D /* PBFullScreenPlugin.h */; };
+		FB3D82610D21EDD500F0A16D /* PBFullScreenPandora.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3D825F0D21EDD500F0A16D /* PBFullScreenPandora.m */; };
+		FB3D82760D21F53700F0A16D /* PBFullScreenPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3D82750D21F53700F0A16D /* PBFullScreenPlugin.m */; };
+		FB3D828F0D21F76600F0A16D /* background_mini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB7331B70D20B390007E36B2 /* background_mini.jpg */; };
+		FB3D82B90D21FBCC00F0A16D /* PBFullScreenPandora-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB3D822E0D21DF0200F0A16D /* PBFullScreenPandora-Info.plist */; };
+		FB3D82BE0D21FBDB00F0A16D /* PBFullScreenPandora.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3D825F0D21EDD500F0A16D /* PBFullScreenPandora.m */; };
+		FB3D82C10D21FBE000F0A16D /* PBFullScreenPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3D82750D21F53700F0A16D /* PBFullScreenPlugin.m */; };
+		FB3D82D50D21FD0900F0A16D /* PBFullScreenPandora.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FB3D822D0D21DF0200F0A16D /* PBFullScreenPandora.bundle */; };
+		FB3D83020D2201B500F0A16D /* MyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF4BD580D1F43180017B6CB /* MyAnimation.m */; };
+		FB3D831A0D2201E000F0A16D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB5816F0ABB0155004452C3 /* Carbon.framework */; };
 		FB4631400CFBA3500098407B /* ResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */; };
 		FB4632680CFBBE830098407B /* ResourceURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4632660CFBBE830098407B /* ResourceURL.m */; };
 		FB4F5F180D1617D3005523DA /* PreviousStation.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */; };
@@ -56,7 +66,6 @@
 		FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
 		FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */ = {isa = PBXBuildFile; fileRef = FB732F530D203A97007E36B2 /* PandoraBoy.css */; };
-		FB7331B80D20B390007E36B2 /* background_mini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB7331B70D20B390007E36B2 /* background_mini.jpg */; };
 		FB936CB60D0108C9007AD10A /* ProxyURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */; };
 		FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
@@ -70,10 +79,18 @@
 		FBC404460D03A22B00B179F9 /* StationList.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404440D03A22B00B179F9 /* StationList.m */; };
 		FBC404520D03A31600B179F9 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404500D03A31600B179F9 /* Station.m */; };
 		FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDBAC540D0F196100476C66 /* DistributedNotification.m */; };
-		FBF4BD590D1F43180017B6CB /* MyAnimation.h in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FBF4BD570D1F43180017B6CB /* MyAnimation.h */; };
-		FBF4BD5A0D1F43180017B6CB /* MyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF4BD580D1F43180017B6CB /* MyAnimation.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB3D82D30D21FCD500F0A16D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB3D822C0D21DF0200F0A16D /* PBFullScreenPandora */;
+			remoteInfo = PBFullScreenPandora;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3D6942280AA378EC00899D49 /* Copy Frameworks */ = {
@@ -84,9 +101,20 @@
 			files = (
 				FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */,
 				3D6942310AA3791F00899D49 /* Growl.framework in Copy Frameworks */,
-				FBF4BD590D1F43180017B6CB /* MyAnimation.h in Copy Frameworks */,
+				FB3D82360D21DFD200F0A16D /* PBFullScreenPlugin.h in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB3D82CD0D21FC6A00F0A16D /* Copy Plugins */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FB3D82D50D21FD0900F0A16D /* PBFullScreenPandora.bundle in Copy Plugins */,
+			);
+			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FB4F5F060D16140C005523DA /* Copy Scripts */ = {
@@ -170,6 +198,12 @@
 		FB38569E0BC9913F005653C3 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB3856B70BC993C9005653C3 /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		FB3856EE0BC9973F005653C3 /* README.DNC.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.DNC.rtf; sourceTree = "<group>"; };
+		FB3D822D0D21DF0200F0A16D /* PBFullScreenPandora.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBFullScreenPandora.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB3D822E0D21DF0200F0A16D /* PBFullScreenPandora-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PBFullScreenPandora-Info.plist"; sourceTree = "<group>"; };
+		FB3D82350D21DFD200F0A16D /* PBFullScreenPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFullScreenPlugin.h; sourceTree = "<group>"; };
+		FB3D825E0D21EDD500F0A16D /* PBFullScreenPandora.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFullScreenPandora.h; sourceTree = "<group>"; };
+		FB3D825F0D21EDD500F0A16D /* PBFullScreenPandora.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFullScreenPandora.m; sourceTree = "<group>"; };
+		FB3D82750D21F53700F0A16D /* PBFullScreenPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFullScreenPlugin.m; sourceTree = "<group>"; };
 		FB46313D0CFBA3500098407B /* ResourceURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceURLProtocol.h; sourceTree = "<group>"; };
 		FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceURLProtocol.m; sourceTree = "<group>"; };
 		FB4632650CFBBE830098407B /* ResourceURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceURL.h; sourceTree = "<group>"; };
@@ -229,13 +263,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB3D822B0D21DF0200F0A16D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB3D831A0D2201E000F0A16D /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FBF4BCCF0D1F38B80017B6CB /* Animations */,
 				FB61926F0D0C9A6900667BF3 /* Interfaces */,
 				FB61925A0D0C955800667BF3 /* Model */,
 				FB61925B0D0C956000667BF3 /* View */,
@@ -271,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* PandoraBoy.app */,
+				FB3D822D0D21DF0200F0A16D /* PBFullScreenPandora.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -282,6 +324,7 @@
 				3DC9FC780B74FED200FF4370 /* Shortcut Recorder */,
 				3DDA241D0B74F58800F500BD /* Scripts */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				FB3D82340D21DF8C00F0A16D /* FullScreenPlugin */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -301,7 +344,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FB7331B70D20B390007E36B2 /* background_mini.jpg */,
 				FBA24C4A0D0B0329003F7B70 /* play.gif */,
 				FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */,
 				FB732F530D203A97007E36B2 /* PandoraBoy.css */,
@@ -390,6 +432,28 @@
 				FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */,
 			);
 			name = Documentation;
+			sourceTree = "<group>";
+		};
+		FB3D82340D21DF8C00F0A16D /* FullScreenPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				FBF4BCCF0D1F38B80017B6CB /* Animations */,
+				FB3D82370D21DFE800F0A16D /* Pandora */,
+				FB3D82350D21DFD200F0A16D /* PBFullScreenPlugin.h */,
+				FB3D82750D21F53700F0A16D /* PBFullScreenPlugin.m */,
+			);
+			name = FullScreenPlugin;
+			sourceTree = "<group>";
+		};
+		FB3D82370D21DFE800F0A16D /* Pandora */ = {
+			isa = PBXGroup;
+			children = (
+				FB3D822E0D21DF0200F0A16D /* PBFullScreenPandora-Info.plist */,
+				FB3D825E0D21EDD500F0A16D /* PBFullScreenPandora.h */,
+				FB3D825F0D21EDD500F0A16D /* PBFullScreenPandora.m */,
+				FB7331B70D20B390007E36B2 /* background_mini.jpg */,
+			);
+			name = Pandora;
 			sourceTree = "<group>";
 		};
 		FB61925A0D0C955800667BF3 /* Model */ = {
@@ -495,16 +559,35 @@
 				3D6942280AA378EC00899D49 /* Copy Frameworks */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				FB4F5F060D16140C005523DA /* Copy Scripts */,
+				FB3D82CD0D21FC6A00F0A16D /* Copy Plugins */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FB3D82D40D21FCD500F0A16D /* PBXTargetDependency */,
 			);
 			name = PandoraBoy;
 			productInstallPath = "$(HOME)/Applications";
 			productName = PandoraBoy;
 			productReference = 8D1107320486CEB800E47090 /* PandoraBoy.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FB3D822C0D21DF0200F0A16D /* PBFullScreenPandora */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB3D822F0D21DF0200F0A16D /* Build configuration list for PBXNativeTarget "PBFullScreenPandora" */;
+			buildPhases = (
+				FB3D82290D21DF0200F0A16D /* Resources */,
+				FB3D822A0D21DF0200F0A16D /* Sources */,
+				FB3D822B0D21DF0200F0A16D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PBFullScreenPandora;
+			productName = PBFullScreenPandora;
+			productReference = FB3D822D0D21DF0200F0A16D /* PBFullScreenPandora.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -517,6 +600,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				FB3D822C0D21DF0200F0A16D /* PBFullScreenPandora */,
 				8D1107260486CEB800E47090 /* PandoraBoy */,
 			);
 		};
@@ -542,7 +626,15 @@
 				FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */,
 				FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */,
 				FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */,
-				FB7331B80D20B390007E36B2 /* background_mini.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB3D82290D21DF0200F0A16D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB3D828F0D21F76600F0A16D /* background_mini.jpg in Resources */,
+				FB3D82B90D21FBCC00F0A16D /* PBFullScreenPandora-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,11 +674,30 @@
 				FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */,
 				FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */,
 				FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */,
-				FBF4BD5A0D1F43180017B6CB /* MyAnimation.m in Sources */,
+				FB3D82610D21EDD500F0A16D /* PBFullScreenPandora.m in Sources */,
+				FB3D82760D21F53700F0A16D /* PBFullScreenPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB3D822A0D21DF0200F0A16D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB3D82BE0D21FBDB00F0A16D /* PBFullScreenPandora.m in Sources */,
+				FB3D82C10D21FBE000F0A16D /* PBFullScreenPlugin.m in Sources */,
+				FB3D83020D2201B500F0A16D /* MyAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB3D82D40D21FCD500F0A16D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB3D822C0D21DF0200F0A16D /* PBFullScreenPandora */;
+			targetProxy = FB3D82D30D21FCD500F0A16D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -718,6 +829,66 @@
 			};
 			name = Release;
 		};
+		FB3D82300D21DF0200F0A16D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PBFullScreenPandora-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PBFullScreenPandora;
+				WRAPPER_EXTENSION = bundle;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		FB3D82310D21DF0200F0A16D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "PBFullScreenPandora-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PBFullScreenPandora;
+				WRAPPER_EXTENSION = bundle;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -735,6 +906,15 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB3D822F0D21DF0200F0A16D /* Build configuration list for PBXNativeTarget "PBFullScreenPandora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB3D82300D21DF0200F0A16D /* Debug */,
+				FB3D82310D21DF0200F0A16D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

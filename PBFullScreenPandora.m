@@ -175,7 +175,8 @@
 
 - (void)updateAnimationForValue:(float)value {
     NSRect srcRect = [self oldWindowFrame];
-    NSRect screenRect = [[NSScreen mainScreen] frame];
+	NSScreen *screen = [[self fullScreenWindow] screen];
+    NSRect screenRect = [screen frame];
     NSRect targetRect = screenRect; 
     
     // If this goes offscreen vertically, we'd rather have the title bar visible
@@ -185,20 +186,22 @@
     newRect.size.width = srcRect.size.width + (targetRect.size.width - srcRect.size.width)*value;
     newRect.size.height = srcRect.size.height + (targetRect.size.height - srcRect.size.height)*value;
     
-    OSStatus error;
-    // The +1 here is because we're using floats, and we might be a fraction of a pixel over the line.
-    if( (newRect.origin.y + newRect.size.height) >= (screenRect.size.height - [NSMenuView menuBarHeight]) + 1) {
-        error = SetSystemUIMode(kUIModeAllHidden, kUIOptionDisableProcessSwitch);
-        if( error != noErr ) {
-            NSLog(@"ERROR:Could not hide menu bar:%d", (int)error);
-        }
-    }
-    else {
-        error = SetSystemUIMode(kUIModeNormal, 0);
-        if( error != noErr ) {
-            NSLog(@"ERROR:Could not show menu bar:%d", (int)error);
-        }
-    }
+	if( [screen isEqualTo:[NSScreen mainScreen]] ) { 
+		OSStatus error;
+		// The +1 here is because we're using floats, and we might be a fraction of a pixel over the line.
+		if( (newRect.origin.y + newRect.size.height) >= (screenRect.size.height - [NSMenuView menuBarHeight]) + 1) {
+			error = SetSystemUIMode(kUIModeAllHidden, kUIOptionDisableProcessSwitch);
+			if( error != noErr ) {
+				NSLog(@"ERROR:Could not hide menu bar:%d", (int)error);
+			}
+		}
+		else {
+			error = SetSystemUIMode(kUIModeNormal, 0);
+			if( error != noErr ) {
+				NSLog(@"ERROR:Could not show menu bar:%d", (int)error);
+			}
+		}
+	}
     
     WebScriptObject *scriptObject = [self pandoraWebScriptObject];
     int leftMargin = (int)( value * (screenRect.size.width - _tunerWidth - _spacerMargin) / 2 );

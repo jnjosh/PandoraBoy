@@ -163,9 +163,13 @@ static Controller* _sharedInstance = nil;
             }
         }
 
+        if( ! [fileManager removeFileAtPath:scriptDestinationFile handler:nil] ) {
+            NSLog(@"ERROR:Could not remove %@", scriptDestinationFile);
+            continue;
+        }
         if( ! [fileManager copyPath:scriptSourceFile toPath:scriptDestinationFile handler:nil] ) {
             NSLog(@"ERROR:Could not copy %@ to %@", scriptSourceFile, scriptDestinationFile);
-            return;
+            continue;
         }
     }
 }

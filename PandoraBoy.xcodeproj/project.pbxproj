@@ -37,6 +37,10 @@
 		FB27A1BB0CFF03A80038475D /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A1B90CFF03A80038475D /* AppleRemote.m */; };
 		FB27A2120CFF9D6C0038475D /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */; };
 		FB27A2170CFF9DB90038475D /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2150CFF9DB90038475D /* RemoteControl.m */; };
+		FB35926A0D22CCD90048A0EA /* PBTrackInfoCrawlWidget.qtz in Copy Widgets */ = {isa = PBXBuildFile; fileRef = FB35923E0D22CC2D0048A0EA /* PBTrackInfoCrawlWidget.qtz */; };
+		FB3592EC0D22D60E0048A0EA /* QuartzComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3592D60D22D33E0048A0EA /* QuartzComposer.framework */; };
+		FB3593EB0D22D9800048A0EA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA326A50D137BF700AD3D91 /* WebKit.framework */; };
+		FB35946C0D22DF320048A0EA /* background_mini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB7331B70D20B390007E36B2 /* background_mini.jpg */; };
 		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
 		FB3D82360D21DFD200F0A16D /* PBFullScreenPlugin.h in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB3D82350D21DFD200F0A16D /* PBFullScreenPlugin.h */; };
 		FB3D82610D21EDD500F0A16D /* PBFullScreenPandora.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3D825F0D21EDD500F0A16D /* PBFullScreenPandora.m */; };
@@ -87,7 +91,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FB3D822C0D21DF0200F0A16D /* PBFullScreenPandora */;
+			remoteGlobalIDString = FB3D822C0D21DF0200F0A16D;
 			remoteInfo = PBFullScreenPandora;
 		};
 /* End PBXContainerItemProxy section */
@@ -106,10 +110,21 @@
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB3592640D22CCBC0048A0EA /* Copy Widgets */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Widgets;
+			dstSubfolderSpec = 13;
+			files = (
+				FB35926A0D22CCD90048A0EA /* PBTrackInfoCrawlWidget.qtz in Copy Widgets */,
+			);
+			name = "Copy Widgets";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB3D82CD0D21FC6A00F0A16D /* Copy Plugins */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
+			dstPath = FullScreenPlugins;
 			dstSubfolderSpec = 13;
 			files = (
 				FB3D82D50D21FD0900F0A16D /* PBFullScreenPandora.bundle in Copy Plugins */,
@@ -195,6 +210,8 @@
 		FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HIDRemoteControlDevice.m; path = RemoteControlWrapper/HIDRemoteControlDevice.m; sourceTree = "<group>"; };
 		FB27A2140CFF9DB90038475D /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = RemoteControl.h; path = RemoteControlWrapper/RemoteControl.h; sourceTree = "<group>"; };
 		FB27A2150CFF9DB90038475D /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = RemoteControl.m; path = RemoteControlWrapper/RemoteControl.m; sourceTree = "<group>"; };
+		FB35923E0D22CC2D0048A0EA /* PBTrackInfoCrawlWidget.qtz */ = {isa = PBXFileReference; lastKnownFileType = file; path = PBTrackInfoCrawlWidget.qtz; sourceTree = "<group>"; };
+		FB3592D60D22D33E0048A0EA /* QuartzComposer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzComposer.framework; path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Quartz.framework/Frameworks/QuartzComposer.framework; sourceTree = "<absolute>"; };
 		FB38569E0BC9913F005653C3 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB3856B70BC993C9005653C3 /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		FB3856EE0BC9973F005653C3 /* README.DNC.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.DNC.rtf; sourceTree = "<group>"; };
@@ -268,6 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB3D831A0D2201E000F0A16D /* Carbon.framework in Frameworks */,
+				FB3593EB0D22D9800048A0EA /* WebKit.framework in Frameworks */,
+				FB3592EC0D22D60E0048A0EA /* QuartzComposer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +310,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB3592D60D22D33E0048A0EA /* QuartzComposer.framework */,
 				FBA326A50D137BF700AD3D91 /* WebKit.framework */,
 				3DB5816F0ABB0155004452C3 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -422,6 +442,14 @@
 			name = RemoteControlWrapper;
 			sourceTree = "<group>";
 		};
+		FB35920E0D22CBF90048A0EA /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				FB35923E0D22CC2D0048A0EA /* PBTrackInfoCrawlWidget.qtz */,
+			);
+			name = Widgets;
+			sourceTree = "<group>";
+		};
 		FB3856B60BC993B1005653C3 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,10 +465,12 @@
 		FB3D82340D21DF8C00F0A16D /* FullScreenPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				FBF4BCCF0D1F38B80017B6CB /* Animations */,
+				FB35920E0D22CBF90048A0EA /* Widgets */,
 				FB3D82370D21DFE800F0A16D /* Pandora */,
 				FB3D82350D21DFD200F0A16D /* PBFullScreenPlugin.h */,
 				FB3D82750D21F53700F0A16D /* PBFullScreenPlugin.m */,
+				FBF4BD570D1F43180017B6CB /* MyAnimation.h */,
+				FBF4BD580D1F43180017B6CB /* MyAnimation.m */,
 			);
 			name = FullScreenPlugin;
 			sourceTree = "<group>";
@@ -538,15 +568,6 @@
 			name = URLProtocols;
 			sourceTree = "<group>";
 		};
-		FBF4BCCF0D1F38B80017B6CB /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				FBF4BD570D1F43180017B6CB /* MyAnimation.h */,
-				FBF4BD580D1F43180017B6CB /* MyAnimation.m */,
-			);
-			name = Animations;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,6 +581,7 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				FB4F5F060D16140C005523DA /* Copy Scripts */,
 				FB3D82CD0D21FC6A00F0A16D /* Copy Plugins */,
+				FB3592640D22CCBC0048A0EA /* Copy Widgets */,
 			);
 			buildRules = (
 			);
@@ -626,6 +648,7 @@
 				FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */,
 				FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */,
 				FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */,
+				FB35946C0D22DF320048A0EA /* background_mini.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +763,9 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_5)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_6)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_7)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_8)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_9)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
@@ -747,6 +773,9 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_4 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_5 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_6 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_7 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_8 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_9 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Quartz.framework/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -783,6 +812,9 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_5)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_6)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_7)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_8)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_9)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
@@ -790,6 +822,9 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_4 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_5 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_6 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_7 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_8 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_9 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Quartz.framework/Frameworks\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -836,10 +871,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Quartz.framework/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -867,8 +905,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Quartz.framework/Frameworks\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;

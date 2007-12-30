@@ -162,7 +162,8 @@ NSString *PBStationChangedNotification = @"Station Changed";
 
 - (id)fullScreenPlugin {
     if( ! _fullScreenPlugin ) {
-        NSString *pluginPath = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"PBFullScreenPandora.bundle"];
+        // FIXME: Hardcoded path
+        NSString *pluginPath = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"FullScreenPlugins/PBFullScreenPandora.bundle"];
         NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
         if( pluginBundle == nil ) {
             NSLog(@"ERROR: Could not load plugin:%@", pluginPath);

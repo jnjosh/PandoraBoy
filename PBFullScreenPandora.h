@@ -12,10 +12,9 @@
 
 @interface PBFullScreenPandora : PBFullScreenPlugin <PBFullScreenProtocol> {
     NSRect _oldWindowFrame;
-	NSString *_oldAutosaveName;
     int _spacerMargin;
     int _tunerWidth;
-    NSWindow *_crawlWindow;
+	NSWindow *_fullScreenWindow;
 }
 
 @end

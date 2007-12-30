@@ -45,7 +45,11 @@
 }
 
 - (WebScriptObject*)pandoraWebScriptObject {
-    return [self nonNilValueForKey:@"pandoraWebScriptObject"];
+    return [[self nonNilValueForKey:@"pandoraWebView"] windowScriptObject];
+}
+
+- (WebView*)pandoraWebView {
+	return [self nonNilValueForKey:@"pandoraWebView"];
 }
 
 #pragma -

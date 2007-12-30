@@ -184,7 +184,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
 
         NSDictionary *context = [NSDictionary dictionaryWithObjectsAndKeys:
             pandoraWindow, @"pandoraWindow",
-            [pandoraWebView windowScriptObject], @"pandoraWebScriptObject",
+			pandoraWebView, @"pandoraWebView",
             nil];
         
         id pluginInstance = [[principalClass alloc] initWithContext:context];

@@ -14,8 +14,7 @@
 @implementation PBFullScreenPandora
 
 - (void) dealloc {
-	[_oldAutosaveName release];
-	[_crawlWindow release];
+	[_fullScreenWindow release];
 	[super dealloc];
 }
 
@@ -32,17 +31,6 @@
 
 - (void)setOldWindowFrame:(NSRect)value {
 	_oldWindowFrame = value;
-}
-
-- (NSString *)oldAutosaveName {
-    return [[_oldAutosaveName retain] autorelease];
-}
-
-- (void)setOldAutosaveName:(NSString *)value {
-    if (_oldAutosaveName != value) {
-        [_oldAutosaveName release];
-        _oldAutosaveName = [value retain];
-    }
 }
 
 - (int)spacerMargin {
@@ -65,14 +53,14 @@
     }
 }
 
-- (NSWindow *)crawlWindow {
-    return [[_crawlWindow retain] autorelease];
+- (NSWindow *)fullScreenWindow {
+    return [[_fullScreenWindow retain] autorelease];
 }
 
-- (void)setCrawlWindow:(NSWindow *)value {
-    if (_crawlWindow != value) {
-        [_crawlWindow release];
-        _crawlWindow = [value retain];
+- (void)setFullScreenWindow:(NSWindow *)value {
+    if (_fullScreenWindow != value) {
+        [_fullScreenWindow release];
+        _fullScreenWindow = [value retain];
     }
 }
 
@@ -84,79 +72,39 @@
 #pragma mark Private Methods
 
 - (void)addBackgroundExtension {
-    NSWindow *pandoraWindow = [self pandoraWindow];
-    NSRect windowFrame = [pandoraWindow frame];
-    NSRect imageFrame = NSMakeRect( 0, 0, windowFrame.size.width, 0);
-    NSImageView *imageView = [[NSImageView alloc] initWithFrame:imageFrame];
-    [imageView setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
+    NSWindow *fullScreenWindow = [self fullScreenWindow];
+    NSRect windowFrame = [fullScreenWindow frame];
 
-    NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"background_mini.jpg"]];
-    if( ! image ) {
-        NSLog(@"ERROR: Could not get background_mini.jpg");
-        return;
-    }
-    
-    [image setFlipped:YES];
-    [imageView setImage:image];
-    [imageView setImageScaling:NSScaleToFit];
-    
-    [[pandoraWindow contentView] addSubview:imageView];
-    [imageView release];
-    [image release];
-}
-
-- (void)addCrawl {
-	NSWindow *pandoraWindow = [self pandoraWindow];
-    NSRect windowFrame = [pandoraWindow frame];
 	// QCViews don't like being in a 0-height window; they'll complain:
 	// "Unable to retrieve screen colorspace from owner window"
-    NSRect imageFrame = NSMakeRect( 0, 0, windowFrame.size.width, 1);
+    NSRect widgetFrame = NSMakeRect( 0, 0, windowFrame.size.width, 1);
 	
-	// Transparent window floats over bottom of pandoraWindow. QCView's can't
-	// overlap other views in the same window (even subviews) because of their
-	// optimizations.
-	NSWindow *crawlWindow = [[NSWindow alloc] initWithContentRect:imageFrame
-														styleMask:NSBorderlessWindowMask
-														  backing:NSBackingStoreBuffered
-															defer:NO];
-	QCView *widgetView = [[QCView alloc] initWithFrame:imageFrame];
+	QCView *widgetView = [[QCView alloc] initWithFrame:widgetFrame];
+	
     [widgetView setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
     if( ! [widgetView loadCompositionFromFile:[[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"Widgets/PBTrackInfoCrawlWidget.qtz"]] ) {
         NSLog(@"ERROR: Could not load composition");
-        [widgetView release];
+		[widgetView release];
         return;
     }
 	
+    NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:@"background_mini.jpg"]];
+    if( ! image ) {
+        NSLog(@"ERROR: Could not get background_mini.jpg");
+		[widgetView release];
+        return;
+    }
+    
+	[widgetView setValue:image forInputKey:@"BackgroundImage"];
+	[widgetView setValue:[NSNumber numberWithFloat:180.0] forInputKey:@"BackgroundImageRotation"];
     [widgetView setValue:@"Test" forInputKey:@"Text"];
 	[widgetView setEraseColor:[NSColor clearColor]];
-	   
-	[crawlWindow setLevel:NSScreenSaverWindowLevel + 1];
-	[crawlWindow setBackgroundColor:[NSColor clearColor]];
-	[crawlWindow setOpaque:NO];
-	[crawlWindow makeKeyAndOrderFront:nil];
-
-	[crawlWindow setContentView:widgetView];
-    [widgetView startRendering];
-	[self setCrawlWindow:crawlWindow];
-	[crawlWindow release];
+	
+    [[fullScreenWindow contentView] addSubview:widgetView];
+ 
+	[widgetView startRendering];
 	[widgetView release];
-}
-
-///
-/// NSWindow Delegates
-///
-
-#pragma mark -
-#pragma mark NSWindow Delegates
-
-- (void)windowDidResize:(NSNotification*)notification {
-	NSRect newFrame = [[self pandoraWindow] frame];
-	newFrame.size.height -= [self oldWindowFrame].size.height;
-	// QCViews don't like being in a 0-height window; they'll complain:
-	// "Unable to retrieve screen colorspace from owner window"
-	if( newFrame.size.height > 0 ) {
-		[[self crawlWindow] setFrame:newFrame display:YES];
-	}
+	[image release];
 }
 
 ///
@@ -167,19 +115,21 @@
 #pragma mark PBFullScreenProtocol
 
 - (BOOL)startFullScreen {
-    [self addBackgroundExtension];
-
     NSWindow *pandoraWindow = [self pandoraWindow];
+	[self setFullScreenWindow:[[[NSWindow alloc] initWithContentRect:[pandoraWindow contentRectForFrameRect:[pandoraWindow frame]]
+														   styleMask:NSBorderlessWindowMask
+															 backing:NSBackingStoreBuffered
+															   defer:NO] autorelease]];
+	NSWindow *fullScreenWindow = [self fullScreenWindow];
+	[self setOldWindowFrame:[fullScreenWindow frame]];
+
+	[[fullScreenWindow contentView] addSubview:[self pandoraWebView]];
+	[self addBackgroundExtension];
+    
+	[fullScreenWindow setLevel:NSScreenSaverWindowLevel];
+    [fullScreenWindow makeKeyAndOrderFront:nil];
+	[pandoraWindow orderOut:nil];
 	
-	[self setOldWindowFrame:[pandoraWindow frame]];
-	[self setOldAutosaveName:[pandoraWindow frameAutosaveName]];
-	[pandoraWindow setFrameAutosaveName:@""];
-
-    [pandoraWindow setLevel:NSScreenSaverWindowLevel];
-    [pandoraWindow makeKeyAndOrderFront:nil];
-
-	[self addCrawl];
-
     WebScriptObject *scriptObject = [self pandoraWebScriptObject];
     if( scriptObject ) {
         id result = [scriptObject evaluateWebScript:@"spacer.style.marginLeft"];
@@ -198,17 +148,12 @@
         }
     }
 
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(windowDidResize:)
-												 name:NSWindowDidResizeNotification
-											   object:pandoraWindow];
-	
 	MyAnimation *animation = [[MyAnimation alloc] initWithDuration:1.5
                                                     animationCurve:NSAnimationEaseIn];
     [animation setDelegate:self];
     [animation startAnimation];
     [animation release];
+	
     return YES;
 }
 
@@ -219,10 +164,9 @@
     [animation startAnimation];
     [animation release];
 	
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[[self crawlWindow] orderOut:nil];
-    [[self pandoraWindow] setLevel:NSNormalWindowLevel];
-	[[self pandoraWindow] setFrameAutosaveName:[self oldAutosaveName]];
+	[[[self pandoraWindow] contentView] addSubview:[self pandoraWebView]];
+	[[self pandoraWindow] makeKeyAndOrderFront:nil];
+	[[self fullScreenWindow] orderOut:nil];
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -232,8 +176,7 @@
 - (void)updateAnimationForValue:(float)value {
     NSRect srcRect = [self oldWindowFrame];
     NSRect screenRect = [[NSScreen mainScreen] frame];
-    NSRect targetRect = NSMakeRect( screenRect.origin.x, screenRect.size.height - srcRect.size.height,
-                                    screenRect.size.width, screenRect.size.height);
+    NSRect targetRect = screenRect; 
     
     // If this goes offscreen vertically, we'd rather have the title bar visible
     NSRect newRect;
@@ -268,7 +211,7 @@
 		  TunerContainer.style.marginLeft = margin; \
 		  pandora_tips.style.marginLeft = %d; \
 		  pandora_tips.style.width = %d;", leftMargin, tipsMargin, tipsWidth]];
-    [[self pandoraWindow] setFrame:newRect display:YES];
+    [[self fullScreenWindow] setFrame:newRect display:YES];
 }
 
 @end

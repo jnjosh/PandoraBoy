@@ -20,6 +20,7 @@
 - (id)nonNilValueForKey:(NSString*)key;
 
 - (NSWindow*)pandoraWindow;
+- (WebView*)pandoraWebView;
 - (WebScriptObject*)pandoraWebScriptObject;
 
 @end

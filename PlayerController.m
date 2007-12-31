@@ -13,6 +13,8 @@
 #import "Controller.h";
 #import "PBFullScreenPlugin.h"
 
+@class WebBaseNetscapePluginView;
+
 static PlayerController* _sharedInstance = nil;
 
 extern NSString *PBPandoraURL;
@@ -47,6 +49,9 @@ NSString *PBStationChangedNotification = @"Station Changed";
 - (void)setControlDisabled:(BOOL)value;
 - (BOOL)isFullScreen;
 - (void)setIsFullScreen:(BOOL)value;
+- (NSView *)webNetscapePlugin;
+- (void)setWebNetscapePlugin:(NSView *)value;
+
 @end
 
 @implementation PlayerController
@@ -79,7 +84,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
 }
 
 - (void) dealloc {
-    [webNetscapePlugin release];
+    [_webNetscapePlugin release];
     [_pendingWebViews release];
     [super dealloc];
 
@@ -87,14 +92,14 @@ NSString *PBStationChangedNotification = @"Station Changed";
 
 - (void) load
 {
-    [[pandoraWebView mainFrame] loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];
-    
+//	[self setWebNetscapePlugin:nil];
     ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:PBAPIPath];
     [[apiWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
     
     WebScriptObject *win = [apiWebView windowScriptObject]; 
     [win setValue:self forKey:@"SongNotification"];
+    [[pandoraWebView mainFrame] loadRequest:
+        [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];    
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -156,7 +161,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [_pendingWebViews addObject:aWebView];
 }
 
-- (void)removePendingWebview:(WebView*)aWebView {
+- (void)removePendingWebView:(WebView*)aWebView {
     [_pendingWebViews removeObject:aWebView];
 }
 
@@ -198,6 +203,17 @@ NSString *PBStationChangedNotification = @"Station Changed";
     return _fullScreenPlugin;
 }
 
+- (NSView *)webNetscapePlugin {
+	return [[_webNetscapePlugin retain] autorelease];
+}
+
+- (void)setWebNetscapePlugin:(NSView *)value {
+    if (_webNetscapePlugin != value) {
+        [_webNetscapePlugin release];
+        _webNetscapePlugin = [value retain];
+    }
+}
+
 /////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Flash calls
@@ -213,11 +229,11 @@ NSString *PBStationChangedNotification = @"Station Changed";
         myrecord.modifiers = modifiers; 
         
         //Send the keyDown press
-        [(id)webNetscapePlugin sendEvent:(NSEvent *)&myrecord];
+        [(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord];
         
         //Make it a keyUp EventRecord and resend it
         myrecord.what = keyUp;
-        [(id)webNetscapePlugin sendEvent:(NSEvent *)&myrecord];
+        [(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord];
         return true; 
     }
     else {
@@ -306,8 +322,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [self setStation:[sender representedObject]];
 }
 
-// FIXME: If we're in full-screen mode, this doesn't center the player
-- (IBAction) refreshPandora:(id)sender { [[pandoraWebView mainFrame] reload]; }
+- (IBAction) refreshPandora:(id)sender { [self load]; }
 
 - (IBAction)nextStation:(id)sender {
     [self setStation:[[StationList sharedStationList] nextStation]];
@@ -354,25 +369,35 @@ NSString *PBStationChangedNotification = @"Station Changed";
 {
     if( [sender isEqualTo:pandoraWebView] && [frame parentFrame] == nil)
     {
-        // Find the subview that isn't of size 0
-        NSPoint point = NSMakePoint([[pandoraWindow contentView] bounds].size.width / 2,
-                                    [[pandoraWindow contentView] bounds].size.width / 3);
-        NSArray *subviews = [[pandoraWebView hitTest:point] subviews];
-        int i;
-        for( i = 0; i < [subviews count]; i++ )
-        {
-            if( [[subviews objectAtIndex:i] frame].size.height > 0 )
-            {
-                webNetscapePlugin = [subviews objectAtIndex:i];
-                [pandoraWindow makeFirstResponder: webNetscapePlugin];
-                break;
-            }
-        }
-        
-        if( ! webNetscapePlugin ) {
-            NSLog(@"ERROR: Could not find webNetscapePlugin");
-        }        
-    }
+		// Find that Flash plugin (WebNetscapePluginDocumentView isa WebBaseNetscapePluginView)
+		NSPoint point = NSMakePoint([[pandoraWindow contentView] bounds].size.width / 2,
+									[[pandoraWindow contentView] bounds].size.width / 3);
+		NSView *view = [pandoraWebView hitTest:point];
+
+		// Depending on exactly how WebKit rendered things, we might have gotten
+		// the plugin itself, or we may have gotten the WebHTML view, in which
+		// case we'll need to go fishing around for the plugin.
+		if( [view isKindOfClass:[WebBaseNetscapePluginView class]] ) {
+			[self setWebNetscapePlugin:view];
+		}
+		else {
+			// Find the subview that isn't of size 0
+			NSArray *subviews = [view subviews];
+			int i;
+			for( i = 0; i < [subviews count]; i++ )
+			{
+				if( [[subviews objectAtIndex:i] frame].size.height > 0 )
+				{
+					[self setWebNetscapePlugin:[subviews objectAtIndex:i]];
+					[pandoraWindow makeFirstResponder: [self webNetscapePlugin]];
+					break;
+				}
+			}
+		}
+		if( ![self webNetscapePlugin] ) {
+			NSLog(@"ERROR: Could not find webNetscapePlugin.");
+		}
+	}
 }
 
 - (void)webView:(WebView *)sender makeFirstResponder:(NSResponder *)responder
@@ -389,14 +414,14 @@ NSString *PBStationChangedNotification = @"Station Changed";
     else {
         [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
         [listener ignore];
-        [self removePendingWebview:sender];
+        [self removePendingWebView:sender];
     }
 }
 
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
     [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
     [listener ignore];
-    [self removePendingWebview:sender];
+    [self removePendingWebView:sender];
 }
 
 - (id)webView:(WebView *)sender identifierForInitialRequest:(NSURLRequest *)request fromDataSource:(WebDataSource *)dataSource {
@@ -455,6 +480,11 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [[StationList sharedStationList] setCurrentStationFromIdentifier:identifier];
     [[NSNotificationCenter defaultCenter] postNotificationName:PBStationChangedNotification
                                                         object:[self currentStation]];
+}
+
+- (void) pandoraStarted
+{
+	NSLog(@"pandoraStarted");
 }
 
 - (void) pandoraEventFired:(NSString*)eventName :(NSString*)argument {

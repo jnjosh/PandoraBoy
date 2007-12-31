@@ -10,26 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "Station.h"
 #import "Track.h"
-
-extern NSString *PBPlayerStateStoppedString;
-extern NSString *PBPlayerStatePlayingString;
-extern NSString *PBPlayerStatePausedString;
-
-// These match iTunes (4-char codes)
-typedef enum _PBPlayerStates {
-    PBPlayerStateStopped = 'stop',
-    PBPlayerStatePlaying = 'play',
-    PBPlayerStatePaused  = 'paus'
-} PBPlayerStates;
-
-extern NSString *PBCurrentTrackKey;
-extern NSString *PBCurrentStationKey;
-extern NSString *PlayerStateKey;
-
-extern NSString *PBSongPlayedNotification;
-extern NSString *PBSongPausedNotification;
-extern NSString *PBSongThumbedNotification;
-extern NSString *PBStationChangedNotification;
+#import "PBNotifications.h"
 
 @interface PlayerController : NSObject {
     IBOutlet NSWindow *pandoraWindow; 
@@ -37,7 +18,7 @@ extern NSString *PBStationChangedNotification;
     IBOutlet WebView *pandoraWebView;
     IBOutlet WebView *apiWebView;
 
-    NSView *webNetscapePlugin;
+    NSView *_webNetscapePlugin;
     BOOL _controlDisabled;
     int _playerState;
     NSMutableSet *_pendingWebViews;
@@ -70,6 +51,7 @@ extern NSString *PBStationChangedNotification;
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 
 - (void) pandoraSongPaused; 
 - (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier;
+- (void) pandoraStarted;
 
 // Scripting interfaces
 - (int)playerState;

@@ -7,7 +7,7 @@
 //
 
 #import "PBFullScreenPlugin.h"
-
+#import "PBNotifications.h"
 
 @implementation PBFullScreenPlugin
 - (id)initWithContext:(NSDictionary*)context {
@@ -15,7 +15,13 @@
     if (self != nil) {
         [self setContext:context];
     }
+	
     return self;
+}
+
+- (void) dealloc {
+	[_context release];
+	[super dealloc];
 }
 
 #pragma -
@@ -28,7 +34,7 @@
 - (void)setContext:(NSDictionary *)value {
     if (_context != value) {
         [_context release];
-        _context = [value copy];
+        _context = [value mutableCopy];
     }
 }
 
@@ -50,6 +56,10 @@
 
 - (WebView*)pandoraWebView {
 	return [self nonNilValueForKey:@"pandoraWebView"];
+}
+
+- (void)setPandoraWebView:(WebView*)aWebView {
+	[[self context] setValue:aWebView forKey:@"pandoraWebView"];
 }
 
 #pragma -

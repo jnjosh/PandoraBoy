@@ -8,10 +8,11 @@
 //  Defines @protocol for PandoraBoy Fullscreen Plugins.
 
 #import <WebKit/WebKit.h>
+#import "PBNotifications.h"
 
 @interface PBFullScreenPlugin : NSObject {
     @private
-    NSDictionary *_context;
+    NSMutableDictionary *_context;
 }
 
 - (id)initWithContext:(NSDictionary*)context;
@@ -21,6 +22,7 @@
 
 - (NSWindow*)pandoraWindow;
 - (WebView*)pandoraWebView;
+- (void)setPandoraWebView:(WebView*)aWebView;
 - (WebScriptObject*)pandoraWebScriptObject;
 
 @end
@@ -35,5 +37,6 @@
 
 - (BOOL)startFullScreen;
 - (void)stopFullScreen;
+- (void)pandoraDidLoad:(NSNotification*)notification;
 
 @end

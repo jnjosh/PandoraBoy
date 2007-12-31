@@ -28,6 +28,9 @@ Pandora = {
         if (eventName == "StationPlayed") {
             mySongNotification.pandoraStationPlayed__(argument.stationName, argument.stationId);
         }
+		if (eventName == "PandoraStarted") {
+			mySongNotification.pandoraStarted();
+		}
     },
 
     getProps: function(obj) {

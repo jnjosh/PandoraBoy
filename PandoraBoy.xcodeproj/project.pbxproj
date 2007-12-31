@@ -70,6 +70,7 @@
 		FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
 		FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */ = {isa = PBXBuildFile; fileRef = FB732F530D203A97007E36B2 /* PandoraBoy.css */; };
+		FB871DF40D28284E006711FE /* PBNotifications.h in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB871DF30D28284E006711FE /* PBNotifications.h */; };
 		FB936CB60D0108C9007AD10A /* ProxyURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */; };
 		FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
@@ -106,6 +107,7 @@
 				FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */,
 				3D6942310AA3791F00899D49 /* Growl.framework in Copy Frameworks */,
 				FB3D82360D21DFD200F0A16D /* PBFullScreenPlugin.h in Copy Frameworks */,
+				FB871DF40D28284E006711FE /* PBNotifications.h in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +239,7 @@
 		FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version_sparkle.xml; sourceTree = "<group>"; };
 		FB732F530D203A97007E36B2 /* PandoraBoy.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PandoraBoy.css; sourceTree = "<group>"; };
 		FB7331B70D20B390007E36B2 /* background_mini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background_mini.jpg; path = images/background_mini.jpg; sourceTree = "<group>"; };
+		FB871DF30D28284E006711FE /* PBNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNotifications.h; sourceTree = "<group>"; };
 		FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyURLProtocol.h; sourceTree = "<group>"; };
 		FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyURLProtocol.m; sourceTree = "<group>"; };
 		FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkURLProtocol.h; sourceTree = "<group>"; };
@@ -343,6 +346,7 @@
 				FB3856B60BC993B1005653C3 /* Documentation */,
 				3DC9FC780B74FED200FF4370 /* Shortcut Recorder */,
 				3DDA241D0B74F58800F500BD /* Scripts */,
+				FB871DF20D28283C006711FE /* Headers */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				FB3D82340D21DF8C00F0A16D /* FullScreenPlugin */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -545,6 +549,14 @@
 				3D6942240AA378BF00899D49 /* Growl.framework */,
 			);
 			name = "Third Party Frameworks";
+			sourceTree = "<group>";
+		};
+		FB871DF20D28283C006711FE /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				FB871DF30D28284E006711FE /* PBNotifications.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 		FB936CB90D0108DD007AD10A /* URLProtocols */ = {

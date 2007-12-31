@@ -153,7 +153,14 @@
     [animation setDelegate:self];
     [animation startAnimation];
     [animation release];
-	
+
+	// FIXME: I don't know if I like the subclass having to do this by hand.
+	// Can the superclass help here? Maybe we need to enforce inheritance rather
+	// than rely on a protocol.
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(pandoraDidLoad:)
+												 name:PBPandoraDidLoadNotification
+											   object:nil];	
     return YES;
 }
 
@@ -167,6 +174,12 @@
 	[[[self pandoraWindow] contentView] addSubview:[self pandoraWebView]];
 	[[self pandoraWindow] makeKeyAndOrderFront:nil];
 	[[self fullScreenWindow] orderOut:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)pandoraDidLoad:(NSNotification*)notification {
+	[self updateAnimationForValue:1.0];
+	[self setPandoraWebView:[notification object]];
 }
 
 /////////////////////////////////////////////////////////////////////

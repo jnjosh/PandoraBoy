@@ -13,8 +13,6 @@
 #import "Controller.h";
 #import "PBFullScreenPlugin.h"
 
-@class WebBaseNetscapePluginView;
-
 static PlayerController* _sharedInstance = nil;
 
 extern NSString *PBPandoraURL;
@@ -377,7 +375,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
 		// Depending on exactly how WebKit rendered things, we might have gotten
 		// the plugin itself, or we may have gotten the WebHTML view, in which
 		// case we'll need to go fishing around for the plugin.
-		if( [view isKindOfClass:[WebBaseNetscapePluginView class]] ) {
+		if( [[[view class] description] isEqual:@"WebBaseNetscapePluginView"] ) {
 			[self setWebNetscapePlugin:view];
 		}
 		else {

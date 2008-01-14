@@ -25,8 +25,8 @@
 
 + (BOOL)shouldGammaFade;
 
-- (void)start;
-- (void)stop;
+- (void)startView;
+- (BOOL)stopView;
 - (BOOL)isActive;
 
 - (void)drawRect:(NSRect)rect;

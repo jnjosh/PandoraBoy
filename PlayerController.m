@@ -42,6 +42,8 @@ NSString *PBSongPausedNotification = @"Song Paused";
 NSString *PBSongThumbedNotification = @"Song Thumbed";
 NSString *PBStationChangedNotification = @"Station Changed";
 
+NSString *PBFullScreenDidFinishNotification = @"PBFullScreenDidFinish";
+
 @interface PlayerController (Private)
 - (BOOL)controlDisabled;
 - (void)setControlDisabled:(BOOL)value;
@@ -49,7 +51,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
 - (void)setIsFullScreen:(BOOL)value;
 - (NSView *)webNetscapePlugin;
 - (void)setWebNetscapePlugin:(NSView *)value;
-
+- (void)fullScreenDidFinish:(NSNotification*)notification;
 @end
 
 @implementation PlayerController
@@ -226,6 +228,10 @@ NSString *PBStationChangedNotification = @"Station Changed";
     return [[_fullScreenWindow retain] autorelease];
 }
 
+- (BOOL)canFullScreen {
+	return ([self webNetscapePlugin] != nil);
+}
+
 /////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Flash calls
@@ -347,18 +353,45 @@ NSString *PBStationChangedNotification = @"Station Changed";
 - (IBAction)fullScreenAction:(id)sender {
     if( [self isFullScreen] ) {
         [self setIsFullScreen:NO];
-		[[self viewPlugin] stop];
-		// FIXME: pull views
-    }
+		if( [[self viewPlugin] stopView] ) {
+			[self fullScreenDidFinish:nil];
+		}
+		else {
+			[[NSNotificationCenter defaultCenter] addObserver:self
+													 selector:@selector(fullScreenDidFinish:)
+														 name:PBFullScreenDidFinishNotification
+													   object:nil];
+		}
+	}
     else {
         [self setIsFullScreen:YES];
 		PandoraBoyView *view = [self viewPlugin];
-		[[[self fullScreenWindow] contentView] addSubview:view];
+		NSWindow *fullScreenWindow = [self fullScreenWindow];
+		[[fullScreenWindow contentView] addSubview:view];
 		[view addSubview:pandoraWebView];
-		[[self fullScreenWindow] makeKeyAndOrderFront:nil];
-		[pandoraWindow orderOut:nil];
-		[view start];
+		[fullScreenWindow makeKeyAndOrderFront:nil];
+		[fullScreenWindow makeFirstResponder:[self webNetscapePlugin]];
+		[view startView];
     }
+}
+
+- (void)fullScreenDidFinish:(NSNotification*)notification {
+	[[NSNotificationCenter defaultCenter] removeObserver:self
+													name:PBFullScreenDidFinishNotification
+												  object:nil];
+	[pandoraWindow disableScreenUpdatesUntilFlush];
+	[[pandoraWindow contentView] addSubview:pandoraWebView];
+	[pandoraWindow makeKeyAndOrderFront:nil];
+	[[self fullScreenWindow] orderOut:nil];
+	[pandoraWindow makeFirstResponder:[self webNetscapePlugin]];
+
+	// FIXME: Probably not the best way to do this. Need better methods around this
+	// once you actually load user-definable plugins.
+	[[self fullScreenWindow] close];
+	_fullScreenWindow = nil;
+	
+	_viewPlugin = nil;
+	[_viewPlugin release];
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -395,10 +428,12 @@ NSString *PBStationChangedNotification = @"Station Changed";
 		// Depending on exactly how WebKit rendered things, we might have gotten
 		// the plugin itself, or we may have gotten the WebHTML view, in which
 		// case we'll need to go fishing around for the plugin.
-		if( [[[view class] description] isEqual:@"WebBaseNetscapePluginView"] ) {
+		if( [[[view class] description] isEqual:@"WebBaseNetscapePluginView"] ||
+		   [[[view class] description] isEqual:@"WebNetscapePluginDocumentView"] ) {
 			[self setWebNetscapePlugin:view];
 		}
 		else {
+			NSLog(@"DEBUG:Looking for WebBaseNetscapePluginView we found %@", [view class]);
 			// Find the subview that isn't of size 0
 			NSArray *subviews = [view subviews];
 			int i;
@@ -407,12 +442,14 @@ NSString *PBStationChangedNotification = @"Station Changed";
 				if( [[subviews objectAtIndex:i] frame].size.height > 0 )
 				{
 					[self setWebNetscapePlugin:[subviews objectAtIndex:i]];
-					[pandoraWindow makeFirstResponder: [self webNetscapePlugin]];
 					break;
 				}
 			}
 		}
-		if( ![self webNetscapePlugin] ) {
+
+		if( [self webNetscapePlugin] ) {
+			[pandoraWindow makeFirstResponder: [self webNetscapePlugin]];
+		} else {
 			NSLog(@"ERROR: Could not find webNetscapePlugin.");
 		}
 	}

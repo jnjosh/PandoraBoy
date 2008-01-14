@@ -45,6 +45,8 @@
 - (IBAction)previousStation:(id)sender;
 - (IBAction)fullScreenAction:(id)sender;
 
+- (BOOL)canFullScreen;
+
 - (Track *)currentTrack;
 - (Station *)currentStation;
 - (void)setStation:(Station*)station;

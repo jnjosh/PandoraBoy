@@ -38,7 +38,7 @@
 }
 
 - (void) dealloc {
-	[self stop];
+	[self stopView];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[_webView release];
 	[_gammaFadeAnimation release];
@@ -109,7 +109,7 @@
 #pragma mark -
 #pragma mark Actions
 
-- (void)start {
+- (void)startView {
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(pandoraDidPlay:)
 												 name:PBSongPlayedNotification
@@ -157,7 +157,8 @@
 	[bgWin release];
 }
 
-- (void)stop {
+- (BOOL)stopView {
+	[self setIsActive:NO];
 	[[NSNotificationCenter defaultCenter] removeObserver:self
 													name:PBSongPlayedNotification
 												  object:nil];
@@ -180,16 +181,23 @@
 		NSViewAnimation *animation = [[NSViewAnimation alloc] initWithViewAnimations:[NSArray arrayWithObject:fadeOutEffect]];
 		[animation setDuration:1.5];
 		[animation setAnimationBlockingMode:NSAnimationNonblocking];
+		[animation setDelegate:self];
 		[animation startAnimation];
 		
 		[self setGammaFadeAnimation:animation];
 		[animation release];
+		return NO;
 	}
 	else {
-		[[self backgroundWindow] setAlphaValue:0.0];
+		[self setBackgroundWindow:nil];
+		return YES;
 	}
+}
 
-	[self setIsActive:NO];
+- (void)animationDidEnd:(NSAnimation *)animation {
+	[self setBackgroundWindow:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:PBFullScreenDidFinishNotification
+														object:nil];
 }
 
 - (void)drawRect:(NSRect)rect {

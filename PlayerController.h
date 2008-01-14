@@ -11,6 +11,7 @@
 #import "Station.h"
 #import "Track.h"
 #import "PBNotifications.h"
+#import "PandoraBoyView.h"
 
 @interface PlayerController : NSObject {
     IBOutlet NSWindow *pandoraWindow; 
@@ -23,7 +24,8 @@
     int _playerState;
     NSMutableSet *_pendingWebViews;
     BOOL _isFullScreen;
-    id _fullScreenPlugin;
+    PandoraBoyView *_viewPlugin;
+	NSWindow *_fullScreenWindow;
 }
 
 + (PlayerController*) sharedController;

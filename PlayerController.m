@@ -11,7 +11,7 @@
 #import <Carbon/Carbon.h>
 #import "ResourceURL.h";
 #import "Controller.h";
-#import "PBFullScreenPlugin.h"
+#import "PandoraBoyView.h"
 
 static PlayerController* _sharedInstance = nil;
 
@@ -64,7 +64,7 @@ NSString *PBStationChangedNotification = @"Station Changed";
 - (PlayerController *) init {
     if (_sharedInstance) return _sharedInstance;
 
-    if (_sharedInstance = [super init] ) {;
+    if (_sharedInstance = [super init] ) {
         [self setControlDisabled:FALSE];
         [self setPlayerState:PBPlayerStateStopped];
         [self setIsFullScreen:NO];
@@ -84,8 +84,8 @@ NSString *PBStationChangedNotification = @"Station Changed";
 - (void) dealloc {
     [_webNetscapePlugin release];
     [_pendingWebViews release];
+	[_fullScreenWindow release];
     [super dealloc];
-
 }
 
 - (void) load
@@ -163,42 +163,43 @@ NSString *PBStationChangedNotification = @"Station Changed";
     [_pendingWebViews removeObject:aWebView];
 }
 
-- (id)fullScreenPlugin {
-    if( ! _fullScreenPlugin ) {
-        // FIXME: Hardcoded path
-        NSString *pluginPath = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"FullScreenPlugins/PBFullScreenPandora.bundle"];
-        NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
-        if( pluginBundle == nil ) {
-            NSLog(@"ERROR: Could not load plugin:%@", pluginPath);
-            return nil;
-        }
-        
-        Class principalClass = [pluginBundle principalClass];
-        if( principalClass == nil ) {
-            NSLog(@"ERROR: Could not load principal place for plug-in at path: %@", pluginPath);
-            NSLog(@"Make sure the PrincipalClass target setting is correct.");
-            return nil;
-        }
-        
-        if( ![principalClass conformsToProtocol:@protocol(PBFullScreenProtocol)] ) {
-            NSLog(@"Plug-in %@ does not conform to PBFullScreenProtocol", pluginPath);
-            return nil;
-        }
-
-        NSDictionary *context = [NSDictionary dictionaryWithObjectsAndKeys:
-            pandoraWindow, @"pandoraWindow",
-			pandoraWebView, @"pandoraWebView",
-            nil];
-        
-        id pluginInstance = [[principalClass alloc] initWithContext:context];
-        if( pluginInstance == nil ) {
-            NSLog(@"ERROR: Could not initialize plugin: %@", pluginPath);
-            return nil;
-        }
-        
-        _fullScreenPlugin = pluginInstance;
-    }
-    return _fullScreenPlugin;
+- (PandoraBoyView*)viewPlugin {
+    if( ! _viewPlugin ) {
+//        // FIXME: Hardcoded path
+//        NSString *pluginPath = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"Views/Black.pbview"];
+//        NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
+//        if( pluginBundle == nil ) {
+//            NSLog(@"ERROR: Could not load plugin:%@", pluginPath);
+//            return nil;
+//        }
+//        
+//        Class principalClass = [pluginBundle principalClass];
+//        if( principalClass == nil ) {
+//            NSLog(@"ERROR: Could not load principal place for plug-in at path: %@", pluginPath);
+//            NSLog(@"Make sure the PrincipalClass target setting is correct.");
+//            return nil;
+//        }
+//        
+//        if( ![principalClass isKindOfClass:[PandoraBoyView class]] ) {
+//            NSLog(@"Plug-in %@ is not a PandoraBoyView", pluginPath);
+//            return nil;
+//        }
+//		
+//        id pluginInstance = [[principalClass alloc] initWithFrame:[pandoraWindow contentRectForFrameRect:[pandoraWindow frame]]
+//														  webView:pandoraWebView
+//													 isFullScreen:YES];
+//        if( pluginInstance == nil ) {
+//            NSLog(@"ERROR: Could not initialize plugin: %@", pluginPath);
+//            return nil;
+//        }
+//        
+//        _viewPlugin = pluginInstance;
+		
+		_viewPlugin = [[PandoraBoyView alloc] initWithFrame:[pandoraWindow contentRectForFrameRect:[pandoraWindow frame]]
+													webView:pandoraWebView
+											   isFullScreen:YES];
+	}
+    return [[_viewPlugin retain] autorelease];
 }
 
 - (NSView *)webNetscapePlugin {
@@ -210,6 +211,19 @@ NSString *PBStationChangedNotification = @"Station Changed";
         [_webNetscapePlugin release];
         _webNetscapePlugin = [value retain];
     }
+}
+
+- (NSWindow *)fullScreenWindow {
+	if( ! _fullScreenWindow ) {
+		_fullScreenWindow = [[NSWindow alloc] initWithContentRect:[[NSScreen mainScreen] frame]
+														styleMask:NSBorderlessWindowMask
+														  backing:NSBackingStoreBuffered
+														defer:YES];
+		[_fullScreenWindow setLevel:NSScreenSaverWindowLevel];
+		[_fullScreenWindow setBackgroundColor:[NSColor clearColor]];
+		[_fullScreenWindow setOpaque:NO];
+	}		 
+    return [[_fullScreenWindow retain] autorelease];
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -333,11 +347,17 @@ NSString *PBStationChangedNotification = @"Station Changed";
 - (IBAction)fullScreenAction:(id)sender {
     if( [self isFullScreen] ) {
         [self setIsFullScreen:NO];
-        [[self fullScreenPlugin] stopFullScreen];
+		[[self viewPlugin] stop];
+		// FIXME: pull views
     }
     else {
         [self setIsFullScreen:YES];
-        [[self fullScreenPlugin] startFullScreen];
+		PandoraBoyView *view = [self viewPlugin];
+		[[[self fullScreenWindow] contentView] addSubview:view];
+		[view addSubview:pandoraWebView];
+		[[self fullScreenWindow] makeKeyAndOrderFront:nil];
+		[pandoraWindow orderOut:nil];
+		[view start];
     }
 }
 

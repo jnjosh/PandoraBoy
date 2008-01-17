@@ -11,7 +11,8 @@
 #import <Carbon/Carbon.h>
 #import "ResourceURL.h";
 #import "Controller.h";
-#import "PandoraBoyView.h"
+#import "PBView.h"
+#import "PBNotifications.h"
 
 static PlayerController* _sharedInstance = nil;
 
@@ -27,22 +28,6 @@ NSString *PBAPIPath = @"/SongNotification.html";
 //    WebDashboardBehaviorAlwaysAcceptsFirstMouse,
 //    WebDashboardBehaviorAllowWheelScrolling
 //} WebDashboardBehavior;
-
-NSString *PBPlayerStateStoppedString = @"Stopped";
-NSString *PBPlayerStatePausedString  = @"Paused";
-NSString *PBPlayerStatePlayingString = @"Playing";
-
-NSString *PBCurrentTrackKey   = @"currentTrack";
-NSString *PBCurrentStationKey = @"currentStation";
-NSString *PBPlayerStateKey    = @"currentState";
-
-// These are human readable strings (used by Growl)
-NSString *PBSongPlayedNotification = @"Song Playing";
-NSString *PBSongPausedNotification = @"Song Paused";
-NSString *PBSongThumbedNotification = @"Song Thumbed";
-NSString *PBStationChangedNotification = @"Station Changed";
-
-NSString *PBFullScreenDidFinishNotification = @"PBFullScreenDidFinish";
 
 @interface PlayerController (Private)
 - (BOOL)controlDisabled;
@@ -165,41 +150,37 @@ NSString *PBFullScreenDidFinishNotification = @"PBFullScreenDidFinish";
     [_pendingWebViews removeObject:aWebView];
 }
 
-- (PandoraBoyView*)viewPlugin {
+- (PBView*)viewPlugin {
     if( ! _viewPlugin ) {
-//        // FIXME: Hardcoded path
-//        NSString *pluginPath = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"Views/Black.pbview"];
-//        NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
-//        if( pluginBundle == nil ) {
-//            NSLog(@"ERROR: Could not load plugin:%@", pluginPath);
-//            return nil;
-//        }
-//        
-//        Class principalClass = [pluginBundle principalClass];
-//        if( principalClass == nil ) {
-//            NSLog(@"ERROR: Could not load principal place for plug-in at path: %@", pluginPath);
-//            NSLog(@"Make sure the PrincipalClass target setting is correct.");
-//            return nil;
-//        }
-//        
-//        if( ![principalClass isKindOfClass:[PandoraBoyView class]] ) {
-//            NSLog(@"Plug-in %@ is not a PandoraBoyView", pluginPath);
-//            return nil;
-//        }
-//		
-//        id pluginInstance = [[principalClass alloc] initWithFrame:[pandoraWindow contentRectForFrameRect:[pandoraWindow frame]]
-//														  webView:pandoraWebView
-//													 isFullScreen:YES];
-//        if( pluginInstance == nil ) {
-//            NSLog(@"ERROR: Could not initialize plugin: %@", pluginPath);
-//            return nil;
-//        }
-//        
-//        _viewPlugin = pluginInstance;
+        // FIXME: Hardcoded path
+        NSString *pluginPath = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"Views/Black.pbview"];
+        NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
+        if( pluginBundle == nil ) {
+            NSLog(@"ERROR: Could not load plugin:%@", pluginPath);
+            return nil;
+        }
+        
+        Class principalClass = [pluginBundle principalClass];
+        if( principalClass == nil ) {
+            NSLog(@"ERROR: Could not load principal place for plug-in at path: %@", pluginPath);
+            NSLog(@"Make sure the PrincipalClass target setting is correct.");
+            return nil;
+        }
+        
+        if( ![principalClass isSubclassOfClass:[PBView class]] ) {
+            NSLog(@"Plug-in %@ (%@) is not a PandoraBoyView", principalClass, pluginPath);
+            return nil;
+        }
 		
-		_viewPlugin = [[PandoraBoyView alloc] initWithFrame:[pandoraWindow contentRectForFrameRect:[pandoraWindow frame]]
-													webView:pandoraWebView
-											   isFullScreen:YES];
+        id pluginInstance = [[principalClass alloc] initWithFrame:[pandoraWindow contentRectForFrameRect:[pandoraWindow frame]]
+														  webView:pandoraWebView
+													 isFullScreen:YES];
+        if( pluginInstance == nil ) {
+            NSLog(@"ERROR: Could not initialize plugin: %@", pluginPath);
+            return nil;
+        }
+        
+        _viewPlugin = pluginInstance;		
 	}
     return [[_viewPlugin retain] autorelease];
 }
@@ -229,7 +210,7 @@ NSString *PBFullScreenDidFinishNotification = @"PBFullScreenDidFinish";
 }
 
 - (BOOL)canFullScreen {
-	return ([self webNetscapePlugin] != nil);
+	return (([self webNetscapePlugin] != nil) && ! [[self viewPlugin] isMoving]);
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -353,24 +334,21 @@ NSString *PBFullScreenDidFinishNotification = @"PBFullScreenDidFinish";
 - (IBAction)fullScreenAction:(id)sender {
     if( [self isFullScreen] ) {
         [self setIsFullScreen:NO];
-		if( [[self viewPlugin] stopView] ) {
-			[self fullScreenDidFinish:nil];
-		}
-		else {
-			[[NSNotificationCenter defaultCenter] addObserver:self
-													 selector:@selector(fullScreenDidFinish:)
-														 name:PBFullScreenDidFinishNotification
-													   object:nil];
-		}
+		[[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(fullScreenDidFinish:)
+													 name:PBFullScreenDidFinishNotification
+												   object:nil];		
+		[[self viewPlugin] stopView];
 	}
     else {
         [self setIsFullScreen:YES];
-		PandoraBoyView *view = [self viewPlugin];
+		PBView *view = [self viewPlugin];
 		NSWindow *fullScreenWindow = [self fullScreenWindow];
 		[[fullScreenWindow contentView] addSubview:view];
 		[view addSubview:pandoraWebView];
 		[fullScreenWindow makeKeyAndOrderFront:nil];
 		[fullScreenWindow makeFirstResponder:[self webNetscapePlugin]];
+		[view prepare];
 		[view startView];
     }
 }
@@ -428,8 +406,8 @@ NSString *PBFullScreenDidFinishNotification = @"PBFullScreenDidFinish";
 		// Depending on exactly how WebKit rendered things, we might have gotten
 		// the plugin itself, or we may have gotten the WebHTML view, in which
 		// case we'll need to go fishing around for the plugin.
-		if( [[[view class] description] isEqual:@"WebBaseNetscapePluginView"] ||
-		   [[[view class] description] isEqual:@"WebNetscapePluginDocumentView"] ) {
+		if( [[view className] isEqual:@"WebBaseNetscapePluginView"] ||
+			[[view className] isEqual:@"WebNetscapePluginDocumentView"] ) {
 			[self setWebNetscapePlugin:view];
 		}
 		else {

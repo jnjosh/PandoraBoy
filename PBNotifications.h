@@ -1,5 +1,3 @@
-#define PBPandoraDidLoadNotification @"PBPandoraDidLoadNotification"
-
 extern NSString *PBPlayerStateStoppedString;
 extern NSString *PBPlayerStatePlayingString;
 extern NSString *PBPlayerStatePausedString;

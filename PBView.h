@@ -6,30 +6,35 @@
 //  Copyright 2008. All rights reserved.
 //
 //  Abstract class for plugin views of PandoraBoy. Based heavily on ScreenSaverView.
-//  Context keys:
-//     PBWindowKey			: (NSWindow*) The main Pandora window
-//     PBWebViewKey         : (WebView*) Pandora's flash-player webview
 
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebView.h>
 
-@interface PandoraBoyView : NSView {
+@class PBViewAnimation;
+
+@interface PBView : NSView {
 	BOOL	_isFullScreen;
 	BOOL	_isActive;
+	BOOL	_isMoving;
 	WebView *_webView;
-	NSViewAnimation *_gammaFadeAnimation;
+	NSMutableSet *_animations;
+	NSMutableSet *_reverseAnimations;
 	NSWindow *_backgroundWindow;
+	NSTimeInterval _animationDuration;
 }
 
 - (id)initWithFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen;
+- (void)prepare;
+- (void)startView;
+- (void)stopView;
+- (BOOL)isActive;
+- (BOOL)isMoving;
 
 + (BOOL)shouldGammaFade;
 
-- (void)startView;
-- (BOOL)stopView;
-- (BOOL)isActive;
+- (NSSet*)animations;
+- (void)addAnimation:(PBViewAnimation*)animation;
 
-- (void)drawRect:(NSRect)rect;
 - (BOOL)isFullScreen;
 - (void)setIsFullScreen:(BOOL)value;
 

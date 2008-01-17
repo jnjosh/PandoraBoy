@@ -37,19 +37,7 @@
 		FB27A1BB0CFF03A80038475D /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A1B90CFF03A80038475D /* AppleRemote.m */; };
 		FB27A2120CFF9D6C0038475D /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */; };
 		FB27A2170CFF9DB90038475D /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FB27A2150CFF9DB90038475D /* RemoteControl.m */; };
-		FB35926A0D22CCD90048A0EA /* PBTrackInfoCrawlWidget.qtz in Copy Widgets */ = {isa = PBXBuildFile; fileRef = FB35923E0D22CC2D0048A0EA /* PBTrackInfoCrawlWidget.qtz */; };
-		FB3592EC0D22D60E0048A0EA /* QuartzComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3592D60D22D33E0048A0EA /* QuartzComposer.framework */; };
-		FB3593EB0D22D9800048A0EA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA326A50D137BF700AD3D91 /* WebKit.framework */; };
-		FB35946C0D22DF320048A0EA /* background_mini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB7331B70D20B390007E36B2 /* background_mini.jpg */; };
 		FB3856AB0BC9919B005653C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3856AA0BC9919B005653C3 /* Localizable.strings */; };
-		FB3D82360D21DFD200F0A16D /* PBFullScreenPlugin.h in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB3D82350D21DFD200F0A16D /* PBFullScreenPlugin.h */; };
-		FB3D828F0D21F76600F0A16D /* background_mini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB7331B70D20B390007E36B2 /* background_mini.jpg */; };
-		FB3D82B90D21FBCC00F0A16D /* PBFullScreenPandora-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB3D822E0D21DF0200F0A16D /* PBFullScreenPandora-Info.plist */; };
-		FB3D82BE0D21FBDB00F0A16D /* PBFullScreenPandora.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3D825F0D21EDD500F0A16D /* PBFullScreenPandora.m */; };
-		FB3D82C10D21FBE000F0A16D /* PBFullScreenPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3D82750D21F53700F0A16D /* PBFullScreenPlugin.m */; };
-		FB3D82D50D21FD0900F0A16D /* PBFullScreenPandora.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FB3D822D0D21DF0200F0A16D /* PBFullScreenPandora.bundle */; };
-		FB3D83020D2201B500F0A16D /* MyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF4BD580D1F43180017B6CB /* MyAnimation.m */; };
-		FB3D831A0D2201E000F0A16D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB5816F0ABB0155004452C3 /* Carbon.framework */; };
 		FB4631400CFBA3500098407B /* ResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */; };
 		FB4632680CFBBE830098407B /* ResourceURL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4632660CFBBE830098407B /* ResourceURL.m */; };
 		FB4F5F180D1617D3005523DA /* PreviousStation.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */; };
@@ -63,12 +51,22 @@
 		FB4F5F200D1617D3005523DA /* ThumbsDown.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */; };
 		FB4F5F210D1617D3005523DA /* ThumbsUp.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */; };
 		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
+		FB5486F90D3EA98C009C9E29 /* PBViewAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5486F70D3EA98C009C9E29 /* PBViewAnimation.h */; };
+		FB5486FA0D3EA98C009C9E29 /* PBViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5486F80D3EA98C009C9E29 /* PBViewAnimation.m */; };
+		FB5487540D3EAF36009C9E29 /* PBViewAnimationGammaFade.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5487520D3EAF36009C9E29 /* PBViewAnimationGammaFade.h */; };
+		FB5487550D3EAF36009C9E29 /* PBViewAnimationGammaFade.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5487530D3EAF36009C9E29 /* PBViewAnimationGammaFade.m */; };
+		FB5487BA0D3EB9D4009C9E29 /* PBMoveAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5487B80D3EB9D4009C9E29 /* PBMoveAnimation.h */; };
+		FB5487BB0D3EB9D4009C9E29 /* PBMoveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5487B90D3EB9D4009C9E29 /* PBMoveAnimation.m */; };
 		FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6192750D0C9B7A00667BF3 /* PlayerController.m */; };
 		FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB6B5DE70CF9CA5600DEF3C9 /* SongNotification.html in Resources */ = {isa = PBXBuildFile; fileRef = FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */; };
 		FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */ = {isa = PBXBuildFile; fileRef = FB732F530D203A97007E36B2 /* PandoraBoy.css */; };
 		FB871DF40D28284E006711FE /* PBNotifications.h in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB871DF30D28284E006711FE /* PBNotifications.h */; };
+		FB8A81870D3C272700A985A6 /* PBNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A81790D3C26CD00A985A6 /* PBNotifications.m */; };
+		FB8A81880D3C272700A985A6 /* PBView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD7E3EB0D3AD13D00AE1733 /* PBView.m */; };
+		FB8A81920D3C27C300A985A6 /* PandoraBoyPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
+		FB8A81F50D3D0B0F00A985A6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		FB936CB60D0108C9007AD10A /* ProxyURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */; };
 		FB936D6A0D01BB69007AD10A /* ArtworkURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB936D680D01BB69007AD10A /* ArtworkURLProtocol.m */; };
 		FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */; };
@@ -76,17 +74,45 @@
 		FBA325F50D137B8500AD3D91 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA325F40D137B8500AD3D91 /* AppKit.framework */; };
 		FBA326A60D137BF700AD3D91 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA326A50D137BF700AD3D91 /* WebKit.framework */; };
 		FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */; };
+		FBAE25A80D3D0BA300FA8277 /* PandoraBoyPlugin.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
+		FBAE25DB0D3D0DA500FA8277 /* PandoraBoyPlugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB8A81810D3C26ED00A985A6 /* PandoraBoyPlugin-Info.plist */; };
+		FBAE25F70D3D0F8F00FA8277 /* Black-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */; };
+		FBAE25F80D3D0F9C00FA8277 /* PBViewBlack.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A81170D3C226B00A985A6 /* PBViewBlack.m */; };
+		FBAE25FC0D3D0FBC00FA8277 /* PandoraBoyPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
+		FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.pbview */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404310D039F0600B179F9 /* StationsURLProtocol.m */; };
 		FBC404460D03A22B00B179F9 /* StationList.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404440D03A22B00B179F9 /* StationList.m */; };
 		FBC404520D03A31600B179F9 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404500D03A31600B179F9 /* Station.m */; };
 		FBD7E37C0D3AC60100AE1733 /* QuartzComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3592D60D22D33E0048A0EA /* QuartzComposer.framework */; };
-		FBD7E3B40D3AC8A900AE1733 /* MyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF4BD580D1F43180017B6CB /* MyAnimation.m */; };
-		FBD7E3EC0D3AD13D00AE1733 /* PandoraBoyView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD7E3EB0D3AD13D00AE1733 /* PandoraBoyView.m */; };
 		FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDBAC540D0F196100476C66 /* DistributedNotification.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB8A818C0D3C27AE00A985A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB8A817F0D3C26ED00A985A6;
+			remoteInfo = PandoraBoyPlugin;
+		};
+		FBAE26000D3D0FE200FA8277 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB8A817F0D3C26ED00A985A6;
+			remoteInfo = PandoraBoyPlugin;
+		};
+		FBAE26020D3D0FE700FA8277 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FBAE25EF0D3D0EC700FA8277;
+			remoteInfo = Black;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3D6942280AA378EC00899D49 /* Copy Frameworks */ = {
@@ -95,9 +121,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FBAE25A80D3D0BA300FA8277 /* PandoraBoyPlugin.framework in Copy Frameworks */,
 				FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */,
 				3D6942310AA3791F00899D49 /* Growl.framework in Copy Frameworks */,
-				FB3D82360D21DFD200F0A16D /* PBFullScreenPlugin.h in Copy Frameworks */,
 				FB871DF40D28284E006711FE /* PBNotifications.h in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -109,7 +135,6 @@
 			dstPath = Widgets;
 			dstSubfolderSpec = 13;
 			files = (
-				FB35926A0D22CCD90048A0EA /* PBTrackInfoCrawlWidget.qtz in Copy Widgets */,
 			);
 			name = "Copy Widgets";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,10 +142,10 @@
 		FB3D82CD0D21FC6A00F0A16D /* Copy Plugins */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = FullScreenPlugins;
+			dstPath = Views;
 			dstSubfolderSpec = 13;
 			files = (
-				FB3D82D50D21FD0900F0A16D /* PBFullScreenPandora.bundle in Copy Plugins */,
+				FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */,
 			);
 			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,17 +228,10 @@
 		FB27A2100CFF9D6C0038475D /* HIDRemoteControlDevice.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = HIDRemoteControlDevice.m; path = RemoteControlWrapper/HIDRemoteControlDevice.m; sourceTree = "<group>"; };
 		FB27A2140CFF9DB90038475D /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = RemoteControl.h; path = RemoteControlWrapper/RemoteControl.h; sourceTree = "<group>"; };
 		FB27A2150CFF9DB90038475D /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = RemoteControl.m; path = RemoteControlWrapper/RemoteControl.m; sourceTree = "<group>"; };
-		FB35923E0D22CC2D0048A0EA /* PBTrackInfoCrawlWidget.qtz */ = {isa = PBXFileReference; lastKnownFileType = file; path = PBTrackInfoCrawlWidget.qtz; sourceTree = "<group>"; };
 		FB3592D60D22D33E0048A0EA /* QuartzComposer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzComposer.framework; path = /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzComposer.framework; sourceTree = "<absolute>"; };
 		FB38569E0BC9913F005653C3 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB3856B70BC993C9005653C3 /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		FB3856EE0BC9973F005653C3 /* README.DNC.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = README.DNC.rtf; sourceTree = "<group>"; };
-		FB3D822D0D21DF0200F0A16D /* PBFullScreenPandora.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PBFullScreenPandora.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB3D822E0D21DF0200F0A16D /* PBFullScreenPandora-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PBFullScreenPandora-Info.plist"; sourceTree = "<group>"; };
-		FB3D82350D21DFD200F0A16D /* PBFullScreenPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFullScreenPlugin.h; sourceTree = "<group>"; };
-		FB3D825E0D21EDD500F0A16D /* PBFullScreenPandora.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFullScreenPandora.h; sourceTree = "<group>"; };
-		FB3D825F0D21EDD500F0A16D /* PBFullScreenPandora.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFullScreenPandora.m; sourceTree = "<group>"; };
-		FB3D82750D21F53700F0A16D /* PBFullScreenPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFullScreenPlugin.m; sourceTree = "<group>"; };
 		FB46313D0CFBA3500098407B /* ResourceURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceURLProtocol.h; sourceTree = "<group>"; };
 		FB46313E0CFBA3500098407B /* ResourceURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceURLProtocol.m; sourceTree = "<group>"; };
 		FB4632650CFBBE830098407B /* ResourceURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceURL.h; sourceTree = "<group>"; };
@@ -223,14 +241,24 @@
 		FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = PreviousStation.scpt; path = Applescripts/PreviousStation.scpt; sourceTree = "<group>"; };
 		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
 		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
+		FB5486F70D3EA98C009C9E29 /* PBViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBViewAnimation.h; sourceTree = "<group>"; };
+		FB5486F80D3EA98C009C9E29 /* PBViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBViewAnimation.m; sourceTree = "<group>"; };
+		FB5487520D3EAF36009C9E29 /* PBViewAnimationGammaFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBViewAnimationGammaFade.h; sourceTree = "<group>"; };
+		FB5487530D3EAF36009C9E29 /* PBViewAnimationGammaFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBViewAnimationGammaFade.m; sourceTree = "<group>"; };
+		FB5487B80D3EB9D4009C9E29 /* PBMoveAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMoveAnimation.h; sourceTree = "<group>"; };
+		FB5487B90D3EB9D4009C9E29 /* PBMoveAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMoveAnimation.m; sourceTree = "<group>"; };
 		FB6192740D0C9B7A00667BF3 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
 		FB6192750D0C9B7A00667BF3 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		FB691B490D01F2B500B027ED /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = SongNotification.html; sourceTree = "<group>"; };
 		FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version_sparkle.xml; sourceTree = "<group>"; };
 		FB732F530D203A97007E36B2 /* PandoraBoy.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PandoraBoy.css; sourceTree = "<group>"; };
-		FB7331B70D20B390007E36B2 /* background_mini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background_mini.jpg; path = images/background_mini.jpg; sourceTree = "<group>"; };
 		FB871DF30D28284E006711FE /* PBNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNotifications.h; sourceTree = "<group>"; };
+		FB8A81160D3C226B00A985A6 /* PBViewBlack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBViewBlack.h; sourceTree = "<group>"; };
+		FB8A81170D3C226B00A985A6 /* PBViewBlack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBViewBlack.m; sourceTree = "<group>"; };
+		FB8A81790D3C26CD00A985A6 /* PBNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNotifications.m; sourceTree = "<group>"; };
+		FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PandoraBoyPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8A81810D3C26ED00A985A6 /* PandoraBoyPlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PandoraBoyPlugin-Info.plist"; sourceTree = "<group>"; };
 		FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyURLProtocol.h; sourceTree = "<group>"; };
 		FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyURLProtocol.m; sourceTree = "<group>"; };
 		FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkURLProtocol.h; sourceTree = "<group>"; };
@@ -242,6 +270,8 @@
 		FBA326A50D137BF700AD3D91 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackURLProtocol.h; sourceTree = "<group>"; };
 		FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackURLProtocol.m; sourceTree = "<group>"; };
+		FBAE25F00D3D0EC700FA8277 /* Black.pbview */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.pbview; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Black-Info.plist"; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
@@ -251,12 +281,10 @@
 		FBC404440D03A22B00B179F9 /* StationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationList.m; sourceTree = "<group>"; };
 		FBC4044F0D03A31600B179F9 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
 		FBC404500D03A31600B179F9 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
-		FBD7E3EA0D3AD13D00AE1733 /* PandoraBoyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraBoyView.h; sourceTree = "<group>"; };
-		FBD7E3EB0D3AD13D00AE1733 /* PandoraBoyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraBoyView.m; sourceTree = "<group>"; };
+		FBD7E3EA0D3AD13D00AE1733 /* PBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBView.h; sourceTree = "<group>"; };
+		FBD7E3EB0D3AD13D00AE1733 /* PBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBView.m; sourceTree = "<group>"; };
 		FBDBAC530D0F196100476C66 /* DistributedNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributedNotification.h; sourceTree = "<group>"; };
 		FBDBAC540D0F196100476C66 /* DistributedNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributedNotification.m; sourceTree = "<group>"; };
-		FBF4BD570D1F43180017B6CB /* MyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnimation.h; sourceTree = "<group>"; };
-		FBF4BD580D1F43180017B6CB /* MyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnimation.m; sourceTree = "<group>"; };
 		FBF742000BD1C3AC007F85D5 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		FBF742010BD1C3AC007F85D5 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +294,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8A81920D3C27C300A985A6 /* PandoraBoyPlugin.framework in Frameworks */,
 				FBD7E37C0D3AC60100AE1733 /* QuartzComposer.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				3D6942250AA378BF00899D49 /* Growl.framework in Frameworks */,
@@ -277,13 +306,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB3D822B0D21DF0200F0A16D /* Frameworks */ = {
+		FB8A817E0D3C26ED00A985A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB3D831A0D2201E000F0A16D /* Carbon.framework in Frameworks */,
-				FB3593EB0D22D9800048A0EA /* WebKit.framework in Frameworks */,
-				FB3592EC0D22D60E0048A0EA /* QuartzComposer.framework in Frameworks */,
+				FB8A81F50D3D0B0F00A985A6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBAE25EE0D3D0EC700FA8277 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBAE25FC0D3D0FBC00FA8277 /* PandoraBoyPlugin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +364,8 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* PandoraBoy.app */,
-				FB3D822D0D21DF0200F0A16D /* PBFullScreenPandora.bundle */,
+				FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */,
+				FBAE25F00D3D0EC700FA8277 /* Black.pbview */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -342,11 +378,13 @@
 				3DDA241D0B74F58800F500BD /* Scripts */,
 				FB871DF20D28283C006711FE /* Headers */,
 				080E96DDFE201D6D7F000001 /* Classes */,
-				FB3D82340D21DF8C00F0A16D /* PandoraBoyView */,
+				FB3D82340D21DF8C00F0A16D /* PandoraBoyPlugin */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				FB8A81810D3C26ED00A985A6 /* PandoraBoyPlugin-Info.plist */,
+				FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */,
 			);
 			name = PandoraBoy;
 			sourceTree = "<group>";
@@ -440,14 +478,6 @@
 			name = RemoteControlWrapper;
 			sourceTree = "<group>";
 		};
-		FB35920E0D22CBF90048A0EA /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-				FB35923E0D22CC2D0048A0EA /* PBTrackInfoCrawlWidget.qtz */,
-			);
-			name = Widgets;
-			sourceTree = "<group>";
-		};
 		FB3856B60BC993B1005653C3 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,30 +490,44 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
-		FB3D82340D21DF8C00F0A16D /* PandoraBoyView */ = {
+		FB3D82340D21DF8C00F0A16D /* PandoraBoyPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				FB35920E0D22CBF90048A0EA /* Widgets */,
-				FB3D82370D21DFE800F0A16D /* Pandora */,
-				FB3D82350D21DFD200F0A16D /* PBFullScreenPlugin.h */,
-				FB3D82750D21F53700F0A16D /* PBFullScreenPlugin.m */,
-				FBF4BD570D1F43180017B6CB /* MyAnimation.h */,
-				FBF4BD580D1F43180017B6CB /* MyAnimation.m */,
-				FBD7E3EA0D3AD13D00AE1733 /* PandoraBoyView.h */,
-				FBD7E3EB0D3AD13D00AE1733 /* PandoraBoyView.m */,
+				FB871DF30D28284E006711FE /* PBNotifications.h */,
+				FB8A81790D3C26CD00A985A6 /* PBNotifications.m */,
+				FB5487450D3EAE6F009C9E29 /* PBViewAnimation */,
+				FB8A81850D3C270600A985A6 /* PBView */,
 			);
-			name = PandoraBoyView;
+			name = PandoraBoyPlugin;
 			sourceTree = "<group>";
 		};
-		FB3D82370D21DFE800F0A16D /* Pandora */ = {
+		FB5487450D3EAE6F009C9E29 /* PBViewAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				FB3D822E0D21DF0200F0A16D /* PBFullScreenPandora-Info.plist */,
-				FB3D825E0D21EDD500F0A16D /* PBFullScreenPandora.h */,
-				FB3D825F0D21EDD500F0A16D /* PBFullScreenPandora.m */,
-				FB7331B70D20B390007E36B2 /* background_mini.jpg */,
+				FB5486F70D3EA98C009C9E29 /* PBViewAnimation.h */,
+				FB5486F80D3EA98C009C9E29 /* PBViewAnimation.m */,
+				FB5487500D3EAED0009C9E29 /* GammaFade */,
+				FB5487BE0D3EB9DF009C9E29 /* MovePandora */,
 			);
-			name = Pandora;
+			name = PBViewAnimation;
+			sourceTree = "<group>";
+		};
+		FB5487500D3EAED0009C9E29 /* GammaFade */ = {
+			isa = PBXGroup;
+			children = (
+				FB5487520D3EAF36009C9E29 /* PBViewAnimationGammaFade.h */,
+				FB5487530D3EAF36009C9E29 /* PBViewAnimationGammaFade.m */,
+			);
+			name = GammaFade;
+			sourceTree = "<group>";
+		};
+		FB5487BE0D3EB9DF009C9E29 /* MovePandora */ = {
+			isa = PBXGroup;
+			children = (
+				FB5487B80D3EB9D4009C9E29 /* PBMoveAnimation.h */,
+				FB5487B90D3EB9D4009C9E29 /* PBMoveAnimation.m */,
+			);
+			name = MovePandora;
 			sourceTree = "<group>";
 		};
 		FB61925A0D0C955800667BF3 /* Model */ = {
@@ -550,9 +594,27 @@
 		FB871DF20D28283C006711FE /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				FB871DF30D28284E006711FE /* PBNotifications.h */,
 			);
 			name = Headers;
+			sourceTree = "<group>";
+		};
+		FB8A81780D3C25FB00A985A6 /* Black */ = {
+			isa = PBXGroup;
+			children = (
+				FB8A81160D3C226B00A985A6 /* PBViewBlack.h */,
+				FB8A81170D3C226B00A985A6 /* PBViewBlack.m */,
+			);
+			name = Black;
+			sourceTree = "<group>";
+		};
+		FB8A81850D3C270600A985A6 /* PBView */ = {
+			isa = PBXGroup;
+			children = (
+				FBD7E3EA0D3AD13D00AE1733 /* PBView.h */,
+				FBD7E3EB0D3AD13D00AE1733 /* PBView.m */,
+				FB8A81780D3C25FB00A985A6 /* Black */,
+			);
+			name = PBView;
 			sourceTree = "<group>";
 		};
 		FB936CB90D0108DD007AD10A /* URLProtocols */ = {
@@ -578,6 +640,19 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		FB8A817B0D3C26ED00A985A6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5486F90D3EA98C009C9E29 /* PBViewAnimation.h in Headers */,
+				FB5487540D3EAF36009C9E29 /* PBViewAnimationGammaFade.h in Headers */,
+				FB5487BA0D3EB9D4009C9E29 /* PBMoveAnimation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		8D1107260486CEB800E47090 /* PandoraBoy */ = {
 			isa = PBXNativeTarget;
@@ -594,6 +669,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				FB8A818D0D3C27AE00A985A6 /* PBXTargetDependency */,
+				FBAE26030D3D0FE700FA8277 /* PBXTargetDependency */,
 			);
 			name = PandoraBoy;
 			productInstallPath = "$(HOME)/Applications";
@@ -601,21 +678,40 @@
 			productReference = 8D1107320486CEB800E47090 /* PandoraBoy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB3D822C0D21DF0200F0A16D /* PBFullScreenPandora */ = {
+		FB8A817F0D3C26ED00A985A6 /* PandoraBoyPlugin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB3D822F0D21DF0200F0A16D /* Build configuration list for PBXNativeTarget "PBFullScreenPandora" */;
+			buildConfigurationList = FB8A81840D3C26EE00A985A6 /* Build configuration list for PBXNativeTarget "PandoraBoyPlugin" */;
 			buildPhases = (
-				FB3D82290D21DF0200F0A16D /* Resources */,
-				FB3D822A0D21DF0200F0A16D /* Sources */,
-				FB3D822B0D21DF0200F0A16D /* Frameworks */,
+				FB8A817B0D3C26ED00A985A6 /* Headers */,
+				FB8A817C0D3C26ED00A985A6 /* Resources */,
+				FB8A817D0D3C26ED00A985A6 /* Sources */,
+				FB8A817E0D3C26ED00A985A6 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = PBFullScreenPandora;
-			productName = PBFullScreenPandora;
-			productReference = FB3D822D0D21DF0200F0A16D /* PBFullScreenPandora.bundle */;
+			name = PandoraBoyPlugin;
+			productName = PandoraBoyPlugin;
+			productReference = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FBAE25EF0D3D0EC700FA8277 /* Black */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBAE25F50D3D0EC700FA8277 /* Build configuration list for PBXNativeTarget "Black" */;
+			buildPhases = (
+				FBAE25EC0D3D0EC700FA8277 /* Resources */,
+				FBAE25ED0D3D0EC700FA8277 /* Sources */,
+				FBAE25EE0D3D0EC700FA8277 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBAE26010D3D0FE200FA8277 /* PBXTargetDependency */,
+			);
+			name = Black;
+			productName = Black;
+			productReference = FBAE25F00D3D0EC700FA8277 /* Black.pbview */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -630,8 +726,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB3D822C0D21DF0200F0A16D /* PBFullScreenPandora */,
 				8D1107260486CEB800E47090 /* PandoraBoy */,
+				FB8A817F0D3C26ED00A985A6 /* PandoraBoyPlugin */,
+				FBAE25EF0D3D0EC700FA8277 /* Black */,
 			);
 		};
 /* End PBXProject section */
@@ -656,16 +753,22 @@
 				FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */,
 				FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */,
 				FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */,
-				FB35946C0D22DF320048A0EA /* background_mini.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB3D82290D21DF0200F0A16D /* Resources */ = {
+		FB8A817C0D3C26ED00A985A6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB3D828F0D21F76600F0A16D /* background_mini.jpg in Resources */,
-				FB3D82B90D21FBCC00F0A16D /* PBFullScreenPandora-Info.plist in Resources */,
+				FBAE25DB0D3D0DA500FA8277 /* PandoraBoyPlugin-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBAE25EC0D3D0EC700FA8277 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBAE25F70D3D0F8F00FA8277 /* Black-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,7 +779,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBD7E3B40D3AC8A900AE1733 /* MyAnimation.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				3D7F771F0A9EB1DB004B0146 /* Controller.m in Sources */,
 				3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */,
@@ -706,21 +808,48 @@
 				FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */,
 				FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */,
 				FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */,
-				FBD7E3EC0D3AD13D00AE1733 /* PandoraBoyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB3D822A0D21DF0200F0A16D /* Sources */ = {
+		FB8A817D0D3C26ED00A985A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB3D82BE0D21FBDB00F0A16D /* PBFullScreenPandora.m in Sources */,
-				FB3D82C10D21FBE000F0A16D /* PBFullScreenPlugin.m in Sources */,
-				FB3D83020D2201B500F0A16D /* MyAnimation.m in Sources */,
+				FB8A81870D3C272700A985A6 /* PBNotifications.m in Sources */,
+				FB8A81880D3C272700A985A6 /* PBView.m in Sources */,
+				FB5486FA0D3EA98C009C9E29 /* PBViewAnimation.m in Sources */,
+				FB5487550D3EAF36009C9E29 /* PBViewAnimationGammaFade.m in Sources */,
+				FB5487BB0D3EB9D4009C9E29 /* PBMoveAnimation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBAE25ED0D3D0EC700FA8277 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBAE25F80D3D0F9C00FA8277 /* PBViewBlack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB8A818D0D3C27AE00A985A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB8A817F0D3C26ED00A985A6 /* PandoraBoyPlugin */;
+			targetProxy = FB8A818C0D3C27AE00A985A6 /* PBXContainerItemProxy */;
+		};
+		FBAE26010D3D0FE200FA8277 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB8A817F0D3C26ED00A985A6 /* PandoraBoyPlugin */;
+			targetProxy = FBAE26000D3D0FE200FA8277 /* PBXContainerItemProxy */;
+		};
+		FBAE26030D3D0FE700FA8277 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FBAE25EF0D3D0EC700FA8277 /* Black */;
+			targetProxy = FBAE26020D3D0FE700FA8277 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -767,9 +896,11 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_8)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_9)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/build/Debug\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -809,8 +940,10 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_8)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_9)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_10)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_10 = "\"$(SRCROOT)/build/Debug\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_3 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_4 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
@@ -859,57 +992,90 @@
 			};
 			name = Release;
 		};
-		FB3D82300D21DF0200F0A16D /* Debug */ = {
+		FB8A81820D3C26EE00A985A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Quartz.framework/Frameworks\"";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "PBFullScreenPandora-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INFOPLIST_FILE = "PandoraBoyPlugin-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
+					Carbon,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = PBFullScreenPandora;
-				WRAPPER_EXTENSION = bundle;
+				PRODUCT_NAME = PandoraBoyPlugin;
 				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
-		FB3D82310D21DF0200F0A16D /* Release */ = {
+		FB8A81830D3C26EE00A985A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Quartz.framework/Frameworks\"";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INFOPLIST_FILE = "PandoraBoyPlugin-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = PandoraBoyPlugin;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		FBAE25F30D3D0EC700FA8277 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Black-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/PandoraBoy/Views";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Black;
+				WRAPPER_EXTENSION = pbview;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		FBAE25F40D3D0EC700FA8277 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "PBFullScreenPandora-Info.plist";
+				INFOPLIST_FILE = "Black-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -918,7 +1084,7 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = PBFullScreenPandora;
+				PRODUCT_NAME = Black;
 				WRAPPER_EXTENSION = bundle;
 				ZERO_LINK = NO;
 			};
@@ -945,11 +1111,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB3D822F0D21DF0200F0A16D /* Build configuration list for PBXNativeTarget "PBFullScreenPandora" */ = {
+		FB8A81840D3C26EE00A985A6 /* Build configuration list for PBXNativeTarget "PandoraBoyPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB3D82300D21DF0200F0A16D /* Debug */,
-				FB3D82310D21DF0200F0A16D /* Release */,
+				FB8A81820D3C26EE00A985A6 /* Debug */,
+				FB8A81830D3C26EE00A985A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBAE25F50D3D0EC700FA8277 /* Build configuration list for PBXNativeTarget "Black" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBAE25F30D3D0EC700FA8277 /* Debug */,
+				FBAE25F40D3D0EC700FA8277 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

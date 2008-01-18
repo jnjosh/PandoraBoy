@@ -8,6 +8,7 @@
 
 #import "StationList.h"
 #import "Controller.h"
+#import "PlayerController.h"
 
 static StationList *_sharedStationList = nil;
 

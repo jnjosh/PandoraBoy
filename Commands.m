@@ -21,6 +21,8 @@
 #import "Commands.h"
 #import "Controller.h"
 #import "Playlist.h"
+#import "PlayerController.h"
+#import "StationList.h"
 
 // FIXME? This would all be much shorter with a superclass that looked up
 //        command class to selector mappings in a dictionary. But maybe that's

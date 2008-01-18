@@ -8,14 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
-#import "Station.h"
-#import "Track.h"
 #import "PBNotifications.h"
-#import "PBView.h"
+
+@class Station;
+@class Track;
+@class PBFullScreenWindowController;
 
 @interface PlayerController : NSObject {
     IBOutlet NSWindow *pandoraWindow; 
-
     IBOutlet WebView *pandoraWebView;
     IBOutlet WebView *apiWebView;
 
@@ -24,8 +24,7 @@
     int _playerState;
     NSMutableSet *_pendingWebViews;
     BOOL _isFullScreen;
-    PBView *_viewPlugin;
-	NSWindow *_fullScreenWindow;
+	PBFullScreenWindowController *fullScreenWindowController;
 }
 
 + (PlayerController*) sharedController;

@@ -8,6 +8,7 @@
 
 #import "DistributedNotification.h"
 #import "PlayerController.h"
+#import "Track.h"
 
 NSString *PBPlayerInfoNotificationName = @"net.frozensilicon.pandoraBoy.playerInfo";
 

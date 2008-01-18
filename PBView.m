@@ -8,67 +8,64 @@
 
 #import "PBView.h"
 #import "PBNotifications.h"
-#import "PBViewAnimation.h"
-#import "PBViewAnimationGammaFade.h"
 
 @interface PBView (PrivateAPI)
 
 - (void)setIsActive:(BOOL)value;
-- (WebView *)webView;
+- (void)setIsFullScreen:(BOOL)value;
 - (void)setWebView:(WebView *)value;
-- (NSWindow *)backgroundWindow;
-- (void)setBackgroundWindow:(NSWindow *)value;
 - (void)startObserving;
 - (void)stopObserving;
-- (void)setAnimations:(NSMutableSet *)value;
-- (NSSet*)reverseAnimations;
-- (void)setReverseAnimations:(NSMutableSet *)value;
-- (NSTimeInterval)animationDuration;
-- (void)setAnimationDuration:(NSTimeInterval)value;
-- (void)setIsMoving:(BOOL)value;
+
 @end
 
 @implementation PBView
+
++ (PBView*)viewFromBundleNamed:(NSString*)name withFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen {
+	NSString *pluginDir = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"Views"];
+	NSString *pluginPath = [[pluginDir stringByAppendingPathComponent:name] stringByAppendingPathExtension:@"pbview"];
+	NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
+	if( pluginBundle == nil ) {
+		NSLog(@"ERROR: Could not load plugin:%@", pluginPath);
+		return nil;
+	}
+	
+	Class principalClass = [pluginBundle principalClass];
+	if( principalClass == nil ) {
+		NSLog(@"ERROR: Could not load principal place for plug-in at path: %@", pluginPath);
+		NSLog(@"Make sure the PrincipalClass target setting is correct.");
+		return nil;
+	}
+	
+	if( ![principalClass isSubclassOfClass:[PBView class]] ) {
+		NSLog(@"Plug-in %@ (%@) is not a PandoraBoyView", principalClass, pluginPath);
+		return nil;
+	}
+	
+	id pluginInstance = [[principalClass alloc] initWithFrame:frame
+													  webView:webView
+												 isFullScreen:isFullScreen];
+	if( pluginInstance == nil ) {
+		NSLog(@"ERROR: Could not initialize plugin: %@", pluginPath);
+		return nil;
+	}
+	
+	return [pluginInstance autorelease];
+}
 
 - (id)initWithFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
 		[self setIsFullScreen:isFullScreen];
 		[self setWebView:webView];
-		[self setAnimations:[NSMutableArray arrayWithCapacity:1]];
-		[self setReverseAnimations:[NSMutableArray arrayWithCapacity:1]];
-		[self setAnimationDuration:0];
-		[self setIsMoving:NO];
 	}
 	return self;
-}
-
-- (void)prepare {
-	NSWindow *win = [self window];
-	NSWindow *bgWin = [[NSWindow alloc] initWithContentRect:[win contentRectForFrameRect:[win frame]]
-												  styleMask:NSBorderlessWindowMask
-													backing:NSBackingStoreBuffered
-													  defer:YES];
-	[bgWin setLevel:[win level] - 1];
-	[bgWin setBackgroundColor:[NSColor blackColor]];
-	[bgWin setAlphaValue:0.0];
-	[bgWin orderFront:nil];	
-	NSTimeInterval bgFadeDuration = [[self class] shouldGammaFade] ? PBAnimationDefaultDuration : 0;
-	[self addAnimation:[PBViewAnimationGammaFade animationWithTarget:bgWin
-														  fadeEffect:NSViewAnimationFadeInEffect
-															 startingAt:0
-															duration:bgFadeDuration]];
-	[self setBackgroundWindow:bgWin];
-	[bgWin release];
 }
 
 - (void) dealloc {
 	[self stopView];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[_webView release];
-	[_animations release];
-	[_reverseAnimations release];
-	[_backgroundWindow release];
 	[super dealloc];
 }
 
@@ -96,10 +93,6 @@
     }
 }
 
-+ (BOOL)shouldGammaFade {
-	return YES;
-}
-
 - (BOOL)isFullScreen {
     return _isFullScreen;
 }
@@ -110,93 +103,12 @@
     }
 }
 
-- (NSWindow *)backgroundWindow {
-    return [[_backgroundWindow retain] autorelease];
+- (NSRect)origWebViewFrame {
+    return origWebViewFrame;
 }
 
-- (void)setBackgroundWindow:(NSWindow *)value {
-    if (_backgroundWindow != value) {
-        [_backgroundWindow release];
-        _backgroundWindow = [value retain];
-    }
-}
-
-- (NSSet *)animations {
-    return [[_animations retain] autorelease];
-}
-
-- (void)setAnimations:(NSMutableSet *)value {
-    if (_animations != value) {
-        [_animations release];
-        _animations = [value retain];
-    }
-}
-
-- (NSSet *)reverseAnimations {
-	return [[_reverseAnimations retain] autorelease];
-}
-
-- (void)setReverseAnimations:(NSMutableSet *)value {
-	if (_reverseAnimations != value) {
-		[_reverseAnimations release];
-		_reverseAnimations = [value retain];
-	}
-}
-
-- (void)addAnimation:(PBViewAnimation*)animation
-{
-	[animation setDelegate:self];
-	[_animations addObject:animation];
-	PBViewAnimation *inverse = [animation inverse];
-	[inverse setDelegate:self];
-	[_reverseAnimations addObject:inverse];
-	_animationDuration = MAX(_animationDuration, [animation startTime] + [animation duration]);
-}
-
-//- (void)startAnimation:(PBViewAnimation*)animation whenLastAnimationReachesProgress:(NSAnimationProgress)progress
-//{
-//	if( [_animations count] > 0 )
-//	{
-//		[self startAnimation:animation whenAnimation:[_animations lastObject] reachesProgress:progress];
-//	}
-//	else
-//	{
-//		[animation setDelegate:self];
-//		[_animations addObject:animation];
-//		[_reverseAnimations addObject:[[animation copy] autorelease]];
-//	}
-//}
-//
-//- (void)startAnimation:(PBViewAnimation*)animation whenAnimation:(PBViewAnimation*)linkedAnimation reachesProgress:(NSAnimationProgress)progress
-//{
-//	[animation setDelegate:self];
-//	NSAnimation *inverseAnimation = [animation inverse];
-//
-//	[animation startWhenAnimation:linkedAnimation reachesProgress:progress];
-//	[_animations addObject:animation];
-//	
-//	[reverseAnimation startWhenAnimation:reverseLinkedAnimation reachesProgress:(1 - progress)];
-//	[_reverseAnimations insertObject:reverseAnimation atIndex:0];
-//}
-
-- (NSTimeInterval)animationDuration {
-    return _animationDuration;
-}
-
-- (void)setAnimationDuration:(NSTimeInterval)value {
-    if (_animationDuration != value) {
-        _animationDuration = value;
-    }
-}
-
-- (BOOL)isMoving {
-    return _isMoving;
-}
-
-- (void)setIsMoving:(BOOL)value {
-    if (_isMoving != value) {
-        _isMoving = value;
-    }
+- (void)setOrigWebViewFrame:(NSRect)value {
+	origWebViewFrame = value;
 }
 
 #pragma mark -
@@ -241,46 +153,15 @@
 #pragma mark Actions
 
 - (void)startView {
-	[self setIsMoving:YES];
 	[self startObserving];
 	[self setIsActive:YES];
-//	[[[self animations] objectAtIndex:0] startAnimation];
-	NSEnumerator *e = [[self animations] objectEnumerator];
-	PBViewAnimation *a;
-	while( a = [e nextObject] ) {
-		[a performSelector:@selector(startAnimation) withObject:nil afterDelay:[a startTime]];
-	}
+	[self setOrigWebViewFrame:[[self webView] frame]];
 }
 
 - (void)stopView {
-	[self setIsMoving:YES];
 	[self setIsActive:NO];
 	[self stopObserving];
-//	[[[self reverseAnimations] objectAtIndex:0] startAnimation];
-	NSTimeInterval animationDuration = [self animationDuration];
-	NSEnumerator *e = [[self reverseAnimations] objectEnumerator];
-	PBViewAnimation *a;
-	while( a = [e nextObject] ) {
-		[a performSelector:@selector(startAnimation) withObject:nil afterDelay:(animationDuration - [a startTime] - [a duration])];
-	}
-//	if( [[self class] shouldGammaFade] ) {
-//		// FIXME
-//		return NO;
-//	}
-//	else {
-//		[[self backgroundWindow] orderOut:nil];
-//		return YES;
-//	}
-}
-
-- (void)animationDidEnd:(NSAnimation *)animation {
-	NSMutableSet *activeSet = [self isActive] ? _animations : _reverseAnimations;
-	[activeSet removeObject:animation];
-	if( [activeSet count] == 0 ) {
-		[self setIsMoving:NO];
-		[[NSNotificationCenter defaultCenter] postNotificationName:PBFullScreenDidFinishNotification
-															object:nil];
-	}
+	[[self webView] setFrame:[self origWebViewFrame]];
 }
 
 - (void)drawRect:(NSRect)rect {
@@ -288,35 +169,7 @@
     [NSBezierPath fillRect:rect];
 }
 
-- (BOOL)hasConfigureSheet {
-	return NO;
-}
 
-- (NSWindow*)configureSheet {
-	return nil;
-}
-
-- (NSView*)preview {
-	return self;
-}
-
-//#pragma mark -
-//#pragma View movement
-//- (void)viewDidMoveToWindow
-//{
-//	NSWindow *bgWin = [self backgroundWindow];
-//	if( [self window] )
-//	{
-//		[bgWin setFrame:[[self window] contentRectForFrameRect:[[self window] frame]] display:NO];
-//		[bgWin setLevel:[[self window] level] - 1];
-//		[bgWin orderFront:nil];
-//	}
-//	else
-//	{
-//		[bgWin orderOut:nil];
-//	}
-//}
-//
 #pragma mark -
 #pragma Pandora Delegates
 

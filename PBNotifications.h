@@ -17,5 +17,3 @@ extern NSString *PBSongPlayedNotification;
 extern NSString *PBSongPausedNotification;
 extern NSString *PBSongThumbedNotification;
 extern NSString *PBStationChangedNotification;
-
-extern NSString *PBFullScreenDidFinishNotification;

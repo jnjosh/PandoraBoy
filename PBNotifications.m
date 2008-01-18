@@ -15,5 +15,3 @@ NSString *PBSongPlayedNotification = @"Song Playing";
 NSString *PBSongPausedNotification = @"Song Paused";
 NSString *PBSongThumbedNotification = @"Song Thumbed";
 NSString *PBStationChangedNotification = @"Station Changed";
-
-NSString *PBFullScreenDidFinishNotification = @"PBFullScreenDidFinish";

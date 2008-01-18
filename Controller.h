@@ -20,15 +20,13 @@
  ***************************************************************************/
 
 #import <Cocoa/Cocoa.h>
-#import <WebKit/WebUIDelegate.h>
-#import <WebKit/WebPolicyDelegate.h>
-#import <WebKit/WebView.h>
-#import "Playlist.h"
-#import "AppleRemote.h"
-#import "GrowlNotification.h"
-#import "DistributedNotification.h"
-#import "StationList.h"
-#import "PlayerController.h"
+
+@class Playlist;
+@class AppleRemote;
+@class GrowlNotification;
+@class DistributedNotification;
+@class StationList;
+@class PlayerController;
 
 @interface Controller : NSObject
 {

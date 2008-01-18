@@ -8,6 +8,7 @@
 
 #import "FeedbackURLProtocol.h"
 #import "PlayerController.h"
+#import "Track.h"
 
 @implementation FeedbackURLProtocol
 + (BOOL)canInitWithRequest:(NSURLRequest *)request

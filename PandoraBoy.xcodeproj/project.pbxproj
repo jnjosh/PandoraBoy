@@ -51,12 +51,6 @@
 		FB4F5F200D1617D3005523DA /* ThumbsDown.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */; };
 		FB4F5F210D1617D3005523DA /* ThumbsUp.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */; };
 		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
-		FB5486F90D3EA98C009C9E29 /* PBViewAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5486F70D3EA98C009C9E29 /* PBViewAnimation.h */; };
-		FB5486FA0D3EA98C009C9E29 /* PBViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5486F80D3EA98C009C9E29 /* PBViewAnimation.m */; };
-		FB5487540D3EAF36009C9E29 /* PBViewAnimationGammaFade.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5487520D3EAF36009C9E29 /* PBViewAnimationGammaFade.h */; };
-		FB5487550D3EAF36009C9E29 /* PBViewAnimationGammaFade.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5487530D3EAF36009C9E29 /* PBViewAnimationGammaFade.m */; };
-		FB5487BA0D3EB9D4009C9E29 /* PBMoveAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5487B80D3EB9D4009C9E29 /* PBMoveAnimation.h */; };
-		FB5487BB0D3EB9D4009C9E29 /* PBMoveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5487B90D3EB9D4009C9E29 /* PBMoveAnimation.m */; };
 		FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6192750D0C9B7A00667BF3 /* PlayerController.m */; };
 		FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
 		FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
@@ -85,6 +79,7 @@
 		FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404310D039F0600B179F9 /* StationsURLProtocol.m */; };
 		FBC404460D03A22B00B179F9 /* StationList.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404440D03A22B00B179F9 /* StationList.m */; };
 		FBC404520D03A31600B179F9 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404500D03A31600B179F9 /* Station.m */; };
+		FBC6878A0D3FF512002F42C4 /* PBFullScreenWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC687890D3FF512002F42C4 /* PBFullScreenWindowController.m */; };
 		FBD7E37C0D3AC60100AE1733 /* QuartzComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3592D60D22D33E0048A0EA /* QuartzComposer.framework */; };
 		FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDBAC540D0F196100476C66 /* DistributedNotification.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
@@ -241,12 +236,6 @@
 		FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = PreviousStation.scpt; path = Applescripts/PreviousStation.scpt; sourceTree = "<group>"; };
 		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
 		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
-		FB5486F70D3EA98C009C9E29 /* PBViewAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBViewAnimation.h; sourceTree = "<group>"; };
-		FB5486F80D3EA98C009C9E29 /* PBViewAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBViewAnimation.m; sourceTree = "<group>"; };
-		FB5487520D3EAF36009C9E29 /* PBViewAnimationGammaFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBViewAnimationGammaFade.h; sourceTree = "<group>"; };
-		FB5487530D3EAF36009C9E29 /* PBViewAnimationGammaFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBViewAnimationGammaFade.m; sourceTree = "<group>"; };
-		FB5487B80D3EB9D4009C9E29 /* PBMoveAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMoveAnimation.h; sourceTree = "<group>"; };
-		FB5487B90D3EB9D4009C9E29 /* PBMoveAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMoveAnimation.m; sourceTree = "<group>"; };
 		FB6192740D0C9B7A00667BF3 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
 		FB6192750D0C9B7A00667BF3 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		FB691B490D01F2B500B027ED /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
@@ -258,7 +247,7 @@
 		FB8A81170D3C226B00A985A6 /* PBViewBlack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBViewBlack.m; sourceTree = "<group>"; };
 		FB8A81790D3C26CD00A985A6 /* PBNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNotifications.m; sourceTree = "<group>"; };
 		FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PandoraBoyPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB8A81810D3C26ED00A985A6 /* PandoraBoyPlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PandoraBoyPlugin-Info.plist"; sourceTree = "<group>"; };
+		FB8A81810D3C26ED00A985A6 /* PandoraBoyPlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PandoraBoyPlugin-Info.plist"; sourceTree = "<group>"; };
 		FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyURLProtocol.h; sourceTree = "<group>"; };
 		FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyURLProtocol.m; sourceTree = "<group>"; };
 		FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkURLProtocol.h; sourceTree = "<group>"; };
@@ -271,7 +260,7 @@
 		FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackURLProtocol.h; sourceTree = "<group>"; };
 		FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackURLProtocol.m; sourceTree = "<group>"; };
 		FBAE25F00D3D0EC700FA8277 /* Black.pbview */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.pbview; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Black-Info.plist"; sourceTree = "<group>"; };
+		FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black-Info.plist"; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
@@ -281,6 +270,8 @@
 		FBC404440D03A22B00B179F9 /* StationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationList.m; sourceTree = "<group>"; };
 		FBC4044F0D03A31600B179F9 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
 		FBC404500D03A31600B179F9 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
+		FBC687880D3FF512002F42C4 /* PBFullScreenWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFullScreenWindowController.h; sourceTree = "<group>"; };
+		FBC687890D3FF512002F42C4 /* PBFullScreenWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFullScreenWindowController.m; sourceTree = "<group>"; };
 		FBD7E3EA0D3AD13D00AE1733 /* PBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBView.h; sourceTree = "<group>"; };
 		FBD7E3EB0D3AD13D00AE1733 /* PBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBView.m; sourceTree = "<group>"; };
 		FBDBAC530D0F196100476C66 /* DistributedNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributedNotification.h; sourceTree = "<group>"; };
@@ -493,41 +484,13 @@
 		FB3D82340D21DF8C00F0A16D /* PandoraBoyPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				FBC687880D3FF512002F42C4 /* PBFullScreenWindowController.h */,
+				FBC687890D3FF512002F42C4 /* PBFullScreenWindowController.m */,
 				FB871DF30D28284E006711FE /* PBNotifications.h */,
 				FB8A81790D3C26CD00A985A6 /* PBNotifications.m */,
-				FB5487450D3EAE6F009C9E29 /* PBViewAnimation */,
 				FB8A81850D3C270600A985A6 /* PBView */,
 			);
 			name = PandoraBoyPlugin;
-			sourceTree = "<group>";
-		};
-		FB5487450D3EAE6F009C9E29 /* PBViewAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				FB5486F70D3EA98C009C9E29 /* PBViewAnimation.h */,
-				FB5486F80D3EA98C009C9E29 /* PBViewAnimation.m */,
-				FB5487500D3EAED0009C9E29 /* GammaFade */,
-				FB5487BE0D3EB9DF009C9E29 /* MovePandora */,
-			);
-			name = PBViewAnimation;
-			sourceTree = "<group>";
-		};
-		FB5487500D3EAED0009C9E29 /* GammaFade */ = {
-			isa = PBXGroup;
-			children = (
-				FB5487520D3EAF36009C9E29 /* PBViewAnimationGammaFade.h */,
-				FB5487530D3EAF36009C9E29 /* PBViewAnimationGammaFade.m */,
-			);
-			name = GammaFade;
-			sourceTree = "<group>";
-		};
-		FB5487BE0D3EB9DF009C9E29 /* MovePandora */ = {
-			isa = PBXGroup;
-			children = (
-				FB5487B80D3EB9D4009C9E29 /* PBMoveAnimation.h */,
-				FB5487B90D3EB9D4009C9E29 /* PBMoveAnimation.m */,
-			);
-			name = MovePandora;
 			sourceTree = "<group>";
 		};
 		FB61925A0D0C955800667BF3 /* Model */ = {
@@ -645,9 +608,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB5486F90D3EA98C009C9E29 /* PBViewAnimation.h in Headers */,
-				FB5487540D3EAF36009C9E29 /* PBViewAnimationGammaFade.h in Headers */,
-				FB5487BA0D3EB9D4009C9E29 /* PBMoveAnimation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +768,7 @@
 				FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */,
 				FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */,
 				FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */,
+				FBC6878A0D3FF512002F42C4 /* PBFullScreenWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,9 +778,6 @@
 			files = (
 				FB8A81870D3C272700A985A6 /* PBNotifications.m in Sources */,
 				FB8A81880D3C272700A985A6 /* PBView.m in Sources */,
-				FB5486FA0D3EA98C009C9E29 /* PBViewAnimation.m in Sources */,
-				FB5487550D3EAF36009C9E29 /* PBViewAnimationGammaFade.m in Sources */,
-				FB5487BB0D3EB9D4009C9E29 /* PBMoveAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

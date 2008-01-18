@@ -7,16 +7,17 @@
 //
 
 #import "PBViewBlack.h"
-#import "PBMoveAnimation.h"
 
 @implementation PBViewBlack
 
-- (void)prepare
+- (void)startView
 {
-	[super prepare];
-	[self addAnimation:[PBMoveAnimation animationWithTarget:self
-													 toOrigin:NSZeroPoint
-												 startingAt:PBAnimationDefaultDuration / 2]];
+	[super startView];
+	NSRect bounds = [self bounds];
+	NSRect wvFrame = [[self webView] frame];
+	wvFrame.origin = NSMakePoint((bounds.size.width - wvFrame.size.width) / 2,
+								 (bounds.size.height - wvFrame.size.height) );
+	[[self webView] setFrame:wvFrame];
 }
 
 @end

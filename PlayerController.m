@@ -10,9 +10,13 @@
 #import "PlayerController.h"
 #import <Carbon/Carbon.h>
 #import "ResourceURL.h";
-#import "Controller.h";
-#import "PBView.h"
 #import "PBNotifications.h"
+#import "Controller.h";
+#import "Station.h"
+#import "Track.h"
+#import "Playlist.h"
+#import "StationList.h"
+#import "PBFullScreenWindowController.h"
 
 static PlayerController* _sharedInstance = nil;
 
@@ -36,7 +40,6 @@ NSString *PBAPIPath = @"/SongNotification.html";
 - (void)setIsFullScreen:(BOOL)value;
 - (NSView *)webNetscapePlugin;
 - (void)setWebNetscapePlugin:(NSView *)value;
-- (void)fullScreenDidFinish:(NSNotification*)notification;
 @end
 
 @implementation PlayerController
@@ -71,7 +74,7 @@ NSString *PBAPIPath = @"/SongNotification.html";
 - (void) dealloc {
     [_webNetscapePlugin release];
     [_pendingWebViews release];
-	[_fullScreenWindow release];
+	[fullScreenWindowController release];
     [super dealloc];
 }
 
@@ -150,41 +153,6 @@ NSString *PBAPIPath = @"/SongNotification.html";
     [_pendingWebViews removeObject:aWebView];
 }
 
-- (PBView*)viewPlugin {
-    if( ! _viewPlugin ) {
-        // FIXME: Hardcoded path
-        NSString *pluginPath = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"Views/Black.pbview"];
-        NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
-        if( pluginBundle == nil ) {
-            NSLog(@"ERROR: Could not load plugin:%@", pluginPath);
-            return nil;
-        }
-        
-        Class principalClass = [pluginBundle principalClass];
-        if( principalClass == nil ) {
-            NSLog(@"ERROR: Could not load principal place for plug-in at path: %@", pluginPath);
-            NSLog(@"Make sure the PrincipalClass target setting is correct.");
-            return nil;
-        }
-        
-        if( ![principalClass isSubclassOfClass:[PBView class]] ) {
-            NSLog(@"Plug-in %@ (%@) is not a PandoraBoyView", principalClass, pluginPath);
-            return nil;
-        }
-		
-        id pluginInstance = [[principalClass alloc] initWithFrame:[pandoraWindow contentRectForFrameRect:[pandoraWindow frame]]
-														  webView:pandoraWebView
-													 isFullScreen:YES];
-        if( pluginInstance == nil ) {
-            NSLog(@"ERROR: Could not initialize plugin: %@", pluginPath);
-            return nil;
-        }
-        
-        _viewPlugin = pluginInstance;		
-	}
-    return [[_viewPlugin retain] autorelease];
-}
-
 - (NSView *)webNetscapePlugin {
 	return [[_webNetscapePlugin retain] autorelease];
 }
@@ -196,21 +164,8 @@ NSString *PBAPIPath = @"/SongNotification.html";
     }
 }
 
-- (NSWindow *)fullScreenWindow {
-	if( ! _fullScreenWindow ) {
-		_fullScreenWindow = [[NSWindow alloc] initWithContentRect:[[NSScreen mainScreen] frame]
-														styleMask:NSBorderlessWindowMask
-														  backing:NSBackingStoreBuffered
-														defer:YES];
-		[_fullScreenWindow setLevel:NSScreenSaverWindowLevel];
-		[_fullScreenWindow setBackgroundColor:[NSColor clearColor]];
-		[_fullScreenWindow setOpaque:NO];
-	}		 
-    return [[_fullScreenWindow retain] autorelease];
-}
-
 - (BOOL)canFullScreen {
-	return (([self webNetscapePlugin] != nil) && ! [[self viewPlugin] isMoving]);
+	return (([self webNetscapePlugin] != nil) && (!fullScreenWindowController || [fullScreenWindowController canChangeState]));
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -321,7 +276,7 @@ NSString *PBAPIPath = @"/SongNotification.html";
     [self setStation:[sender representedObject]];
 }
 
-- (IBAction) refreshPandora:(id)sender { [self load]; }
+- (IBAction)refreshPandora:(id)sender { [self load]; }
 
 - (IBAction)nextStation:(id)sender {
     [self setStation:[[StationList sharedStationList] nextStation]];
@@ -334,42 +289,15 @@ NSString *PBAPIPath = @"/SongNotification.html";
 - (IBAction)fullScreenAction:(id)sender {
     if( [self isFullScreen] ) {
         [self setIsFullScreen:NO];
-		[[NSNotificationCenter defaultCenter] addObserver:self
-												 selector:@selector(fullScreenDidFinish:)
-													 name:PBFullScreenDidFinishNotification
-												   object:nil];		
-		[[self viewPlugin] stopView];
+		[fullScreenWindowController closeAndMoveWebViewToWindow:pandoraWindow];
 	}
     else {
         [self setIsFullScreen:YES];
-		PBView *view = [self viewPlugin];
-		NSWindow *fullScreenWindow = [self fullScreenWindow];
-		[[fullScreenWindow contentView] addSubview:view];
-		[view addSubview:pandoraWebView];
-		[fullScreenWindow makeKeyAndOrderFront:nil];
-		[fullScreenWindow makeFirstResponder:[self webNetscapePlugin]];
-		[view prepare];
-		[view startView];
+		[fullScreenWindowController release];
+		fullScreenWindowController = [[PBFullScreenWindowController alloc] initWithWebView:pandoraWebView
+																		   flashPlayerView:[self webNetscapePlugin]];
+		[fullScreenWindowController showWindow:nil];
     }
-}
-
-- (void)fullScreenDidFinish:(NSNotification*)notification {
-	[[NSNotificationCenter defaultCenter] removeObserver:self
-													name:PBFullScreenDidFinishNotification
-												  object:nil];
-	[pandoraWindow disableScreenUpdatesUntilFlush];
-	[[pandoraWindow contentView] addSubview:pandoraWebView];
-	[pandoraWindow makeKeyAndOrderFront:nil];
-	[[self fullScreenWindow] orderOut:nil];
-	[pandoraWindow makeFirstResponder:[self webNetscapePlugin]];
-
-	// FIXME: Probably not the best way to do this. Need better methods around this
-	// once you actually load user-definable plugins.
-	[[self fullScreenWindow] close];
-	_fullScreenWindow = nil;
-	
-	_viewPlugin = nil;
-	[_viewPlugin release];
 }
 
 /////////////////////////////////////////////////////////////////////

@@ -15,33 +15,20 @@
 @interface PBView : NSView {
 	BOOL	_isFullScreen;
 	BOOL	_isActive;
-	BOOL	_isMoving;
 	WebView *_webView;
-	NSMutableSet *_animations;
-	NSMutableSet *_reverseAnimations;
-	NSWindow *_backgroundWindow;
-	NSTimeInterval _animationDuration;
+	NSRect  origWebViewFrame;
 }
 
++ (PBView*)viewFromBundleNamed:(NSString*)name withFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen;
 - (id)initWithFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen;
-- (void)prepare;
 - (void)startView;
 - (void)stopView;
 - (BOOL)isActive;
-- (BOOL)isMoving;
-
-+ (BOOL)shouldGammaFade;
-
-- (NSSet*)animations;
-- (void)addAnimation:(PBViewAnimation*)animation;
 
 - (BOOL)isFullScreen;
-- (void)setIsFullScreen:(BOOL)value;
-
-- (BOOL)hasConfigureSheet;
-- (NSWindow*)configureSheet;
-
-- (NSView*)preview;
+- (WebView *)webView;
+- (NSRect)origWebViewFrame;
+- (void)setOrigWebViewFrame:(NSRect)value;
 
 - (void)pandoraDidPlay:(NSNotification*)notification;
 - (void)pandoraDidPause:(NSNotification*)notification;

@@ -294,8 +294,8 @@ NSString *PBAPIPath = @"/SongNotification.html";
     else {
         [self setIsFullScreen:YES];
 		[fullScreenWindowController release];
-		fullScreenWindowController = [[PBFullScreenWindowController alloc] initWithWebView:pandoraWebView
-																		   flashPlayerView:[self webNetscapePlugin]];
+		fullScreenWindowController = [[PBFullScreenWindowController alloc] initWithPlayerView:pandoraWebView
+																		   flashView:[self webNetscapePlugin]];
 		[fullScreenWindowController showWindow:nil];
     }
 }

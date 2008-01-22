@@ -2,64 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IBDocumentLocation</key>
-	<string>564 73 629 424 0 0 1280 778 </string>
-	<key>IBEditorPositions</key>
-	<dict>
-		<key>29</key>
-		<string>120 614 462 44 0 0 1280 778 </string>
-	</dict>
 	<key>IBFramework Version</key>
-	<string>489.0</string>
-	<key>IBGroupedObjects</key>
-	<dict>
-		<key>11</key>
-		<array>
-			<string>509</string>
-			<string>504</string>
-			<string>505</string>
-		</array>
-		<key>9</key>
-		<array>
-			<string>612</string>
-			<string>609</string>
-			<string>619</string>
-			<string>615</string>
-			<string>617</string>
-			<string>613</string>
-			<string>610</string>
-			<string>614</string>
-			<string>616</string>
-			<string>620</string>
-			<string>618</string>
-			<string>611</string>
-		</array>
-	</dict>
-	<key>IBLastGroupID</key>
-	<string>12</string>
-	<key>IBLockedTabItems</key>
-	<array>
-		<integer>471</integer>
-	</array>
+	<string>629</string>
+	<key>IBLastKnownRelativeProjectPath</key>
+	<string>../../PandoraBoy.xcodeproj</string>
+	<key>IBOldestOS</key>
+	<integer>5</integer>
 	<key>IBOpenObjects</key>
 	<array>
-		<integer>21</integer>
-		<integer>697</integer>
-		<integer>29</integer>
+		<integer>632</integer>
 	</array>
 	<key>IBSystem Version</key>
 	<string>9B18</string>
-	<key>IBUserGuides</key>
-	<dict>
-		<key>263</key>
-		<dict>
-			<key>guideLocations</key>
-			<array>
-				<string>Horizontal:3.000000</string>
-			</array>
-			<key>guidesLocked</key>
-			<false/>
-		</dict>
-	</dict>
+	<key>targetFramework</key>
+	<string>IBCocoaFramework</string>
 </dict>
 </plist>

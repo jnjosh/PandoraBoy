@@ -7,6 +7,7 @@
 //
 
 #import "PBViewBlack.h"
+#import <QuartzComposer/QCView.h>
 
 @implementation PBViewBlack
 
@@ -14,10 +15,16 @@
 {
 	[super startView];
 	NSRect bounds = [self bounds];
-	NSRect wvFrame = [[self webView] frame];
+	NSRect wvFrame = [[self playerView] frame];
 	wvFrame.origin = NSMakePoint((bounds.size.width - wvFrame.size.width) / 2,
 								 (bounds.size.height - wvFrame.size.height) );
-	[[self webView] setFrame:wvFrame];
+	[[self playerView] setFrame:wvFrame];
+	
+	QCView *infoCrawl = [[QCView alloc] initWithFrame:NSMakeRect(0, 0, bounds.size.width, bounds.size.height / 2)];
+	[infoCrawl loadCompositionFromFile:[[self widgetPath] stringByAppendingPathComponent:@"PBTrackInfoCrawlWidget.qtz"]];
+	[infoCrawl setValue:@"Song Information" forInputKey:@"Text"];
+	[infoCrawl startRendering];
+	[self addSubview:infoCrawl];
 }
 
 @end

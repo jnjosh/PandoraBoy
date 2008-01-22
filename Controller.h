@@ -27,11 +27,14 @@
 @class DistributedNotification;
 @class StationList;
 @class PlayerController;
+@class PreferencesWindowController;
 
 @interface Controller : NSObject
 {
     IBOutlet NSWindow *startupWindow; 
     IBOutlet PlayerController *playerController;
+	
+	PreferencesWindowController *preferencesController;
     
     AppleRemote *appleRemote;
     bool controlDisabled;
@@ -54,6 +57,7 @@
 
 // Actions
 - (IBAction)displayHelp:(id)sender; 
+- (IBAction)performPreferences:(id)sender;
 
 @end
 

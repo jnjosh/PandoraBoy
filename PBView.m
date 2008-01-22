@@ -11,17 +11,21 @@
 
 @interface PBView (PrivateAPI)
 
++ (Class)principalClassFromBundleNamed:(NSString*)name;
 - (void)setIsActive:(BOOL)value;
 - (void)setIsFullScreen:(BOOL)value;
-- (void)setWebView:(WebView *)value;
+- (void)setPlayerView:(NSView *)value;
 - (void)startObserving;
 - (void)stopObserving;
-
+- (NSRect)origPlayerViewFrame;
+- (void)setOrigPlayerViewFrame:(NSRect)value;
++ (NSView*)dummyPlayerView;
 @end
 
 @implementation PBView
 
-+ (PBView*)viewFromBundleNamed:(NSString*)name withFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen {
++ (Class)principalClassFromBundleNamed:(NSString*)name
+{
 	NSString *pluginDir = [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"Views"];
 	NSString *pluginPath = [[pluginDir stringByAppendingPathComponent:name] stringByAppendingPathExtension:@"pbview"];
 	NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
@@ -41,23 +45,35 @@
 		NSLog(@"Plug-in %@ (%@) is not a PandoraBoyView", principalClass, pluginPath);
 		return nil;
 	}
-	
+	return principalClass;
+}
+
++ (PBView*)viewFromBundleNamed:(NSString*)name withFrame:(NSRect)frame playerView:(NSView*)view isFullScreen:(BOOL)isFullScreen {
+
+	Class principalClass = [self principalClassFromBundleNamed:name];
+
 	id pluginInstance = [[principalClass alloc] initWithFrame:frame
-													  webView:webView
+													  playerView:view
 												 isFullScreen:isFullScreen];
 	if( pluginInstance == nil ) {
-		NSLog(@"ERROR: Could not initialize plugin: %@", pluginPath);
+		NSLog(@"ERROR: Could not initialize plugin: %@", name);
 		return nil;
 	}
 	
 	return [pluginInstance autorelease];
 }
 
-- (id)initWithFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen {
++ (NSView*)previewFromBundleNamed:(NSString*)name withFrame:(NSRect)frame
+{
+	Class principalClass = [self principalClassFromBundleNamed:name];
+	return [principalClass previewViewWithFrame:frame];
+}
+
+- (id)initWithFrame:(NSRect)frame playerView:(NSView*)view isFullScreen:(BOOL)isFullScreen {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
 		[self setIsFullScreen:isFullScreen];
-		[self setWebView:webView];
+		[self setPlayerView:view];
 	}
 	return self;
 }
@@ -65,12 +81,30 @@
 - (void) dealloc {
 	[self stopView];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[_webView release];
+	[playerView release];
 	[super dealloc];
 }
 
 #pragma mark -
 #pragma mark Accessors
+
++ (NSView*)previewViewWithFrame:(NSRect)frame
+{
+	NSView *previewView = [[self alloc] initWithFrame:frame playerView:[self dummyPlayerView] isFullScreen:NO];
+	return [previewView autorelease];
+}
+
++ (NSView*)dummyPlayerView
+{
+	NSImage *image = [NSImage imageNamed:@"PandoraPreview"];
+	NSRect frame;
+	frame.origin = NSZeroPoint;
+	frame.size = [image size];
+	NSImageView *imageView = [[NSImageView alloc] initWithFrame:frame];
+	[imageView setImage:image];
+	[imageView setEditable:NO];
+	return [imageView autorelease];
+}
 
 - (BOOL)isActive {
     return _isActive;
@@ -82,14 +116,14 @@
     }
 }
 
-- (WebView *)webView {
-    return [[_webView retain] autorelease];
+- (NSView *)playerView {
+    return [[playerView retain] autorelease];
 }
 
-- (void)setWebView:(WebView *)value {
-    if (_webView != value) {
-        [_webView release];
-        _webView = [value retain];
+- (void)setPlayerView:(NSView *)value {
+    if (playerView != value) {
+        [playerView release];
+        playerView = [value retain];
     }
 }
 
@@ -103,12 +137,17 @@
     }
 }
 
-- (NSRect)origWebViewFrame {
-    return origWebViewFrame;
+- (NSRect)origPlayerViewFrame {
+    return origPlayerViewFrame;
 }
 
-- (void)setOrigWebViewFrame:(NSRect)value {
-	origWebViewFrame = value;
+- (void)setOrigPlayerViewFrame:(NSRect)value {
+	origPlayerViewFrame = value;
+}
+
+- (NSString*)widgetPath
+{
+	return [[[NSBundle mainBundle] builtInPlugInsPath] stringByAppendingPathComponent:@"Widgets"];
 }
 
 #pragma mark -
@@ -155,13 +194,14 @@
 - (void)startView {
 	[self startObserving];
 	[self setIsActive:YES];
-	[self setOrigWebViewFrame:[[self webView] frame]];
+	[self setOrigPlayerViewFrame:[[self playerView] frame]];
+	[self addSubview:playerView];
 }
 
 - (void)stopView {
 	[self setIsActive:NO];
 	[self stopObserving];
-	[[self webView] setFrame:[self origWebViewFrame]];
+	[[self playerView] setFrame:[self origPlayerViewFrame]];
 }
 
 - (void)drawRect:(NSRect)rect {

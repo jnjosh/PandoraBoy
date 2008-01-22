@@ -15,20 +15,23 @@
 @interface PBView : NSView {
 	BOOL	_isFullScreen;
 	BOOL	_isActive;
-	WebView *_webView;
-	NSRect  origWebViewFrame;
+	NSView *playerView;
+	NSRect  origPlayerViewFrame;
 }
 
-+ (PBView*)viewFromBundleNamed:(NSString*)name withFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen;
-- (id)initWithFrame:(NSRect)frame webView:(WebView*)webView isFullScreen:(BOOL)isFullScreen;
++ (PBView*)viewFromBundleNamed:(NSString*)name withFrame:(NSRect)frame playerView:(NSView*)view isFullScreen:(BOOL)isFullScreen;
++ (NSView*)previewFromBundleNamed:(NSString*)name withFrame:(NSRect)frame;
++ (NSView*)previewViewWithFrame:(NSRect)frame;
+
+- (id)initWithFrame:(NSRect)frame playerView:(NSView*)view isFullScreen:(BOOL)isFullScreen;
 - (void)startView;
 - (void)stopView;
 - (BOOL)isActive;
 
 - (BOOL)isFullScreen;
-- (WebView *)webView;
-- (NSRect)origWebViewFrame;
-- (void)setOrigWebViewFrame:(NSRect)value;
+- (NSView *)playerView;
+
+- (NSString*)widgetPath;
 
 - (void)pandoraDidPlay:(NSNotification*)notification;
 - (void)pandoraDidPause:(NSNotification*)notification;

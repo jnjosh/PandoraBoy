@@ -32,6 +32,7 @@
 #import "DistributedNotification.h"
 #import "StationList.h"
 #import "PlayerController.h"
+#import "PreferencesWindowController.h"
 
 extern NSString *PBAppleRemoteEnabled;
 NSString *PBAppleRemoteEnabled = @"AppleRemoteEnabled";
@@ -74,6 +75,7 @@ static Controller* _sharedInstance = nil;
         _thumbsDownImage = [[NSImage alloc] initWithContentsOfFile:
             [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/thumbs_down.png"]];
         
+		preferencesController = nil;
   }
   return _sharedInstance;
 }
@@ -112,9 +114,19 @@ static Controller* _sharedInstance = nil;
     return [[_thumbsDownImage retain] autorelease];
 }
 
-- (IBAction) displayHelp:(id)sender
+#pragma mark Actions
+
+- (IBAction)displayHelp:(id)sender
 {
   [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:@"http://code.google.com/p/pandoraboy/wiki/FrequentlyAskedQuestions"]];
+}
+
+- (IBAction)performPreferences:(id)sender
+{
+	if( ! preferencesController ) {
+		preferencesController = [[PreferencesWindowController alloc] initWithIdentifiers:[NSArray arrayWithObjects:@"General", @"Hotkeys", @"FullScreen", nil]];
+	}
+	[preferencesController showWindow:nil];
 }
 
 - (void)installScripts {

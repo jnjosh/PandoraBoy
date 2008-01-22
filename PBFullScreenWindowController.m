@@ -11,11 +11,11 @@
 
 @implementation PBFullScreenWindowController
 
-- (id)initWithWebView:(WebView*)aWebView flashPlayerView:(NSView*)aFlashPlayerView
+- (id)initWithPlayerView:(NSView*)aPlayerView flashView:(NSView*)aFlashView
 {
 	[super init];
-	webView = [aWebView retain];
-	flashPlayerView = [aFlashPlayerView retain];
+	playerView = [aPlayerView retain];
+	flashView = [aFlashView retain];
 	
 	window = [[NSWindow alloc] initWithContentRect:[[NSScreen mainScreen] frame]
 										 styleMask:NSBorderlessWindowMask
@@ -24,17 +24,18 @@
 	[window setLevel:NSScreenSaverWindowLevel];
 	
 	shieldWindow = [[NSWindow alloc] initWithContentRect:[[NSScreen mainScreen] frame]
-										 styleMask:NSBorderlessWindowMask
-										   backing:NSBackingStoreBuffered
-											 defer:YES];
+											   styleMask:NSBorderlessWindowMask
+												 backing:NSBackingStoreBuffered
+												   defer:YES];
 	[shieldWindow setLevel:NSScreenSaverWindowLevel];
 	[shieldWindow setBackgroundColor:[NSColor blackColor]];
 	[shieldWindow setAlphaValue:0.0];
 
+	// FIXME: Hardcoded
 	pbView = [[PBView viewFromBundleNamed:@"Black"
 								withFrame:[window frame]
-								  webView:webView
-							 isFullScreen:YES] retain]; // FIXME: Hardcoded
+								  playerView:playerView
+							 isFullScreen:YES] retain];
 	[window setContentView:pbView];
 	
 	raiseAnimation = [[self fadeAnimationFor:shieldWindow withEffect:NSViewAnimationFadeInEffect] retain];
@@ -49,8 +50,8 @@
 	[pbView release];
 	[window release];
 	[shieldWindow release];
-	[webView release];
-	[flashPlayerView release];
+	[playerView release];
+	[flashView release];
 	[raiseAnimation release];
 	[lowerAnimation release];
 	[super dealloc];
@@ -113,17 +114,16 @@
 
 - (void)startView
 {
-	[pbView addSubview:webView];
 	[window orderBack:nil];
-	[window makeFirstResponder:flashPlayerView];
+	[window makeFirstResponder:flashView];
 	[pbView startView];
 }	
 
 - (void)stopView
 {
 	[pbView stopView];
-	[[newWindow contentView] addSubview:webView];
-	[newWindow makeFirstResponder:flashPlayerView];
+	[[newWindow contentView] addSubview:playerView];
+	[newWindow makeFirstResponder:flashView];
 	[newWindow makeKeyAndOrderFront:nil];
 	[window orderOut:nil];
 }

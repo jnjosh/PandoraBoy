@@ -1,100 +1,153 @@
-{
-    IBClasses =     (
-                {
-            ACTIONS =             {
-                displayHelp = id;
-            };
-            CLASS = Controller;
-            LANGUAGE = ObjC;
-            OUTLETS =             {
-                playerController = PlayerController;
-                startupWindow = NSWindow;
-            };
-            SUPERCLASS = NSObject;
-        },
-                {
-            CLASS = FirstResponder;
-            LANGUAGE = ObjC;
-            SUPERCLASS = NSObject;
-        },
-                {
-            CLASS = NSSegmentedControl;
-            LANGUAGE = ObjC;
-            SUPERCLASS = NSControl;
-        },
-                {
-            ACTIONS =             {
-                dislikeSong = id;
-                fullScreenAction = id;
-                fullVolume = id;
-                likeSong = id;
-                lowerVolume = id;
-                mute = id;
-                nextSong = id;
-                nextStation = id;
-                playPause = id;
-                previousStation = id;
-                raiseVolume = id;
-                refreshPandora = id;
-                setStationToSender = id;
-            };
-            CLASS = PlayerController;
-            LANGUAGE = ObjC;
-            OUTLETS =             {
-                apiWebView = WebView;
-                pandoraWebView = WebView;
-                pandoraWindow = NSWindow;
-            };
-            SUPERCLASS = NSObject;
-        },
-                {
-            CLASS = Playlist;
-            LANGUAGE = ObjC;
-            SUPERCLASS = NSObject;
-        },
-                {
-            ACTIONS =             {
-                toggleTrackHistoryWindow = id;
-            };
-            CLASS = PlaylistGuiController;
-            LANGUAGE = ObjC;
-            OUTLETS =             {
-                playlistGuiWindow = NSWindow;
-            };
-            SUPERCLASS = NSObject;
-        },
-                {
-            ACTIONS =             {
-                setPassword = id;
-                setUsername = id;
-            };
-            CLASS = PreferenceController;
-            LANGUAGE = ObjC;
-            OUTLETS =             {
-                prefTabs = NSTabView;
-                prefWindow = NSWindow;
-            };
-            SUPERCLASS = NSObject;
-        },
-                {
-            ACTIONS =             {
-                checkForUpdates = id;
-            };
-            CLASS = SUUpdater;
-            LANGUAGE = ObjC;
-            SUPERCLASS = NSObject;
-        },
-                {
-            ACTIONS =             {
-                changeStation = id;
-            };
-            CLASS = StationList;
-            LANGUAGE = ObjC;
-            OUTLETS =             {
-                "_stationsMenu" = NSMenu;
-            };
-            SUPERCLASS = NSObject;
-        }
-    );
-    IBVersion = 1;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>CLASS</key>
+			<string>StationList</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>_stationsMenu</key>
+				<string>NSMenu</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>dislikeSong</key>
+				<string>id</string>
+				<key>fullScreenAction</key>
+				<string>id</string>
+				<key>fullVolume</key>
+				<string>id</string>
+				<key>likeSong</key>
+				<string>id</string>
+				<key>lowerVolume</key>
+				<string>id</string>
+				<key>mute</key>
+				<string>id</string>
+				<key>nextSong</key>
+				<string>id</string>
+				<key>nextStation</key>
+				<string>id</string>
+				<key>playPause</key>
+				<string>id</string>
+				<key>previousStation</key>
+				<string>id</string>
+				<key>raiseVolume</key>
+				<string>id</string>
+				<key>refreshPandora</key>
+				<string>id</string>
+				<key>setStationToSender</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PlayerController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>apiWebView</key>
+				<string>WebView</string>
+				<key>pandoraWebView</key>
+				<string>WebView</string>
+				<key>pandoraWindow</key>
+				<string>NSWindow</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSApplication</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSResponder</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSObject</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>displayHelp</key>
+				<string>id</string>
+				<key>performPreferences</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>Controller</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>playerController</key>
+				<string>PlayerController</string>
+				<key>startupWindow</key>
+				<string>NSWindow</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>checkForUpdates</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>SUUpdater</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>Playlist</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>toggleTrackHistoryWindow</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PlaylistGuiController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>playlistGuiWindow</key>
+				<string>NSWindow</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>

@@ -14,17 +14,17 @@
 	PBView *pbView;
 	NSWindow *window;
 	NSWindow *shieldWindow;
-	WebView *webView;
-	NSView *flashPlayerView;
+	NSView *playerView;
+	NSView *flashView;
 	NSAnimation *raiseAnimation;
 	NSAnimation *lowerAnimation;
 	BOOL isActive;
 	NSWindow *newWindow;
 }
 
-- (id)initWithWebView:(WebView*)aWebView flashPlayerView:(NSView*)aFlashPlayerView;
+- (id)initWithPlayerView:(NSView*)player flashView:(NSView*)flash;
 - (void)showWindow:(id)sender;
-- (void)closeAndMoveWebViewToWindow:(NSWindow*)newWindow;
+- (void)closeAndMoveWebViewToWindow:(NSWindow*)w;
 - (BOOL)canChangeState;
 
 - (void)raiseShieldWindow;

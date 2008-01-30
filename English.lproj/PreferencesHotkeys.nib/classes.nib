@@ -1,0 +1,20 @@
+{
+    IBClasses =     (
+                {
+            CLASS = FirstResponder;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSObject;
+        },
+                {
+            CLASS = PreferencesPaneController;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                imageView = NSImageView;
+                labelView = NSTextField;
+                mainView = NSView;
+            };
+            SUPERCLASS = NSObject;
+        }
+    );
+    IBVersion = 1;
+}

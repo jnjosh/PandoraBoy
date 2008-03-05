@@ -8,6 +8,8 @@
 
 #import "PBViewBlack.h"
 #import <QuartzComposer/QCView.h>
+#import "PlayerController.h"
+#import "Track.h"
 
 @implementation PBViewBlack
 
@@ -20,11 +22,24 @@
 								 (bounds.size.height - wvFrame.size.height) );
 	[[self playerView] setFrame:wvFrame];
 	
-	QCView *infoCrawl = [[QCView alloc] initWithFrame:NSMakeRect(0, 0, bounds.size.width, bounds.size.height / 2)];
+	infoCrawl = [[QCView alloc] initWithFrame:NSMakeRect(0, 0, bounds.size.width, bounds.size.height / 2)];
+	
 	[infoCrawl loadCompositionFromFile:[[self widgetPath] stringByAppendingPathComponent:@"PBTrackInfoCrawlWidget.qtz"]];
-	[infoCrawl setValue:@"Song Information" forInputKey:@"Text"];
+//	Track *track = [[PlayerController sharedController] currentTrack];
+	[infoCrawl setValue:@"Text" forInputKey:@"Text"];
 	[infoCrawl startRendering];
 	[self addSubview:infoCrawl];
+}
+
+- (void)dealloc
+{
+	[infoCrawl release];
+	[super dealloc];
+}
+
+- (void)pandoraDidPlay:(NSNotification*)notification {
+	Track *track = [notification object];
+	[infoCrawl setValue:[track name] forInputKey:@"Text"];
 }
 
 @end

@@ -51,8 +51,6 @@ static Controller* _sharedInstance = nil;
                                 dictionary];
         [userDefaultsValuesDict setObject:@"YES"
                     forKey:PBAppleRemoteEnabled];
-        [userDefaultsValuesDict setObject:@"NO"
-                    forKey:@"DoNotShowStartupWindow2"];
         [[NSUserDefaults standardUserDefaults] registerDefaults:
                   userDefaultsValuesDict];      //Register the defaults
         [[NSUserDefaults standardUserDefaults] synchronize];  //And sync them
@@ -124,7 +122,8 @@ static Controller* _sharedInstance = nil;
 - (IBAction)performPreferences:(id)sender
 {
 	if( ! preferencesController ) {
-		preferencesController = [[PreferencesWindowController alloc] initWithIdentifiers:[NSArray arrayWithObjects:@"General", @"Hotkeys", @"FullScreen", nil]];
+		preferencesController = [[PreferencesWindowController alloc] initWithIdentifiers:[NSArray arrayWithObjects:@"General", @"Hotkeys", //@"FullScreen",
+																						  nil]];
 	}
 	[preferencesController showWindow:nil];
 }
@@ -215,9 +214,6 @@ static Controller* _sharedInstance = nil;
     [ProxyURLProtocol registerProxyProtocols];
     [[PlayerController sharedController] load];
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"DoNotShowStartupWindow2"]==NO) {
-        [startupWindow makeKeyAndOrderFront:self]; 
-    }
     [self installScripts];
 }
 @end

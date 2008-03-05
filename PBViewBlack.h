@@ -9,8 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "PBView.h"
 
-@interface PBViewBlack : PBView {
+@class QCView;
 
+@interface PBViewBlack : PBView {
+	QCView *infoCrawl;
 }
 
 @end

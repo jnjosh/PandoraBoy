@@ -304,11 +304,6 @@ NSString *PBAPIPath = @"/SongNotification.html";
 #pragma mark -
 #pragma mark WebView delegates
 
-- (void)webView:(WebView *)sender setFrame:(NSRect)frame
-{
-    //We do nothing in the setFrame function to prevent Pandora from changing the window size using javascript. 
-}
-
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {   
     // On Javascript window.open, Webkit sends a null request here, then sends a

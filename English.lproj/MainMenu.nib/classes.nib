@@ -101,8 +101,6 @@
 			<dict>
 				<key>playerController</key>
 				<string>PlayerController</string>
-				<key>startupWindow</key>
-				<string>NSWindow</string>
 			</dict>
 			<key>SUPERCLASS</key>
 			<string>NSObject</string>

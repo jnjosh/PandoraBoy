@@ -31,7 +31,6 @@
 
 @interface Controller : NSObject
 {
-    IBOutlet NSWindow *startupWindow; 
     IBOutlet PlayerController *playerController;
 	
 	PreferencesWindowController *preferencesController;

@@ -6,6 +6,21 @@
 	<array>
 		<dict>
 			<key>CLASS</key>
+			<string>APIController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>apiWebView</key>
+				<string>WebView</string>
+				<key>playerController</key>
+				<string>PlayerController</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
 			<string>StationList</string>
 			<key>LANGUAGE</key>
 			<string>ObjC</string>
@@ -53,6 +68,8 @@
 			<string>ObjC</string>
 			<key>OUTLETS</key>
 			<dict>
+				<key>apiController</key>
+				<string>APIController</string>
 				<key>apiWebView</key>
 				<string>WebView</string>
 				<key>pandoraWebView</key>

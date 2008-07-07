@@ -115,6 +115,8 @@ static Playlist* sharedInstance = nil;
 
 // Methods
 - (void)addInfoFromData:(NSData *)data {
+//	NSString *string = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+//	NSLog(@"data:%@", string);
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
     [parser setDelegate:self];
     [parser parse];
@@ -211,13 +213,18 @@ static Playlist* sharedInstance = nil;
         [self setParsingString:nil];
     }
     else if( [elementName isEqualToString:@"value"] ) {
-        [parsingTrack setValue:(NSString*)[self parsingString] forProperty:[self parsingKey]];
-        if( [[self parsingKey] isEqualToString:@"artRadio"] )
-        {
-            [self setNeedArtworkForURLString:[self parsingString]];
-        }
-        [self setParsingKey:nil];
-        [self setParsingString:nil];
+		// "value" can come multiple times in an <array> element. We currently
+		// don't care about any arrays, so we ignore it.
+		if( [self parsingKey] != nil )
+		{
+			[parsingTrack setValue:(NSString*)[self parsingString] forProperty:[self parsingKey]];
+			if( [[self parsingKey] isEqualToString:@"artRadio"] )
+			{
+				[self setNeedArtworkForURLString:[self parsingString]];
+			}
+			[self setParsingKey:nil];
+			[self setParsingString:nil];
+		}
     }
     else if( [elementName isEqualToString:@"struct"] ) {
         [self addTrackInfo:parsingTrack];

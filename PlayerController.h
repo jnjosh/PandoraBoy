@@ -13,11 +13,12 @@
 @class Station;
 @class Track;
 @class PBFullScreenWindowController;
+@class APIController;
 
 @interface PlayerController : NSObject {
     IBOutlet NSWindow *pandoraWindow; 
     IBOutlet WebView *pandoraWebView;
-    IBOutlet WebView *apiWebView;
+	IBOutlet APIController *apiController;
 
     NSView *_webNetscapePlugin;
     BOOL _controlDisabled;
@@ -28,7 +29,7 @@
 }
 
 + (PlayerController*) sharedController;
-- (void)load;
+- (void)reload;
 
 - (IBAction)refreshPandora:(id)sender; 
 - (IBAction)playPause:(id)sender;
@@ -49,12 +50,6 @@
 - (Track *)currentTrack;
 - (Station *)currentStation;
 - (void)setStation:(Station*)station;
-
-// Delegate functions from Pandora notification system
-- (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist; 
-- (void) pandoraSongPaused; 
-- (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier;
-- (void) pandoraStarted;
 
 // Scripting interfaces
 - (int)playerState;

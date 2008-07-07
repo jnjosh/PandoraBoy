@@ -9,7 +9,6 @@
 
 #import "PlayerController.h"
 #import <Carbon/Carbon.h>
-#import "ResourceURL.h";
 #import "PBNotifications.h"
 #import "Controller.h";
 #import "Station.h"
@@ -22,9 +21,6 @@ static PlayerController* _sharedInstance = nil;
 
 extern NSString *PBPandoraURL;
 NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
-
-extern NSString *PBAPIPath;
-NSString *PBAPIPath = @"/SongNotification.html";
 
 //typedef enum {
 //    WebDashboardBehaviorAlwaysSendMouseEventsToAllWindows,
@@ -78,16 +74,13 @@ NSString *PBAPIPath = @"/SongNotification.html";
     [super dealloc];
 }
 
-- (void) load
+- (void) reload
 {
 //	[self setWebNetscapePlugin:nil];
-    ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:PBAPIPath];
-    [[apiWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
-    
-    WebScriptObject *win = [apiWebView windowScriptObject]; 
-    [win setValue:self forKey:@"SongNotification"];
+	[apiController reload];
     [[pandoraWebView mainFrame] loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];    
+	 [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];    
+	
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -276,7 +269,7 @@ NSString *PBAPIPath = @"/SongNotification.html";
     [self setStation:[sender representedObject]];
 }
 
-- (IBAction)refreshPandora:(id)sender { [self load]; }
+- (IBAction)refreshPandora:(id)sender { [self reload]; }
 
 - (IBAction)nextStation:(id)sender {
     [self setStation:[[StationList sharedStationList] nextStation]];
@@ -385,6 +378,16 @@ NSString *PBAPIPath = @"/SongNotification.html";
     return (request);
 }
 
+- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+	NSLog(@"ERROR:didFailProvisionalLoadWithError: %@", error);
+}
+
+- (void)webView:(WebView *)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+	NSLog(@"ERROR:didFailLoadWithError: %@", error);
+}
+
 /////////////////////////////////////////////////////////////////////
 #pragma mark
 #pragma mark NSWindow Delegates
@@ -403,50 +406,5 @@ NSString *PBAPIPath = @"/SongNotification.html";
 {
     [NSApp terminate:self];
 }
-
-/////////////////////////////////////////////////////////////////////
-#pragma mark -
-#pragma mark Pandora Delegates
-
-- (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist
-{
-    NSLog( @"pandoraSongPlayed name: %@, artist: %@", name, artist); 
-    
-    Playlist *playlist = [Playlist sharedPlaylist];
-    Track *track = [Track trackWithName:name artist:artist];
-    // We get called for both track change and unpause, so make sure this isn't the current track
-    if( ! [track isEqualToTrack:[self currentTrack]] ) {
-        [playlist addPlayedTrack:track];
-    }
-    [self setPlayerState:PBPlayerStatePlaying];
-    [[NSNotificationCenter defaultCenter] postNotificationName:PBSongPlayedNotification
-                                                        object:track];
-}
-
-- (void) pandoraSongPaused
-{
-    NSLog( @"pandoraSongPaused"); 
-    [self setPlayerState:PBPlayerStatePaused];
-    [[NSNotificationCenter defaultCenter] postNotificationName:PBSongPausedNotification
-                                                        object:[self currentTrack]];
-}
-
-- (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier {
-    NSLog(@"pandoraStationPlayed:%@:%@", name, identifier);
-    [[StationList sharedStationList] setCurrentStationFromIdentifier:identifier];
-    [[NSNotificationCenter defaultCenter] postNotificationName:PBStationChangedNotification
-                                                        object:[self currentStation]];
-}
-
-- (void) pandoraStarted
-{
-	NSLog(@"pandoraStarted");
-}
-
-- (void) pandoraEventFired:(NSString*)eventName :(NSString*)argument {
-    NSLog(@"DEBUG:pandoraEventFired:%@\n%@", eventName, argument);
-}
-
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector { return NO; }
 
 @end

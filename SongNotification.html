@@ -1,10 +1,8 @@
-<script src="http://www.pandora.com/include/PandoraAPIv2.js"></script>
+<script src="http://www.pandora.com/include/PandoraAPIv2.js" />
 <script language="javascript">
 
-//GEK 20060404 Custom functions to react to Pandora's event calls.
-
- /* With thanks to PandoraFM.real-ity.com */
- /* Known events: 
+/* With thanks to Neil Mix at Pandora */
+/* Known events: 
                   PandoraEnded:
                   PandoraStarted:
                   SongEnded:songName:artistName:songURL:artURL (no matter how it ended)
@@ -14,63 +12,27 @@
     Non-events: Station creation, thumbs, Zzz
 */
 
-Pandora = {
-    fireEvent: function(eventName, argument) {
-        var mySongNotification = window.SongNotification;
-//        mySongNotification.pandoraEventFired__(eventName, this.getProps(argument));
-        
-        if (eventName == "SongPlayed") {
-            mySongNotification.pandoraSongPlayed__(argument.songName,argument.artistName); 
-        }
-        if (eventName == "SongPaused") {
-            mySongNotification.pandoraSongPaused(); 
-        }
-        if (eventName == "StationPlayed") {
-            mySongNotification.pandoraStationPlayed__(argument.stationName, argument.stationId);
-        }
-		if (eventName == "PandoraStarted") {
-			mySongNotification.pandoraStarted();
-		}
-    },
+function onLoad() {
+	Pandora.setEventHandler("SongPlayed", function(songData) {
+		window.SongNotification.pandoraSongPlayed__(songData.songName, songData.artistName);
+	});
+	Pandora.setEventHandler("SongPaused", function(songData) {
+		window.SongNotification.pandoraSongPaused();
+	});
+	Pandora.setEventHandler("StationPlayed", function(stationData) {
+		window.SongNotification.pandoraStationPlayed__(stationData.stationName, stationData.stationId);
+	});
+	Pandora.setEventHandler("PandoraStarted", function(stationData) {
+		window.SongNotification.pandoraStarted();
+	});
 
-    getProps: function(obj) {
-        var result = "";
-        for (var propertyName in obj) {
-            result += "." + propertyName + " = " + obj[propertyName] + "\n";
-        }
-        return result;
-    }
-};
-
+}
 </script>
- 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>PandoraBoy Notifications</title>
-
 </head>
-
-<body>
-<OBJECT id="PandoraEvents"
-      codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
-      height="0" width="0 " classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
-      <PARAM NAME="movie" VALUE="http://www.pandora.com/PandoraEventsv2.swf"/>
-      <PARAM NAME="quality" VALUE="high"/>
-      <PARAM NAME="bgcolor" VALUE="#FFFFFF"/>
-      <PARAM NAME="menu" VALUE="false"/>
-      <PARAM NAME="FlashVars" VALUE=""/>
-      <EMBED src="http://www.pandora.com/PandoraEventsv2.swf"
-         quality="high" bgcolor="#FFFFFF" WIDTH="0"
-         HEIGHT="0" MENU="false"
-         NAME="PandoraEvents" ALIGN="" TYPE="application/x-shockwave-flash"
-         PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"
-         FlashVars="" />
-   </OBJECT>
-
-</body>
-
-
+<body onload="onLoad()" />
 </html>
+

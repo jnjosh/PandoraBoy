@@ -60,6 +60,7 @@
 		FB7F67070D43A83E009A6161 /* QuartzComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3592D60D22D33E0048A0EA /* QuartzComposer.framework */; };
 		FB7F68110D443731009A6161 /* PandoraPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7F68100D443731009A6161 /* PandoraPreview.png */; };
 		FB871DF40D28284E006711FE /* PBNotifications.h in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB871DF30D28284E006711FE /* PBNotifications.h */; };
+		FB8A6BFB0E1B108A0072DB72 /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A6BFA0E1B108A0072DB72 /* APIController.m */; };
 		FB8A81870D3C272700A985A6 /* PBNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A81790D3C26CD00A985A6 /* PBNotifications.m */; };
 		FB8A81880D3C272700A985A6 /* PBView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD7E3EB0D3AD13D00AE1733 /* PBView.m */; };
 		FB8A81920D3C27C300A985A6 /* PandoraBoyPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
@@ -73,11 +74,9 @@
 		FBA6A4350D42D8D20003234A /* FullScreenPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA6A4340D42D8D20003234A /* FullScreenPreferencesController.m */; };
 		FBAA777A0D0E33A6006C957B /* FeedbackURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */; };
 		FBAE25A80D3D0BA300FA8277 /* PandoraBoyPlugin.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
-		FBAE25DB0D3D0DA500FA8277 /* PandoraBoyPlugin-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB8A81810D3C26ED00A985A6 /* PandoraBoyPlugin-Info.plist */; };
-		FBAE25F70D3D0F8F00FA8277 /* Black-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */; };
 		FBAE25F80D3D0F9C00FA8277 /* PBViewBlack.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A81170D3C226B00A985A6 /* PBViewBlack.m */; };
 		FBAE25FC0D3D0FBC00FA8277 /* PandoraBoyPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
-		FBAE26050D3D0FEF00FA8277 /* Black.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.bundle */; };
+		FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.pbview */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404310D039F0600B179F9 /* StationsURLProtocol.m */; };
@@ -150,7 +149,7 @@
 			dstPath = Views;
 			dstSubfolderSpec = 13;
 			files = (
-				FBAE26050D3D0FEF00FA8277 /* Black.bundle in Copy Plugins */,
+				FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */,
 			);
 			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,7 +206,7 @@
 		3D6942410AA37A1300899D49 /* GrowlNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotification.m; sourceTree = "<group>"; };
 		3D69452F0AAA19D300899D49 /* GlobalHotkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHotkey.h; sourceTree = "<group>"; };
 		3D6945300AAA19D300899D49 /* GlobalHotkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalHotkey.m; sourceTree = "<group>"; };
-		3D6946900AAC908900899D49 /* keyboardVals.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = keyboardVals.plist; sourceTree = "<group>"; };
+		3D6946900AAC908900899D49 /* keyboardVals.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = keyboardVals.plist; sourceTree = "<group>"; };
 		3D6946930AAC91DF00899D49 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		3D6946940AAC91DF00899D49 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		3D7F771D0A9EB1DB004B0146 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
@@ -251,14 +250,16 @@
 		FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; path = SongNotification.html; sourceTree = "<group>"; };
 		FB6B5EED0CFA37F000DEF3C9 /* version_sparkle.xml */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version_sparkle.xml; sourceTree = "<group>"; };
 		FB732F530D203A97007E36B2 /* PandoraBoy.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PandoraBoy.css; sourceTree = "<group>"; };
-		FB7F67010D43A769009A6161 /* PBTrackInfoCrawlWidget.qtz */ = {isa = PBXFileReference; lastKnownFileType = file; path = PBTrackInfoCrawlWidget.qtz; sourceTree = "<group>"; };
+		FB7F67010D43A769009A6161 /* PBTrackInfoCrawlWidget.qtz */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PBTrackInfoCrawlWidget.qtz; sourceTree = "<group>"; };
 		FB7F68100D443731009A6161 /* PandoraPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PandoraPreview.png; sourceTree = "<group>"; };
 		FB871DF30D28284E006711FE /* PBNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBNotifications.h; sourceTree = "<group>"; };
+		FB8A6BF90E1B108A0072DB72 /* APIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIController.h; sourceTree = "<group>"; };
+		FB8A6BFA0E1B108A0072DB72 /* APIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIController.m; sourceTree = "<group>"; };
 		FB8A81160D3C226B00A985A6 /* PBViewBlack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBViewBlack.h; sourceTree = "<group>"; };
 		FB8A81170D3C226B00A985A6 /* PBViewBlack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBViewBlack.m; sourceTree = "<group>"; };
 		FB8A81790D3C26CD00A985A6 /* PBNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBNotifications.m; sourceTree = "<group>"; };
 		FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PandoraBoyPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB8A81810D3C26ED00A985A6 /* PandoraBoyPlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PandoraBoyPlugin-Info.plist"; sourceTree = "<group>"; };
+		FB8A81810D3C26ED00A985A6 /* PandoraBoyPlugin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PandoraBoyPlugin-Info.plist"; sourceTree = "<group>"; };
 		FB936CB30D0108C9007AD10A /* ProxyURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyURLProtocol.h; sourceTree = "<group>"; };
 		FB936CB40D0108C9007AD10A /* ProxyURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyURLProtocol.m; sourceTree = "<group>"; };
 		FB936D670D01BB69007AD10A /* ArtworkURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkURLProtocol.h; sourceTree = "<group>"; };
@@ -272,8 +273,8 @@
 		FBA6A4340D42D8D20003234A /* FullScreenPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenPreferencesController.m; sourceTree = "<group>"; };
 		FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackURLProtocol.h; sourceTree = "<group>"; };
 		FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackURLProtocol.m; sourceTree = "<group>"; };
-		FBAE25F00D3D0EC700FA8277 /* Black.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black-Info.plist"; sourceTree = "<group>"; };
+		FBAE25F00D3D0EC700FA8277 /* Black.pbview */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.pbview; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Black-Info.plist"; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		FBC365040BC9C1490052A3A9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
@@ -375,7 +376,7 @@
 			children = (
 				8D1107320486CEB800E47090 /* PandoraBoy.app */,
 				FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */,
-				FBAE25F00D3D0EC700FA8277 /* Black.bundle */,
+				FBAE25F00D3D0EC700FA8277 /* Black.pbview */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -543,6 +544,8 @@
 		FB61925C0D0C956600667BF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FB8A6BF90E1B108A0072DB72 /* APIController.h */,
+				FB8A6BFA0E1B108A0072DB72 /* APIController.m */,
 				3D7F771D0A9EB1DB004B0146 /* Controller.h */,
 				3D7F771E0A9EB1DB004B0146 /* Controller.m */,
 				FBA18D120CF5DEBF00CB424F /* PlaylistGuiController.h */,
@@ -708,7 +711,7 @@
 			);
 			name = Black;
 			productName = Black;
-			productReference = FBAE25F00D3D0EC700FA8277 /* Black.bundle */;
+			productReference = FBAE25F00D3D0EC700FA8277 /* Black.pbview */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -762,7 +765,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBAE25DB0D3D0DA500FA8277 /* PandoraBoyPlugin-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,7 +772,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBAE25F70D3D0F8F00FA8277 /* Black-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +814,7 @@
 				FBC6878A0D3FF512002F42C4 /* PBFullScreenWindowController.m in Sources */,
 				FBCA08570D42B28C0029D3B5 /* PreferencesPaneController.m in Sources */,
 				FBA6A4350D42D8D20003234A /* FullScreenPreferencesController.m in Sources */,
+				FB8A6BFB0E1B108A0072DB72 /* APIController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

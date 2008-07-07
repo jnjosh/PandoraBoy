@@ -212,7 +212,7 @@ static Controller* _sharedInstance = nil;
     // Here's the fix: http://lists.apple.com/archives/webkitsdk-dev/2006/Dec/msg00011.html
 
     [ProxyURLProtocol registerProxyProtocols];
-    [[PlayerController sharedController] load];
+    [[PlayerController sharedController] reload];
     
     [self installScripts];
 }

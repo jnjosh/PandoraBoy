@@ -1,5 +1,8 @@
 PandoraBoy Changelog
-x.x.x
+0.5.2
+    * Fixes notification bugs, which include Growl, Applescript and logging 
+
+0.5.1
     * Should work now with older WebKits (pre-10.4.11) Issue 17
 	* FullScreen mode
 	* Properly updates applescripts

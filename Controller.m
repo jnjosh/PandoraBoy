@@ -180,7 +180,8 @@ static Controller* _sharedInstance = nil;
             }
         }
 
-        if( ! [fileManager removeFileAtPath:scriptDestinationFile handler:nil] ) {
+        if( [fileManager fileExistsAtPath:scriptDestinationFile] &&
+            ! [fileManager removeFileAtPath:scriptDestinationFile handler:nil] ) {
             NSLog(@"ERROR:Could not remove %@", scriptDestinationFile);
             continue;
         }

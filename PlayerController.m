@@ -85,10 +85,8 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 															   @"mtverify", NSHTTPCookieName,
 															   mtverify, NSHTTPCookieValue,
 															   nil]];
-	NSLog(@"Stored cookie:%@", cookie);
 	[[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
     NSURL *pbURL = [NSURL URLWithString:[NSString stringWithFormat:PBPandoraURLFormat, mtverify]];
-	NSLog(@"Opening URL:%@", pbURL);
 	[[pandoraWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:pbURL]];
 }
 
@@ -336,7 +334,6 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 			[self setWebNetscapePlugin:view];
 		}
 		else {
-			NSLog(@"DEBUG:Looking for WebBaseNetscapePluginView we found %@", [view class]);
 			// Find the subview that isn't of size 0
 			NSArray *subviews = [view subviews];
 			int i;

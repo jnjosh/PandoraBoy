@@ -20,7 +20,7 @@ NSString *PBAPIPath = @"/SongNotification.html";
 
 -(void)reload
 {
-	NSLog(@"DEBUG: APLController reload");
+	NSLog(@"DEBUG: APIController reload");
 	ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:PBAPIPath];
     [[apiWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
 	WebScriptObject *win = [apiWebView windowScriptObject]; 

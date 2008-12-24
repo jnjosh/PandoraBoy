@@ -298,6 +298,13 @@
 		FBDBAC540D0F196100476C66 /* DistributedNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributedNotification.m; sourceTree = "<group>"; };
 		FBF742000BD1C3AC007F85D5 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		FBF742010BD1C3AC007F85D5 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
+		FBFE12BE0F02F17B000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FBFE12BF0F02F198000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBFE12C00F02F1B1000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FBFE12C10F02F1BD000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/Preferences.nib; sourceTree = "<group>"; };
+		FBFE12C20F02F1C8000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesGeneral.nib; sourceTree = "<group>"; };
+		FBFE12C30F02F1CD000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesHotkeys.nib; sourceTree = "<group>"; };
+		FBFE12C40F02F1D2000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesFullScreen.nib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +418,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */,
 				FB7F68100D443731009A6161 /* PandoraPreview.png */,
 				FBA24C4A0D0B0329003F7B70 /* play.gif */,
 				FB6B5DE60CF9CA5600DEF3C9 /* SongNotification.html */,
@@ -500,7 +508,6 @@
 				FB3856EE0BC9973F005653C3 /* README.DNC.rtf */,
 				FB3856B70BC993C9005653C3 /* Changelog.txt */,
 				FB4D23500BCB092700DCC767 /* README.Applescript.txt */,
-				FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";
@@ -852,6 +859,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				089C165DFE840E0CC02AAC07 /* English */,
+				FBFE12BF0F02F198000C3B8F /* French */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -860,6 +868,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				29B97319FDCFA39411CA2CEA /* English */,
+				FBFE12C00F02F1B1000C3B8F /* French */,
 			);
 			name = MainMenu.nib;
 			sourceTree = "<group>";
@@ -868,6 +877,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FB38569E0BC9913F005653C3 /* English */,
+				FBFE12BE0F02F17B000C3B8F /* French */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -876,6 +886,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FBCA06B80D410DA70029D3B5 /* English */,
+				FBFE12C30F02F1CD000C3B8F /* French */,
 			);
 			name = PreferencesHotkeys.nib;
 			sourceTree = "<group>";
@@ -884,6 +895,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FBCA07940D41C0490029D3B5 /* English */,
+				FBFE12C20F02F1C8000C3B8F /* French */,
 			);
 			name = PreferencesGeneral.nib;
 			sourceTree = "<group>";
@@ -892,6 +904,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FBCA07990D41C0910029D3B5 /* English */,
+				FBFE12C40F02F1D2000C3B8F /* French */,
 			);
 			name = PreferencesFullScreen.nib;
 			sourceTree = "<group>";
@@ -900,6 +913,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FBCA08740D42B6330029D3B5 /* English */,
+				FBFE12C10F02F1BD000C3B8F /* French */,
 			);
 			name = Preferences.nib;
 			sourceTree = "<group>";

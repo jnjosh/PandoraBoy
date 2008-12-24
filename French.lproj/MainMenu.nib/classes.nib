@@ -1,0 +1,56 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {displayHelp = id; performPreferences = id; }; 
+            CLASS = Controller; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {playerController = PlayerController; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSApplication; LANGUAGE = ObjC; SUPERCLASS = NSResponder; }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {
+            ACTIONS = {
+                dislikeSong = id; 
+                fullScreenAction = id; 
+                fullVolume = id; 
+                likeSong = id; 
+                lowerVolume = id; 
+                mute = id; 
+                nextSong = id; 
+                nextStation = id; 
+                playPause = id; 
+                previousStation = id; 
+                raiseVolume = id; 
+                refreshPandora = id; 
+                setStationToSender = id; 
+            }; 
+            CLASS = PlayerController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {apiWebView = WebView; pandoraWebView = WebView; pandoraWindow = NSWindow; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = Playlist; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {toggleTrackHistoryWindow = id; }; 
+            CLASS = PlaylistGuiController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {playlistGuiWindow = NSWindow; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {checkForUpdates = id; }; 
+            CLASS = SUUpdater; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = StationList; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {"_stationsMenu" = NSMenu; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

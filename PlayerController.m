@@ -19,8 +19,7 @@
 
 static PlayerController* _sharedInstance = nil;
 
-extern NSString *PBPandoraURL;
-NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
+NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 
 //typedef enum {
 //    WebDashboardBehaviorAlwaysSendMouseEventsToAllWindows,
@@ -76,11 +75,21 @@ NSString *PBPandoraURL = @"http://www.pandora.com?cmd=mini";
 
 - (void) reload
 {
-//	[self setWebNetscapePlugin:nil];
 	[apiController reload];
-    [[pandoraWebView mainFrame] loadRequest:
-	 [NSURLRequest requestWithURL:[NSURL URLWithString:PBPandoraURL]]];    
-	
+
+	NSString *mtverify = [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970] * 1000];
+	NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties:[NSDictionary dictionaryWithObjectsAndKeys:
+															   @"TRUE", NSHTTPCookieDiscard,
+															   @".pandora.com", NSHTTPCookieDomain,
+															   @"/", NSHTTPCookiePath,
+															   @"mtverify", NSHTTPCookieName,
+															   mtverify, NSHTTPCookieValue,
+															   nil]];
+	NSLog(@"Stored cookie:%@", cookie);
+	[[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
+    NSURL *pbURL = [NSURL URLWithString:[NSString stringWithFormat:PBPandoraURLFormat, mtverify]];
+	NSLog(@"Opening URL:%@", pbURL);
+	[[pandoraWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:pbURL]];
 }
 
 /////////////////////////////////////////////////////////////////////

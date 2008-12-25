@@ -51,6 +51,8 @@
 - (Station *)currentStation;
 - (void)setStation:(Station*)station;
 
+- (void)showWindow;
+
 // Scripting interfaces
 - (int)playerState;
 - (void)setPlayerState:(int)value;

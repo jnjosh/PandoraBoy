@@ -214,6 +214,17 @@ static Controller* _sharedInstance = nil;
     
     [self installScripts];
 }
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
+{
+	if (flag == NO)
+	{
+		[_playerController showWindow];
+	}
+	
+	return NO;
+}
+
 @end
 
 @implementation Controller (AppleRemote)

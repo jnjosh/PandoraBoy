@@ -304,6 +304,11 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
     }
 }
 
+- (void)showWindow
+{
+	[pandoraWindow makeKeyAndOrderFront:nil];
+}
+
 /////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark WebView delegates

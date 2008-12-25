@@ -1,4 +1,10 @@
 PandoraBoy Changelog
+0.5.3
+   * Issue 73: Work with new Pandora mtverify session cookie
+   * Issue 48: Excessive Console Messages patch from ishermandom
+   * Add French localization from Pierre Rudloff
+   * Issue 66: Pandora interface disappears on hide (apple + h)
+
 0.5.2
     * Fixes notification bugs, which include Growl, Applescript and logging 
 

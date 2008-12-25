@@ -53,6 +53,7 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
         [self setControlDisabled:FALSE];
         [self setPlayerState:PBPlayerStateStopped];
         [self setIsFullScreen:NO];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidUnhide:) name:NSApplicationDidUnhideNotification object:nil];
     }
     return _sharedInstance;
 }
@@ -67,6 +68,7 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 }
 
 - (void) dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [_webNetscapePlugin release];
     [_pendingWebViews release];
 	[fullScreenWindowController release];
@@ -411,6 +413,15 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 - (void)windowWillClose:(NSNotification *)aNotification
 {
     [NSApp terminate:self];
+}
+
+/////////////////////////////////////////////////////////////////////
+#pragma mark
+#pragma mark NSApplication Notifications
+
+- (void)applicationDidUnhide:(NSNotification*)note
+{
+	[pandoraWebView setNeedsDisplay:YES];
 }
 
 @end

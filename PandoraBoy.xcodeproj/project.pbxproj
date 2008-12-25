@@ -91,6 +91,7 @@
 		FBCA08770D42B63C0029D3B5 /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = FBCA08760D42B63C0029D3B5 /* Preferences.nib */; };
 		FBDBAC560D0F196100476C66 /* DistributedNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDBAC540D0F196100476C66 /* DistributedNotification.m */; };
 		FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF742010BD1C3AC007F85D5 /* Playlist.m */; };
+		FBFE13F60F033586000C3B8F /* PlayerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFE13F50F033586000C3B8F /* PlayerWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,6 +306,8 @@
 		FBFE12C20F02F1C8000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesGeneral.nib; sourceTree = "<group>"; };
 		FBFE12C30F02F1CD000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesHotkeys.nib; sourceTree = "<group>"; };
 		FBFE12C40F02F1D2000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesFullScreen.nib; sourceTree = "<group>"; };
+		FBFE13F40F033586000C3B8F /* PlayerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerWindow.h; sourceTree = "<group>"; };
+		FBFE13F50F033586000C3B8F /* PlayerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +352,7 @@
 			children = (
 				FB61926F0D0C9A6900667BF3 /* Interfaces */,
 				FB61925A0D0C955800667BF3 /* Model */,
+				FBFE13F30F033560000C3B8F /* View */,
 				FB61925C0D0C956600667BF3 /* Controller */,
 				FB27A2130CFF9D750038475D /* RemoteControlWrapper */,
 				FB936CB90D0108DD007AD10A /* URLProtocols */,
@@ -640,6 +644,15 @@
 			name = URLProtocols;
 			sourceTree = "<group>";
 		};
+		FBFE13F30F033560000C3B8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FBFE13F40F033586000C3B8F /* PlayerWindow.h */,
+				FBFE13F50F033586000C3B8F /* PlayerWindow.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -814,6 +827,7 @@
 				FBCA08570D42B28C0029D3B5 /* PreferencesPaneController.m in Sources */,
 				FBA6A4350D42D8D20003234A /* FullScreenPreferencesController.m in Sources */,
 				FB8A6BFB0E1B108A0072DB72 /* APIController.m in Sources */,
+				FBFE13F60F033586000C3B8F /* PlayerWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -937,7 +951,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";

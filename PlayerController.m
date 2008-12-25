@@ -65,6 +65,8 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
     [[pandoraWebView preferences] setUserStyleSheetLocation:
         [NSURL fileURLWithPath:
             [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"PandoraBoy.css"]]];
+	
+	[pandoraWindow setExcludedFromWindowsMenu:YES];
 }
 
 - (void) dealloc {
@@ -408,11 +410,6 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 -(void)windowDidDeminiaturize:(NSNotification *)aNotification
 {
     [self setControlDisabled:NO];
-}
-
-- (void)windowWillClose:(NSNotification *)aNotification
-{
-    [NSApp terminate:self];
 }
 
 /////////////////////////////////////////////////////////////////////

@@ -28,6 +28,11 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 //    WebDashboardBehaviorAllowWheelScrolling
 //} WebDashboardBehavior;
 
+// There has to be a better way than diving into the private API
+@interface WebNetscapePluginDocumentView
+- (BOOL)sendEvent:(void*)event isDrawRect:(BOOL)eventIsDrawRect;
+@end
+
 @interface PlayerController (Private)
 - (BOOL)controlDisabled;
 - (void)setControlDisabled:(BOOL)value;
@@ -187,11 +192,22 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
         myrecord.modifiers = modifiers; 
         
         //Send the keyDown press
-        [(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord];
+		// down the rabbit's hole.... Safari 4 changed the name of the selector to a more magical version
+		if ([(id)[self webNetscapePlugin] respondsToSelector:@selector(sendEvent:)])
+		{
+			[(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord];
+			//Make it a keyUp EventRecord and resend it
+			myrecord.what = keyUp;
+			[(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord];
+		}
+		else if ([(id)[self webNetscapePlugin] respondsToSelector:@selector(sendEvent:isDrawRect:)])
+		{
+			[(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord isDrawRect:NO];
+			//Make it a keyUp EventRecord and resend it
+			myrecord.what = keyUp;
+			[(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord isDrawRect:NO];			
+		}
         
-        //Make it a keyUp EventRecord and resend it
-        myrecord.what = keyUp;
-        [(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord];
         return true; 
     }
     else {

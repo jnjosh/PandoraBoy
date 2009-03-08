@@ -86,9 +86,7 @@ static NSString *PBProxyURLHeader = @"X-PB";
 -(id)initWithRequest:(NSURLRequest *)request
       cachedResponse:(NSCachedURLResponse *)cachedResponse
               client:(id <NSURLProtocolClient>)client
-{
-//    NSLog(@"DEBUG:initWithRequest:%@", [request URL]);
-    
+{    
     // Modify request
     NSMutableURLRequest *myRequest = [request mutableCopy];
     [myRequest setValue:@"" forHTTPHeaderField:PBProxyURLHeader];
@@ -135,6 +133,8 @@ static NSString *PBProxyURLHeader = @"X-PB";
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [[self client] URLProtocol:self didFailWithError:error];
+	[self setConnection:nil];
+	[_data release]; _data = nil;
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -142,10 +142,9 @@ static NSString *PBProxyURLHeader = @"X-PB";
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-//    if( [[[[self request] URL] absoluteString] rangeOfString:@"method=addFeedback"].location != NSNotFound ) {
-//        NSLog(@"DEBUG:getStations:%@", [[[NSString alloc] initWithData:[self data] encoding:NSASCIIStringEncoding] autorelease]);
-//    }
     [[self client] URLProtocolDidFinishLoading:self];
+	[self setConnection:nil];
+	[_data release]; _data = nil;
 }
 
 -(NSString*)valueForParameter:(NSString*)parameter {

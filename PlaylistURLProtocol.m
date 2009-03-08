@@ -22,12 +22,12 @@
 // Init/Dealloc
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [super connectionDidFinishLoading:connection];
     Playlist *sharedPlaylist = [Playlist sharedPlaylist];
     [sharedPlaylist addInfoFromData:[self data]];
     
     NSString *stationId = [self valueForParameter:@"arg1"];
     [[StationList sharedStationList] setCurrentStationFromIdentifier:stationId];
+	[super connectionDidFinishLoading:connection];
 }
 
 @end

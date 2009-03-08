@@ -1,4 +1,7 @@
 PandoraBoy Changelog
+0.7.0
+   * Issue 41: Memory usage slowly increases
+
 0.6.0
    * Issue 73: Work with new Pandora mtverify session cookie
    * Issue 48: Excessive Console Messages patch from ishermandom

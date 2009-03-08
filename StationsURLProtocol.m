@@ -21,8 +21,8 @@
 // Init/Dealloc
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [super connectionDidFinishLoading:connection];
     [[StationList sharedStationList] initFromData:[self data]];
+    [super connectionDidFinishLoading:connection];
 }
 
 @end

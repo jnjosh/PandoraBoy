@@ -19,8 +19,8 @@
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [super connectionDidFinishLoading:connection];
     [[Playlist sharedPlaylist] addArtworkFromData:[self data] forURL:[[self request] URL]];
+    [super connectionDidFinishLoading:connection];
 }
 
 @end

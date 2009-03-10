@@ -36,16 +36,12 @@
             [track setRating:PBThumbsDownRating];
         }
         else {
-            NSLog(@"BUG:Bad rating in querty:%@", [[[self request] URL] absoluteString]);
+            NSLog(@"BUG:Bad rating in query:%@", [[[self request] URL] absoluteString]);
         }
     }
     else {
         NSLog(@"BUG:Bad feedback request:%@", [[[self request] URL] absoluteString]);
     }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:PBSongThumbedNotification
-                                                        object:track];
-    
     return retval;
 }
 

@@ -40,6 +40,7 @@
 #import "Track.h"
 #import "Playlist.h"
 #import "Controller.h"
+#import "PBNotifications.h"
 
 @implementation Track
 
@@ -103,6 +104,7 @@
 
 - (void)setRating:(int)value {
     [self setValue:[[NSNumber numberWithInt:value] stringValue] forProperty:@"rating"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:PBSongThumbedNotification object:self];
 }
 
 - (NSImage *)artworkImage { 

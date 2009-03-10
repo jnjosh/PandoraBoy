@@ -55,6 +55,7 @@
 - (void)addPlayedTrack:(Track *)track;
 - (Track *)currentTrack;
 - (Track*)trackForProvisionalTrack:(Track*)track;
+- (Track*)trackForIdentifier:(NSString*)track;
 
 // XMLParser delegates
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;

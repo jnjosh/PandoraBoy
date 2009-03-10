@@ -191,6 +191,19 @@ static Playlist* sharedInstance = nil;
     return [_trackInfo objectForKey:[self keyForTrack:track]];
 }
 
+- (Track*)trackForIdentifier:(NSString*)identifier {
+	Track *track = nil;
+	NSEnumerator *e = [[self playedTracks] objectEnumerator];
+	while (( track = [e nextObject] ))
+	{
+		if ([[track identifier] isEqualToString:identifier])
+		{
+			return track;
+		}
+	}
+	return nil;
+}
+
 // XMLParser delegates
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     if ( [elementName isEqualToString:@"struct"]) {

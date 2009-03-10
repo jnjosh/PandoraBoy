@@ -1,6 +1,9 @@
 PandoraBoy Changelog
 0.7.0
    * Issue 41: Memory usage slowly increases
+   * Issue 46: Preferences not saving
+   * Issue 82: Safari 4 Beta breaks Global Hotkeys functionality
+   * Issue 34: I like it (maybe) misreported to Growl
 
 0.6.0
    * Issue 73: Work with new Pandora mtverify session cookie

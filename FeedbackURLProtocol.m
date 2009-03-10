@@ -8,6 +8,7 @@
 
 #import "FeedbackURLProtocol.h"
 #import "PlayerController.h"
+#import "Playlist.h"
 #import "Track.h"
 
 @implementation FeedbackURLProtocol
@@ -24,8 +25,9 @@
 {
     id retval = [super initWithRequest:request cachedResponse:cachedResponse client:client];
 
-    Track *track = [[PlayerController sharedController] currentTrack];
-    NSString *thumbedUpString = [self valueForParameter:@"arg4"];
+	NSString *musicId = [self valueForParameter:@"arg2"];
+	Track *track = [[Playlist sharedPlaylist] trackForIdentifier:musicId];
+    NSString *thumbedUpString = [self valueForParameter:@"arg7"];
     if( thumbedUpString ) {
         if( [thumbedUpString isEqualToString:@"true"] ) {
             [track setRating:PBThumbsUpRating];

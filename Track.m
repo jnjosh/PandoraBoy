@@ -170,7 +170,8 @@
 }
 
 // NSObject protocol
-
+// Note: we track things based on name and artist because that's all we get from the Flash API.
+// We don't get musicId, so we can't create provisional tracks with it
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;

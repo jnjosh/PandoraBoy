@@ -104,6 +104,12 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 #pragma mark -
 #pragma mark Accessors
 
+- (WebScriptObject*) pandoraScriptObject
+{
+    // It seems that _pandoraScriptObject can't be cached; it changes sometimes.
+	return [[pandoraWebView windowScriptObject] valueForKey:@"Pandora"];
+}
+
 - (BOOL)controlDisabled {
     return _controlDisabled;
 }
@@ -224,10 +230,8 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 }
 
 - (void)setStation:(Station*)station {
-    // It seems that _pandoraScriptObject can't be cached; it changes sometimes.
-    WebScriptObject *_pandoraScriptObject = [[pandoraWebView windowScriptObject] valueForKey:@"Pandora"];
-    [_pandoraScriptObject callWebScriptMethod:@"launchStationFromId" 
-                                withArguments:[NSArray arrayWithObject:[station identifier]]];
+    [[self pandoraScriptObject] callWebScriptMethod:@"launchStationFromId" 
+									  withArguments:[NSArray arrayWithObject:[station identifier]]];
     
     // We set the current station twice on purpose. This time makes sure that
     // quick (next|previous)Station calls do the right thing. The second
@@ -323,6 +327,14 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 - (void)showWindow
 {
 	[pandoraWindow makeKeyAndOrderFront:nil];
+}
+
+- (void)createStationFromSearchText:(NSString*)text
+{
+    // It seems that pandoraScriptObject can't be cached; it changes sometimes.
+    [[self pandoraScriptObject] callWebScriptMethod:@"launchStationFromSearchText" 
+									  withArguments:[NSArray arrayWithObject:text]];
+	
 }
 
 /////////////////////////////////////////////////////////////////////

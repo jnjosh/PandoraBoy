@@ -45,6 +45,8 @@
 - (IBAction)previousStation:(id)sender;
 - (IBAction)fullScreenAction:(id)sender;
 
+- (void)createStationFromSearchText:(NSString*)text;
+
 - (BOOL)canFullScreen;
 
 - (Track *)currentTrack;

@@ -22,14 +22,15 @@
 #import <Cocoa/Cocoa.h>
 #import "Track.h"
 
-@interface playPauseCommand   : NSScriptCommand {} @end
-@interface skipCommand		  : NSScriptCommand {} @end
-@interface thumbsUpCommand    : NSScriptCommand {} @end
-@interface thumbsDownCommand  : NSScriptCommand {} @end
-@interface raiseVolumeCommand : NSScriptCommand {} @end
-@interface lowerVolumeCommand : NSScriptCommand {} @end
-@interface fullVolumeCommand  : NSScriptCommand {} @end
-@interface muteCommand		  : NSScriptCommand {} @end
+@interface playPauseCommand		: NSScriptCommand {} @end
+@interface skipCommand			: NSScriptCommand {} @end
+@interface thumbsUpCommand		: NSScriptCommand {} @end
+@interface thumbsDownCommand	: NSScriptCommand {} @end
+@interface raiseVolumeCommand	: NSScriptCommand {} @end
+@interface lowerVolumeCommand	: NSScriptCommand {} @end
+@interface fullVolumeCommand	: NSScriptCommand {} @end
+@interface muteCommand			: NSScriptCommand {} @end
+@interface createStationCommand	: NSScriptCommand {} @end
 
 @interface NSApplication (PandoraBoyScripting)
 - (Track *)currentTrack;

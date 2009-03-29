@@ -94,6 +94,15 @@
 }
 @end
 
+@implementation createStationCommand
+-(id)performDefaultImplementation
+{
+	NSString *searchText = [[self evaluatedArguments] objectForKey:@""];
+	[[PlayerController sharedController] createStationFromSearchText:searchText];
+	return self;
+}
+@end
+
 @implementation NSApplication (PandoraBoyScripting)
 - (Track *)currentTrack {
     return [[Playlist sharedPlaylist] currentTrack];

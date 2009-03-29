@@ -6,6 +6,10 @@ PandoraBoy Changelog
    * Issue 34: I like it (maybe) misreported to Growl
    * Issue 57: Rating songs logs "BUG:Bad rating" in console
       - Patch from ishermandom
+   * Added new Applescript command: "create station"
+      - create station "Foo Fighters"
+      - Searches for text and creates station for best match
+   * Known issue: Creating stations doesn't growl correctly (Issue 89)
 
 0.6.0
    * Issue 73: Work with new Pandora mtverify session cookie

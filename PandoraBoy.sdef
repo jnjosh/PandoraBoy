@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
-<!-- @version(10.4) -->
 <dictionary title="PandoraBoy Terminology">
 	<!--
 		STANDARD SUITE
@@ -57,7 +56,7 @@
 			<property name="zoomed" code="pzum" description="Whether the window is currently zoomed." type="boolean">
 				<cocoa key="isZoomed"/>
 			</property>
-			<responds-to name="close">
+			<responds-to command="close">
 				<cocoa method="handleCloseScriptCommand:"/>
 			</responds-to>
 		</class>
@@ -109,10 +108,10 @@
 			<property name="quickmix station" code="pqms" description="QuickMix station" type="station" access="r">
 				<cocoa key="quickMixStation"/>
 			</property>
-			<responds-to name="playpause">
+			<responds-to command="playpause">
 				<cocoa method=" "/>
 			</responds-to>
-			<responds-to name="next track">
+			<responds-to command="next track">
 				<cocoa method=" "/>
 			</responds-to>
 		</class>
@@ -152,6 +151,10 @@
 		</command>
 		<command name="mute" code="Pdbymute" description="mute volume">
 			<cocoa class="muteCommand"/>
+		</command>
+		<command name="create station" code="Pdbylaun" description="launch station from search text">
+			<cocoa class="createStationCommand"/>
+			<direct-parameter type="text"/>
 		</command>
 	</suite>
 </dictionary>

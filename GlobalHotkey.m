@@ -24,6 +24,20 @@
 
 static GlobalHotkey* sharedInstance = nil;
 
+NSString * const PBHotkeyPlayPauseDefaultsKey = @"ShortcutRecorder GlobalPlay";
+NSString * const PBHotkeyNextSongDefaultsKey = @"ShortcutRecorder GlobalNext";
+NSString * const PBHotkeyLikeSongDefaultsKey = @"ShortcutRecorder GlobalLikeSong";
+NSString * const PBHotkeyDislikeSongDefaultsKey = @"ShortcutRecorder GlobalDislikeSong";
+NSString * const PBHotkeyRaiseVolumeDefaultsKey = @"ShortcutRecorder GlobalUpVol";
+NSString * const PBHotkeyLowerVolumeDefaultsKey = @"ShortcutRecorder GlobalDownVol";
+NSString * const PBHotkeyFullVolumeDefaultsKey = @"ShortcutRecorder GlobalFullVol";
+NSString * const PBHotkeyMuteDefaultsKey = @"ShortcutRecorder GlobalMute";
+NSString * const PBHotkeyPreviousStationDefaultsKey = @"ShortcutRecorder GlobalPreviousStation";
+NSString * const PBHotkeyNextStationDefaultsKey = @"ShortcutRecorder GlobalNextStation";
+
+NSString * const kModifierFlagsDefaultsKey = @"modifierFlags";
+NSString * const kKeyCodeDefaultsKey = @"keyCode";
+
 OSStatus HotKeyEventHandler(EventHandlerCallRef nextHandler,EventRef theEvent,
 void *userData)
 {
@@ -125,18 +139,37 @@ void *userData)
 	return carbonFlags;
 }
 
+- (KeyCombo)keyComboForKey:(NSString *)key
+{
+	KeyCombo combo;
+	NSDictionary *savedCombo = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+	combo.code = [[savedCombo valueForKey:kKeyCodeDefaultsKey] shortValue];
+	combo.flags  = [[savedCombo valueForKey:kModifierFlagsDefaultsKey] unsignedIntValue];
+	return combo;
+}
+
+- (void)setKeyCombo:(KeyCombo)aKeyCombo forKey:(NSString *)aKey
+{
+	KeyCombo oldCombo = [self keyComboForKey:aKey];
+	if (oldCombo.code != aKeyCombo.code	&& oldCombo.flags != aKeyCombo.flags)
+	{
+		NSDictionary *comboDict = [NSDictionary dictionaryWithObjectsAndKeys:
+								   [NSNumber numberWithShort:aKeyCombo.code], kKeyCodeDefaultsKey,
+								   [NSNumber numberWithUnsignedInt:aKeyCombo.flags], kModifierFlagsDefaultsKey,
+								   nil];
+		[[NSUserDefaults standardUserDefaults] setObject:comboDict forKey:aKey];
+	}
+}
+
 - (bool) registerHotkey:(NSString*)HotkeyName withSignature:(int)signature refindex:(int)refindex andHotKeyId:(PandoraHotKeyIds)hkid
 {
 	EventHotKeyID ghotKeyID; 
     signed short keycode; 
     unsigned int modifiers; 
 
-	id values = [[NSUserDefaultsController sharedUserDefaultsController] values];
-	NSDictionary *savedCombo = [values valueForKey:HotkeyName];
-		
-	keycode = [[savedCombo valueForKey: @"keyCode"] shortValue];
-	modifiers  = [[savedCombo valueForKey: @"modifierFlags"] unsignedIntValue];
-	modifiers = [self _filteredCocoaToCarbonFlags:modifiers];
+	KeyCombo combo = [self keyComboForKey:HotkeyName];
+	keycode = combo.code;
+	modifiers = [self _filteredCocoaToCarbonFlags:combo.flags];
 	
 	// Go through and register the hotkeys we use one by one. 
 	if(!(keycode == 0 || keycode == 1) ) {
@@ -156,16 +189,16 @@ void *userData)
 {
     if(hotKeysRegistered == false) {
         
-        [self registerHotkey:@"ShortcutRecorder GlobalPlay" withSignature:'htk1' refindex:0 andHotKeyId:PLAY_PAUSE]; 
-        [self registerHotkey:@"ShortcutRecorder GlobalNext" withSignature:'htk2' refindex:1 andHotKeyId:NEXT_SONG]; 
-        [self registerHotkey:@"ShortcutRecorder GlobalLikeSong" withSignature:'htk3' refindex:2 andHotKeyId:LIKE_SONG]; 
-        [self registerHotkey:@"ShortcutRecorder GlobalDislikeSong" withSignature:'htk4' refindex:3 andHotKeyId:DISLIKE_SONG]; 
-        [self registerHotkey:@"ShortcutRecorder GlobalUpVol" withSignature:'htk5' refindex:4 andHotKeyId:RAISE_VOLUME]; 
-        [self registerHotkey:@"ShortcutRecorder GlobalDownVol" withSignature:'htk6' refindex:5 andHotKeyId:LOWER_VOLUME]; 
-        [self registerHotkey:@"ShortcutRecorder GlobalFullVol" withSignature:'htk7' refindex:6 andHotKeyId:FULL_VOLUME]; 
-        [self registerHotkey:@"ShortcutRecorder GlobalMute" withSignature:'htk8' refindex:7 andHotKeyId:MUTE]; 
-        [self registerHotkey:@"ShortcutRecorder GlobalPreviousStation" withSignature:'htk9' refindex:8 andHotKeyId:PREVIOUS_STATION];
-        [self registerHotkey:@"ShortcutRecorder GlobalNextStation" withSignature:'htka' refindex:9 andHotKeyId:NEXT_STATION];
+        [self registerHotkey:PBHotkeyPlayPauseDefaultsKey withSignature:'htk1' refindex:0 andHotKeyId:PLAY_PAUSE]; 
+        [self registerHotkey:PBHotkeyNextSongDefaultsKey withSignature:'htk2' refindex:1 andHotKeyId:NEXT_SONG]; 
+        [self registerHotkey:PBHotkeyLikeSongDefaultsKey withSignature:'htk3' refindex:2 andHotKeyId:LIKE_SONG]; 
+        [self registerHotkey:PBHotkeyDislikeSongDefaultsKey withSignature:'htk4' refindex:3 andHotKeyId:DISLIKE_SONG]; 
+        [self registerHotkey:PBHotkeyRaiseVolumeDefaultsKey withSignature:'htk5' refindex:4 andHotKeyId:RAISE_VOLUME]; 
+        [self registerHotkey:PBHotkeyLowerVolumeDefaultsKey withSignature:'htk6' refindex:5 andHotKeyId:LOWER_VOLUME]; 
+        [self registerHotkey:PBHotkeyFullVolumeDefaultsKey withSignature:'htk7' refindex:6 andHotKeyId:FULL_VOLUME]; 
+        [self registerHotkey:PBHotkeyMuteDefaultsKey withSignature:'htk8' refindex:7 andHotKeyId:MUTE]; 
+        [self registerHotkey:PBHotkeyPreviousStationDefaultsKey withSignature:'htk9' refindex:8 andHotKeyId:PREVIOUS_STATION];
+        [self registerHotkey:PBHotkeyNextStationDefaultsKey withSignature:'htka' refindex:9 andHotKeyId:NEXT_STATION];
         
         hotKeysRegistered = true; 
         return true; 

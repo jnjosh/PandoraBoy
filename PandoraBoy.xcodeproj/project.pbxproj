@@ -13,12 +13,6 @@
 		3D04444D0B758EAE00F1BA8B /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444460B758EAE00F1BA8B /* thumbs_down.png */; };
 		3D04444E0B758EAE00F1BA8B /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0444470B758EAE00F1BA8B /* thumbs_up.png */; };
 		3D0609E50AB0BA9C008DC718 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0609E40AB0BA9C008DC718 /* IOKit.framework */; };
-		3D4400D10B758BC10022A3D7 /* CTGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C50B758BC10022A3D7 /* CTGradient.m */; };
-		3D4400D30B758BC10022A3D7 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C70B758BC10022A3D7 /* SRCommon.m */; };
-		3D4400D50B758BC10022A3D7 /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400C90B758BC10022A3D7 /* SRKeyCodeTransformer.m */; };
-		3D4400D70B758BC10022A3D7 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CB0B758BC10022A3D7 /* SRRecorderCell.m */; };
-		3D4400D90B758BC10022A3D7 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */; };
-		3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4400CF0B758BC10022A3D7 /* SRValidator.m */; };
 		3D6942310AA3791F00899D49 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6942240AA378BF00899D49 /* Growl.framework */; };
 		3D6942430AA37A1300899D49 /* GrowlNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6942410AA37A1300899D49 /* GrowlNotification.m */; };
 		3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6945300AAA19D300899D49 /* GlobalHotkey.m */; };
@@ -48,6 +42,10 @@
 		FB4F5F1F0D1617D3005523DA /* RaiseVolume.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */; };
 		FB4F5F200D1617D3005523DA /* ThumbsDown.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */; };
 		FB4F5F210D1617D3005523DA /* ThumbsUp.scpt in Copy Scripts */ = {isa = PBXBuildFile; fileRef = 3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */; };
+		FB52397F1038E17800BD85A6 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB52397E1038E17800BD85A6 /* ShortcutRecorder.framework */; };
+		FB52399C1038E5DA00BD85A6 /* ShortcutRecorder.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB52397E1038E17800BD85A6 /* ShortcutRecorder.framework */; };
+		FB5239B41038E81300BD85A6 /* PreferencesHotkeys.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5239B31038E81300BD85A6 /* PreferencesHotkeys.xib */; };
+		FB523ABE1038F72C00BD85A6 /* HotkeyPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB523ABD1038F72C00BD85A6 /* HotkeyPreferencesController.m */; };
 		FB5301F50CF886650083F18C /* PlaylistURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */; };
 		FB6192770D0C9B7A00667BF3 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6192750D0C9B7A00667BF3 /* PlayerController.m */; };
 		FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB691B490D01F2B500B027ED /* Sparkle.framework */; };
@@ -74,7 +72,7 @@
 		FBAE25A80D3D0BA300FA8277 /* PandoraBoyPlugin.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
 		FBAE25F80D3D0F9C00FA8277 /* PBViewBlack.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A81170D3C226B00A985A6 /* PBViewBlack.m */; };
 		FBAE25FC0D3D0FBC00FA8277 /* PandoraBoyPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
-		FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.pbview */; };
+		FBAE26050D3D0FEF00FA8277 /* Black.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.bundle */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404310D039F0600B179F9 /* StationsURLProtocol.m */; };
@@ -125,6 +123,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FB52399C1038E5DA00BD85A6 /* ShortcutRecorder.framework in Copy Frameworks */,
 				FBAE25A80D3D0BA300FA8277 /* PandoraBoyPlugin.framework in Copy Frameworks */,
 				FB691B4E0D01F2C700B027ED /* Sparkle.framework in Copy Frameworks */,
 				3D6942310AA3791F00899D49 /* Growl.framework in Copy Frameworks */,
@@ -150,7 +149,7 @@
 			dstPath = Views;
 			dstSubfolderSpec = 13;
 			files = (
-				FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */,
+				FBAE26050D3D0FEF00FA8277 /* Black.bundle in Copy Plugins */,
 			);
 			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,18 +189,6 @@
 		3D0444460B758EAE00F1BA8B /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbs_down.png; path = images/thumbs_down.png; sourceTree = "<group>"; };
 		3D0444470B758EAE00F1BA8B /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbs_up.png; path = images/thumbs_up.png; sourceTree = "<group>"; };
 		3D0609E40AB0BA9C008DC718 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		3D4400C40B758BC10022A3D7 /* CTGradient.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CTGradient.h; path = ShortcutRecorder/CTGradient.h; sourceTree = "<group>"; };
-		3D4400C50B758BC10022A3D7 /* CTGradient.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = CTGradient.m; path = ShortcutRecorder/CTGradient.m; sourceTree = "<group>"; };
-		3D4400C60B758BC10022A3D7 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRCommon.h; path = ShortcutRecorder/SRCommon.h; sourceTree = "<group>"; };
-		3D4400C70B758BC10022A3D7 /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRCommon.m; path = ShortcutRecorder/SRCommon.m; sourceTree = "<group>"; };
-		3D4400C80B758BC10022A3D7 /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRKeyCodeTransformer.h; path = ShortcutRecorder/SRKeyCodeTransformer.h; sourceTree = "<group>"; };
-		3D4400C90B758BC10022A3D7 /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRKeyCodeTransformer.m; path = ShortcutRecorder/SRKeyCodeTransformer.m; sourceTree = "<group>"; };
-		3D4400CA0B758BC10022A3D7 /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRRecorderCell.h; path = ShortcutRecorder/SRRecorderCell.h; sourceTree = "<group>"; };
-		3D4400CB0B758BC10022A3D7 /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRRecorderCell.m; path = ShortcutRecorder/SRRecorderCell.m; sourceTree = "<group>"; };
-		3D4400CC0B758BC10022A3D7 /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRRecorderControl.h; path = ShortcutRecorder/SRRecorderControl.h; sourceTree = "<group>"; };
-		3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRRecorderControl.m; path = ShortcutRecorder/SRRecorderControl.m; sourceTree = "<group>"; };
-		3D4400CE0B758BC10022A3D7 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRValidator.h; path = ShortcutRecorder/SRValidator.h; sourceTree = "<group>"; };
-		3D4400CF0B758BC10022A3D7 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRValidator.m; path = ShortcutRecorder/SRValidator.m; sourceTree = "<group>"; };
 		3D6942240AA378BF00899D49 /* Growl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		3D6942400AA37A1300899D49 /* GrowlNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotification.h; sourceTree = "<group>"; };
 		3D6942410AA37A1300899D49 /* GrowlNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotification.m; sourceTree = "<group>"; };
@@ -242,6 +229,10 @@
 		FB4D23500BCB092700DCC767 /* README.Applescript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.Applescript.txt; sourceTree = "<group>"; wrapsLines = 1; };
 		FB4F5EEC0D15A0FB005523DA /* NextStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = NextStation.scpt; path = Applescripts/NextStation.scpt; sourceTree = "<group>"; };
 		FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = PreviousStation.scpt; path = Applescripts/PreviousStation.scpt; sourceTree = "<group>"; };
+		FB52397E1038E17800BD85A6 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = 3rdparty/ShortcutRecorder/ShortcutRecorder.framework; sourceTree = "<group>"; };
+		FB5239B31038E81300BD85A6 /* PreferencesHotkeys.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesHotkeys.xib; sourceTree = "<group>"; };
+		FB523ABC1038F72C00BD85A6 /* HotkeyPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotkeyPreferencesController.h; sourceTree = "<group>"; };
+		FB523ABD1038F72C00BD85A6 /* HotkeyPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotkeyPreferencesController.m; sourceTree = "<group>"; };
 		FB5301F20CF886650083F18C /* PlaylistURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistURLProtocol.h; sourceTree = "<group>"; };
 		FB5301F30CF886650083F18C /* PlaylistURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistURLProtocol.m; sourceTree = "<group>"; };
 		FB6192740D0C9B7A00667BF3 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
@@ -273,7 +264,7 @@
 		FBA6A4340D42D8D20003234A /* FullScreenPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenPreferencesController.m; sourceTree = "<group>"; };
 		FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackURLProtocol.h; sourceTree = "<group>"; };
 		FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackURLProtocol.m; sourceTree = "<group>"; };
-		FBAE25F00D3D0EC700FA8277 /* Black.pbview */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.pbview; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBAE25F00D3D0EC700FA8277 /* Black.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Black-Info.plist"; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
@@ -324,6 +315,7 @@
 				FB691B4A0D01F2B500B027ED /* Sparkle.framework in Frameworks */,
 				FBA325F50D137B8500AD3D91 /* AppKit.framework in Frameworks */,
 				FBA326A60D137BF700AD3D91 /* WebKit.framework in Frameworks */,
+				FB52397F1038E17800BD85A6 /* ShortcutRecorder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +346,7 @@
 				FB61925A0D0C955800667BF3 /* Model */,
 				FBFE13F30F033560000C3B8F /* View */,
 				FB61925C0D0C956600667BF3 /* Controller */,
+				FB523ABB1038F70D00BD85A6 /* Preferences */,
 				FB27A2130CFF9D750038475D /* RemoteControlWrapper */,
 				FB936CB90D0108DD007AD10A /* URLProtocols */,
 			);
@@ -386,7 +379,7 @@
 			children = (
 				8D1107320486CEB800E47090 /* PandoraBoy.app */,
 				FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */,
-				FBAE25F00D3D0EC700FA8277 /* Black.pbview */,
+				FBAE25F00D3D0EC700FA8277 /* Black.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -395,7 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				FB3856B60BC993B1005653C3 /* Documentation */,
-				3DC9FC780B74FED200FF4370 /* Shortcut Recorder */,
 				3DDA241D0B74F58800F500BD /* Scripts */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				FB3D82340D21DF8C00F0A16D /* PandoraBoyPlugin */,
@@ -440,6 +432,7 @@
 				FBCA07960D41C05C0029D3B5 /* PreferencesGeneral.nib */,
 				FBCA06BA0D410DB70029D3B5 /* PreferencesHotkeys.nib */,
 				FBCA079B0D41C09D0029D3B5 /* PreferencesFullScreen.nib */,
+				FB5239B31038E81300BD85A6 /* PreferencesHotkeys.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -447,30 +440,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB52397E1038E17800BD85A6 /* ShortcutRecorder.framework */,
 				FB6B5EA70CF9EE9100DEF3C9 /* Third Party Frameworks */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3DC9FC780B74FED200FF4370 /* Shortcut Recorder */ = {
-			isa = PBXGroup;
-			children = (
-				3D4400C40B758BC10022A3D7 /* CTGradient.h */,
-				3D4400C50B758BC10022A3D7 /* CTGradient.m */,
-				3D4400C60B758BC10022A3D7 /* SRCommon.h */,
-				3D4400C70B758BC10022A3D7 /* SRCommon.m */,
-				3D4400C80B758BC10022A3D7 /* SRKeyCodeTransformer.h */,
-				3D4400C90B758BC10022A3D7 /* SRKeyCodeTransformer.m */,
-				3D4400CA0B758BC10022A3D7 /* SRRecorderCell.h */,
-				3D4400CB0B758BC10022A3D7 /* SRRecorderCell.m */,
-				3D4400CC0B758BC10022A3D7 /* SRRecorderControl.h */,
-				3D4400CD0B758BC10022A3D7 /* SRRecorderControl.m */,
-				3D4400CE0B758BC10022A3D7 /* SRValidator.h */,
-				3D4400CF0B758BC10022A3D7 /* SRValidator.m */,
-			);
-			name = "Shortcut Recorder";
 			sourceTree = "<group>";
 		};
 		3DDA241D0B74F58800F500BD /* Scripts */ = {
@@ -528,6 +503,21 @@
 			name = PandoraBoyPlugin;
 			sourceTree = "<group>";
 		};
+		FB523ABB1038F70D00BD85A6 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				3D6946930AAC91DF00899D49 /* PreferencesWindowController.h */,
+				3D6946940AAC91DF00899D49 /* PreferencesWindowController.m */,
+				FBCA08550D42B28C0029D3B5 /* PreferencesPaneController.h */,
+				FBCA08560D42B28C0029D3B5 /* PreferencesPaneController.m */,
+				FBA6A4330D42D8D20003234A /* FullScreenPreferencesController.h */,
+				FBA6A4340D42D8D20003234A /* FullScreenPreferencesController.m */,
+				FB523ABC1038F72C00BD85A6 /* HotkeyPreferencesController.h */,
+				FB523ABD1038F72C00BD85A6 /* HotkeyPreferencesController.m */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
 		FB61925A0D0C955800667BF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,12 +544,6 @@
 				FBA18D130CF5DEBF00CB424F /* PlaylistGuiController.m */,
 				FB6192740D0C9B7A00667BF3 /* PlayerController.h */,
 				FB6192750D0C9B7A00667BF3 /* PlayerController.m */,
-				3D6946930AAC91DF00899D49 /* PreferencesWindowController.h */,
-				3D6946940AAC91DF00899D49 /* PreferencesWindowController.m */,
-				FBCA08550D42B28C0029D3B5 /* PreferencesPaneController.h */,
-				FBCA08560D42B28C0029D3B5 /* PreferencesPaneController.m */,
-				FBA6A4330D42D8D20003234A /* FullScreenPreferencesController.h */,
-				FBA6A4340D42D8D20003234A /* FullScreenPreferencesController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -715,7 +699,7 @@
 			);
 			name = Black;
 			productName = Black;
-			productReference = FBAE25F00D3D0EC700FA8277 /* Black.pbview */;
+			productReference = FBAE25F00D3D0EC700FA8277 /* Black.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -762,6 +746,7 @@
 				FBCA08770D42B63C0029D3B5 /* Preferences.nib in Resources */,
 				FB7F67030D43A799009A6161 /* PBTrackInfoCrawlWidget.qtz in Resources */,
 				FB7F68110D443731009A6161 /* PandoraPreview.png in Resources */,
+				FB5239B41038E81300BD85A6 /* PreferencesHotkeys.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,12 +777,6 @@
 				3D6945320AAA19D300899D49 /* GlobalHotkey.m in Sources */,
 				3D6946960AAC91DF00899D49 /* PreferencesWindowController.m in Sources */,
 				3DDA24280B74F5D000F500BD /* Commands.m in Sources */,
-				3D4400D10B758BC10022A3D7 /* CTGradient.m in Sources */,
-				3D4400D30B758BC10022A3D7 /* SRCommon.m in Sources */,
-				3D4400D50B758BC10022A3D7 /* SRKeyCodeTransformer.m in Sources */,
-				3D4400D70B758BC10022A3D7 /* SRRecorderCell.m in Sources */,
-				3D4400D90B758BC10022A3D7 /* SRRecorderControl.m in Sources */,
-				3D4400DB0B758BC10022A3D7 /* SRValidator.m in Sources */,
 				FBC365060BC9C1490052A3A9 /* Track.m in Sources */,
 				FBF742030BD1C3AC007F85D5 /* Playlist.m in Sources */,
 				FBA18D150CF5DEBF00CB424F /* PlaylistGuiController.m in Sources */,
@@ -820,6 +799,7 @@
 				FBA6A4350D42D8D20003234A /* FullScreenPreferencesController.m in Sources */,
 				FB8A6BFB0E1B108A0072DB72 /* APIController.m in Sources */,
 				FBFE13F60F033586000C3B8F /* PlayerWindow.m in Sources */,
+				FB523ABE1038F72C00BD85A6 /* HotkeyPreferencesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,16 +915,17 @@
 					"$(EXECUTABLE_PATH)/../Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/3rdparty/ShortcutRecorder\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "-lcrypto";
@@ -964,14 +945,15 @@
 					"$(EXECUTABLE_PATH)/../Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/3rdparty/ShortcutRecorder\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "-lcrypto";
@@ -986,7 +968,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};
@@ -997,7 +979,7 @@
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Release;
 		};

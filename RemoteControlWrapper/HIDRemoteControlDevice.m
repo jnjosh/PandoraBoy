@@ -32,7 +32,7 @@
 #import <IOKit/IOKitLib.h>
 #import <IOKit/IOCFPlugIn.h>
 #import <IOKit/hid/IOHIDKeys.h>
-#import <Carbon/Carbon.h>
+//#import <Carbon/Carbon.h>
 
 @interface HIDRemoteControlDevice (PrivateMethods) 
 - (NSDictionary*) cookieToButtonMapping;

@@ -21,6 +21,18 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
+#import <ShortcutRecorder/SRCommon.h>
+
+extern NSString * const PBHotkeyPlayPauseDefaultsKey;
+extern NSString * const PBHotkeyNextSongDefaultsKey;
+extern NSString * const PBHotkeyLikeSongDefaultsKey;
+extern NSString * const PBHotkeyDislikeSongDefaultsKey;
+extern NSString * const PBHotkeyRaiseVolumeDefaultsKey;
+extern NSString * const PBHotkeyLowerVolumeDefaultsKey;
+extern NSString * const PBHotkeyFullVolumeDefaultsKey;
+extern NSString * const PBHotkeyMuteDefaultsKey;
+extern NSString * const PBHotkeyPreviousStationDefaultsKey;
+extern NSString * const PBHotkeyNextStationDefaultsKey;
 
 typedef enum HotKeyIds {
     NEXT_SONG,
@@ -42,10 +54,12 @@ typedef enum HotKeyIds {
   bool hotKeysRegistered; 
   bool eventRefValid[NUM_HOTKEYS];
   EventHotKeyRef eventHotKeyRefs[NUM_HOTKEYS];
-
 }
 
 + (GlobalHotkey*) sharedHotkey; 
+
+- (KeyCombo)keyComboForKey:(NSString *)key;
+- (void)setKeyCombo:(KeyCombo)aKeyCombo forKey:(NSString *)aKey;
 
 - (void) registerHotkeyHandler;
 - (bool) registerHotkeys; 

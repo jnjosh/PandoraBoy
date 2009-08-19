@@ -82,7 +82,6 @@
 		FBC507DD0E22C5E800831691 /* QuartzComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC507DC0E22C5E800831691 /* QuartzComposer.framework */; };
 		FBC507E50E22C60400831691 /* QuartzComposer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC507DC0E22C5E800831691 /* QuartzComposer.framework */; };
 		FBC6878A0D3FF512002F42C4 /* PBFullScreenWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC687890D3FF512002F42C4 /* PBFullScreenWindowController.m */; };
-		FBCA06BB0D410DB70029D3B5 /* PreferencesHotkeys.nib in Resources */ = {isa = PBXBuildFile; fileRef = FBCA06BA0D410DB70029D3B5 /* PreferencesHotkeys.nib */; };
 		FBCA07970D41C05C0029D3B5 /* PreferencesGeneral.nib in Resources */ = {isa = PBXBuildFile; fileRef = FBCA07960D41C05C0029D3B5 /* PreferencesGeneral.nib */; };
 		FBCA079C0D41C09D0029D3B5 /* PreferencesFullScreen.nib in Resources */ = {isa = PBXBuildFile; fileRef = FBCA079B0D41C09D0029D3B5 /* PreferencesFullScreen.nib */; };
 		FBCA08570D42B28C0029D3B5 /* PreferencesPaneController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCA08560D42B28C0029D3B5 /* PreferencesPaneController.m */; };
@@ -278,7 +277,6 @@
 		FBC507DC0E22C5E800831691 /* QuartzComposer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzComposer.framework; path = System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzComposer.framework; sourceTree = SDKROOT; };
 		FBC687880D3FF512002F42C4 /* PBFullScreenWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFullScreenWindowController.h; sourceTree = "<group>"; };
 		FBC687890D3FF512002F42C4 /* PBFullScreenWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFullScreenWindowController.m; sourceTree = "<group>"; };
-		FBCA06B80D410DA70029D3B5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/PreferencesHotkeys.nib; sourceTree = "<group>"; };
 		FBCA07940D41C0490029D3B5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/PreferencesGeneral.nib; sourceTree = "<group>"; };
 		FBCA07990D41C0910029D3B5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/PreferencesFullScreen.nib; sourceTree = "<group>"; };
 		FBCA08550D42B28C0029D3B5 /* PreferencesPaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesPaneController.h; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 		FBFE12C00F02F1B1000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		FBFE12C10F02F1BD000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/Preferences.nib; sourceTree = "<group>"; };
 		FBFE12C20F02F1C8000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesGeneral.nib; sourceTree = "<group>"; };
-		FBFE12C30F02F1CD000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesHotkeys.nib; sourceTree = "<group>"; };
 		FBFE12C40F02F1D2000C3B8F /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/PreferencesFullScreen.nib; sourceTree = "<group>"; };
 		FBFE13F40F033586000C3B8F /* PlayerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerWindow.h; sourceTree = "<group>"; };
 		FBFE13F50F033586000C3B8F /* PlayerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerWindow.m; sourceTree = "<group>"; };
@@ -430,7 +427,6 @@
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 				FBCA08760D42B63C0029D3B5 /* Preferences.nib */,
 				FBCA07960D41C05C0029D3B5 /* PreferencesGeneral.nib */,
-				FBCA06BA0D410DB70029D3B5 /* PreferencesHotkeys.nib */,
 				FBCA079B0D41C09D0029D3B5 /* PreferencesFullScreen.nib */,
 				FB5239B31038E81300BD85A6 /* PreferencesHotkeys.xib */,
 			);
@@ -740,7 +736,6 @@
 				FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */,
 				FBA24C4B0D0B0329003F7B70 /* play.gif in Resources */,
 				FB732F540D203A97007E36B2 /* PandoraBoy.css in Resources */,
-				FBCA06BB0D410DB70029D3B5 /* PreferencesHotkeys.nib in Resources */,
 				FBCA07970D41C05C0029D3B5 /* PreferencesGeneral.nib in Resources */,
 				FBCA079C0D41C09D0029D3B5 /* PreferencesFullScreen.nib in Resources */,
 				FBCA08770D42B63C0029D3B5 /* Preferences.nib in Resources */,
@@ -866,15 +861,6 @@
 				FBFE12BE0F02F17B000C3B8F /* French */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		FBCA06BA0D410DB70029D3B5 /* PreferencesHotkeys.nib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBCA06B80D410DA70029D3B5 /* English */,
-				FBFE12C30F02F1CD000C3B8F /* French */,
-			);
-			name = PreferencesHotkeys.nib;
 			sourceTree = "<group>";
 		};
 		FBCA07960D41C05C0029D3B5 /* PreferencesGeneral.nib */ = {

@@ -1,4 +1,13 @@
 PandoraBoy Changelog
+0.8.0
+   * Dropped Tiger (10.4) support
+   * Upgraded Shortcut Recorder
+      - Broke French localization of Hotkey Preferences Panel
+   * Turned off several chatty NSLog() messages (every song play, etc.)
+        If anyone was using them, I'll build a more specialized interface to
+        solve their issue
+
+
 0.7.0
    * Issue 41: Memory usage slowly increases
    * Issue 46: Preferences not saving

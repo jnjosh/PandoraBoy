@@ -20,7 +20,6 @@ NSString *PBAPIPath = @"/SongNotification.html";
 
 -(void)reload
 {
-	NSLog(@"DEBUG: APIController reload");
 	ResourceURL *notifierURL = [ResourceURL resourceURLWithPath:PBAPIPath];
     [[apiWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:notifierURL]];
 	WebScriptObject *win = [apiWebView windowScriptObject]; 
@@ -33,8 +32,6 @@ NSString *PBAPIPath = @"/SongNotification.html";
 
 - (void) pandoraSongPlayed: (NSString*)name :(NSString*)artist
 {
-    NSLog( @"pandoraSongPlayed name: %@, artist: %@", name, artist); 
-    
     Playlist *playlist = [Playlist sharedPlaylist];
     Track *track = [Track trackWithName:name artist:artist];
     // We get called for both track change and unpause, so make sure this isn't the current track
@@ -48,14 +45,12 @@ NSString *PBAPIPath = @"/SongNotification.html";
 
 - (void) pandoraSongPaused
 {
-    NSLog( @"pandoraSongPaused"); 
     [playerController setPlayerState:PBPlayerStatePaused];
     [[NSNotificationCenter defaultCenter] postNotificationName:PBSongPausedNotification
                                                         object:[playerController currentTrack]];
 }
 
 - (void) pandoraStationPlayed:(NSString*)name :(NSString*)identifier {
-    NSLog(@"pandoraStationPlayed:%@:%@", name, identifier);
     [[StationList sharedStationList] setCurrentStationFromIdentifier:identifier];
     [[NSNotificationCenter defaultCenter] postNotificationName:PBStationChangedNotification
                                                         object:[playerController currentStation]];
@@ -63,7 +58,6 @@ NSString *PBAPIPath = @"/SongNotification.html";
 
 - (void) pandoraStarted
 {
-	NSLog(@"pandoraStarted");
 }
 
 - (void) pandoraEventFired:(NSString*)eventName :(NSString*)argument {

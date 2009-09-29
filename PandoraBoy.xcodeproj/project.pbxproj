@@ -72,7 +72,7 @@
 		FBAE25A80D3D0BA300FA8277 /* PandoraBoyPlugin.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
 		FBAE25F80D3D0F9C00FA8277 /* PBViewBlack.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A81170D3C226B00A985A6 /* PBViewBlack.m */; };
 		FBAE25FC0D3D0FBC00FA8277 /* PandoraBoyPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
-		FBAE26050D3D0FEF00FA8277 /* Black.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.bundle */; };
+		FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.pbview */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404310D039F0600B179F9 /* StationsURLProtocol.m */; };
@@ -148,7 +148,7 @@
 			dstPath = Views;
 			dstSubfolderSpec = 13;
 			files = (
-				FBAE26050D3D0FEF00FA8277 /* Black.bundle in Copy Plugins */,
+				FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */,
 			);
 			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,7 +263,7 @@
 		FBA6A4340D42D8D20003234A /* FullScreenPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenPreferencesController.m; sourceTree = "<group>"; };
 		FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackURLProtocol.h; sourceTree = "<group>"; };
 		FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackURLProtocol.m; sourceTree = "<group>"; };
-		FBAE25F00D3D0EC700FA8277 /* Black.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBAE25F00D3D0EC700FA8277 /* Black.pbview */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.pbview; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Black-Info.plist"; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
@@ -376,7 +376,7 @@
 			children = (
 				8D1107320486CEB800E47090 /* PandoraBoy.app */,
 				FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */,
-				FBAE25F00D3D0EC700FA8277 /* Black.bundle */,
+				FBAE25F00D3D0EC700FA8277 /* Black.pbview */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -695,7 +695,7 @@
 			);
 			name = Black;
 			productName = Black;
-			productReference = FBAE25F00D3D0EC700FA8277 /* Black.bundle */;
+			productReference = FBAE25F00D3D0EC700FA8277 /* Black.pbview */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */

@@ -10,6 +10,7 @@
 
 @class SRRecorderControl;
 
+// If you add new hotkeys, don't forget to add them in GlobalHotkey
 @interface HotkeyPreferencesController : NSObject 
 {
 	SRRecorderControl *_playPauseControl;
@@ -22,6 +23,7 @@
 	SRRecorderControl *_muteControl;
 	SRRecorderControl *_likeSongControl;
 	SRRecorderControl *_dislikeSongControl;
+	SRRecorderControl *_growlCurrentSongControl;
 	NSDictionary *_controlForKey;
 }
 
@@ -35,5 +37,6 @@
 @property (nonatomic, readwrite, retain) IBOutlet SRRecorderControl *muteControl;
 @property (nonatomic, readwrite, retain) IBOutlet SRRecorderControl *likeSongControl;
 @property (nonatomic, readwrite, retain) IBOutlet SRRecorderControl *dislikeSongControl;
+@property (nonatomic, readwrite, retain) IBOutlet SRRecorderControl *growlCurrentSongControl;
 
 @end

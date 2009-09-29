@@ -5,16 +5,16 @@
  *  This file is part of PandoraBoy.                                        *
  *                                                                          *
  *  PandoraBoy is free software; you can redistribute it and/or modify      *
- *  it under the terms of the GNU General Public License as published by    * 
+ *  it under the terms of the GNU General Public License as published by    *
  *  the Free Software Foundation; either version 2 of the License, or       *
  *  (at your option) any later version.                                     *
  *                                                                          *
  *  PandoraBoy is distributed in the hope that it will be useful,           *
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           * 
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           *
  *  GNU General Public License for more details.                            *
  *                                                                          *
- *  You should have received a copy of the GNU General Public License       * 
+ *  You should have received a copy of the GNU General Public License       *
  *  along with PandoraBoy; if not, write to the Free Software Foundation,   *
  *  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA          *
  ***************************************************************************/
@@ -24,6 +24,9 @@
 
 static GlobalHotkey* sharedInstance = nil;
 
+// NSUserDefaults constants. The odd format is historic. They used to be autosave defaults from
+// ShortcutRecorder, but that functionality was deprectated. We've kept the old keys for backward
+// compatibility, since they're written into the config files.
 NSString * const PBHotkeyPlayPauseDefaultsKey = @"ShortcutRecorder GlobalPlay";
 NSString * const PBHotkeyNextSongDefaultsKey = @"ShortcutRecorder GlobalNext";
 NSString * const PBHotkeyLikeSongDefaultsKey = @"ShortcutRecorder GlobalLikeSong";
@@ -34,53 +37,56 @@ NSString * const PBHotkeyFullVolumeDefaultsKey = @"ShortcutRecorder GlobalFullVo
 NSString * const PBHotkeyMuteDefaultsKey = @"ShortcutRecorder GlobalMute";
 NSString * const PBHotkeyPreviousStationDefaultsKey = @"ShortcutRecorder GlobalPreviousStation";
 NSString * const PBHotkeyNextStationDefaultsKey = @"ShortcutRecorder GlobalNextStation";
+NSString * const PBHotkeyGrowlCurrentSongDefaultsKey = @"ShortcutRecorder GrowlCurrentStation";
 
 NSString * const kModifierFlagsDefaultsKey = @"modifierFlags";
 NSString * const kKeyCodeDefaultsKey = @"keyCode";
 
-OSStatus HotKeyEventHandler(EventHandlerCallRef nextHandler,EventRef theEvent,
-void *userData)
+OSStatus HotKeyEventHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *userData)
 {
-    EventHotKeyID hkCom; 
-    GetEventParameter(theEvent, kEventParamDirectObject,typeEventHotKeyID,NULL,
-    sizeof(hkCom),NULL,&hkCom);
-    PandoraHotKeyIds hotKeyId = hkCom.id; 
+    EventHotKeyID hkCom;
+    GetEventParameter(theEvent, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(hkCom), NULL, &hkCom);
+    PBHotKeyID hotKeyId = hkCom.id;
 
-    // Is there a better way to get to the playerController?
     PlayerController *playerController = [PlayerController sharedController];
-      
+
     switch(hotKeyId) {
-        
-        case NEXT_SONG:
+        case kHotKeyNextSong:
             [playerController nextSong:nil];
             break;
-        case PLAY_PAUSE:
+        case kHotkeyPlayPause:
             [playerController playPause:nil];
             break;
-        case LIKE_SONG:
-            [playerController likeSong:nil];    
+        case kHotkeyLikeSong:
+            [playerController likeSong:nil];
             break;
-        case DISLIKE_SONG:
+        case kHotkeyDislikeSong:
             [playerController dislikeSong:nil];
-            break; 
-        case RAISE_VOLUME:
+            break;
+        case kHotkeyRaiseVolume:
             [playerController raiseVolume:nil];
-            break; 
-        case LOWER_VOLUME:
+            break;
+        case kHotkeyLowerVolume:
             [playerController lowerVolume:nil];
             break; 
-        case FULL_VOLUME:
+        case kHotkeyFullVolume:
             [playerController fullVolume:nil];
             break; 
-        case MUTE:
+        case kHotkeyMute:
             [playerController mute:nil];
             break;
-        case PREVIOUS_STATION:
+        case kHotkeyPreviousStation:
             [playerController previousStation:nil];
             break;
-        case NEXT_STATION:
+        case kHotkeyNextStation:
             [playerController nextStation:nil];
             break;
+		case kHotkeyGrowlCurrentSong:
+			// FIXME: This can cause more than just growling, but GrowlNotification isn't a singleton yet
+			[[NSNotificationCenter defaultCenter] postNotificationName:PBSongPlayedNotification
+																object:[playerController currentTrack]];
+			break;
+			
         default:
             NSLog(@"BUG:HotKeyEventHandler got unknown hotKeyId:%d", hotKeyId);
     }
@@ -91,19 +97,18 @@ void *userData)
 
 @implementation GlobalHotkey
 
-- (id) init 
-
+- (id)init 
 {
 	if (sharedInstance) return sharedInstance;
-	
+
 	if ( self = [super init] ) {
-	  hotKeysRegistered = false; 
+		hotKeysRegistered = false; 
 	}
 	
 	return self;
 }
 
-- (void) dealloc 
+- (void)dealloc 
 {
 	[super dealloc];
 }
@@ -151,7 +156,7 @@ void *userData)
 - (void)setKeyCombo:(KeyCombo)aKeyCombo forKey:(NSString *)aKey
 {
 	KeyCombo oldCombo = [self keyComboForKey:aKey];
-	if (oldCombo.code != aKeyCombo.code	&& oldCombo.flags != aKeyCombo.flags)
+	if (oldCombo.code != aKeyCombo.code	|| oldCombo.flags != aKeyCombo.flags)
 	{
 		NSDictionary *comboDict = [NSDictionary dictionaryWithObjectsAndKeys:
 								   [NSNumber numberWithShort:aKeyCombo.code], kKeyCodeDefaultsKey,
@@ -161,7 +166,7 @@ void *userData)
 	}
 }
 
-- (bool) registerHotkey:(NSString*)HotkeyName withSignature:(int)signature refindex:(int)refindex andHotKeyId:(PandoraHotKeyIds)hkid
+- (bool) registerHotkey:(NSString*)HotkeyName withSignature:(int)signature refindex:(int)refindex andHotKeyId:(PBHotKeyID)hkid
 {
 	EventHotKeyID ghotKeyID; 
     signed short keycode; 
@@ -189,16 +194,17 @@ void *userData)
 {
     if(hotKeysRegistered == false) {
         
-        [self registerHotkey:PBHotkeyPlayPauseDefaultsKey withSignature:'htk1' refindex:0 andHotKeyId:PLAY_PAUSE]; 
-        [self registerHotkey:PBHotkeyNextSongDefaultsKey withSignature:'htk2' refindex:1 andHotKeyId:NEXT_SONG]; 
-        [self registerHotkey:PBHotkeyLikeSongDefaultsKey withSignature:'htk3' refindex:2 andHotKeyId:LIKE_SONG]; 
-        [self registerHotkey:PBHotkeyDislikeSongDefaultsKey withSignature:'htk4' refindex:3 andHotKeyId:DISLIKE_SONG]; 
-        [self registerHotkey:PBHotkeyRaiseVolumeDefaultsKey withSignature:'htk5' refindex:4 andHotKeyId:RAISE_VOLUME]; 
-        [self registerHotkey:PBHotkeyLowerVolumeDefaultsKey withSignature:'htk6' refindex:5 andHotKeyId:LOWER_VOLUME]; 
-        [self registerHotkey:PBHotkeyFullVolumeDefaultsKey withSignature:'htk7' refindex:6 andHotKeyId:FULL_VOLUME]; 
-        [self registerHotkey:PBHotkeyMuteDefaultsKey withSignature:'htk8' refindex:7 andHotKeyId:MUTE]; 
-        [self registerHotkey:PBHotkeyPreviousStationDefaultsKey withSignature:'htk9' refindex:8 andHotKeyId:PREVIOUS_STATION];
-        [self registerHotkey:PBHotkeyNextStationDefaultsKey withSignature:'htka' refindex:9 andHotKeyId:NEXT_STATION];
+        [self registerHotkey:PBHotkeyPlayPauseDefaultsKey withSignature:'htk1' refindex:0 andHotKeyId:kHotkeyPlayPause]; 
+        [self registerHotkey:PBHotkeyNextSongDefaultsKey withSignature:'htk2' refindex:1 andHotKeyId:kHotKeyNextSong]; 
+        [self registerHotkey:PBHotkeyLikeSongDefaultsKey withSignature:'htk3' refindex:2 andHotKeyId:kHotkeyLikeSong]; 
+        [self registerHotkey:PBHotkeyDislikeSongDefaultsKey withSignature:'htk4' refindex:3 andHotKeyId:kHotkeyDislikeSong]; 
+        [self registerHotkey:PBHotkeyRaiseVolumeDefaultsKey withSignature:'htk5' refindex:4 andHotKeyId:kHotkeyRaiseVolume]; 
+        [self registerHotkey:PBHotkeyLowerVolumeDefaultsKey withSignature:'htk6' refindex:5 andHotKeyId:kHotkeyLowerVolume]; 
+        [self registerHotkey:PBHotkeyFullVolumeDefaultsKey withSignature:'htk7' refindex:6 andHotKeyId:kHotkeyFullVolume]; 
+        [self registerHotkey:PBHotkeyMuteDefaultsKey withSignature:'htk8' refindex:7 andHotKeyId:kHotkeyMute]; 
+        [self registerHotkey:PBHotkeyPreviousStationDefaultsKey withSignature:'htk9' refindex:8 andHotKeyId:kHotkeyPreviousStation];
+        [self registerHotkey:PBHotkeyNextStationDefaultsKey withSignature:'htka' refindex:9 andHotKeyId:kHotkeyNextStation];
+        [self registerHotkey:PBHotkeyGrowlCurrentSongDefaultsKey withSignature:'htkb' refindex:10 andHotKeyId:kHotkeyGrowlCurrentSong];
         
         hotKeysRegistered = true; 
         return true; 
@@ -210,7 +216,7 @@ void *userData)
 {
   if(hotKeysRegistered == true) { 
 	int i; 
-    for(i = 0; i < NUM_HOTKEYS; i++) {
+    for(i = 0; i < kNumberOfHotkeys; i++) {
       if(eventRefValid[i])
 	UnregisterEventHotKey( eventHotKeyRefs[i] );
     }

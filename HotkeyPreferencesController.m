@@ -25,6 +25,7 @@
 @synthesize muteControl = _muteControl;
 @synthesize likeSongControl = _likeSongControl;
 @synthesize dislikeSongControl = _dislikeSongControl;
+@synthesize growlCurrentSongControl = _growlCurrentSongControl;
 @synthesize controlForKey = _controlForKey;
 
 - (void)awakeFromNib
@@ -40,6 +41,7 @@
 						  self.muteControl, PBHotkeyMuteDefaultsKey,
 						  self.likeSongControl, PBHotkeyLikeSongDefaultsKey,
 						  self.dislikeSongControl, PBHotkeyDislikeSongDefaultsKey,
+                          self.growlCurrentSongControl, PBHotkeyGrowlCurrentSongDefaultsKey,
 						  nil];
 	
 	GlobalHotkey *hk = [GlobalHotkey sharedHotkey];
@@ -81,8 +83,12 @@
 	[_dislikeSongControl release];
 	_dislikeSongControl = nil;
 	
+    [_growlCurrentSongControl release];
+    _growlCurrentSongControl = nil;
+    
 	[_controlForKey release];
 	_controlForKey = nil;
+    
 	[super dealloc];
 }
 

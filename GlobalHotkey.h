@@ -23,6 +23,7 @@
 #import <Carbon/Carbon.h>
 #import <ShortcutRecorder/SRCommon.h>
 
+// If you add new hotkeys, don't forget to add them in HotkeyPreferencesController
 extern NSString * const PBHotkeyPlayPauseDefaultsKey;
 extern NSString * const PBHotkeyNextSongDefaultsKey;
 extern NSString * const PBHotkeyLikeSongDefaultsKey;
@@ -33,36 +34,36 @@ extern NSString * const PBHotkeyFullVolumeDefaultsKey;
 extern NSString * const PBHotkeyMuteDefaultsKey;
 extern NSString * const PBHotkeyPreviousStationDefaultsKey;
 extern NSString * const PBHotkeyNextStationDefaultsKey;
+extern NSString * const PBHotkeyGrowlCurrentSongDefaultsKey;
 
-typedef enum HotKeyIds {
-    NEXT_SONG,
-    PLAY_PAUSE,
-    LIKE_SONG,
-    DISLIKE_SONG,
-    RAISE_VOLUME,
-    LOWER_VOLUME,
-    FULL_VOLUME,
-    MUTE,
-    PREVIOUS_STATION,
-    NEXT_STATION
-} PandoraHotKeyIds; 
-
-// FIXME: Curse my lousy C, how do I get this from the enum?
-#define NUM_HOTKEYS 10
+typedef enum _PBHotKeyID {
+    kHotKeyNextSong,
+    kHotkeyPlayPause,
+    kHotkeyLikeSong,
+    kHotkeyDislikeSong,
+    kHotkeyRaiseVolume,
+    kHotkeyLowerVolume,
+    kHotkeyFullVolume,
+    kHotkeyMute,
+    kHotkeyPreviousStation,
+    kHotkeyNextStation,
+	kHotkeyGrowlCurrentSong,
+	kNumberOfHotkeys
+} PBHotKeyID; 
 
 @interface GlobalHotkey : NSObject {
-  bool hotKeysRegistered; 
-  bool eventRefValid[NUM_HOTKEYS];
-  EventHotKeyRef eventHotKeyRefs[NUM_HOTKEYS];
+  BOOL hotKeysRegistered;
+  BOOL eventRefValid[kNumberOfHotkeys];
+  EventHotKeyRef eventHotKeyRefs[kNumberOfHotkeys];
 }
 
-+ (GlobalHotkey*) sharedHotkey; 
++ (GlobalHotkey*)sharedHotkey; 
 
 - (KeyCombo)keyComboForKey:(NSString *)key;
 - (void)setKeyCombo:(KeyCombo)aKeyCombo forKey:(NSString *)aKey;
 
-- (void) registerHotkeyHandler;
-- (bool) registerHotkeys; 
-- (bool) unregisterHotkeys; 
+- (void)registerHotkeyHandler;
+- (bool)registerHotkeys;
+- (bool)unregisterHotkeys;
 @end
 

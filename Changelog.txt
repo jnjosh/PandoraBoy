@@ -4,9 +4,10 @@ PandoraBoy Changelog
    * Upgraded Shortcut Recorder
       - Broke French localization of Hotkey Preferences Panel
    * Turned off several chatty NSLog() messages (every song play, etc.)
-        If anyone was using them, I'll build a more specialized interface to
-        solve their issue
-
+        If anyone was using them, I'll build a more specialized interface
+	to solve their issue
+   * Issue 69: Global hotkey to show Growl alert for current song
+   * Issue 39: Global hotkeys do not work until restart
 
 0.7.0
    * Issue 41: Memory usage slowly increases

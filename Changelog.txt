@@ -8,6 +8,7 @@ PandoraBoy Changelog
 	to solve their issue
    * Issue 69: Global hotkey to show Growl alert for current song
    * Issue 39: Global hotkeys do not work until restart
+   * Rowmate support
 
 0.7.0
    * Issue 41: Memory usage slowly increases

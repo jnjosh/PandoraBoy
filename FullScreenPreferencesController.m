@@ -97,7 +97,7 @@
 
 #pragma mark NSOutlineDataSource delegates
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(unsigned)index ofItem:(id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
 	return (item == nil) ? [outlineRoots objectAtIndex:index] : [[item children] objectAtIndex:index];
 }
@@ -107,7 +107,7 @@
 	return (item == nil) ? ([outlineRoots count] > 0) : ([[item children] count] > 0);
 }
 
-- (unsigned)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
 	return (item == nil) ? [outlineRoots count] : [[item children] count];
 }

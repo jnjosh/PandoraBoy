@@ -42,6 +42,8 @@
 #import "Controller.h"
 #import "PBNotifications.h"
 
+static const unichar MUSICAL_NOTE = 0x266a;
+
 @implementation Track
 
 - (id) init
@@ -76,6 +78,13 @@
 
 - (void)setName:(NSString *)value {
     [self setValue:value forProperty:@"songTitle"];
+}
+
+- (NSString *)thumbedName {
+    // Don't cache this; the rating might change
+    return ([self rating] == PBThumbsUpRating)
+               ? [NSString stringWithFormat:@"%C %@ %C", MUSICAL_NOTE, [self name], MUSICAL_NOTE, nil]
+               : [self name];
 }
 
 - (NSString *)artist {

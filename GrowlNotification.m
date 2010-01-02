@@ -68,7 +68,7 @@
     Track *track = [notification object];
     
     NSImage *artwork = [track thumbedArtworkImage];
-    [GrowlApplicationBridge notifyWithTitle:[track name]
+    [GrowlApplicationBridge notifyWithTitle:[track thumbedName]
                                 description:[NSString stringWithFormat:@"%@: %@\n%@: %@", 
                                     NSLocalizedString(@"by", @""), [track artist],
                                     NSLocalizedString(@"on", @""), [track album], nil]
@@ -82,7 +82,7 @@
 - (void) songPaused:(NSNotification*)notification {
     Track *track = [notification object];
     
-    NSString *title  = [[track name] stringByAppendingFormat:@" (%@)", NSLocalizedString(@"paused", @"")];
+    NSString *title  = [[track thumbedName] stringByAppendingFormat:@" (%@)", NSLocalizedString(@"paused", @"")];
     NSImage *artwork = [track thumbedArtworkImage];
 
     [GrowlApplicationBridge notifyWithTitle:title
@@ -110,11 +110,9 @@
         default:
             NSLog(@"BUG:Bad rating passed to songThumbed:%d", [track rating]);
             return;
-            break;
     }
 
-    [GrowlApplicationBridge
-        notifyWithTitle:[track name]
+    [GrowlApplicationBridge notifyWithTitle:[track name]
             description:[track artist]
        notificationName:PBSongThumbedNotification
                iconData:icon

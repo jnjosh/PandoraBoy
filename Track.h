@@ -22,6 +22,7 @@
 
 - (NSString *)name;
 - (void)setName:(NSString *)value;
+- (NSString *)thumbedName;
 
 - (NSString *)artist;
 - (void)setArtist:(NSString *)value;

@@ -46,6 +46,5 @@
 
 - (BOOL)isEqual:(id)other;
 - (BOOL)isEqualToTrack:(Track *)aTrack;
-- (unsigned)hash;
 
 @end

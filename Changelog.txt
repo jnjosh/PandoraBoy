@@ -1,4 +1,10 @@
 PandoraBoy Changelog
+0.8.1
+   * Issue 53: Show rating in growl window
+      - Patch from ishermandom
+   * Issue 94: Hot keys don't work at all
+      - Hopefully this is fixed now.
+
 0.8.0
    * Dropped Tiger (10.4) support
    * Upgraded Shortcut Recorder

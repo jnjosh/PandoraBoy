@@ -201,7 +201,7 @@ static const unichar MUSICAL_NOTE = 0x266a;
     return YES;
 }
 
-- (unsigned)hash {
+- (NSUInteger)hash {
     return [[NSArray arrayWithObjects:[self name], [self artist], nil] hash];
 }
 @end

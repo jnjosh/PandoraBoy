@@ -1,4 +1,8 @@
 PandoraBoy Changelog
+0.8.2
+   * Issue 135: Applescript not working after Flash upgrade
+	- First fix had stupid bug in it
+
 0.8.1
    * Issue 53: Show rating in growl window
       - Patch from ishermandom

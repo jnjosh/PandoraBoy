@@ -190,23 +190,25 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 - (bool)sendKeyPress:(int)keycode withModifier:(int)modifier
 {
     if(! [self controlDisabled] ) {
+		ProcessSerialNumber psn;
+		GetCurrentProcess(&psn);
 		CGEventRef modifierEvent;
 		if (modifier != 0)
 		{
 			modifierEvent = CGEventCreateKeyboardEvent(NULL, modifier, YES);
-			CGEventPost(kCGAnnotatedSessionEventTap, modifierEvent);
+			CGEventPostToPSN(&psn, modifierEvent);
 		}
 		
 		CGEventRef keyEvent = CGEventCreateKeyboardEvent(NULL, keycode, YES);
-		CGEventPost(kCGAnnotatedSessionEventTap, keyEvent);
+		CGEventPostToPSN(&psn, keyEvent);
 		CGEventSetType(keyEvent, kCGEventKeyUp);
-		CGEventPost(kCGAnnotatedSessionEventTap, keyEvent);
+		CGEventPostToPSN(&psn, keyEvent);
 		CFRelease(keyEvent);
 		
 		if (modifier != 0)
 		{
 			CGEventSetType(modifierEvent, kCGEventKeyUp);
-			CGEventPost(kCGAnnotatedSessionEventTap, modifierEvent);
+			CGEventPostToPSN(&psn, modifierEvent);
 			CFRelease(modifierEvent);
 		}
 		

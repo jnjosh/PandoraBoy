@@ -4,6 +4,7 @@ PandoraBoy Changelog
       - Patch from ishermandom
    * Issue 94: Hot keys don't work at all
       - Hopefully this is fixed now.
+   * Issue 135: Applescript not working after Flash upgrade
 
 0.8.0
    * Dropped Tiger (10.4) support

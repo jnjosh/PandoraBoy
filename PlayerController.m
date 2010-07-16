@@ -187,34 +187,30 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 #pragma mark -
 #pragma mark Flash calls
 
-- (bool) sendKeyPress: (int)keyCode withModifiers:(int)modifiers
+- (bool)sendKeyPress:(int)keycode withModifier:(int)modifier
 {
     if(! [self controlDisabled] ) {
-        //Generate the keyDown EventRecord
-        EventRecord myrecord; 
-        myrecord.what = keyDown; 
-        myrecord.message = keyCode; 
-        myrecord.message = myrecord.message << 8; 
-        myrecord.modifiers = modifiers; 
-        
-        //Send the keyDown press
-		// down the rabbit's hole.... Safari 4 changed the name of the selector to a more magical version
-		if ([(id)[self webNetscapePlugin] respondsToSelector:@selector(sendEvent:)])
+		CGEventRef modifierEvent;
+		if (modifier != 0)
 		{
-			[(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord];
-			//Make it a keyUp EventRecord and resend it
-			myrecord.what = keyUp;
-			[(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord];
+			modifierEvent = CGEventCreateKeyboardEvent(NULL, modifier, YES);
+			CGEventPost(kCGAnnotatedSessionEventTap, modifierEvent);
 		}
-		else if ([(id)[self webNetscapePlugin] respondsToSelector:@selector(sendEvent:isDrawRect:)])
+		
+		CGEventRef keyEvent = CGEventCreateKeyboardEvent(NULL, keycode, YES);
+		CGEventPost(kCGAnnotatedSessionEventTap, keyEvent);
+		CGEventSetType(keyEvent, kCGEventKeyUp);
+		CGEventPost(kCGAnnotatedSessionEventTap, keyEvent);
+		CFRelease(keyEvent);
+		
+		if (modifier != 0)
 		{
-			[(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord isDrawRect:NO];
-			//Make it a keyUp EventRecord and resend it
-			myrecord.what = keyUp;
-			[(id)[self webNetscapePlugin] sendEvent:(NSEvent *)&myrecord isDrawRect:NO];			
+			CGEventSetType(modifierEvent, kCGEventKeyUp);
+			CGEventPost(kCGAnnotatedSessionEventTap, modifierEvent);
+			CFRelease(modifierEvent);
 		}
-        
-        return true; 
+		
+		return true; 
     }
     else {
         NSRunAlertPanel(@"Could not control Pandora",
@@ -226,7 +222,7 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 
 - (bool) sendKeyPress: (int)keyCode
 {
-    return [self sendKeyPress: keyCode withModifiers: 0];
+    return [self sendKeyPress: keyCode withModifier: 0];
 }
 
 - (void)setStation:(Station*)station {
@@ -244,6 +240,9 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 #pragma mark -
 #pragma mark Actions
 
+// FIXME: These codes are based on virtual key codes. That works fine for an ANSI keyboard
+// but this won't work on other keyboard mappings.
+
 - (IBAction) nextSong:(id)sender
 {
     //Right-arrow
@@ -254,6 +253,7 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 {
     //Space-bar
     [self sendKeyPress: 49];
+
 }
 
 - (IBAction) likeSong:(id)sender
@@ -287,13 +287,13 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 - (IBAction) fullVolume:(id)sender
 {
     //Shift + Up-Arrow
-    [self sendKeyPress: 126 withModifiers: shiftKey];
+    [self sendKeyPress: 126 withModifier: shiftKey];
 }
 
 - (IBAction) mute:(id)sender
 {
     //Shift + Down-Arrow
-    [self sendKeyPress: 125 withModifiers: shiftKey]; 
+    [self sendKeyPress: 125 withModifier: shiftKey]; 
 }
 
 - (IBAction)setStationToSender:(id)sender {

@@ -45,7 +45,7 @@
 				<int key="NSWindowStyleMask">4103</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{549, 441}, {728, 356}}</string>
-				<int key="NSWTFlags">1886912512</int>
+				<int key="NSWTFlags">1618477056</int>
 				<string key="NSWindowTitle">PandoraBoy</string>
 				<string key="NSWindowClass">PlayerWindow</string>
 				<object class="NSMutableString" key="NSViewClass">

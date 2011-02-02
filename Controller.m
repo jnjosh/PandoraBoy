@@ -42,7 +42,7 @@ static Controller* _sharedInstance = nil;
 {
     if (_sharedInstance) return _sharedInstance;
 
-    if(_sharedInstance = [super init]) {
+    if((_sharedInstance = [super init])) {
         // Setup all the different default options
         NSMutableDictionary *userDefaultsValuesDict = [NSMutableDictionary
                                 dictionary];
@@ -149,11 +149,12 @@ static Controller* _sharedInstance = nil;
     NSMutableString *currentPath = [NSMutableString stringWithCapacity:[scriptDestinationDirectory length]];
     NSString *component;
     NSEnumerator *e = [pathComponents objectEnumerator];
-    while (component = [e nextObject] ) {
+    while ((component = [e nextObject] )) {
         [currentPath appendString:[@"/" stringByAppendingPathComponent:component]];
         if( ! [fileManager fileExistsAtPath:currentPath] ) {
-            if( ! [fileManager createDirectoryAtPath:currentPath attributes:nil] ) {
-                NSLog(@"ERROR:Couldn't create directory:%@", currentPath);
+            NSError *error;
+            if( ! [fileManager createDirectoryAtPath:currentPath withIntermediateDirectories:YES attributes:nil error:&error] ) {
+                NSLog(@"ERROR:Couldn't create directory:%@ (%@)", currentPath, error);
                 return;
             }
         }
@@ -161,19 +162,17 @@ static Controller* _sharedInstance = nil;
     
     NSDirectoryEnumerator *dirEnumerator = [fileManager enumeratorAtPath:scriptSourceDirectory];
     NSString *scriptName;
-    while( scriptName = [dirEnumerator nextObject] ) {
+    while(( scriptName = [dirEnumerator nextObject] )) {
         NSString *scriptSourceFile = [scriptSourceDirectory stringByAppendingPathComponent:scriptName];
         NSString *scriptDestinationFile = [scriptDestinationDirectory stringByAppendingPathComponent:scriptName];
 
         // Is the destination as new as the source?
         // FIXME: If newer, we should prompt the user
         if( [fileManager fileExistsAtPath:scriptDestinationFile] ) {
-            NSDictionary *destinationAttributes = [fileManager fileAttributesAtPath:scriptDestinationFile
-                                                                       traverseLink:YES];
+            NSDictionary *destinationAttributes = [fileManager attributesOfItemAtPath:scriptDestinationFile error:NULL];
             NSDate *destinationFileDate = [destinationAttributes valueForKey:NSFileModificationDate];
             
-            NSDictionary *sourceAttributes = [fileManager fileAttributesAtPath:scriptSourceFile
-                                                                  traverseLink:YES];
+            NSDictionary *sourceAttributes = [fileManager attributesOfItemAtPath:scriptSourceFile error:NULL];
             NSDate *sourceFileDate = [sourceAttributes valueForKey:NSFileModificationDate];
             if ( [sourceFileDate compare:destinationFileDate] != NSOrderedDescending ) {
                 continue;
@@ -181,11 +180,11 @@ static Controller* _sharedInstance = nil;
         }
 
         if( [fileManager fileExistsAtPath:scriptDestinationFile] &&
-            ! [fileManager removeFileAtPath:scriptDestinationFile handler:nil] ) {
+            ! [fileManager removeItemAtPath:scriptDestinationFile error:NULL] ) {
             NSLog(@"ERROR:Could not remove %@", scriptDestinationFile);
             continue;
         }
-        if( ! [fileManager copyPath:scriptSourceFile toPath:scriptDestinationFile handler:nil] ) {
+        if( ! [fileManager copyItemAtPath:scriptSourceFile toPath:scriptDestinationFile error:NULL] ) {
             NSLog(@"ERROR:Could not copy %@ to %@", scriptSourceFile, scriptDestinationFile);
             continue;
         }

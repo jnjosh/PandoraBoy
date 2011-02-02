@@ -22,7 +22,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface PreferencesWindowController : NSWindowController {
+@interface PreferencesWindowController : NSWindowController /*<NSToolbarDelegate>*/{
 	NSArray *identifiers;
 	NSMutableDictionary *panes;
 }

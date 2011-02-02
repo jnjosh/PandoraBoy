@@ -10,7 +10,7 @@
 #import <WebKit/WebDataSource.h>
 #import "Track.h"
 
-@interface Playlist : NSObject {
+@interface Playlist : NSObject /* <NSXMLParserDelegate> */ {
     NSMutableDictionary *_trackInfo;
     NSMutableArray      *_playedTracks;
     NSMutableDictionary *_artworkLibrary;

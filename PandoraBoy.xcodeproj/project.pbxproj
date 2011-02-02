@@ -72,7 +72,7 @@
 		FBAE25A80D3D0BA300FA8277 /* PandoraBoyPlugin.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
 		FBAE25F80D3D0F9C00FA8277 /* PBViewBlack.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8A81170D3C226B00A985A6 /* PBViewBlack.m */; };
 		FBAE25FC0D3D0FBC00FA8277 /* PandoraBoyPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */; };
-		FBAE26050D3D0FEF00FA8277 /* Black.bundle in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.bundle */; };
+		FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */ = {isa = PBXBuildFile; fileRef = FBAE25F00D3D0EC700FA8277 /* Black.pbview */; };
 		FBBAD6000CFFAB59002F4A67 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */; };
 		FBC365060BC9C1490052A3A9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC365040BC9C1490052A3A9 /* Track.m */; };
 		FBC404330D039F0600B179F9 /* StationsURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC404310D039F0600B179F9 /* StationsURLProtocol.m */; };
@@ -148,7 +148,7 @@
 			dstPath = Views;
 			dstSubfolderSpec = 13;
 			files = (
-				FBAE26050D3D0FEF00FA8277 /* Black.bundle in Copy Plugins */,
+				FBAE26050D3D0FEF00FA8277 /* Black.pbview in Copy Plugins */,
 			);
 			name = "Copy Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,17 +199,17 @@
 		3D7F771D0A9EB1DB004B0146 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		3D7F771E0A9EB1DB004B0146 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; wrapsLines = 0; };
 		3DB5816F0ABB0155004452C3 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = iTunesNextTrack.scpt; path = Applescripts/iTunesNextTrack.scpt; sourceTree = "<group>"; };
-		3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = iTunesPlayPause.scpt; path = Applescripts/iTunesPlayPause.scpt; sourceTree = "<group>"; };
-		3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = LowerVolume.scpt; path = Applescripts/LowerVolume.scpt; sourceTree = "<group>"; };
-		3DBE1AF50B76B37400DB83CA /* NextTrack.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = NextTrack.scpt; path = Applescripts/NextTrack.scpt; sourceTree = "<group>"; };
-		3DBE1AF60B76B37400DB83CA /* PlayPause.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = PlayPause.scpt; path = Applescripts/PlayPause.scpt; sourceTree = "<group>"; };
-		3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = RaiseVolume.scpt; path = Applescripts/RaiseVolume.scpt; sourceTree = "<group>"; };
-		3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = ThumbsDown.scpt; path = Applescripts/ThumbsDown.scpt; sourceTree = "<group>"; };
-		3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = ThumbsUp.scpt; path = Applescripts/ThumbsUp.scpt; sourceTree = "<group>"; };
+		3DBE1AF20B76B37400DB83CA /* iTunesNextTrack.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = iTunesNextTrack.scpt; path = Applescripts/iTunesNextTrack.scpt; sourceTree = "<group>"; };
+		3DBE1AF30B76B37400DB83CA /* iTunesPlayPause.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = iTunesPlayPause.scpt; path = Applescripts/iTunesPlayPause.scpt; sourceTree = "<group>"; };
+		3DBE1AF40B76B37400DB83CA /* LowerVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = LowerVolume.scpt; path = Applescripts/LowerVolume.scpt; sourceTree = "<group>"; };
+		3DBE1AF50B76B37400DB83CA /* NextTrack.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = NextTrack.scpt; path = Applescripts/NextTrack.scpt; sourceTree = "<group>"; };
+		3DBE1AF60B76B37400DB83CA /* PlayPause.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = PlayPause.scpt; path = Applescripts/PlayPause.scpt; sourceTree = "<group>"; };
+		3DBE1AF70B76B37400DB83CA /* RaiseVolume.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = RaiseVolume.scpt; path = Applescripts/RaiseVolume.scpt; sourceTree = "<group>"; };
+		3DBE1AF80B76B37400DB83CA /* ThumbsDown.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = ThumbsDown.scpt; path = Applescripts/ThumbsDown.scpt; sourceTree = "<group>"; };
+		3DBE1AF90B76B37400DB83CA /* ThumbsUp.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = ThumbsUp.scpt; path = Applescripts/ThumbsUp.scpt; sourceTree = "<group>"; };
 		3DDA24250B74F5D000F500BD /* Commands.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Commands.h; sourceTree = "<group>"; };
 		3DDA24260B74F5D000F500BD /* Commands.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = Commands.m; sourceTree = "<group>"; };
-		3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */ = {isa = PBXFileReference; explicitFileType = text.sdef; fileEncoding = 30; path = PandoraBoy.sdef; sourceTree = "<group>"; };
+		3DDA242E0B74F64E00F500BD /* PandoraBoy.sdef */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = PandoraBoy.sdef; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* PandoraBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PandoraBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB27A1B80CFF03A80038475D /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AppleRemote.h; path = RemoteControlWrapper/AppleRemote.h; sourceTree = "<group>"; };
@@ -226,8 +226,8 @@
 		FB4632650CFBBE830098407B /* ResourceURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceURL.h; sourceTree = "<group>"; };
 		FB4632660CFBBE830098407B /* ResourceURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceURL.m; sourceTree = "<group>"; };
 		FB4D23500BCB092700DCC767 /* README.Applescript.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.Applescript.txt; sourceTree = "<group>"; wrapsLines = 1; };
-		FB4F5EEC0D15A0FB005523DA /* NextStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = NextStation.scpt; path = Applescripts/NextStation.scpt; sourceTree = "<group>"; };
-		FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = PreviousStation.scpt; path = Applescripts/PreviousStation.scpt; sourceTree = "<group>"; };
+		FB4F5EEC0D15A0FB005523DA /* NextStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = NextStation.scpt; path = Applescripts/NextStation.scpt; sourceTree = "<group>"; };
+		FB4F5EEE0D15A106005523DA /* PreviousStation.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = file; name = PreviousStation.scpt; path = Applescripts/PreviousStation.scpt; sourceTree = "<group>"; };
 		FB52397E1038E17800BD85A6 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = 3rdparty/ShortcutRecorder/ShortcutRecorder.framework; sourceTree = "<group>"; };
 		FB5239B31038E81300BD85A6 /* PreferencesHotkeys.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesHotkeys.xib; sourceTree = "<group>"; };
 		FB523ABC1038F72C00BD85A6 /* HotkeyPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotkeyPreferencesController.h; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 		FBA6A4340D42D8D20003234A /* FullScreenPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenPreferencesController.m; sourceTree = "<group>"; };
 		FBAA77770D0E33A6006C957B /* FeedbackURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackURLProtocol.h; sourceTree = "<group>"; };
 		FBAA77780D0E33A6006C957B /* FeedbackURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackURLProtocol.m; sourceTree = "<group>"; };
-		FBAE25F00D3D0EC700FA8277 /* Black.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBAE25F00D3D0EC700FA8277 /* Black.pbview */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Black.pbview; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAE25F20D3D0EC700FA8277 /* Black-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Black-Info.plist"; sourceTree = "<group>"; };
 		FBBAD5FF0CFFAB59002F4A67 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		FBC365030BC9C1490052A3A9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
@@ -376,7 +376,7 @@
 			children = (
 				8D1107320486CEB800E47090 /* PandoraBoy.app */,
 				FB8A81800D3C26ED00A985A6 /* PandoraBoyPlugin.framework */,
-				FBAE25F00D3D0EC700FA8277 /* Black.bundle */,
+				FBAE25F00D3D0EC700FA8277 /* Black.pbview */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -695,7 +695,7 @@
 			);
 			name = Black;
 			productName = Black;
-			productReference = FBAE25F00D3D0EC700FA8277 /* Black.bundle */;
+			productReference = FBAE25F00D3D0EC700FA8277 /* Black.pbview */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -705,7 +705,11 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PandoraBoy" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* PandoraBoy */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -899,14 +903,13 @@
 				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(EXECUTABLE_PATH)/../Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)",
+					"$(SRCROOT)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/3rdparty/ShortcutRecorder\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/3rdparty/ShortcutRecorder\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -926,14 +929,13 @@
 			buildSettings = {
 				ARCHS = i386;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(EXECUTABLE_PATH)/../Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)",
+					"$(SRCROOT)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/3rdparty/ShortcutRecorder\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/3rdparty/ShortcutRecorder\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
@@ -1073,7 +1075,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "Black-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				INSTALL_PATH = "$(HOME)/Library/PandoraBoy/Views";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1082,7 +1084,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Black;
-				WRAPPER_EXTENSION = bundle;
+				WRAPPER_EXTENSION = pbview;
 				ZERO_LINK = NO;
 			};
 			name = Release;

@@ -10,7 +10,7 @@
 #import "PlayerController.h"
 #import <Carbon/Carbon.h>
 #import "PBNotifications.h"
-#import "Controller.h";
+#import "Controller.h"
 #import "Station.h"
 #import "Track.h"
 #import "Playlist.h"
@@ -54,7 +54,7 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 - (PlayerController *) init {
     if (_sharedInstance) return _sharedInstance;
 
-    if (_sharedInstance = [super init] ) {
+    if ((_sharedInstance = [super init] )) {
         [self setControlDisabled:FALSE];
         [self setPlayerState:PBPlayerStateStopped];
         [self setIsFullScreen:NO];
@@ -445,6 +445,21 @@ NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
 -(void)windowDidDeminiaturize:(NSNotification *)aNotification
 {
     [self setControlDisabled:NO];
+}
+
+- (void)windowDidBecomeKey:(NSNotification *)notification
+{
+    // "Jiggle" the window when we become key to force Pandora to redraw itself
+    // From starkos http://code.google.com/p/pandoraboy/issues/detail?id=137
+    NSScrollView* scrollView = [[[[pandoraWebView mainFrame] frameView] documentView] enclosingScrollView];
+	if (scrollView) {
+		NSRect scrollBounds = [[scrollView contentView] bounds];
+		NSPoint scrollPosition = scrollBounds.origin;
+		scrollPosition.y += 1;
+		[[scrollView documentView] scrollPoint:scrollPosition];
+		scrollPosition.y -= 1;
+		[[scrollView documentView] scrollPoint:scrollPosition];
+	}
 }
 
 /////////////////////////////////////////////////////////////////////

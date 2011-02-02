@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FBAE25EF0D3D0EC700FA8277"
-               BuildableName = "Black.bundle"
+               BuildableName = "Black.pbview"
                BlueprintName = "Black"
                ReferencedContainer = "container:PandoraBoy.xcodeproj">
             </BuildableReference>

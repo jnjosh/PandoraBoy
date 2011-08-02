@@ -19,7 +19,8 @@
 
 static PlayerController* _sharedInstance = nil;
 
-NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
+//NSString *PBPandoraURLFormat = @"http://www.pandora.com?cmd=mini&mtverify=%@";
+NSString *PBPandoraURLFormat = @"http://www.pandora.com";
 
 //typedef enum {
 //    WebDashboardBehaviorAlwaysSendMouseEventsToAllWindows,

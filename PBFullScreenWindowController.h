@@ -10,7 +10,7 @@
 @class PBView;
 @class WebView;
 
-@interface PBFullScreenWindowController : NSObject /*<NSAnimationDelegate>*/{
+@interface PBFullScreenWindowController : NSObject <NSAnimationDelegate> {
 	PBView *pbView;
 	NSWindow *window;
 	NSWindow *shieldWindow;

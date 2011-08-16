@@ -7,7 +7,7 @@
 //
 
 #import "APIController.h"
-#import "ResourceURL.h";
+#import "ResourceURL.h"
 #import "Playlist.h"
 #import "PBNotifications.h"
 #import "PlayerController.h"

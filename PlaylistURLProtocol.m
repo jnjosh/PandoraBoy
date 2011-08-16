@@ -27,7 +27,7 @@
     
     NSString *stationId = [self valueForParameter:@"arg1"];
     [[StationList sharedStationList] setCurrentStationFromIdentifier:stationId];
-	[super connectionDidFinishLoading:connection];
+	//[super connectionDidFinishLoading:connection];
 }
 
 @end

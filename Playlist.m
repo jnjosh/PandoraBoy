@@ -257,9 +257,12 @@ static Playlist* sharedInstance = nil;
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [_noAlbumArtConnection release];
     [_noAlbumArtData release];
-    NSLog(@"ERROR: Failed to load noAlbumArt: %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
+
+    NSLog(@"ERROR: Failed to load noAlbumArt: %@", [error localizedDescription]);
+    
+//    NSLog(@"ERROR: Failed to load noAlbumArt: %@ %@",
+//          [error localizedDescription],
+//          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection

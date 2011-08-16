@@ -22,7 +22,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
     [[StationList sharedStationList] initFromData:[self data]];
-    [super connectionDidFinishLoading:connection];
+    //[super connectionDidFinishLoading:connection];
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Station.h"
 
-@interface StationList : NSObject /*<NSXMLParserDelegate> */{
+@interface StationList : NSObject <NSXMLParserDelegate> {
     NSMutableArray *_stationList;
 
     BOOL _parsingStationIsQuickMix;

@@ -159,7 +159,7 @@
 	// 
 	// Note that there is a corresponding DisableSecureEventInput in the stopListening method below.
 	// 
-	if ([self isOpenInExclusiveMode] && fixSecureEventInputBug) EnableSecureEventInput();	
+	//	if ([self isOpenInExclusiveMode] && fixSecureEventInputBug) EnableSecureEventInput();	
 	
 	[self removeNotifcationObserver];
 	
@@ -184,7 +184,7 @@
 	
 error:
 	[self stopListening:self];
-	DisableSecureEventInput();
+	//	DisableSecureEventInput();
 	
 cleanup:	
 	IOObjectRelease(hidDevice);	
@@ -229,7 +229,7 @@ cleanup:
 		hidDeviceInterface = NULL;
 	}
 	
-	if ([self isOpenInExclusiveMode] && fixSecureEventInputBug) DisableSecureEventInput();
+	//	if ([self isOpenInExclusiveMode] && fixSecureEventInputBug) DisableSecureEventInput();
 	
 	if ([self isOpenInExclusiveMode] && sendNotification) {
 		[[self class] sendFinishedNotifcationForAppIdentifier: nil];		
@@ -284,7 +284,7 @@ cleanup:
 		// happen when the main thread is too busy to handle all incoming events in time.
 		NSString* subCookieString;
 		NSString* lastSubCookieString=nil;
-		while(subCookieString = [self validCookieSubstring: cookieString]) {
+		while((subCookieString = [self validCookieSubstring: cookieString]) != nil) {
 			cookieString = [cookieString substringFromIndex: [subCookieString length]];
 			lastSubCookieString = subCookieString;
 			if (processesBacklog) [self handleEventWithCookieString: subCookieString sumOfValues:sumOfValues];
@@ -338,7 +338,7 @@ static void QueueCallbackFunction(void* target,  IOReturn result, void* refcon, 
 		
 		if (((int)event.elementCookie)!=5) {
 			sumOfValues+=event.value;
-			[cookieString appendString:[NSString stringWithFormat:@"%d_", event.elementCookie]];
+			[cookieString appendString:[NSString stringWithFormat:@"%d_", (int)event.elementCookie]];
 		}
 	}
 	[remote handleEventWithCookieString: cookieString sumOfValues: sumOfValues];
@@ -453,7 +453,8 @@ static void QueueCallbackFunction(void* target,  IOReturn result, void* refcon, 
 			IOHIDElementCookie cookie;
 			NSEnumerator *allCookiesEnumerator = [allCookies objectEnumerator];
 			
-			while (cookie = (IOHIDElementCookie)[[allCookiesEnumerator nextObject] intValue]) {
+			while (cookie = (IOHIDElementCookie) [allCookiesEnumerator nextObject]) {
+				
 				(*queue)->addElement(queue, cookie, 0);
 			}
 									  

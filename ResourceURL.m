@@ -13,9 +13,9 @@
 
 + (ResourceURL*) resourceURLWithPath:(NSString *)path
 {
-    return [[[NSURL alloc] initWithScheme:@"http"
+    return [[ResourceURL alloc] initWithScheme:@"http"
                                      host:PBResourceHost
-                                     path:path] autorelease];
+                                     path:path];
 }
 
 @end
